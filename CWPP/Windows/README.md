@@ -1,28 +1,9 @@
 # Deploying FortiCNAPP Window Server Agent using Lacework PowerShell Script (POV)
 
-🛡️ Windows agent overview and system requirements:
-```bash
-https://docs.fortinet.com/document/lacework-forticnapp/latest/administration-guide/662064/windows-agent-overview-and-system-requirements
-```
+That said, we limit maximum usage to less than 10% average cpu and < 200MB mem. Note: Its usually much lesser than that.
+PowerShell 5.0 or later
 
-🛡️ Windows agent installer methods:
-```bash
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/1455/downloading-the-windows-agent-installer
-```
 
-🛡️ Windows agent installer method using-powershell-script:
-```bash
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/169764/installing-the-windows-agent-using-a-powershell-script
-```
-🛡️ Windows agent installation-prerequisites:
-```bash
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600/windows-agent-installation-prerequisites
-```
-
-🛡️ Windows agent network-proxy-for-windows-agent-traffic:
-```bash
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/558949/use-a-network-proxy-for-windows-agent-traffic
-```
 
 
 ### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
@@ -130,13 +111,36 @@ Unistall the window agent with the following powershell command:
  - Do not downgrade to an earlier version of the agent. Downgrading can cause data incompatibility.
 
 ```bash
-
 ## Script to uninstall the Lacework Windows agent
 $app = Get-WmiObject -Class Win32_Product -Filter "Name like '%Lacework%'"
 $app.Uninstall()
-
 ```
 
+#### ✅ Reference Links:
+
+🛡️ Windows agent overview and system requirements:
+```bash
+https://docs.fortinet.com/document/lacework-forticnapp/latest/administration-guide/662064/windows-agent-overview-and-system-requirements
+```
+
+🛡️ Windows agent installer methods:
+```bash
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/1455/downloading-the-windows-agent-installer
+```
+
+🛡️ Windows agent installer method using-powershell-script:
+```bash
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/169764/installing-the-windows-agent-using-a-powershell-script
+```
+🛡️ Windows agent installation-prerequisites:
+```bash
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600/windows-agent-installation-prerequisites
+```
+
+🛡️ Windows agent network-proxy-for-windows-agent-traffic:
+```bash
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/558949/use-a-network-proxy-for-windows-agent-traffic
+```
 
 
 
