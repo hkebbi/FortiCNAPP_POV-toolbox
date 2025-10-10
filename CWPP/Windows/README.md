@@ -22,7 +22,7 @@ https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600
 🛡️ Windows agent network-proxy-for-windows-agent-traffic:
 ```bash
 https://docs.fortinet.com/document/forticnapp/latest/administration-guide/558949/use-a-network-proxy-for-windows-agent-traffic
-```bash
+```
 
 
 ### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
