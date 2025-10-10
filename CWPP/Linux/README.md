@@ -38,26 +38,23 @@ Deployment using Lacework PowerShell Script Flow
 - Click  installation method, "Lacework Script":
 - Copy URL
   
-#### ✅ 3. Deployment using Lacework Script:
+#### ✅ 3.1. Deployment using Lacework Script:
 
- - 1. Open Linux terminal.
- - 2. wget and Paste URL(from step 2) on the Linux Machine.
- - 3. sudo sh install.sh
+ -  Open Linux terminal.
+ -  wget and Paste URL(from step 2) on the Linux Machine.
+ -  sudo sh install.sh
 
-
-
-Where:
-Your_Access_Token:  Specifies your agent access token. Token Details under Agent Token (example: b2fe1bb5axxxxx). Step.1.
-Your_API_Endpoint: Specifies your Lacework FortiCNAPP agent server URL. (example: https://xx-eu.lacework.net )
--Defender option: Excludes the Windows agent from scanning with Windows Defender.
-Agent_MSI_Download_URL: Copy the URL for Lacework Windows Agent MSI Package from:
-```bash
-https://github.com/lacework/lacework-windows-agent-releases/releases
 ```
-A config.json file  that contains the options you specified in the command line is created in the C:\ProgramData\Lacework\ directory. 
-You can modify this file to change the settings for the agent. If you modify the file, you must restart the agent for the changes to take effect. For more information, see Restart the Windows Agent.
+wget https://x.lacework.net/mgr/v1/download/1162e0f6cf22890b4242c00ce2a725c11341136575d77e23c1311566/install.sh
+sudo sh install.sh
+```
+Run the following command to verify the agent process (datacollector) status:
+```
+sudo /var/lib/lacework/datacollector -status
+```
 
-#### ✅ 3. Deployment using Lacework PowerShell Script (with Proxy settings) :
+
+#### ✅ 3.2. Deployment using Lacework PowerShell Script (with Proxy settings) :
 
 To configure the agent to use a specific proxy during installation in the command line, use the following command:C:\Users\Administrator>  
 ```bash
@@ -69,37 +66,12 @@ If the agent should not use a proxy, regardless of the machine’s configuration
 
 #### ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
 
-Enter the following command to check status for the lwdatacollector service: 
-- In Powersehll:
-```bash
-sc.exe query lwdatacollector
-```
-or
-- In Command Prompt
-```bash
-sc query lwdatacollector
-```
+systemctl [start | stop | restart] datacollector
+service datacollector [start | stop | restart]
+initctl [start | stop | restart] datacollector
 
-Stop the window agent with the following command:  
-
-```bash
-sc.exe stop lwdatacollector
-```
-
-Restart the window agent with the following command:  
-
-```bash
-sc.exe start lwdatacollector
-```
-
-Unistall the window agent with the following powershell command:  
- - Do not downgrade to an earlier version of the agent. Downgrading can cause data incompatibility.
-
-```bash
-## Script to uninstall the Lacework Windows agent
-$app = Get-WmiObject -Class Win32_Product -Filter "Name like '%Lacework%'"
-$app.Uninstall()
-```
+Run the following command to verify the agent process (datacollector) status:
+sudo /var/lib/lacework/datacollector -status
 
 ### ✅ Reference Links
 
