@@ -59,7 +59,7 @@ Deployment using Lacework PowerShell Script Flow
   - Unzip "powershell.zip" and you get 3 files (Azure-Deploy-LW-Win.ps1, Install-LWDataCollector.ps1 & lwminisign.exe).
 <img width="434" height="103" alt="Screenshot 2025-07-30 at 1 43 34 PM" src="https://github.com/user-attachments/assets/01b0b44c-b2e1-4a39-84ef-240a22070ea4" />
 
-#### ✅ 3. Deployment using Lacework PowerShell Script  without a Configuration File:
+#### ✅ 3. Deployment using Lacework PowerShell Script:
 Instead of specifying configuration parameters for the agent installation in a config.json file, you can specify them directly in the command line:
 
  - 1. Open PowerShell terminal as an administrator.
@@ -85,6 +85,15 @@ https://github.com/lacework/lacework-windows-agent-releases/releases
 A config.json file  that contains the options you specified in the command line is created in the C:\ProgramData\Lacework\ directory. 
 You can modify this file to change the settings for the agent. If you modify the file, you must restart the agent for the changes to take effect. For more information, see Restart the Windows Agent.
 
+#### ✅ 3. Deployment using Lacework PowerShell Script (with Proxy settings) :
+
+To configure the agent to use a specific proxy during installation in the command line, use the following command:C:\Users\Administrator>  
+```bash
+msiexec.exe /i LWDataCollector.msi ACCESSTOKEN=Your_Access_Token SERVERURL=Your_API_Endpoint PROXYURL=http://Your_Proxy_Server:Your_Port
+```
+- Where Your_Proxy_Server is the URL or IP address of your HTTP proxy server and Your_Port is the port number of your proxy server.
+
+If the agent should not use a proxy, regardless of the machine’s configuration, use the following command during installation:
 
 #### ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
 
@@ -99,14 +108,29 @@ or
 sc query lwdatacollector
 ```
 
-Stop the agent with the following command:  
+Stop the window agent with the following command:  
 
 ```bash
 sc.exe stop lwdatacollector
 ```
 
-Restart the agent with the following command:  
+Restart the window agent with the following command:  
 
 ```bash
 sc.exe start lwdatacollector
 ```
+
+Unistall the window agent with the following powershell command:  
+ - Do not downgrade to an earlier version of the agent. Downgrading can cause data incompatibility.
+
+```bash
+
+## Script to uninstall the Lacework Windows agent
+$app = Get-WmiObject -Class Win32_Product -Filter "Name like '%Lacework%'"
+$app.Uninstall()
+
+```
+
+
+
+
