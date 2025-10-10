@@ -54,6 +54,7 @@ sudo /var/lib/lacework/datacollector -status
 ```
 
 #### ✅ 3.2. Deployment using Lacework Script (With Proxy Settings):
+Specify the HTTP or SOCKS proxy server for the Lacework FortiCNAPP agent to use as a network proxy 
 
 | **Scenario**             | **Example**                                     | **Description**                            |
 | ------------------------ | ----------------------------------------------- | ------------------------------------------ |
@@ -68,6 +69,10 @@ You can test connectivity with commands like:
 ```bash
 curl -v --proxy http://Your_Proxy_Server:Your_Port https://example.com
 ```
+
+You can add this on the FortiCNAPP UI Agent Configure Settings:
+<img width="404" height="570" alt="Screenshot 2025-10-10 at 6 32 37 PM" src="https://github.com/user-attachments/assets/a31767e1-c33f-4529-8f31-3d364dfa2d48" />
+
 
 #### ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
 
