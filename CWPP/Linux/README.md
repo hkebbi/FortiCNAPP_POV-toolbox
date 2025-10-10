@@ -55,21 +55,19 @@ sudo /var/lib/lacework/datacollector -status
 
 #### ✅ 3.2. Deployment using Lacework Script (With Proxy Settings):
 
-Proxy server URL
-Specify the HTTP or SOCKS proxy server for the Lacework FortiCNAPP agent to use as a network proxy in the following format:
+| **Scenario**             | **Example**                                     | **Description**                            |
+| ------------------------ | ----------------------------------------------- | ------------------------------------------ |
+| Standard proxy (no auth) | `http://proxy.company.com:8080`                 | Uses a basic proxy without authentication. |
+| Proxy with credentials   | `http://user123:pass456@proxy.company.com:8080` | Connects using authentication credentials. |
+| SOCKS proxy              | `socks5://proxy.company.com:1080`               | Example using a SOCKS5 proxy protocol.     |
 
-http://Your_Proxy_Server:Your_Port
+💡 Tip:
+Before applying your configuration in production, verify the proxy connection and credentials.
+You can test connectivity with commands like:
 
-Where Your_Proxy_Server is the URL for your proxy server and Your_Port is the port number of your proxy server.
-
-If your proxy server requires a password, use the following format:
-
-http://username:password@Your_Proxy_Server:Your_Port
-
-Where username is the username for the proxy server, and password is the password for the proxy server.
-
-When you configure the Lacework FortiCNAPP agent in environments with http/s proxy, the agent attempts a connection through the configured proxy. In agent v4.3 and later, if there is a failure or timeout for the connection, the agent will not be able to connect to Lacework. In releases prior to agent v4.3, if there is a failure or timeout for the connection, the agent bypasses the proxy and uses a direct outbound connection.
-
+```bash
+curl -v --proxy http://Your_Proxy_Server:Your_Port https://example.com
+```
 
 #### ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
 
