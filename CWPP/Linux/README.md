@@ -15,51 +15,36 @@ After you install the agent, the agent and Lacework FortiCNAPP server communicat
 
 ---
 
----
-#### ✅ Deployment using Lacework PowerShell Script Flow:
-Fits All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script, Quick Easy installion method on few machines during Lab/POC.
-There are many other methods as above, but this can fit a quick easy way for this kind of deployments if there are few machines and multicloud deployments.
-
 ```bash
 Deployment using Lacework PowerShell Script Flow
-├ 1. Create New Access Token. 
-├ 2. Download/Install Using Lacework PowerShell Script via FortiCNAPP Console.
-├ 3. Deployment using Lacework PowerShell Script  without a Configuration File.
-├ 4. Verify.
+├ 1. Create New Agent Access Token. 
+├ 2. Install Using "Lacework Script" via FortiCNAPP Console.
+├ 3. Deployment using Lacework Script
+
 ```
-#### ✅ 1. Create New Access Token:
+#### ✅ 1. Create New Agent Access Token:
 
 - Lacework FortiCNAPP Console, go to Settings > Configuration > Agent Tokens.
 - Add Name and Description.
-- Select Windows as the Operating System.
-- Click Save to create your new access token for Windows agent.
+- Select Linux as the Operating System.
+- Click Save to create your new access token for Linux agent.
   
 * Note: An access token can be re-used for multiple agent installations.
 
-#### ✅ 2. Download/Install Using Lacework PowerShell Script via FortiCNAPP Console:
+#### ✅ 2. Install Using Lacework Script via FortiCNAPP Console:
  In the Lacework FortiCNAPP Console, go to Settings > Configuration > Agent Tokens.
-- Select = the Windows access token created and that you want to use for your agent installation.
+- Select = the Linux access token created and that you want to use for your agent installation.
 - Click the Install tab.
-- Click  installation method, Lacework PowerShell Script:
-- Do either of the following:
-  - Click Download script to download the file (powershell.zip file).
-  - Unzip "powershell.zip" and you get 3 files (Azure-Deploy-LW-Win.ps1, Install-LWDataCollector.ps1 & lwminisign.exe).
-<img width="434" height="103" alt="Screenshot 2025-07-30 at 1 43 34 PM" src="https://github.com/user-attachments/assets/01b0b44c-b2e1-4a39-84ef-240a22070ea4" />
+- Click  installation method, "Lacework Script":
+- Copy URL
+  
+#### ✅ 3. Deployment using Lacework Script:
 
-#### ✅ 3. Deployment using Lacework PowerShell Script:
-Instead of specifying configuration parameters for the agent installation in a config.json file, you can specify them directly in the command line:
+ - 1. Open Linux terminal.
+ - 2. wget and Paste URL(from step 2) on the Linux Machine.
+ - 3. sudo sh install.sh
 
- - 1. Open PowerShell terminal as an administrator.
- - 2. Navigate to the directory containing the Install-LWDataCollector.ps1 script on your host.
- - 3. Run the script using the following command in the PowerShell command line, C:\Users\Administrator>:
-```bash
-.\Install-LWDataCollector.ps1 -MSIURL Agent_MSI_Download_URL -AccessToken Your_Access_Token -ServerURL Your_API_Endpoint -Defender
 
-```
-Example for Windows Agent Release 1.7.2:
-```bash
-.\Install-LWDataCollector.ps1 -MSIURL https://updates.lacework.net/win-1.7.2.3973-2023-11-05-release-1.7.0-cc74651519014fec0f7502858b06895a4cf0d802/LWDataCollector.msi  -AccessToken b2fxxxxxx -ServerURL https://lwxx-eu.lacework.net  -Defender
-```
 
 Where:
 Your_Access_Token:  Specifies your agent access token. Token Details under Agent Token (example: b2fe1bb5axxxxx). Step.1.
