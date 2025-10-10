@@ -86,12 +86,12 @@ A config.json file  that contains the options you specified in the command line 
 You can modify this file to change the settings for the agent. If you modify the file, you must restart the agent for the changes to take effect. For more information, see Restart the Windows Agent.
 
 
-#### ✅ 4. Verify, Restart, Troubleshoot:
+#### ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
 
 Enter the following command to check status for the lwdatacollector service: 
 - In Powersehll:
 ```bash
-C:\Users\Administrator> sc.exe query lwdatacollector
+sc.exe query lwdatacollector
 ```
 or
 - In Command Prompt
@@ -102,11 +102,11 @@ sc query lwdatacollector
 Stop the agent with the following command:  
 
 ```bash
-C:\Users\Administrator> sc.exe stop lwdatacollector
+sc.exe stop lwdatacollector
 ```
 
 Restart the agent with the following command:  
 
 ```bash
-C:\Users\Administrator> sc.exe start lwdatacollecto
+sc.exe start lwdatacollector
 ```
