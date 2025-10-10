@@ -77,12 +77,34 @@ You can add this on the FortiCNAPP UI Agent Configure Settings:
 
 
 
-#### ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
+#### ✅ 4.1. Verify, Start, Stop, Restart, Troubleshoot: C:\Users\Administrator>
+
+The Lacework FortiCNAPP Linux agent service is named datacollector. Once installed, you can use Linux utilities like service, initctl, or systemctl can to manage the service. Common commands are:  
 
 Run the following command to verify the agent process (datacollector) status:
-```
+```bash
 sudo /var/lib/lacework/datacollector -status
 ```
+```bash
+systemctl [start | stop | restart] datacollector
+```
+```bash
+service datacollector [start | stop | restart]
+```
+```bash
+initctl [start | stop | restart] datacollector
+```
+
+#### ✅ 4.2. Uninstall the Linux Agent from a Host Machine
+
+You can use the following package-specific commands to remove all files, including the configuration and log files created by the agent.  
+```bash
+apt purge lacework
+dpkg --purge lacework
+rpm -e lacework
+yum remove lacework
+```
+
 
 ### ✅ Reference Links
 
@@ -90,5 +112,5 @@ sudo /var/lib/lacework/datacollector -status
 Linux agent overview and system requirements
 https://docs.fortinet.com/document/forticnapp/latest/administration-guide/698784/linux-agent-overview-and-system-requirements
 
-
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/981809/uninstall-the-linux-agent
 
