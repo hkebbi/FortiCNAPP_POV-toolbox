@@ -15,26 +15,6 @@ After you install the agent, the agent and Lacework FortiCNAPP server communicat
 | **Deployment Recommendations** | - Ensure servers meet minimum hardware and OS requirements before installation.<br>- Verify network and security configurations support outbound TLS 1.2 traffic.<br>- Maintain PowerShell and Windows updates for stability and compatibility. |
 
 ---
----
-
-### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
-
-| **Environment / Cloud** | **Installation Method** | **Notes** |
-|--------------------------|--------------------------|------------|
-| **All Clouds** | **Lacework PowerShell Script** | Full guided installation method (refer to the provided setup file). |
-| **All Clouds** | **MSI Package Deployment** | Supported if the Windows VM is **domain-joined** or **centrally managed**. Suitable for **mass deployment** via **GPO**, **SCCM**, or **Intune**. |
-| **Azure Specific** | **PowerShell Script for Azure VMs** | Installs the Windows Agent directly on Azure VMs within an Azure Resource Group. |
-| **Azure Specific** | **Azure Resource Manager (ARM)** | Deploys the agent through **ARM templates** for integrated infrastructure management. |
-| **Azure Specific** | **Terraform** | Automates deployment of the Windows Agent on Azure VMs using **Terraform IaC scripts**. |
-| **AWS Specific** | **Packer** | Builds AMIs with the Windows Agent pre-installed for AWS EC2 instances. |
-| **EKS & AKS Specific** | **Helm Chart** | Deploys the agent on **Kubernetes clusters (EKS/AKS)** via Helm for containerized monitoring. |
-
----
-
-> 📝 **Note:**  
-> These requirements ensure stable and secure operation of the Windows Agent in both domain-joined and standalone environments.
-
----
 #### ✅ Deployment using Lacework PowerShell Script Flow:
 Fits All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script, Quick Easy installion method on few machines during Lab/POC.
 There are many other methods as above, but this can fit a quick easy way for this kind of deployments if there are few machines and multicloud deployments.
@@ -145,3 +125,19 @@ $app.Uninstall()
 | 🛡️ **Windows Agent Installation Prerequisites** | Lists prerequisites and dependencies before deploying the Windows Agent. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600/windows-agent-installation-prerequisites) |
 | 🛡️ **Network Proxy Configuration for Windows Agent Traffic** | Explains how to configure a proxy for Windows Agent network communications. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/558949/use-a-network-proxy-for-windows-agent-traffic) |
 
+
+---
+
+### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
+
+| **Environment / Cloud** | **Installation Method** | **Notes** |
+|--------------------------|--------------------------|------------|
+| **All Clouds** | **Lacework PowerShell Script** | Full guided installation method (refer to the provided setup file). |
+| **All Clouds** | **MSI Package Deployment** | Supported if the Windows VM is **domain-joined** or **centrally managed**. Suitable for **mass deployment** via **GPO**, **SCCM**, or **Intune**. |
+| **Azure Specific** | **PowerShell Script for Azure VMs** | Installs the Windows Agent directly on Azure VMs within an Azure Resource Group. |
+| **Azure Specific** | **Azure Resource Manager (ARM)** | Deploys the agent through **ARM templates** for integrated infrastructure management. |
+| **Azure Specific** | **Terraform** | Automates deployment of the Windows Agent on Azure VMs using **Terraform IaC scripts**. |
+| **AWS Specific** | **Packer** | Builds AMIs with the Windows Agent pre-installed for AWS EC2 instances. |
+| **EKS & AKS Specific** | **Helm Chart** | Deploys the agent on **Kubernetes clusters (EKS/AKS)** via Helm for containerized monitoring. |
+
+---
