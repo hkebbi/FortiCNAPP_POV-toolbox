@@ -19,7 +19,8 @@ After you install the agent, the agent and Lacework FortiCNAPP server communicat
 Deployment using Lacework PowerShell Script Flow
 ├ 1. Create New Agent Access Token. 
 ├ 2. Install Using "Lacework Script" via FortiCNAPP Console.
-├ 3. Deployment using Lacework Script
+├ 3.1. Deployment using Lacework Script.
+├ 3.2. Deployment using Lacework Script (with Proxy Settings)
 
 ```
 #### ✅ 1. Create New Agent Access Token:
@@ -44,14 +45,24 @@ Deployment using Lacework PowerShell Script Flow
  -  wget and Paste URL(from step 2) on the Linux Machine.
  -  sudo sh install.sh
 
-```
+```bash
 wget https://x.lacework.net/mgr/v1/download/1162e0f6cf22890b4242c00ce2a725c11341136575d77e23c1311566/install.sh
 sudo sh install.sh
 ```
 Run the following command to verify the agent process (datacollector) status:
-```
+```bash
 sudo /var/lib/lacework/datacollector -status
 ```
+
+#### ✅ 3.2. Deployment using Lacework Script (With Proxy Settings_:
+
+ -  Open Linux terminal.
+ -  wget and Paste URL(from step 2) on the Linux Machine.
+ -  sudo sh install.sh
+
+ -  
+
+
 
 
 #### ✅ 3.2. Deployment using Lacework PowerShell Script (with Proxy settings) :
