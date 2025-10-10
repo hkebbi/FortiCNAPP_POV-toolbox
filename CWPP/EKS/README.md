@@ -18,7 +18,7 @@ helm repo add lacework https://lacework.github.io/helm-charts/
 helm repo update
 ```
 
-#### ✅ 3. Deploy Agent Option.1
+#### ✅ 3.1. Method-1. Deploy Agent Using CLI:
 
 ```bash
 helm upgrade --install lacework-agent lacework/lacework-agent \
@@ -32,7 +32,7 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 ```
 
 
-#### ✅ 3. Deploy Agent Option.2
+#### ✅ 3.2. Method-2. Deploy Agent Using .yaml file:
 
 ```bash
 cat values.yaml 
