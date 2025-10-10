@@ -21,7 +21,7 @@ https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600
 
 ### ✅ Side Note: Other Installation Methods for Windows Servers Supported
 1. All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script (Quick Easy Manual install on few machines), Guided method on This file.
-2. All Clouds: MSI Package as long as Windows VM is domain-joined or managed (Mass deployment via GPO/SCCM/Intune).
+2. All Clouds: MSI Package as long as Windows VM is domain-joined or managed (Mass deployment via GPO / SCCM / Intune).
 3. Azure Specific (Windows VMs in an Azure resource group): Install the Windows Agent on Azure VMs Using a PowerShell Script.
 4. Azure Specific: Install Windows Agent with Azure Resource Manager.
 5. Azure Specific: Install Windows Agent on Azure VMs with Terraform.
