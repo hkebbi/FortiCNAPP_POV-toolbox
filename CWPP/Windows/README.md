@@ -10,7 +10,7 @@ PowerShell 5.0 or later
 |---------------|----------------------------|
 | **Operating System Requirements** | - Must support **Transport Layer Security (TLS) 1.2**.<br>- **Do NOT install** on personal or consumer Windows editions (e.g., Windows 10/11 Home, Pro, etc.).<br>- Recommended: **Windows Server 2012 R2**, **2016**, **2019**, **2022**. |
 | **Software Prerequisites** | - **PowerShell 5.0 or later**.<br>Check version: <br>`$PSVersionTable.PSVersion` |
-| **Hardware Requirements & Usage** | - **CPU:** 2-core processor.<br>- **Memory (RAM):** 4 GB minimum.<br>- **Average CPU Usage:** Less than **10%** (typically much lower).<br>- **Memory Usage:** Less than **200 MB** (typically much lower). |
+| **Hardware Requirements & Usage** | - **CPU:** 2-core processor.<br>- **Memory (RAM):** 4 GB minimum.<br>- **Agent Average CPU Usage:** Less than **10%** (typically much lower).<br>- **Agent Memory Usage:** Less than **200 MB** (typically much lower). |
 | **Performance Notes** | The agent runs as a lightweight background service and typically consumes minimal CPU and memory resources. |
 | **Deployment Recommendations** | - Ensure servers meet minimum hardware and OS requirements before installation.<br>- Verify network and security configurations support outbound TLS 1.2 traffic.<br>- Maintain PowerShell and Windows updates for stability and compatibility. |
 
