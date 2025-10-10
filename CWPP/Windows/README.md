@@ -1,4 +1,4 @@
-# Deployment using Lacework PowerShell Script (POV)
+# Deploying FortiCNAPP Window Server Agent using Lacework PowerShell Script (POV)
 
 🛡️ Windows agent overview and system requirements:
 ```bash
@@ -10,6 +10,14 @@ https://docs.fortinet.com/document/lacework-forticnapp/latest/administration-gui
 https://docs.fortinet.com/document/forticnapp/latest/administration-guide/1455/downloading-the-windows-agent-installer
 ```
 
+🛡️ Windows agent installer method using-a-powershell-script:
+```bash
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/169764/installing-the-windows-agent-using-a-powershell-script
+```
+🛡️ Windows agent installation-prerequisites:
+```bash
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600/windows-agent-installation-prerequisites
+```
 
 ### ✅ Side Note: Other Installation Methods for Windows Servers Supported
 1. All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script (Quick Easy Manual install on few machines), Guide on This file.
