@@ -4,16 +4,22 @@ That said, we limit maximum usage to less than 10% average cpu and < 200MB mem. 
 PowerShell 5.0 or later
 
 
+# Windows Agent System & Deployment Requirements
 
+| **Category** | **Requirement / Details** |
+|---------------|----------------------------|
+| **Supported Deployments** | - **Active Directory (Domain-Joined):** Supports centralized authentication and group policy management.<br>- **Standalone Deployments:** For non-domain servers (e.g., DMZ or isolated environments) managed manually or via scripts. |
+| **Operating System Requirements** | - Must support **Transport Layer Security (TLS) 1.2**.<br>- **Do NOT install** on personal or consumer Windows editions (e.g., Windows 10/11 Home, Pro, etc.).<br>- Recommended: **Windows Server 2012 R2**, **2016**, **2019**, **2022**. |
+| **Software Prerequisites** | - **PowerShell 5.0 or later**.<br>Check version: <br>`$PSVersionTable.PSVersion` |
+| **Hardware Requirements (Minimum)** | - **CPU:** 2-core processor.<br>- **Memory (RAM):** 4 GB minimum.<br>- **Average CPU Usage:** Less than **10%** (typically much lower).<br>- **Memory Usage:** Less than **200 MB** (typically much lower). |
+| **Installation Scope** | - For **on-premises host machines** only.<br>- **Do not install** on personal desktops, laptops, or workstations. |
+| **Performance Notes** | The agent runs as a lightweight background service and typically consumes minimal CPU and memory resources. |
+| **Deployment Recommendations** | - Ensure servers meet minimum hardware and OS requirements before installation.<br>- Verify network and security configurations support outbound TLS 1.2 traffic.<br>- Maintain PowerShell and Windows updates for stability and compatibility. |
 
-### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
-1. #### All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script, Guided method on This file.
-2. All Clouds: MSI Package as long as Windows VM is domain-joined or managed (Mass deployment via GPO / SCCM / Intune).
-3. Azure Specific (Windows VMs in an Azure resource group): Install the Windows Agent on Azure VMs Using a PowerShell Script.
-4. Azure Specific: Install Windows Agent with Azure Resource Manager.
-5. Azure Specific: Install Windows Agent on Azure VMs with Terraform.
-6. AWS Specific: Install Windows Agent on AWS with Packer
-7. EKS & AKS Specific: Using Helm Chart
+---
+
+> 📝 **Note:**  
+> These requirements ensure stable and secure operation of the Windows Agent in both domain-joined and standalone environments.
 
 ---
 #### ✅ Deployment using Lacework PowerShell Script Flow:
@@ -142,5 +148,12 @@ https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600
 https://docs.fortinet.com/document/forticnapp/latest/administration-guide/558949/use-a-network-proxy-for-windows-agent-traffic
 ```
 
-
+### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
+1. #### All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script, Fulll Guided method on This file.
+2. All Clouds: MSI Package as long as Windows VM is domain-joined or managed (Mass deployment via GPO / SCCM / Intune).
+3. Azure Specific (Windows VMs in an Azure resource group): Install the Windows Agent on Azure VMs Using a PowerShell Script.
+4. Azure Specific: Install Windows Agent with Azure Resource Manager.
+5. Azure Specific: Install Windows Agent on Azure VMs with Terraform.
+6. AWS Specific: Install Windows Agent on AWS with Packer
+7. EKS & AKS Specific: Using Helm Chart
 
