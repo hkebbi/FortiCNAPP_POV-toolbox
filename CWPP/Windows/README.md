@@ -1,6 +1,6 @@
 # Deployment using Lacework PowerShell Script (POV)
 
-Reference System Requirements:
+🛡️ Windows agent overview and system requirements
 ```bash
 https://docs.fortinet.com/document/lacework-forticnapp/latest/administration-guide/662064/windows-agent-overview-and-system-requirements
 ```
