@@ -87,10 +87,11 @@ You can modify this file to change the settings for the agent. If you modify the
 
 
 #### ✅ 4. Verify, Restart, Troubleshoot:
+
 Enter the following command to check status for the lwdatacollector service: 
 - In Powersehll:
 ```bash
-sc.exe query lwdatacollector
+C:\Users\Administrator> sc.exe query lwdatacollector
 ```
 or
 - In Command Prompt
@@ -98,5 +99,14 @@ or
 sc query lwdatacollector
 ```
 
+Stop the agent with the following command:  
 
+```bash
+C:\Users\Administrator> sc.exe stop lwdatacollector
+```
 
+Restart the agent with the following command:  
+
+```bash
+C:\Users\Administrator> sc.exe start lwdatacollecto
+```
