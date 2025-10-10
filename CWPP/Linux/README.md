@@ -15,46 +15,6 @@ After you install the agent, the agent and Lacework FortiCNAPP server communicat
 
 ---
 
-
-
-
-
-# Deploying FortiCNAPP Linux  Agent using Lacework PowerShell Script (POV)
-
-The Lacework FortiCNAPP Linux agent provides threat detection, file integrity monitoring, vulnerability detection, and host-based intrusion detection for your cloud or on-premise Linux OS-based workloads.
-After you install the agent, the agent and Lacework FortiCNAPP server communicate with each other. The agent scans your host and securely forwards select metadata to the server to build a baseline of normal behavior. From this, Lacework FortiCNAPP provides alerts for anomalous behavior.
-
-
-# Windows Agent System & Deployment Requirements
-
-| **Category** | **Requirement / Details** |
-|---------------|----------------------------|
-| **Operating System Requirements** | - Must support **Transport Layer Security (TLS) 1.2**.<br>- **Do NOT install** on personal or consumer Windows editions (e.g., Windows 10/11 Home, Pro, etc.).<br>- Recommended: **Windows Server 2012 R2**, **2016**, **2019**, **2022**. |
-| **Software Prerequisites** | - **PowerShell 5.0 or later**.<br>Check version: <br>`$PSVersionTable.PSVersion` |
-| **Hardware Requirements & Usage** | - **CPU:** 2-core processor.<br>- **Memory (RAM):** 4 GB minimum.<br>- **Agent Average CPU Usage:** Less than **10%** (typically much lower).<br>- **Agent Memory Usage:** Less than **200 MB** (typically much lower). |
-| **Performance Notes** | The agent runs as a lightweight background service and typically consumes minimal CPU and memory resources. |
-| **Deployment Recommendations** | - Ensure servers meet minimum hardware and OS requirements before installation.<br>- Verify network and security configurations support outbound TLS 1.2 traffic.<br>- Maintain PowerShell and Windows updates for stability and compatibility. |
-
----
----
-
-### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
-
-| **Environment / Cloud** | **Installation Method** | **Notes** |
-|--------------------------|--------------------------|------------|
-| **All Clouds** | **Lacework PowerShell Script** | Full guided installation method (refer to the provided setup file). |
-| **All Clouds** | **MSI Package Deployment** | Supported if the Windows VM is **domain-joined** or **centrally managed**. Suitable for **mass deployment** via **GPO**, **SCCM**, or **Intune**. |
-| **Azure Specific** | **PowerShell Script for Azure VMs** | Installs the Windows Agent directly on Azure VMs within an Azure Resource Group. |
-| **Azure Specific** | **Azure Resource Manager (ARM)** | Deploys the agent through **ARM templates** for integrated infrastructure management. |
-| **Azure Specific** | **Terraform** | Automates deployment of the Windows Agent on Azure VMs using **Terraform IaC scripts**. |
-| **AWS Specific** | **Packer** | Builds AMIs with the Windows Agent pre-installed for AWS EC2 instances. |
-| **EKS & AKS Specific** | **Helm Chart** | Deploys the agent on **Kubernetes clusters (EKS/AKS)** via Helm for containerized monitoring. |
-
----
-
-> 📝 **Note:**  
-> These requirements ensure stable and secure operation of the Windows Agent in both domain-joined and standalone environments.
-
 ---
 #### ✅ Deployment using Lacework PowerShell Script Flow:
 Fits All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script, Quick Easy installion method on few machines during Lab/POC.
@@ -158,11 +118,9 @@ $app.Uninstall()
 
 ### ✅ Reference Links
 
-| **Topic** | **Description** | **Link** |
-|------------|-----------------|----------|
-| 🛡️ **Windows Agent Overview & System Requirements** | Detailed documentation on agent architecture, supported OS versions, and system requirements. | [View Docs](https://docs.fortinet.com/document/lacework-forticnapp/latest/administration-guide/662064/windows-agent-overview-and-system-requirements) |
-| 🛡️ **Windows Agent Installer Methods** | Guide to downloading and installing the Windows Agent using standard installer packages. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/1455/downloading-the-windows-agent-installer) |
-| 🛡️ **Windows Agent PowerShell Installation** | Step-by-step guide for installing the agent using a PowerShell script. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/169764/installing-the-windows-agent-using-a-powershell-script) |
-| 🛡️ **Windows Agent Installation Prerequisites** | Lists prerequisites and dependencies before deploying the Windows Agent. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600/windows-agent-installation-prerequisites) |
-| 🛡️ **Network Proxy Configuration for Windows Agent Traffic** | Explains how to configure a proxy for Windows Agent network communications. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/558949/use-a-network-proxy-for-windows-agent-traffic) |
+
+Linux agent overview and system requirements
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/698784/linux-agent-overview-and-system-requirements
+
+
 
