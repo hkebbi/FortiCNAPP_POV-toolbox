@@ -53,12 +53,12 @@ Deployment using Lacework PowerShell Script Flow
 
 #### ✅ 2. Download/Install Using Lacework PowerShell Script via FortiCNAPP Console:
  In the Lacework FortiCNAPP Console, go to Settings > Configuration > Agent Tokens.
-- Select the row for the Windows access token you want to use for your agent installation.
+- Select = the Windows access token created and that you want to use for your agent installation.
 - Click the Install tab.
-- Click the desired installation method (Lacework PowerShell Script)
+- Click  installation method, Lacework PowerShell Script:
 - Do either of the following:
-  - Click Download script to download the file.
-  - Click Copy URL to copy the URL to use later (3 files will be downloaded from zip file)
+  - Click Download script to download the file (powershell.zip file).
+  - Unzip "powershell.zip" and you get 3 files (Azure-Deploy-LW-Win.ps1, Install-LWDataCollector.ps1 & lwminisign.exe).
 <img width="434" height="103" alt="Screenshot 2025-07-30 at 1 43 34 PM" src="https://github.com/user-attachments/assets/01b0b44c-b2e1-4a39-84ef-240a22070ea4" />
 
 #### ✅ 3. Deployment using Lacework PowerShell Script  without a Configuration File:
