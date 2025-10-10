@@ -12,9 +12,23 @@ PowerShell 5.0 or later
 | **Operating System Requirements** | - Must support **Transport Layer Security (TLS) 1.2**.<br>- **Do NOT install** on personal or consumer Windows editions (e.g., Windows 10/11 Home, Pro, etc.).<br>- Recommended: **Windows Server 2012 R2**, **2016**, **2019**, **2022**. |
 | **Software Prerequisites** | - **PowerShell 5.0 or later**.<br>Check version: <br>`$PSVersionTable.PSVersion` |
 | **Hardware Requirements (Minimum)** | - **CPU:** 2-core processor.<br>- **Memory (RAM):** 4 GB minimum.<br>- **Average CPU Usage:** Less than **10%** (typically much lower).<br>- **Memory Usage:** Less than **200 MB** (typically much lower). |
-| **Installation Scope** | - For **on-premises host machines** only.<br>- **Do not install** on personal desktops, laptops, or workstations. |
 | **Performance Notes** | The agent runs as a lightweight background service and typically consumes minimal CPU and memory resources. |
 | **Deployment Recommendations** | - Ensure servers meet minimum hardware and OS requirements before installation.<br>- Verify network and security configurations support outbound TLS 1.2 traffic.<br>- Maintain PowerShell and Windows updates for stability and compatibility. |
+
+---
+---
+
+### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
+
+| **Environment / Cloud** | **Installation Method** | **Notes** |
+|--------------------------|--------------------------|------------|
+| **All Clouds** | **Lacework PowerShell Script** | Full guided installation method (refer to the provided setup file). |
+| **All Clouds** | **MSI Package Deployment** | Supported if the Windows VM is **domain-joined** or **centrally managed**. Suitable for **mass deployment** via **GPO**, **SCCM**, or **Intune**. |
+| **Azure Specific** | **PowerShell Script for Azure VMs** | Installs the Windows Agent directly on Azure VMs within an Azure Resource Group. |
+| **Azure Specific** | **Azure Resource Manager (ARM)** | Deploys the agent through **ARM templates** for integrated infrastructure management. |
+| **Azure Specific** | **Terraform** | Automates deployment of the Windows Agent on Azure VMs using **Terraform IaC scripts**. |
+| **AWS Specific** | **Packer** | Builds AMIs with the Windows Agent pre-installed for AWS EC2 instances. |
+| **EKS & AKS Specific** | **Helm Chart** | Deploys the agent on **Kubernetes clusters (EKS/AKS)** via Helm for containerized monitoring. |
 
 ---
 
