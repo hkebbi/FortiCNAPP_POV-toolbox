@@ -10,7 +10,7 @@ https://docs.fortinet.com/document/lacework-forticnapp/latest/administration-gui
 https://docs.fortinet.com/document/forticnapp/latest/administration-guide/1455/downloading-the-windows-agent-installer
 ```
 
-🛡️ Windows agent installer method using-a-powershell-script:
+🛡️ Windows agent installer method using-powershell-script:
 ```bash
 https://docs.fortinet.com/document/forticnapp/latest/administration-guide/169764/installing-the-windows-agent-using-a-powershell-script
 ```
