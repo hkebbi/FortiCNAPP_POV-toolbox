@@ -14,7 +14,6 @@ After you install the agent, the agent and Lacework FortiCNAPP server communicat
 | 🌐 **Data Usage** | **1–2 KB/sec (average)** | Minimal network footprint for telemetry and status updates. |
 
 ---
-
 ```bash
 Deployment using Lacework PowerShell Script Flow
 ├ 1. Create New Agent Access Token. 
@@ -54,26 +53,23 @@ Run the following command to verify the agent process (datacollector) status:
 sudo /var/lib/lacework/datacollector -status
 ```
 
-#### ✅ 3.2. Deployment using Lacework Script (With Proxy Settings_:
+#### ✅ 3.2. Deployment using Lacework Script (With Proxy Settings):
 
- -  Open Linux terminal.
- -  wget and Paste URL(from step 2) on the Linux Machine.
- -  sudo sh install.sh
+Proxy server URL
+Specify the HTTP or SOCKS proxy server for the Lacework FortiCNAPP agent to use as a network proxy in the following format:
 
- -  
+http://Your_Proxy_Server:Your_Port
 
+Where Your_Proxy_Server is the URL for your proxy server and Your_Port is the port number of your proxy server.
 
+If your proxy server requires a password, use the following format:
 
+http://username:password@Your_Proxy_Server:Your_Port
 
-#### ✅ 3.2. Deployment using Lacework PowerShell Script (with Proxy settings) :
+Where username is the username for the proxy server, and password is the password for the proxy server.
 
-To configure the agent to use a specific proxy during installation in the command line, use the following command:C:\Users\Administrator>  
-```bash
-msiexec.exe /i LWDataCollector.msi ACCESSTOKEN=Your_Access_Token SERVERURL=Your_API_Endpoint PROXYURL=http://Your_Proxy_Server:Your_Port
-```
-- Where Your_Proxy_Server is the URL or IP address of your HTTP proxy server and Your_Port is the port number of your proxy server.
+When you configure the Lacework FortiCNAPP agent in environments with http/s proxy, the agent attempts a connection through the configured proxy. In agent v4.3 and later, if there is a failure or timeout for the connection, the agent will not be able to connect to Lacework. In releases prior to agent v4.3, if there is a failure or timeout for the connection, the agent bypasses the proxy and uses a direct outbound connection.
 
-If the agent should not use a proxy, regardless of the machine’s configuration, use the following command during installation:
 
 #### ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
 
