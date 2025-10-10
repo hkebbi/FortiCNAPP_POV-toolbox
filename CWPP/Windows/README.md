@@ -136,29 +136,13 @@ $app = Get-WmiObject -Class Win32_Product -Filter "Name like '%Lacework%'"
 $app.Uninstall()
 ```
 
-#### ✅ Reference Links:
+### ✅ Reference Links
 
-🛡️ Windows agent overview and system requirements:
-```bash
-https://docs.fortinet.com/document/lacework-forticnapp/latest/administration-guide/662064/windows-agent-overview-and-system-requirements
-```
-
-🛡️ Windows agent installer methods:
-```bash
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/1455/downloading-the-windows-agent-installer
-```
-
-🛡️ Windows agent installer method using-powershell-script:
-```bash
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/169764/installing-the-windows-agent-using-a-powershell-script
-```
-🛡️ Windows agent installation-prerequisites:
-```bash
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600/windows-agent-installation-prerequisites
-```
-
-🛡️ Windows agent network-proxy-for-windows-agent-traffic:
-```bash
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/558949/use-a-network-proxy-for-windows-agent-traffic
-```
+| **Topic** | **Description** | **Link** |
+|------------|-----------------|----------|
+| 🛡️ **Windows Agent Overview & System Requirements** | Detailed documentation on agent architecture, supported OS versions, and system requirements. | [View Docs](https://docs.fortinet.com/document/lacework-forticnapp/latest/administration-guide/662064/windows-agent-overview-and-system-requirements) |
+| 🛡️ **Windows Agent Installer Methods** | Guide to downloading and installing the Windows Agent using standard installer packages. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/1455/downloading-the-windows-agent-installer) |
+| 🛡️ **Windows Agent PowerShell Installation** | Step-by-step guide for installing the agent using a PowerShell script. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/169764/installing-the-windows-agent-using-a-powershell-script) |
+| 🛡️ **Windows Agent Installation Prerequisites** | Lists prerequisites and dependencies before deploying the Windows Agent. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600/windows-agent-installation-prerequisites) |
+| 🛡️ **Network Proxy Configuration for Windows Agent Traffic** | Explains how to configure a proxy for Windows Agent network communications. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/558949/use-a-network-proxy-for-windows-agent-traffic) |
 
