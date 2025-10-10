@@ -30,7 +30,7 @@ https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600
 
 ---
 #### ✅ Deployment using Lacework PowerShell Script Flow:
-The example here is to deploy during Lab/POC which can have few machines for testing. There are many options, but this can fit a quick easy way for this kind of deployments if there are few machines and even multicloud deployments.
+The example here is to deploy during Lab/POC which can have few machines for testing. There are many other options as above, but this can fit a quick easy way for this kind of deployments if there are few machines and even multicloud deployments.
 
 ```bash
 Deployment using Lacework PowerShell Script Flow
