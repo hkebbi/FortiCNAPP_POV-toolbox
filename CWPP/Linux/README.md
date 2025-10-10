@@ -79,12 +79,10 @@ You can add this on the FortiCNAPP UI Agent Configure Settings:
 
 #### ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
 
-systemctl [start | stop | restart] datacollector
-service datacollector [start | stop | restart]
-initctl [start | stop | restart] datacollector
-
 Run the following command to verify the agent process (datacollector) status:
+```
 sudo /var/lib/lacework/datacollector -status
+```
 
 ### ✅ Reference Links
 
