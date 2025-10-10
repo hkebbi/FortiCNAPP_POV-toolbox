@@ -30,7 +30,8 @@ https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600
 
 ---
 #### ✅ Deployment using Lacework PowerShell Script Flow:
-The example here is to deploy during Lab/POC which can have few machines for testing. There are many other options as above, but this can fit a quick easy way for this kind of deployments if there are few machines and even multicloud deployments.
+Fits All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script, Quick Easy installion method on few machines during Lab/POC.
+There are many other methods as above, but this can fit a quick easy way for this kind of deployments if there are few machines and multicloud deployments.
 
 ```bash
 Deployment using Lacework PowerShell Script Flow
@@ -48,7 +49,6 @@ Deployment using Lacework PowerShell Script Flow
 * An access token can be re-used for multiple agent installations.
 
 #### ✅ 2. Download/Install Using Lacework PowerShell Script via FortiCNAPP Console:
-All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script (Quick Easy Manual install on few machines)
  In the Lacework FortiCNAPP Console, go to Settings > Configuration > Agent Tokens.
 - Select the row for the Windows access token you want to use for your agent installation.
 - Click the Install tab.
