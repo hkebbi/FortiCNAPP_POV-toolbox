@@ -8,7 +8,6 @@ PowerShell 5.0 or later
 
 | **Category** | **Requirement / Details** |
 |---------------|----------------------------|
-| **Supported Deployments** | - **Active Directory (Domain-Joined):** Supports centralized authentication and group policy management.<br>- **Standalone Deployments:** For non-domain servers (e.g., DMZ or isolated environments) managed manually or via scripts. |
 | **Operating System Requirements** | - Must support **Transport Layer Security (TLS) 1.2**.<br>- **Do NOT install** on personal or consumer Windows editions (e.g., Windows 10/11 Home, Pro, etc.).<br>- Recommended: **Windows Server 2012 R2**, **2016**, **2019**, **2022**. |
 | **Software Prerequisites** | - **PowerShell 5.0 or later**.<br>Check version: <br>`$PSVersionTable.PSVersion` |
 | **Hardware Requirements (Minimum)** | - **CPU:** 2-core processor.<br>- **Memory (RAM):** 4 GB minimum.<br>- **Average CPU Usage:** Less than **10%** (typically much lower).<br>- **Memory Usage:** Less than **200 MB** (typically much lower). |
