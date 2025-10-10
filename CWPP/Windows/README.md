@@ -46,7 +46,9 @@ Deployment using Lacework PowerShell Script Flow
 - Add Name and Description.
 - Select Windows as the Operating System.
 - Click Save to create your new access token for Windows agent.
-* An access token can be re-used for multiple agent installations.
+- After that you can copy or download the powershell.zip file unzip and have 3 files (Azure-Deploy-LW-Win.ps1, Install-LWDataCollector.ps1 & lwminisign.exe).
+
+* Note: An access token can be re-used for multiple agent installations.
 
 #### ✅ 2. Download/Install Using Lacework PowerShell Script via FortiCNAPP Console:
  In the Lacework FortiCNAPP Console, go to Settings > Configuration > Agent Tokens.
