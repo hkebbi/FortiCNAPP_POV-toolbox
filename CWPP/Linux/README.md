@@ -10,7 +10,3 @@
 | 🌐 **Data Usage** | **1–2 KB/sec (average)** | Minimal network footprint for telemetry and status updates. |
 
 ---
-
-> 💡 **Note:**  
-> These values represent *typical average consumption levels* for the Windows Agent under standard monitoring operations. Actual usage may vary slightly based on system load and configuration.
-
