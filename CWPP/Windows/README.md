@@ -5,7 +5,11 @@
 https://docs.fortinet.com/document/lacework-forticnapp/latest/administration-guide/662064/windows-agent-overview-and-system-requirements
 ```
 
+🛡️ Windows agent installer methods:
+```bash
 https://docs.fortinet.com/document/forticnapp/latest/administration-guide/1455/downloading-the-windows-agent-installer
+```
+
 
 ### ✅ Side Note: Other Installation Methods for Windows Servers Supported
 1. All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script (Quick Easy Manual install on few machines), Guide on This file.
