@@ -19,6 +19,12 @@ https://docs.fortinet.com/document/forticnapp/latest/administration-guide/169764
 https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600/windows-agent-installation-prerequisites
 ```
 
+🛡️ Windows agent network-proxy-for-windows-agent-traffic:
+```bash
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/558949/use-a-network-proxy-for-windows-agent-traffic
+```bash
+
+
 ### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
 1. #### All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script, Guided method on This file.
 2. All Clouds: MSI Package as long as Windows VM is domain-joined or managed (Mass deployment via GPO / SCCM / Intune).
