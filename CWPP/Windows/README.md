@@ -19,7 +19,7 @@ https://docs.fortinet.com/document/forticnapp/latest/administration-guide/169764
 https://docs.fortinet.com/document/forticnapp/latest/administration-guide/902600/windows-agent-installation-prerequisites
 ```
 
-### ✅ Side Note: Other Installation Methods for Windows Servers Supported
+### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
 1. All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script (Quick Easy Manual install on few machines), Guided method on This file.
 2. All Clouds: MSI Package as long as Windows VM is domain-joined or managed (Mass deployment via GPO / SCCM / Intune).
 3. Azure Specific (Windows VMs in an Azure resource group): Install the Windows Agent on Azure VMs Using a PowerShell Script.
@@ -39,7 +39,7 @@ Deployment using Lacework PowerShell Script Flow
 ├ 3. Deployment using Lacework PowerShell Script  without a Configuration File.
 ├ 4. Verify.
 ```
-#### ✅ 1. Create New Access Token
+#### ✅ 1. Create New Access Token:
 
 - Lacework FortiCNAPP Console, go to Settings > Configuration > Agent Tokens.
 - Add Name and Description.
@@ -47,7 +47,7 @@ Deployment using Lacework PowerShell Script Flow
 - Click Save to create your new access token for Windows agent.
 * An access token can be re-used for multiple agent installations.
 
-#### ✅ 2. Download/Install Using Lacework PowerShell Script via FortiCNAPP Console .
+#### ✅ 2. Download/Install Using Lacework PowerShell Script via FortiCNAPP Console:
 All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script (Quick Easy Manual install on few machines)
  In the Lacework FortiCNAPP Console, go to Settings > Configuration > Agent Tokens.
 - Select the row for the Windows access token you want to use for your agent installation.
