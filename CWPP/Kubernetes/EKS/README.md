@@ -72,22 +72,25 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 # --set laceworkConfig.proxyUrl=http://proxy.example:3128 \
   --set 'tolerations[0].operator=Exists'
 ```
-
 #### ⚙️ FortiCNAPP Agent Resource Configuration
 
-| **Setting** | **Description** | **Example Command / Value** |
-|--------------|-----------------|------------------------------|
-| 🧠 **CPU Requests** | Minimum guaranteed CPU resources for the agent pod. | `--set resources.requests.cpu=300m` |
+| **Configuration** | **Purpose / Description** | **Example Helm Command / Value** |
+|--------------------|---------------------------|----------------------------------|
+| 🔑 **Access Token** | Authentication token used to connect the agent to your Lacework FortiCNAPP account. | `--set accessToken=${LACEWORK_AGENT_TOKEN}` |
+| 🌐 **Server URL** | URL for your Lacework FortiCNAPP API or ingestion endpoint. | `--set serverUrl=${LACEWORK_SERVER_URL}` |
+| ☸️ **Kubernetes Cluster Name** | Name of your Kubernetes cluster (for display in FortiCNAPP). | `--set kubernetesCluster=${KUBERNETES_CLUSTER_NAME}` |
+| 🧭 **Environment Label** | Logical environment grouping (e.g., dev, staging, prod). | `--set laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` |
+| ⚙️ **CPU Requests** | Minimum guaranteed CPU resources for the agent pod. | `--set resources.requests.cpu=300m` |
 | 💪 **CPU Limits** | Maximum CPU usage allowed for the agent pod. | `--set resources.limits.cpu=500m` |
 | 💾 **Memory Requests** | Minimum guaranteed memory for the agent pod. | `--set resources.requests.memory=384Mi` |
 | 🧱 **Memory Limits** | Maximum memory usage allowed for the agent pod. | `--set resources.limits.memory=512Mi` |
-| 🚨 **Prevent Eviction** | Creates a `PriorityClass` to stop agent pods from being evicted in oversubscribed clusters. | `--set priorityClassCreate=true` |
+| 🚨 **Prevent Eviction (Priority Class)** | Ensures agent pods are not evicted in oversubscribed clusters. | `--set priorityClassCreate=true` |
+| 🧩 **Universal Toleration (POC / Full Coverage)** | Allows the agent to tolerate *all taints* — runs on every node. | `--set 'tolerations[0].operator=Exists'` |
+| 🛡️ **Explicit Tolerations (Production / Controlled)** | Allows the agent to run **only** on specific tainted nodes (e.g., master, control-plane, infra). | ```yaml<br>tolerations:<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/master<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/control-plane<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/infra<br>``` |
 
 ---
 
-### 🧩 Example: Full Helm Command
-
-You can combine all configuration flags into one install command:
+### 🧩 Example: Combined Helm Installation Command
 
 ```bash
 helm install lacework-agent lacework/lacework-agent \
@@ -100,7 +103,11 @@ helm install lacework-agent lacework/lacework-agent \
   --set resources.requests.memory=384Mi \
   --set resources.limits.memory=512Mi \
   --set priorityClassCreate=true \
+  --set 'tolerations[0].operator=Exists' \
   -n lacework
+
+
+
 
 
 
