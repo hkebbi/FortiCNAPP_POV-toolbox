@@ -1,24 +1,21 @@
 ## 🛡️ EKS agent Deployment Using Helm Charts
 - Use **Helm** for easy deployment and lifecycle management
 
-- Helm → A packaging and lifecycle management tool that can create DaemonSets, Deployments, Services, etc.
-- DaemonSet → The actual Kubernetes resource that runs one pod per node.
-For the Lacework FortiCNAPP charts:
+### 🧭 Helm vs DaemonSet Summary
 
-So, in essence: Helm → installs and manages → DaemonSet → runs agents on every node.
+| **Component / Concept** | **Description** |
+|--------------------------|-----------------|
+| 🧩 **Helm** | A **packaging and lifecycle management tool** for Kubernetes. It can deploy and manage multiple resources such as **DaemonSets**, **Deployments**, **Services**, **ConfigMaps**, and more. |
+| ⚙️ **DaemonSet** | A **Kubernetes resource** that ensures **one pod runs on every node** in the cluster. Commonly used for agents that monitor or protect each node (like the **Lacework FortiCNAPP Agent**). |
+| 🔁 **How They Work Together** | **Helm → installs and manages → DaemonSet → runs agents on every node.** <br>Helm acts as the installer and updater; the DaemonSet handles actual workload placement. |
+| 📦 **Helm Chart Structure** | A Helm chart is a **folder** that contains all YAML templates and configuration files needed to deploy an application on Kubernetes. It typically includes `Chart.yaml`, `values.yaml`, and a `/templates/` directory with resource definitions. |
+| 🚫 **Note (Fargate Limitation)** | **AWS Fargate does not support DaemonSets.** <br>To monitor workloads on Fargate, you must either: <br>• **Embed the agent** in the container image at build time, or <br>• **Inject a sidecar** container into each pod. |
 
-- A Helm chart is a folder that contains all the YAML templates and configuration files needed to deploy an application on Kubernetes.
-* Note: Fargate does not support Daemonset. So, the only way to monitor an application running on Fargate is by embedding the agent in the application at image build time or by injecting a sidecar into the pod.
+---
 
-| **Concept**          | **Description**                                                                 |
-| -------------------- | ------------------------------------------------------------------------------- |
-| **Helm**             | A package manager for Kubernetes applications.                                  |
-| **Helm Chart**       | A collection of files (YAML templates + configs) that define a deployable app.  |
-| **Chart.yaml**       | Describes the chart (name, version, dependencies).                              |
-| **values.yaml**      | Default configuration values for the templates.                                 |
-| **templates/*.yaml** | Kubernetes resource templates (DaemonSet, Deployment, Service, etc.).           |
-| **Rendered YAML**    | What Helm produces after substituting all the template variables.               |
-| **Install Command**  | `helm install <release-name> <chart-path>` — deploys everything to the cluster. |
+> 💡 **Summary:**  
+> Use **Helm** for simple, versioned deployment and management.  
+> Helm creates the **DaemonSet**, which ensures the **agent pods** run on every node in the cluster (except environments like **Fargate**, where DaemonSets aren’t supported).
 
 ---
 #### ✅ 1. Create New Access Token
