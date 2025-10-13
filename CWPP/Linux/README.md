@@ -122,8 +122,6 @@ yum remove lacework
 ```
 
 
-### ✅ Reference Links
-
 ### 🐧 Linux Agent Reference Links
 
 | **Topic** | **Description** | **Link** |
