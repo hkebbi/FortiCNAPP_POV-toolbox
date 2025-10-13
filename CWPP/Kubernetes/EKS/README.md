@@ -11,7 +11,7 @@ The DaemonSet is the actual Kubernetes workload that ensures one agent pod runs 
 So, in essence: Helm → installs and manages → DaemonSet → runs agents on every node.
 
 
-* Fargate does not support Daemonset. So, the only way to monitor an application running on Fargate is by embedding the agent in the application at image build time or by injecting a sidecar into the pod.
+* Note: Fargate does not support Daemonset. So, the only way to monitor an application running on Fargate is by embedding the agent in the application at image build time or by injecting a sidecar into the pod.
 
 
 ---
