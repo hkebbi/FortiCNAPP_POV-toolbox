@@ -4,7 +4,7 @@ The Windows agent provides threat detection, file and Windows registry integrity
 After you install the agent, the agent and Lacework FortiCNAPP server communicate with each other. The agent scans your host and securely forwards select metadata to the server to build a baseline of normal behavior. From this, Lacework FortiCNAPP provides alerts for anomalous behavior.
 
 
-# Windows Agent System & Deployment Requirements
+#### Windows Agent System & Deployment Requirements
 
 | **Category** | **Requirement / Details** |
 |---------------|----------------------------|
