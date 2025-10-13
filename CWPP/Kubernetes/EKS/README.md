@@ -158,7 +158,7 @@ kubectl get daemonsets,pods -n lacework -o wide
 ```
 
 
-### 🐧 Linux Agent Deployment & Connectivity References
+### 🐧 Kubernetes Agent Deployment & Connectivity References
 
 | **Topic** | **Description** | **Link** |
 |------------|-----------------|----------|
