@@ -1,21 +1,10 @@
-## 🛡️ EKS agent Deployment
+## 🛡️ EKS agent Deployment Using Helm Charts
+- Use **Helm** for easy deployment and lifecycle management
 
-### ☸️ Lacework FortiCNAPP Kubernetes Agent Deployment Methods
 
-| **Deployment Method** | **Description** | **Best For / When to Use** |
-|------------------------|-----------------|-----------------------------|
-| 🧩 **Install with a Helm Chart** | **Helm** is a package manager for Kubernetes that bundles resources into versioned “charts.” You can download the Lacework FortiCNAPP Helm chart and install it easily across clusters. | ✅ Best for **simplified installation and upgrades**.<br>Ideal if you use **Helm** for app deployment and prefer declarative configuration management. |
-| 🔁 **Deploy with a DaemonSet** | A **DaemonSet** ensures that a copy of the agent runs on **every node** in your Kubernetes cluster. Useful for continuous monitoring across all nodes (e.g., AKS, EKS, GKE). | ✅ Best for **broad node-level coverage**.<br>Ideal for **manual or scripted installs** in environments without Helm or Terraform. |
-| ⚙️ **Install with Terraform** | Uses the **Terraform Kubernetes Agent Module** to automatically create secrets and DaemonSets required for deployment. This method integrates Lacework FortiCNAPP into infrastructure-as-code workflows. | ✅ Best for **infrastructure automation**.<br>Ideal for teams using **HashiCorp Terraform** to manage cluster deployments or CI/CD pipelines. |
-| 🛡️ **Install in gVisor on Kubernetes** | **gVisor** is a sandboxing technology that provides an extra **isolation layer** between applications and the host OS. You can run the agent inside gVisor for enhanced container security. | ✅ Best for **high-security environments** where container isolation is critical.<br>Useful in **multi-tenant or compliance-driven clusters**. |
 
----
 
-> 💡 **Summary:**
-> - Use **Helm** for easy deployment and lifecycle management.  
-> - Use **DaemonSet** for direct, lightweight node coverage.  
-> - Use **Terraform** for automation and repeatable IaC deployments.  
-> - Use **gVisor** when you require stronger isolation and sandboxing for workloads.
+
 
 
 ---
