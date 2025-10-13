@@ -6,7 +6,8 @@ Helm helps you manage Kubernetes applications — Helm Charts help you define, i
 For the Lacework FortiCNAPP charts:
 Helm acts as the installer and lifecycle manager: The DaemonSet is the actual Kubernetes workload that ensures one agent pod runs on every node.
 So, in essence: Helm → installs and manages → DaemonSet → runs agents on every node.
-
+ - A DaemonSet is a Kubernetes controller that ensures a specific Pod runs on every (or selected) node in your cluster.
+   
 * Note: Fargate does not support Daemonset. So, the only way to monitor an application running on Fargate is by embedding the agent in the application at image build time or by injecting a sidecar into the pod.
 
 
