@@ -19,7 +19,7 @@ Toleration = permission on a pod saying:
 - Use **Helm** for easy deployment and lifecycle management
 
 
-### 🧭 Helm Summary
+### 🧱 Helm Summary
 
 | **Component / Concept** | **Description** |
 |--------------------------|-----------------|
