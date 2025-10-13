@@ -18,7 +18,7 @@ EKS Agent Deployment Using Helm Charts Agenda:
 ├ 1. Create New Agent Access Token. 
 ├ 2. Deploy Helm.
 ├ 3.1. Method-1. Deploy Agent Using CLI
-├ 3.2. Method-2. Deploy Agent Using .yaml file:
+├ 3.2. Method-2. Deploy Agent Using values.yaml file:
 ├ 4. Verification Commands
 ```
 ---
@@ -31,7 +31,7 @@ EKS Agent Deployment Using Helm Charts Agenda:
 * An access token can be re-used for multiple agent installations.
 
 
-#### ✅ 2. Deploy Helm
+#### ✅ 2. Deploy Helm: from AWS CloudShell or Host connectected to EKS:
 
 ```bash
 helm repo add lacework https://lacework.github.io/helm-charts/
@@ -39,6 +39,16 @@ helm repo update
 ```
 
 #### ✅ 3.1. Method-1. Deploy Agent Using CLI:
+
+🧠 Note: What Are “Taints” and “Tolerations” in Kubernetes?
+ --set 'tolerations[0].operator=Exists'
+
+Kubernetes taints and tolerations work together to control which Pods can run on which nodes.
+Taint = rule on a node saying:
+“Only pods that tolerate this taint are allowed here.”
+Toleration = permission on a pod saying:
+“I can run on nodes that have this taint.
+
 
 ```bash
 helm upgrade --install lacework-agent lacework/lacework-agent \
@@ -52,7 +62,9 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 ```
 
 
-#### ✅ 3.2. Method-2. Deploy Agent Using .yaml file:
+#### ✅ 3.2. Method-2. Deploy Agent Using values.yaml file:
+The values.yaml file is the configuration file for a Helm chart.
+It defines default settings and parameters used by the chart’s templates — such as image names, resource limits, namespaces, labels, and other variables
 
 ```bash
 cat values.yaml 
@@ -99,5 +111,15 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 
 ```bash
 kubectl get daemonsets,pods -n lacework -o wide
+
+
+
+
+Installing Linux agent on Kubernetes
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended
+
+
+Required connectivity, proxies, and certificates for agents
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents
 
 
