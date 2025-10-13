@@ -1,7 +1,7 @@
 ## 🛡️ EKS agent Deployment Using Helm Charts
 - Use **Helm** for easy deployment and lifecycle management
 
-### 🧭 Helm vs DaemonSet Summary
+### 🧭 Helm Summary
 
 | **Component / Concept** | **Description** |
 |--------------------------|-----------------|
