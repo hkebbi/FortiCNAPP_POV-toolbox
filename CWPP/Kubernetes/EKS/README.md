@@ -8,8 +8,8 @@ That’s why:
 - You use Helm to automate and manage this deployment safely
 
 🧠 Note: What Are “Taints” and “Tolerations” in Kubernetes?
- --set 'tolerations[0].operator=Exists' (“This agent pod tolerates all taints — allow it to run on any node.”)
-
+ --set 'tolerations[0].operator=Exists' (“This agent pod tolerates all taints — allow it to run on any node.”) // Easy for POC deployments.
+You can also add Explicit tolerations if customer require = "Run the agent only where I allow it"
 Kubernetes taints and tolerations work together to control which Pods can run on which nodes.
 Taint = rule on a node saying:
 “Only pods that tolerate this taint are allowed here.”
@@ -69,6 +69,9 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
   --set 'tolerations[0].operator=Exists'
 ```
 
+To set multiple tolerations for the Lacework FortiCNAPP agent, set an array of desired tolerations in one of the following ways:
+
+
 
 #### ✅ 3.2. Method-2. Deploy Agent Using values.yaml file:
 The values.yaml file is the configuration file for a Helm chart.
@@ -84,6 +87,17 @@ laceworkConfig:
 # Keep toleration so it schedules on tainted nodes
 tolerations:
   - operator: Exists
+```
+To set multiple tolerations for the Lacework FortiCNAPP agent
+```bash
+tolerations:
+# Allow Lacework agent to run on all nodes in case of a taint tolerations:
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/master
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/control-plane
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/infra
 ```
 
 ```bash
