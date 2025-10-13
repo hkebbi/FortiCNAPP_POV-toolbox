@@ -15,7 +15,7 @@ After you install the agent, the agent and Lacework FortiCNAPP server communicat
 | **Deployment Recommendations** | - Ensure servers meet minimum hardware and OS requirements before installation.<br>- Verify network and security configurations support outbound TLS 1.2 traffic.<br>- Maintain PowerShell and Windows updates for stability and compatibility. |
 
 ---
-#### ✅ Deployment using Lacework PowerShell Script Fil Flow:
+#### ✅ Deployment using Lacework PowerShell Script File Flow:
 Fits All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script, Quick Easy installion method on few machines during Lab/POC.
 There are many other methods as above, but this can fit a quick easy way for this kind of deployments if there are few machines and multicloud deployments.
 
