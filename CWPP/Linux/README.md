@@ -1,4 +1,4 @@
-# Deploying FortiCNAPP Linux Agent using Lacework PowerShell Script (POV)
+# Deploying FortiCNAPP Linux Agent using Lacework PowerShell Script (POV) on hosts:
 
 The Lacework FortiCNAPP Linux agent provides threat detection, file integrity monitoring, vulnerability detection, and host-based intrusion detection for your cloud or on-premise Linux OS-based workloads.
 After you install the agent, the agent and Lacework FortiCNAPP server communicate with each other. The agent scans your host and securely forwards select metadata to the server to build a baseline of normal behavior. From this, Lacework FortiCNAPP provides alerts for anomalous behavior.
@@ -129,9 +129,14 @@ yum remove lacework
 
 ### ✅ Reference Links
 
+### 🐧 Linux Agent Reference Links
 
-Linux agent overview and system requirements
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/698784/linux-agent-overview-and-system-requirements
+| **Topic** | **Description** | **Link** |
+|------------|-----------------|----------|
+| 🧠 **Linux Agent Overview & System Requirements** | Detailed overview of supported OS versions, system requirements, and functionality. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/698784/linux-agent-overview-and-system-requirements) |
+| 🧹 **Uninstalling the Linux Agent** | Step-by-step instructions for safely removing the Linux agent from hosts. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/981809/uninstall-the-linux-agent) |
+| ✅ **Linux Agent Install Checklist** | Pre-installation checklist for verifying system readiness and environment compatibility. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/376786/linux-agent-install-checklist) |
+| 🌐 **Required Connectivity & Proxy Settings** | Lists network allowlist, proxy, and certificate requirements for agent connectivity. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
+| 💻 **Installing the Linux Agent on Hosts** | Guides for deploying the Linux agent on host machines. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/001333/install-on-hosts) |
 
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/981809/uninstall-the-linux-agent
 
