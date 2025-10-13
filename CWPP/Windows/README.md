@@ -1,6 +1,6 @@
 # Deploying FortiCNAPP Window Server Agent using Lacework PowerShell Script 
 
-The Windows agent provides threat detection, file and Windows registry integrity monitoring, vulnerability detection, and host-based intrusion detection for your cloud or on-premise Windows Server operating system (OS)-based workloads.
+ Windows agent provides threat detection, file and Windows registry integrity monitoring, vulnerability detection, and host-based intrusion detection for your cloud or on-premise Windows Server operating system (OS)-based workloads.
 After you install the agent, the agent and Lacework FortiCNAPP server communicate with each other. The agent scans your host and securely forwards select metadata to the server to build a baseline of normal behavior. From this, Lacework FortiCNAPP provides alerts for anomalous behavior.
 
 
