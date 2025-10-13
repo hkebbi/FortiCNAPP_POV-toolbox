@@ -13,9 +13,7 @@
 
 ---
 
-> 💡 **Summary:**  
-> Use **Helm** for simple, versioned deployment and management.  
-> Helm creates the **DaemonSet**, which ensures the **agent pods** run on every node in the cluster (except environments like **Fargate**, where DaemonSets aren’t supported).
+
 
 ---
 #### ✅ 1. Create New Access Token
