@@ -60,7 +60,7 @@ helm repo add lacework https://lacework.github.io/helm-charts/
 helm repo update
 ```
 
-#### ⚙️ FortiCNAPP Agent Helm Configuration Summary (Preparation for part 3.):
+#### ⚙️3.0. FortiCNAPP Agent Helm Configuration Summary (Preparation for part 3.):
 
 | **Configuration** | **Purpose / Description** | **Example Helm Command / Value** |
 |--------------------|---------------------------|----------------------------------|
