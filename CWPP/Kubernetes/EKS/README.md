@@ -1,5 +1,6 @@
 ## 🛡️ EKS Agent Deployment Using Helm Charts
 
+### 🧭 Goal
 The goal is to have the FortiCNAPP agent running as a pod on every node in your cluster, no exceptions.
 That’s why:
 - You deploy it as a DaemonSet (1 pod per node)
@@ -16,6 +17,7 @@ Toleration = permission on a pod saying:
 “I can run on nodes that have this taint.
 
 - Use **Helm** for easy deployment and lifecycle management
+
 
 ### 🧭 Helm Summary
 
