@@ -91,12 +91,7 @@ You can test connectivity with commands like:
 curl -v --proxy http://Your_Proxy_Server:Your_Port https://example.com
 ```
 
-You can add this on the FortiCNAPP UI Agent Configure Settings:  
-
-
-<img width="404" height="570" alt="Screenshot 2025-10-10 at 6 32 37 PM" src="https://github.com/user-attachments/assets/a31767e1-c33f-4529-8f31-3d364dfa2d48" />  
-
-
+You can add this on the FortiCNAPP UI Agent Configure Settings.
 
 #### ✅ 4.1. Verify, Start, Stop, Restart, Troubleshoot: C:\Users\Administrator>
 
