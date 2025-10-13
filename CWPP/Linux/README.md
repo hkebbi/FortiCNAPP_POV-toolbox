@@ -13,7 +13,7 @@ After you install the agent, the agent and Lacework FortiCNAPP server communicat
 | ⚙️ **Does the agent work in kernel or user space?** | The agent operates in **user space** and in **passive mode**. It has **no dependency on IP tables** and does **not impact container or network performance**. |
 | ⏱️ **How often does the agent collect data?** | The agent continuously monitors metadata from active processes. The **Polygraph** (behavioral model) is computed **every hour**. |
 | 💾 **What happens if the agent cannot connect to Lacework FortiCNAPP?** | The agent buffers up to **40 MB of compressed data** (~4 hours). If exceeded, it drops the **oldest data (FIFO)**. |
-| 🚀 **How can I deploy the agent?** | You can deploy the agent using **Chef, Puppet, Ansible, Salt**, or the official **Fortinet installation script**. |
+| 🚀 **How can I deploy the agent?** | You can deploy the agent using **Chef, Puppet, Ansible, Salt**, or the official **Fortinet installation script (This file)**. |
 | 🌐 **Does the agent support a proxy configuration?** | **Yes.** Proxy support is available by adding proxy info to the config file or setting the **`https_proxy`** environment variable. |
 | 🔒 **Is data encrypted in transit?** | **Yes.** All data is encrypted **in transit** via **HTTPS (port 443)** using **TLS 1.2**. |
 | 🗜️ **Is data compressed before transmission?** | **Yes.** Data is **compressed end-to-end** before being sent to the Lacework FortiCNAPP platform. |
