@@ -1,4 +1,4 @@
-## 🛡️ EKS agent Deployment Using Helm Charts
+## 🛡️ EKS Agent Deployment Using Helm Charts
 - Use **Helm** for easy deployment and lifecycle management
 
 ### 🧭 Helm Summary
