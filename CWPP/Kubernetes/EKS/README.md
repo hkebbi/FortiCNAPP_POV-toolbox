@@ -8,7 +8,7 @@ That’s why:
 - You use Helm to automate and manage this deployment safely
 
 🧠 Note: What Are “Taints” and “Tolerations” in Kubernetes?
- --set 'tolerations[0].operator=Exists'
+ --set 'tolerations[0].operator=Exists' (“This agent pod tolerates all taints — allow it to run on any node.”)
 
 Kubernetes taints and tolerations work together to control which Pods can run on which nodes.
 Taint = rule on a node saying:
