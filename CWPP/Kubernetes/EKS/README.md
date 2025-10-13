@@ -88,17 +88,6 @@ laceworkConfig:
 tolerations:
   - operator: Exists
 ```
-To set multiple tolerations for the Lacework FortiCNAPP agent
-```bash
-tolerations:
-# Allow Lacework agent to run on all nodes in case of a taint tolerations:
-  - effect: NoSchedule
-    key: node-role.kubernetes.io/master
-  - effect: NoSchedule
-    key: node-role.kubernetes.io/control-plane
-  - effect: NoSchedule
-    key: node-role.kubernetes.io/infra
-```
 
 ```bash
 cat values-secrets.yaml 
@@ -111,6 +100,21 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
   -n lacework --create-namespace \
   -f values.yaml -f values-secrets.yaml
 ```
+
+Additonal points:
+To set multiple tolerations for the Lacework FortiCNAPP agent
+```bash
+tolerations:
+# Allow Lacework agent to run on all nodes in case of a taint tolerations:
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/master
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/control-plane
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/infra
+```
+
+
 
 #### ✅ 4.  🧪 Verification Commands
 
