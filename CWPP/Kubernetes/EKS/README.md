@@ -1,6 +1,6 @@
 ## 🛡️ EKS Agent Deployment Using Helm Charts
 
-## ☸️ FortiCNAPP Agent Deployment on Kubernetes
+### ☸️ FortiCNAPP Agent Deployment on Kubernetes
 
 ---
 ### ⚙️ How It Works
