@@ -1,15 +1,24 @@
 ## 🛡️ EKS agent Deployment Using Helm Charts
 - Use **Helm** for easy deployment and lifecycle management
-Helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
-- Helm is a package manager for K8s that uses a packaging format called charts. A chart is a collection of files that describe a related set of K8s resources. 
 
+- Helm → A packaging and lifecycle management tool that can create DaemonSets, Deployments, Services, etc.
+- DaemonSet → The actual Kubernetes resource that runs one pod per node.
 For the Lacework FortiCNAPP charts:
-Helm acts as the installer and lifecycle manager: The DaemonSet is the actual Kubernetes workload that ensures one agent pod runs on every node.
+
 So, in essence: Helm → installs and manages → DaemonSet → runs agents on every node.
- - A DaemonSet is a Kubernetes controller that ensures a specific Pod runs on every (or selected) node in your cluster.
-   
+
+- A Helm chart is a folder that contains all the YAML templates and configuration files needed to deploy an application on Kubernetes.
 * Note: Fargate does not support Daemonset. So, the only way to monitor an application running on Fargate is by embedding the agent in the application at image build time or by injecting a sidecar into the pod.
 
+| **Concept**          | **Description**                                                                 |
+| -------------------- | ------------------------------------------------------------------------------- |
+| **Helm**             | A package manager for Kubernetes applications.                                  |
+| **Helm Chart**       | A collection of files (YAML templates + configs) that define a deployable app.  |
+| **Chart.yaml**       | Describes the chart (name, version, dependencies).                              |
+| **values.yaml**      | Default configuration values for the templates.                                 |
+| **templates/*.yaml** | Kubernetes resource templates (DaemonSet, Deployment, Service, etc.).           |
+| **Rendered YAML**    | What Helm produces after substituting all the template variables.               |
+| **Install Command**  | `helm install <release-name> <chart-path>` — deploys everything to the cluster. |
 
 ---
 #### ✅ 1. Create New Access Token
