@@ -72,7 +72,7 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 # --set laceworkConfig.proxyUrl=http://proxy.example:3128 \
   --set 'tolerations[0].operator=Exists'
 ```
-#### ⚙️ FortiCNAPP Agent Resource Configuration
+#### ⚙️ FortiCNAPP Agent Resource Configuration (Addtional if required) :
 
 | **Configuration** | **Purpose / Description** | **Example Helm Command / Value** |
 |--------------------|---------------------------|----------------------------------|
