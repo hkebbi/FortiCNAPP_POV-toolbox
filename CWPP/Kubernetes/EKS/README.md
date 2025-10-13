@@ -2,7 +2,6 @@
 
 ## ☸️ FortiCNAPP Agent Deployment on Kubernetes
 
-The **FortiCNAPP agent** runs as a **pod on every node** in your cluster to ensure full visibility and monitoring coverage.  
 ---
 ### ⚙️ How It Works
 
