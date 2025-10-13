@@ -155,15 +155,9 @@ tolerations:
 
 ```bash
 kubectl get daemonsets,pods -n lacework -o wide
+```
 
 
 
-
-Installing Linux agent on Kubernetes
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended
-
-
-Required connectivity, proxies, and certificates for agents
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents
 
 
