@@ -72,9 +72,6 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
   -f values.yaml -f values-secrets.yaml
 ```
 
-
-### 🧪 Verification Commands
-
 ### 🧪 Verification Commands
 
 | **Command** | **Purpose** | **Example Output / Notes** |
