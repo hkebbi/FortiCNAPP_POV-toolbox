@@ -102,7 +102,7 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 ```
 
 Additonal points:
-To set multiple tolerations for the Lacework FortiCNAPP agent
+To set multiple tolerations for the  FortiCNAPP agent if not accepted to run the  FortiCNAPP agent on all nodes in your cluster:
 ```bash
 tolerations:
 # Allow Lacework agent to run on all nodes in case of a taint tolerations:
