@@ -158,6 +158,12 @@ kubectl get daemonsets,pods -n lacework -o wide
 ```
 
 
+### 🐧 Linux Agent Deployment & Connectivity References
+
+| **Topic** | **Description** | **Link** |
+|------------|-----------------|----------|
+| ⚙️ **Installing Linux Agent on Kubernetes** | Step-by-step guide for deploying the FortiCNAPP Linux agent on Kubernetes clusters using the **Lacework Helm chart repository (recommended method)**. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
+| 🌐 **Required Connectivity, Proxies, and Certificates for Agents** | Detailed network requirements, proxy settings, and certificate configurations needed for FortiCNAPP agents to communicate securely with the platform. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
 
 
 
