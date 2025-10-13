@@ -89,7 +89,7 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 ---
 
 > 💡 **Tip:**  
-> Use the combined command below for a fast overview of your **Lacework DaemonSet** and all associated **pods** — with a **click-to-copy** button:
+> Use the combined command below for a fast overview of your **Lacework DaemonSet** and all associated **pods** :
 
 ```bash
 kubectl get daemonsets,pods -n lacework -o wide
