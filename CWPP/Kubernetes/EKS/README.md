@@ -1,22 +1,35 @@
 ## 🛡️ EKS Agent Deployment Using Helm Charts
 
-### 🧭 Goal
-The goal is to have the FortiCNAPP agent running as a pod on every node in your cluster, no exceptions.
-That’s why:
-- You deploy it as a DaemonSet (1 pod per node)
-- You add tolerations so it runs on all nodes (even tainted ones)
-- You use Helm to automate and manage this deployment safely
+## ☸️ FortiCNAPP Agent Deployment on Kubernetes
 
-🧠 Note: What Are “Taints” and “Tolerations” in Kubernetes?
- --set 'tolerations[0].operator=Exists' (“This agent pod tolerates all taints — allow it to run on any node.”) // Easy for POC deployments.
-You can also add Explicit tolerations if customer require = "Run the agent only where I allow it"
-Kubernetes taints and tolerations work together to control which Pods can run on which nodes.
-Taint = rule on a node saying:
-“Only pods that tolerate this taint are allowed here.”
-Toleration = permission on a pod saying:
-“I can run on nodes that have this taint.
+The **FortiCNAPP agent** runs as a **pod on every node** in your cluster to ensure full visibility and monitoring coverage.  
+---
+### ⚙️ How It Works
 
-- Use **Helm** for easy deployment and lifecycle management
+| **Step** | **Description** |
+|-----------|-----------------|
+| 🧩 **1. Deploy as a DaemonSet** | Ensures **one agent pod per node**, automatically created when new nodes join. |
+| 🎯 **2. Add Tolerations** | Allows the agent to run on **all nodes**, including tainted ones like control-plane or infra nodes. |
+| 🧰 **3. Use Helm** | Simplifies installation, configuration, and lifecycle management with versioning and rollbacks. |
+
+---
+### 🧠 Understanding Taints & Tolerations
+
+Kubernetes **taints** and **tolerations** work together to control **which pods can run on which nodes**:
+
+| **Concept** | **Meaning** | **Example / Analogy** |
+|--------------|-------------|------------------------|
+| **Taint** | A **rule on a node** saying: “Only pods that tolerate this taint are allowed here.” | Like a **“Do Not Enter”** sign — only certain pods are allowed in. |
+| **Toleration** | A **permission on a pod** saying: “I can run on nodes that have this taint.” | Like a **pass** that lets a pod enter restricted nodes. |
+
+---
+
+### 🚀 Helm Deployment Options
+
+| **Method** | **Command / Example** | **Description** |
+|-------------|------------------------|-----------------|
+| **Universal Toleration (Easy / POC)** | ```bash<br>--set 'tolerations[0].operator=Exists'<br>``` | 🧩 “This agent pod tolerates all taints — all
+
 
 
 ### 🧱 Helm Summary
