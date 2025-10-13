@@ -19,7 +19,7 @@ EKS Agent Deployment Using Helm Charts Agenda:
 ├ 2. Deploy Helm.
 ├ 3.1. Method-1. Deploy Agent Using CLI
 ├ 3.2. Method-2. Deploy Agent Using .yaml file:
-├ 4. Verification Commandst
+├ 4. Verification Commands
 ```
 ---
 #### ✅ 1. Create New Access Token
