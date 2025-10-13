@@ -3,28 +3,6 @@
 The Lacework FortiCNAPP Linux agent provides threat detection, file integrity monitoring, vulnerability detection, and host-based intrusion detection for your cloud or on-premise Linux OS-based workloads.
 After you install the agent, the agent and Lacework FortiCNAPP server communicate with each other. The agent scans your host and securely forwards select metadata to the server to build a baseline of normal behavior. From this, Lacework FortiCNAPP provides alerts for anomalous behavior.
 
-## ❓ Frequently Asked Questions (FAQ)
-
-| **Question** | **Answer (Summary)** |
-|---------------|----------------------|
-| 🧩 **Does the Linux agent install kernel modules?** | **No.** The Linux agent runs entirely in **user mode** using **safe eBPF programs**, avoiding risks associated with kernel modules. |
-| 🔐 **Are root privileges required for installation?** | **Yes.** Installation requires **root privileges** — either log in as root or run the installer with `sudo`. |
-| 📦 **Does the agent have any package dependencies?** | **No.** The agent installs with **no external package dependencies** and does **not** install shared libraries. |
-| ⚙️ **Does the agent work in kernel or user space?** | The agent operates in **user space** and in **passive mode**. It has **no dependency on IP tables** and does **not impact container or network performance**. |
-| ⏱️ **How often does the agent collect data?** | The agent continuously monitors metadata from active processes. The **Polygraph** (behavioral model) is computed **every hour**. |
-| 💾 **What happens if the agent cannot connect to Lacework FortiCNAPP?** | The agent buffers up to **40 MB of compressed data** (~4 hours). If exceeded, it drops the **oldest data (FIFO)**. |
-| 🚀 **How can I deploy the agent?** | You can deploy the agent using **Chef, Puppet, Ansible, Salt**, or the official **Fortinet installation script (This file)**. |
-| 🌐 **Does the agent support a proxy configuration?** | **Yes.** Proxy support is available by adding proxy info to the config file or setting the **`https_proxy`** environment variable. |
-| 🔒 **Is data encrypted in transit?** | **Yes.** All data is encrypted **in transit** via **HTTPS (port 443)** using **TLS 1.2**. |
-| 🗜️ **Is data compressed before transmission?** | **Yes.** Data is **compressed end-to-end** before being sent to the Lacework FortiCNAPP platform. |
-| 🏷️ **Does the agent support custom tags?** | **Yes.** The agent imports **AWS, Google Cloud, and Azure tags**, and also supports adding **local custom tags**. |
-
----
-
-> 💡 **Tip:**  
-> The Lacework FortiCNAPP Agent is designed for **safe, efficient, and low-overhead monitoring** across both **on-premises** and **cloud environments**. It ensures security without degrading host or container performance.
-
-
 ### ⚙️ Agent Consumptions
 
 | **Metric** | **Average / Approximate Usage** | **Notes** |
@@ -36,12 +14,13 @@ After you install the agent, the agent and Lacework FortiCNAPP server communicat
 
 ---
 ```bash
-Deployment using Lacework PowerShell Script Flow
+Deployment using Lacework PowerShell Script file Flow:
 ├ 1. Create New Agent Access Token. 
 ├ 2. Install Using "Lacework Script" via FortiCNAPP Console.
 ├ 3.1. Deployment using Lacework Script.
 ├ 3.2. Deployment using Lacework Script (with Proxy Settings)
 ├ 4. Verify, Restart, Troubleshoot
+❓FAQ
 🐧Linux Agent Reference Links
 ```
 #### ✅ 1. Create New Agent Access Token:
@@ -119,6 +98,29 @@ dpkg --purge lacework
 rpm -e lacework
 yum remove lacework
 ```
+
+## ❓ Frequently Asked Questions (FAQ)
+
+| **Question** | **Answer (Summary)** |
+|---------------|----------------------|
+| 🧩 **Does the Linux agent install kernel modules?** | **No.** The Linux agent runs entirely in **user mode** using **safe eBPF programs**, avoiding risks associated with kernel modules. |
+| 🔐 **Are root privileges required for installation?** | **Yes.** Installation requires **root privileges** — either log in as root or run the installer with `sudo`. |
+| 📦 **Does the agent have any package dependencies?** | **No.** The agent installs with **no external package dependencies** and does **not** install shared libraries. |
+| ⚙️ **Does the agent work in kernel or user space?** | The agent operates in **user space** and in **passive mode**. It has **no dependency on IP tables** and does **not impact container or network performance**. |
+| ⏱️ **How often does the agent collect data?** | The agent continuously monitors metadata from active processes. The **Polygraph** (behavioral model) is computed **every hour**. |
+| 💾 **What happens if the agent cannot connect to Lacework FortiCNAPP?** | The agent buffers up to **40 MB of compressed data** (~4 hours). If exceeded, it drops the **oldest data (FIFO)**. |
+| 🚀 **How can I deploy the agent?** | You can deploy the agent using **Chef, Puppet, Ansible, Salt**, or the official **Fortinet installation script (This file)**. |
+| 🌐 **Does the agent support a proxy configuration?** | **Yes.** Proxy support is available by adding proxy info to the config file or setting the **`https_proxy`** environment variable. |
+| 🔒 **Is data encrypted in transit?** | **Yes.** All data is encrypted **in transit** via **HTTPS (port 443)** using **TLS 1.2**. |
+| 🗜️ **Is data compressed before transmission?** | **Yes.** Data is **compressed end-to-end** before being sent to the Lacework FortiCNAPP platform. |
+| 🏷️ **Does the agent support custom tags?** | **Yes.** The agent imports **AWS, Google Cloud, and Azure tags**, and also supports adding **local custom tags**. |
+
+---
+
+> 💡 **Tip:**  
+> The Lacework FortiCNAPP Agent is designed for **safe, efficient, and low-overhead monitoring** across both **on-premises** and **cloud environments**. It ensures security without degrading host or container performance.
+
+
 
 
 ### 🐧 Linux Agent Reference Links
