@@ -73,7 +73,34 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
   --set 'tolerations[0].operator=Exists'
 ```
 
-To set multiple tolerations for the Lacework FortiCNAPP agent, set an array of desired tolerations in one of the following ways:
+#### ⚙️ FortiCNAPP Agent Resource Configuration
+
+| **Setting** | **Description** | **Example Command / Value** |
+|--------------|-----------------|------------------------------|
+| 🧠 **CPU Requests** | Minimum guaranteed CPU resources for the agent pod. | `--set resources.requests.cpu=300m` |
+| 💪 **CPU Limits** | Maximum CPU usage allowed for the agent pod. | `--set resources.limits.cpu=500m` |
+| 💾 **Memory Requests** | Minimum guaranteed memory for the agent pod. | `--set resources.requests.memory=384Mi` |
+| 🧱 **Memory Limits** | Maximum memory usage allowed for the agent pod. | `--set resources.limits.memory=512Mi` |
+| 🚨 **Prevent Eviction** | Creates a `PriorityClass` to stop agent pods from being evicted in oversubscribed clusters. | `--set priorityClassCreate=true` |
+
+---
+
+### 🧩 Example: Full Helm Command
+
+You can combine all configuration flags into one install command:
+
+```bash
+helm install lacework-agent lacework/lacework-agent \
+  --set accessToken=${LACEWORK_AGENT_TOKEN} \
+  --set serverUrl=${LACEWORK_SERVER_URL} \
+  --set kubernetesCluster=${KUBERNETES_CLUSTER_NAME} \
+  --set laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME} \
+  --set resources.requests.cpu=300m \
+  --set resources.limits.cpu=500m \
+  --set resources.requests.memory=384Mi \
+  --set resources.limits.memory=512Mi \
+  --set priorityClassCreate=true \
+  -n lacework
 
 
 
