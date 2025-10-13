@@ -75,25 +75,28 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 
 ### 🧪 Verification Commands
 
+### 🧪 Verification Commands
+
 | **Command** | **Purpose** | **Example Output / Notes** |
 |--------------|-------------|-----------------------------|
-| `kubectl get pods -n lacework -o wide` | Verify that all Lacework agent pods are running and on the correct nodes. | Shows pod names, node assignments, and IPs for quick status checks. |
-| `kubectl get daemonsets -n lacework` | Check the DaemonSet status (desired vs. current pods). | Confirms that a pod has been scheduled on every node. |
-| `kubectl describe ds lacework-agent -n lacework` | Get detailed information about the DaemonSet, including events and scheduling. | Useful for troubleshooting scheduling or image issues. |
-| `helm list -n lacework` | Verify that the Helm release is installed and deployed correctly. | Displays Helm releases, versions, and deployment timestamps. |
-| `helm status lacework-agent -n lacework` | Get a summary of the Helm release status and resources created. | Confirms if the Helm-managed DaemonSet and related resources are healthy. |
-| `helm get manifest lacework-agent -n lacework | grep -n "kind: DaemonSet` | Confirm that the Helm chart deployed a DaemonSet resource. | Ensures the chart actually creates a DaemonSet during installation. |
-| `kubectl logs -n lacework <pod-name>` | View the logs of a specific Lacework agent pod. | Helps verify that the agent is successfully connecting and sending telemetry. |
-| `kubectl get nodes -o wide` | Cross-check which nodes exist and ensure each has a Lacework pod scheduled. | Use this along with `get pods` to verify node-to-pod mapping. |
+| ```bash<br>kubectl get pods -n lacework -o wide<br>``` | Verify that all Lacework agent pods are running and assigned to the correct nodes. | Displays pod names, IPs, and node assignments for quick validation. |
+| ```bash<br>kubectl get daemonsets -n lacework<br>``` | Check the DaemonSet’s desired, current, and ready pod counts. | Ensures a pod has been scheduled on every node. |
+| ```bash<br>kubectl describe ds lacework-agent -n lacework<br>``` | Get detailed info about the DaemonSet, including events and scheduling. | Useful for diagnosing pod placement or image issues. |
+| ```bash<br>helm list -n lacework<br>``` | Verify the Helm release is installed and deployed correctly. | Lists Helm releases, chart versions, and deployment timestamps. |
+| ```bash<br>helm status lacework-agent -n lacework<br>``` | Check the status of the Helm release and view deployed resources. | Confirms the Helm-managed DaemonSet and related resources are healthy. |
+| ```bash<br>helm get manifest lacework-agent -n lacework \| grep -n "kind: DaemonSet"<br>``` | Confirm that the Helm chart deployed a DaemonSet resource. | Ensures the Helm release actually created the DaemonSet. |
+| ```bash<br>kubectl logs -n lacework &lt;pod-name&gt;<br>``` | View logs for a specific Lacework agent pod. | Helps verify that the agent is communicating with the Lacework platform. |
+| ```bash<br>kubectl get nodes -o wide<br>``` | Check node details and ensure each node has an agent pod assigned. | Combine with `get pods` for node-to-pod coverage verification. |
+| ```bash<br>kubectl get daemonsets,pods -n lacework -o wide<br>``` | Quick overview of both DaemonSets and pods in the same command. | Best for a one-line cluster health snapshot. |
 
 ---
 
 > 💡 **Tip:**  
-> After installation, always verify the **DaemonSet** and **pods** are in a `READY` state across all nodes.  
-> You can combine commands like:  
+> Use the combined command below for a fast overview of your **Lacework DaemonSet** and all associated **pods**:
 > ```bash
 > kubectl get daemonsets,pods -n lacework -o wide
-> ```  
-> to see both resources together for a quick health snapshot.
+> ```
+> This shows desired vs. ready pod counts, node placement, and container details all in one view.
+
 
 
