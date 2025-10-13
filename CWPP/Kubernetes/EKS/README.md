@@ -60,19 +60,7 @@ helm repo add lacework https://lacework.github.io/helm-charts/
 helm repo update
 ```
 
-#### ✅ 3.1. Method-1. Deploy Agent Using CLI:
-
-```bash
-helm upgrade --install lacework-agent lacework/lacework-agent \
-  --namespace lacework --create-namespace \
-  --set laceworkConfig.accessToken=2f2abcdefghijklmnopqr \
-  --set laceworkConfig.serverUrl=https://aaa-eu.lacework.net \
-  --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
-  --set laceworkConfig.env=poc \
-# --set laceworkConfig.proxyUrl=http://proxy.example:3128 \
-  --set 'tolerations[0].operator=Exists'
-```
-#### ⚙️ FortiCNAPP Agent Resource Configuration (Addtional if required) :
+#### ⚙️ FortiCNAPP Agent Helm Configuration Summary (Preparation for part 3.):
 
 | **Configuration** | **Purpose / Description** | **Example Helm Command / Value** |
 |--------------------|---------------------------|----------------------------------|
@@ -88,28 +76,20 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 | 🧩 **Universal Toleration (POC / Full Coverage)** | Allows the agent to tolerate *all taints* — runs on every node. | `--set 'tolerations[0].operator=Exists'` |
 | 🛡️ **Explicit Tolerations (Production / Controlled)** | Allows the agent to run **only** on specific tainted nodes (e.g., master, control-plane, infra). | ```yaml<br>tolerations:<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/master<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/control-plane<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/infra<br>``` |
 
----
+----
 
-### 🧩 Example: Combined Helm Installation Command
+#### ✅ 3.1. Method-1. Deploy Agent Using CLI:
 
 ```bash
-helm install lacework-agent lacework/lacework-agent \
-  --set accessToken=${LACEWORK_AGENT_TOKEN} \
-  --set serverUrl=${LACEWORK_SERVER_URL} \
-  --set kubernetesCluster=${KUBERNETES_CLUSTER_NAME} \
-  --set laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME} \
-  --set resources.requests.cpu=300m \
-  --set resources.limits.cpu=500m \
-  --set resources.requests.memory=384Mi \
-  --set resources.limits.memory=512Mi \
-  --set priorityClassCreate=true \
-  --set 'tolerations[0].operator=Exists' \
-  -n lacework
-
-
-
-
-
+helm upgrade --install lacework-agent lacework/lacework-agent \
+  --namespace lacework --create-namespace \
+  --set laceworkConfig.accessToken=2f2abcdefghijklmnopqr \
+  --set laceworkConfig.serverUrl=https://aaa-eu.lacework.net \
+  --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
+  --set laceworkConfig.env=poc \
+# --set laceworkConfig.proxyUrl=http://proxy.example:3128 \
+  --set 'tolerations[0].operator=Exists'
+```
 
 #### ✅ 3.2. Method-2. Deploy Agent Using values.yaml file:
 The values.yaml file is the configuration file for a Helm chart.
