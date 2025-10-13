@@ -42,7 +42,7 @@ Deployment using Lacework PowerShell Script Flow
 ├ 3.1. Deployment using Lacework Script.
 ├ 3.2. Deployment using Lacework Script (with Proxy Settings)
 ├ 4. Verify, Restart, Troubleshoot
---- Linux Agent Reference Links
+🐧Linux Agent Reference Links
 ```
 #### ✅ 1. Create New Agent Access Token:
 
