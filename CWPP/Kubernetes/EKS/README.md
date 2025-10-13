@@ -6,6 +6,14 @@ That’s why:
 - You add tolerations so it runs on all nodes (even tainted ones)
 - You use Helm to automate and manage this deployment safely
 
+🧠 Note: What Are “Taints” and “Tolerations” in Kubernetes?
+ --set 'tolerations[0].operator=Exists'
+
+Kubernetes taints and tolerations work together to control which Pods can run on which nodes.
+Taint = rule on a node saying:
+“Only pods that tolerate this taint are allowed here.”
+Toleration = permission on a pod saying:
+“I can run on nodes that have this taint.
 
 - Use **Helm** for easy deployment and lifecycle management
 
@@ -47,16 +55,6 @@ helm repo update
 ```
 
 #### ✅ 3.1. Method-1. Deploy Agent Using CLI:
-
-🧠 Note: What Are “Taints” and “Tolerations” in Kubernetes?
- --set 'tolerations[0].operator=Exists'
-
-Kubernetes taints and tolerations work together to control which Pods can run on which nodes.
-Taint = rule on a node saying:
-“Only pods that tolerate this taint are allowed here.”
-Toleration = permission on a pod saying:
-“I can run on nodes that have this taint.
-
 
 ```bash
 helm upgrade --install lacework-agent lacework/lacework-agent \
