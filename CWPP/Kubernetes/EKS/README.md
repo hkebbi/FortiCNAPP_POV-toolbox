@@ -23,14 +23,6 @@ Kubernetes **taints** and **tolerations** work together to control **which pods 
 
 ---
 
-### 🚀 Helm Deployment Options
-
-| **Method** | **Command / Example** | **Description** |
-|-------------|------------------------|-----------------|
-| **Universal Toleration (Easy / POC)** | ```bash<br>--set 'tolerations[0].operator=Exists'<br>``` | 🧩 “This agent pod tolerates all taints — all
-
-
-
 ### 🧱 Helm Summary
 
 | **Component / Concept** | **Description** |
