@@ -42,6 +42,7 @@ Deployment using Lacework PowerShell Script Flow
 ├ 3.1. Deployment using Lacework Script.
 ├ 3.2. Deployment using Lacework Script (with Proxy Settings)
 ├ 4. Verify, Restart, Troubleshoot
+|- Linux Agent Reference Links
 ```
 #### ✅ 1. Create New Agent Access Token:
 
@@ -110,8 +111,6 @@ service datacollector [start | stop | restart]
 ```bash
 initctl [start | stop | restart] datacollector
 ```
-
-#### ✅ 4.2. Uninstall the Linux Agent from a Host Machine
 
 You can use the following package-specific commands to remove all files, including the configuration and log files created by the agent.  
 ```bash
