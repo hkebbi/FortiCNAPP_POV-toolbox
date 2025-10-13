@@ -1,10 +1,17 @@
 ## 🛡️ EKS agent Deployment Using Helm Charts
 - Use **Helm** for easy deployment and lifecycle management
+Helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
+- Helm is a package manager for K8s that uses a packaging format called charts. A chart is a collection of files that describe a related set of K8s resources. 
+- Helm charts are just collections of Kubernetes manifests (YAML files).
 
 
+For the Lacework FortiCNAPP (or similar monitoring/agent-based) charts:
+Helm acts as the installer and lifecycle manager.
+The DaemonSet is the actual Kubernetes workload that ensures one agent pod runs on every node.
+So, in essence: Helm → installs and manages → DaemonSet → runs agents on every node.
 
 
-
+* Fargate does not support Daemonset. So, the only way to monitor an application running on Fargate is by embedding the agent in the application at image build time or by injecting a sidecar into the pod.
 
 
 ---
