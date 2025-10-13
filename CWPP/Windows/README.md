@@ -26,6 +26,7 @@ Deployment using Lacework PowerShell Script Flow
 ├ 3. Deployment using Lacework PowerShell Script  without a Configuration File.
 ├ 4. Verify.
 ✅ Reference Links
+✅ Just Side Note: Other Installation Methods for Windows Servers Supported
 ```
 #### ✅ 1. Create New Access Token:
 
@@ -129,7 +130,7 @@ $app.Uninstall()
 
 ---
 
-### ✅ Just a Side Note: Other Installation Methods for Windows Servers Supported
+### ✅ Just Side Note: Other Installation Methods for Windows Servers Supported
 
 | **Environment / Cloud** | **Installation Method** | **Notes** |
 |--------------------------|--------------------------|------------|
