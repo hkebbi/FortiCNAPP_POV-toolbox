@@ -15,11 +15,12 @@
 
 | **Deployment Method** | **Description** | **Supported Capabilities** |
 |------------------------|-----------------|-----------------------------|
-| ⚡ **Automated Configuration** | Deploy FortiCNAPP using a **prebuilt Terraform automation flow** that provisions all required resources automatically in a **single AWS region**.<br><br>🔑 *Note:* Requires **temporary credentials** (AWS Access Key ID & Secret Access Key) for your AWS account. | ✅ Single&nbsp;AWS&nbsp;Account, ✅ Cloud&nbsp;Config&nbsp;&amp;&nbsp;Audit&nbsp;Logs, ✅ Agentless&nbsp;Workload&nbsp;Scanning |
+| ⚡ **Automated Configuration** | Deploy FortiCNAPP using a **prebuilt Terraform automation flow** that provisions all required resources automatically in a **single AWS region**.<br><br>🔑 *Note:* Requires **temporary credentials** (AWS Access Key ID & Secret Access Key) for your AWS account. | ✅ Single AWS Account <br>✅ Cloud Config & Audit Logs <br>✅ Agentless Workload Scanning |
 | <br> | <br> | <br> |
-| 🧭 **Terraform via Guided Configuration (UI)** | Deploy and manage FortiCNAPP integrations through the **FortiCNAPP Web Console**.<br><br>Provides a **wizard-based experience** for onboarding and connecting AWS environments without direct CLI interaction. | ✅ Single&nbsp;&amp;&nbsp;Multiple&nbsp;AWS&nbsp;Accounts, ✅ Cloud&nbsp;Config&nbsp;&amp;&nbsp;Audit&nbsp;Logs, ✅ EKS&nbsp;Audit&nbsp;Logs |
+| 🧭 **Terraform via Guided Configuration (UI)** | Deploy and manage FortiCNAPP integrations through the **FortiCNAPP Web Console**.<br><br>Provides a **wizard-based experience** for onboarding and connecting AWS environments without direct CLI interaction. | ✅ Single & Multiple AWS Accounts <br>✅ Cloud Config & Audit Logs <br>✅ EKS Audit Logs |
 | <br> | <br> | <br> |
-| ⚙️ **Terraform via FortiCNAPP CLI** | Command-line–driven automation using the **open-source FortiCNAPP CLI** (written in Go).<br><br>Ideal for **organization-wide**, **multi-account**, or **DevOps-integrated** deployments. | ✅ AWS&nbsp;Organization-level&nbsp;Access, ✅ Single&nbsp;&amp;&nbsp;Multiple&nbsp;AWS&nbsp;Sub-Accounts, ✅ Cloud&nbsp;Config&nbsp;&amp;&nbsp;Audit&nbsp;Logs, ✅ EKS&nbsp;Audit&nbsp;Logs, ✅ Agentless&nbsp;Workload&nbsp;Scanning |
+| ⚙️ **Terraform via FortiCNAPP CLI** | Command-line–driven automation using the **open-source FortiCNAPP CLI** (written in Go).<br><br>Ideal for **organization-wide**, **multi-account**, or **DevOps-integrated** deployments. | ✅ AWS Organization-level Access <br>✅ Single & Multiple AWS Sub-Accounts <br>✅ Cloud Config & Audit Logs <br>✅ EKS Audit Logs <br>✅ Agentless Workload Scanning |
+
 
 
 
