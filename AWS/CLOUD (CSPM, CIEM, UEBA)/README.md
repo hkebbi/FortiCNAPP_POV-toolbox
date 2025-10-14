@@ -1,4 +1,4 @@
-### ☁️ AWS & FortiCNAPP Prerequisites
+### ☁️ AWS & FortiCNAPP Terraform Prerequisites
 
 | **Component / Requirement** | **Description** | **Reference / Link** |
 |------------------------------|-----------------|----------------------|
@@ -8,3 +8,5 @@
 | ⚙️ **Terraform** | Install Terraform if not already configured. | [Terraform Documentation](https://developer.hashicorp.com/terraform) |
 | 🧠 **FortiCNAPP CLI** | Open-source CLI tool written in Golang. Available for **Linux**, **macOS**, and **Windows**.<br>Used to interact with FortiCNAPP via command line. | [FortiCNAPP CLI Guide](https://docs.fortinet.com/document/forticnapp/latest/cli-reference/68020/get-started-with-the-lacework-forticnapp-cli) |
 | ⚡ **Deployment Methods** | Supported installation environments and automation options:<br>• **AWS Cloud Shell**<br>• **Hosts managed by Terraform** | — |
+
+
