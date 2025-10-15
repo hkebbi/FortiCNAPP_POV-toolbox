@@ -27,7 +27,7 @@
 
 
 
-### ☁️ AWS Prerequisites for FortiCNAPP Integration
+### ☁️ AWS Configuration for FortiCNAPP Integration
 
 | **Component** | **Description** | **FortiCNAPP Usage / Notes** |
 |----------------|-----------------|-------------------------------|
