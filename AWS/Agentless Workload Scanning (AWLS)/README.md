@@ -1,3 +1,13 @@
+Agentless Workload Scanning - AWLS:
+
+Why ? 
+
+
+
+How ?
+
+
+What ?
 
 
 What minimum CPU and memory are required for agentless scanning?
