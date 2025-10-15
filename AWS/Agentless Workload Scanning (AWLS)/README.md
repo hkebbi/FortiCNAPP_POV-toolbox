@@ -72,4 +72,9 @@ lacework generate cloud-account aws
 <img width="654" height="319" alt="Screenshot 2025-10-15 at 12 20 44 PM" src="https://github.com/user-attachments/assets/b8b6638d-1317-439b-863a-4f02a8d6928f" />
 
 
+Optionally: 
+Limit the scanning using a query to explicitly select the scanned hosts. By default, all workloads will be scanned.
+
+
+
 
