@@ -1,4 +1,3 @@
-<img width="753" height="763" alt="Screenshot 2025-10-15 at 11 16 39 AM" src="https://github.com/user-attachments/assets/2e7ed061-1e2c-4dbd-b414-e335992ab14e" />Agentless workload scanning enables you to quickly gain comprehensive visibility into vulnerability risks and secrets across your cloud workloads — without the need to install agents. With this option, you have more flexibility and choice to scan and detect vulnerabilities and secrets across all hosts and container images to meet your coverage needs. For example, you can integrate your AWS organization account with Lacework's agentless workload scanning to scan for vulnerability risks and secrets within all your cloud accounts. For maximum value and security, you can combine agentless workload scanning with agent-based workload scanning to gain deeper insights.
 
 
 What minimum CPU and memory are required for agentless scanning?
@@ -77,4 +76,5 @@ Limit the scanning using a query to explicitly select the scanned hosts. By defa
 
 
 
+<img width="753" height="763" alt="Screenshot 2025-10-15 at 11 16 39 AM" src="https://github.com/user-attachments/assets/2e7ed061-1e2c-4dbd-b414-e335992ab14e" />Agentless workload scanning enables you to quickly gain comprehensive visibility into vulnerability risks and secrets across your cloud workloads — without the need to install agents. With this option, you have more flexibility and choice to scan and detect vulnerabilities and secrets across all hosts and container images to meet your coverage needs. For example, you can integrate your AWS organization account with Lacework's agentless workload scanning to scan for vulnerability risks and secrets within all your cloud accounts. For maximum value and security, you can combine agentless workload scanning with agent-based workload scanning to gain deeper insights.
 
