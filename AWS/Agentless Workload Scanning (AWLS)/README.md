@@ -67,7 +67,7 @@ This method offers **flexibility and coverage** for scanning both **hosts** and 
 
 In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **multi-regional, single-account** or **multi-account** environment.
 
-### 🔧 Deployment Flow
+### 🔧 Configuration Flow
 
 ```bash
 lacework generate cloud-account aws
