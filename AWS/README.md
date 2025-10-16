@@ -40,3 +40,20 @@ aws sts get-caller-identity
 
 # Show current Lacework tenant and API key info
 lacework configure show
+
+
+
+Before you start make sure you have AWS Profile configured to connect to AWS Account (during: aws configure):
+Check Your Current AWS CLI Profile (example): 
+```bash
+aws configure list:
+
+      Name                    Value             Type    Location
+      ----                    -----             ----    --------
+   profile                <not set>             None    None
+access_key     ****************ABCD      shared-credentials-file
+secret_key     ****************1234      shared-credentials-file
+    region                us-east-1      config-file    ~/.aws/config
+
+    If profile shows <not set>, it means the default profile is being used (from ~/.aws/credentials).
+```
