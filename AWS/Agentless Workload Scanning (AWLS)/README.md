@@ -1,43 +1,49 @@
 Agentless Workload Scanning - AWLS:
 
-Why ? 
+Why ?  
 Agentless workload scanning enables you to gain comprehensive visibility into vulnerability risks and secrets across your cloud workloads.
 With this option, you have more flexibility and choice to scan and detect vulnerabilities and secrets across all hosts and container images to meet your coverage  without the need to install agents.
+This gives customers visibility into CVEs present on their hosts and containers. For containers, it can scan both running containers as well as images residing on the disk,  which is a feature add to our agent, as scanning running images directly on the machine itself is not supported. 
 
-How ?
+It does not give workload activity monitoring, to get that full experience: FortiCNAPP Agent must be installed.
+- Agentless is designed not to replace the Agent, but to co-exist with both adding additional value and insights. 
 
+How ?  
+Private by design:
+
+1- customer runs Agentless Terraform to deploy resources in their cloud org,
+2- scanning task writes output to their storage
+3- Customer grants LW read access to that storage,
+4- LW does not have access to customer cloud (only what we deployed, with limited permissions)
+5- read data from the customer’s cloud storage, where scanner wrote its results: This can be S3, 
+
+
+
+
+Amazon Elastic Container Service (Amazon ECS) is a fully managed container orchestration service that helps you easily deploy, manage, and scale containerized applications
+
+sidekick is packaged as a container and deployed as a Fargate task or Google Cloud Run in customer environment via CloudFormation or Terraform. The container is essentially an ubuntu image packaged with sidekick  processes written primarily in golang
+sidekick enumerates customer workloads, finds the attached volumes, mounts them appropriately and scans the volumes.
+sidekick a golang binary which is deployed as a container in the customer environment (AWS and GCP). 
+
+Agentless scanning uses its own serverless cluster and configures its own CPU and memory limits that are optimized for cost savings.
+By default, agentless workload scanning runs every 24 hours. This scan frequency can be configured in the integration settings in the FortiCNAPP console
+- More frequent scans can result in higher AWS costs for snapshotting and periodic scanning.
+The scanning infrastructure runs in your account, so you can securely delegate key management privileges to the role that is invoked to run the scan.
+
+1-
+
+
+4- Periodically, the scanner removes any old snapshots and long-running scan tasks. The scanner cleans up its own resources and does not require management or cleanup by you.
 
 What ?
 
 
-What minimum CPU and memory are required for agentless scanning?
-Agentless scanning does not require CPU and memory from your active workloads. It uses its own serverless cluster and configures its own CPU and memory limits that are optimized for cost savings.
-- More frequent scans can result in higher AWS costs for snapshotting and periodic scanning.
-
-
-
-By default, agentless workload scanning runs every 24 hours. This scan frequency can be configured in the integration settings in the FortiCNAPP console:
-
-
-Scan results are evaluated every 24 hours and reported in the Vulnerabilities section of the Lacework FortiCNAPP console.
-The evaluation frequency is fixed at a 24-hour interval and is not configurable. Changing the agentless scanning frequency will not change the evaluation frequency. When scan intervals are shortened to less than 24 hours, all the scanned manifests are saved and evaluated at the next scheduled evaluation run.
 
 
 
 How does  FortiCNAPP scan encrypted volumes?
-The scanning infrastructure runs in your account, so you can securely delegate key management privileges to the role that is invoked to run the scan.
 
-
-Are agentless snapshots automatically deleted?
-Periodically, the scanner removes any old snapshots and long-running scan tasks. The scanner cleans up its own resources and does not require management or cleanup by you.
-The following rules apply:
-Tags are applied to agentless snapshots. The installed IAM policy allows only snapshots containing these tags to be deleted.
-A single snapshot per host is retained to determine if content has changed since the last snapshot.
-Each hour, snapshots older than 24 hours are removed.
-
-
-Agentless workload scanning logs details about any secret credentials and associated file metadata found during scans.
-The files are identified as secrets if they adhere to a common format depending on the type of credential. The actual content of any secret credentials is not logged.
 
 
 
