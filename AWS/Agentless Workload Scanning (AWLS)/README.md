@@ -3,8 +3,6 @@
 
 ## 🧠 Why AWLS?
 
-## 🧠 Why AWLS?
-
 | Section | Description |
 |----------|--------------|
 | **Overview** | **Agentless Workload Scanning (AWLS)** provides comprehensive visibility into **vulnerability risks** and **secrets** across your cloud workloads — without installing agents. |
