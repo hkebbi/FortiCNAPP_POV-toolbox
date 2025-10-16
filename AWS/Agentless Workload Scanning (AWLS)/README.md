@@ -11,8 +11,8 @@ It does not give workload activity monitoring, to get that full experience: Fort
 What is Deployed ?  
 Private by design: Agentless Workload Scanning workflow
 
-1- Customer runs Agentless AWLS Terraform to deploy resources in their cloud.
-    * Create ECS clusters (with sidekick container), VPC, subnet, and Internet Gateway for the ECS cluster per Region.
+1- Customer runs Agentless AWLS Terraform to deploy resources in their cloud. (Explained in details next part)
+    * Create IAM Roles, S3 Bukets, ECS clusters (with sidekick container), VPC, subnet, and Internet Gateway for the ECS cluster per Region.
 2- The sidekick container is executed by an ECS Fargate task.
 3- The task automates the enumeration of customer workloads, identification of attached block volumes, & secure mounting of these volumes.
 4- Start execution of scanning operations to collect and analyze data from customer environment
@@ -29,16 +29,17 @@ Additional Info:
 
 How AWLS is deployed ?
 
-In this deployment we will use Terraform via FortiCNAPP CLI (lacework generate cloud-account aws )
+In this deployment we will use Terraform via FortiCNAPP CLI (lacework generate cloud-account aws ):  
+
 <img width="895" height="437" alt="image" src="https://github.com/user-attachments/assets/181a3eae-b835-47c8-a7c7-5cb9abb1e45d" />
 
 
 
 
 Deployment:
-This module will install global and regional resources. 
-The global resources should be installed once for a  FortiCNAPP integration. 
-The regional resources should be installed in each region where scanning will occur. Having per-region resources assures that no cross-region traffic occurs.
+This module will install Global and Regional resources. 
+The Global resources (Monitored account) should be installed once for the FortiCNAPP integration (Where a role used to create snapshots, and access snapshot, etc..)
+The Regional resources (Scanning account) should be installed in each region where scanning will occur. Having per-region resources assures that no cross-region traffic occurs.
 
 
 Once you have read and completed the Prerequisites, complete the integration steps depending on your chosen integration level:
@@ -47,21 +48,6 @@ AWS Single Account Integration
 AWS Organization Integration (two options available)
 
 
-
-High-level deployment requirements
-Create ECS clusters, then create a VPC, subnets, and Internet Gateway for the ECS cluster.
-IAM permission to create an ECS task execution role, task role, and an EventBridge role for starting ECS tasks.
-IAM permission to create a cross-account role that has permissions to read from a newly created S3 bucket and start ECS tasks.
-Create CloudWatch Log Groups and Streams.
-Create a new S3 bucket.
-Create a new secret in AWS Secrets Manager.
-
-
-- The Scanning account is the AWS account where the scanning infrastructure will be installed per region.
-This includes a new VPC, Internet Gateway, and ECS Cluster per region.
-- Monitored account where a role used to create snapshots, and access snapshot data, is installed.
-
-Amazon Elastic Container Service (Amazon ECS) is a fully managed container orchestration service that helps you easily deploy, manage, and scale containerized applications.
 
 
 https://registry.terraform.io/modules/lacework/agentless-scanning/aws/latest
