@@ -36,16 +36,12 @@
 |------|--------------|
 | **Overview** | In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **multi-regional, single-account** or **multi-account** environment. |
 | ⚠️ **Pre-Deployment Note** | Make sure you have both: <br><br> 🟦 **AWS Profile** — for your **AWS account integration** <br> 🟩 **FortiCNAPP (Lacework) Profile** — for your **FortiCNAPP tenant integration** <br><br> 📘 For setup instructions and configuration details, refer to the [**Main AWS Folder `README.md`**](../README.md). |
-| **1** | Run the following command to generate your AWS cloud account integration using the **FortiCNAPP (Lacework) CLI**:<br><br> `lacework generate cloud-account aws` |
-| **2** | *(Optional)* Explicitly specify the **FortiCNAPP CLI profile** if you are using a named or multi-profile setup:<br><br> `lacework generate cloud-account aws --profile default` |
-| **3** | During setup, you’ll be prompted for configuration options such as:<br><br> • **Enable integrations for AWS organization** → No  <br> • **Main AWS account profile** → default  <br> • **Main AWS account region** → eu-central-1  <br> • **Enable Agentless integration** → Yes  <br> • **Add another scanning AWS account** → Yes  <br> • **Scanning AWS account profile** → default  <br> • **Scanning AWS account region** → me-south-1  <br> • **Enable Configuration integration** → No  <br> • **Enable CloudTrail integration** → No  <br> • **Custom output location** → .  <br> • **Run Terraform plan now?** → Yes |
-| **4** | The CLI initializes **Terraform** and installs required provider plugins:<br><br> • `hashicorp/null`  <br> • `hashicorp/aws`  <br> • `lacework/lacework`  <br> • `hashicorp/random` |
-| **5** | Once deployment completes, verify the cloud account integration using:<br><br> `lacework -p onboarding cloud-account list` <br><br>Example output:<br><br> ```
-CLOUD ACCOUNT GUID | NAME                   | TYPE           | STATUS   | STATE
--------------------+------------------------+----------------+----------+--------
-316                | aws-agentless-scanning | AwsSidekick    | Enabled  | Ok
-``` |
-| **6** | To delete the deployment, remove Terraform files and destroy resources:<br><br> `ls tfplan.json terraform.tfstate main.tf`  <br> `terraform destroy` |
+| **1** | Run the following command to generate your AWS cloud account integration using the **FortiCNAPP (Lacework) CLI**:<br><br>    lacework generate cloud-account aws |
+| **2** | *(Optional)* Explicitly specify the **FortiCNAPP CLI profile** if you are using a named or multi-profile setup:<br><br>    lacework generate cloud-account aws --profile default |
+| **3** | During setup, you’ll be prompted for configuration options such as:<br><br>    • **Enable integrations for AWS organization** → No  <br>    • **Main AWS account profile** → default  <br>    • **Main AWS account region** → eu-central-1  <br>    • **Enable Agentless integration** → Yes  <br>    • **Add another scanning AWS account** → Yes  <br>    • **Scanning AWS account profile** → default  <br>    • **Scanning AWS account region** → me-south-1  <br>    • **Enable Configuration integration** → No  <br>    • **Enable CloudTrail integration** → No  <br>    • **Custom output location** → .  <br>    • **Run Terraform plan now?** → Yes |
+| **4** | The CLI initializes **Terraform** and installs required provider plugins:<br><br>    • hashicorp/null  <br>    • hashicorp/aws  <br>    • lacework/lacework  <br>    • hashicorp/random |
+| **5** | Once deployment completes, verify the cloud account integration using:<br><br>    lacework -p onboarding cloud-account list <br><br>Example output:<br><br>    CLOUD ACCOUNT GUID | NAME                   | TYPE           | STATUS   | STATE  <br>    -------------------+------------------------+----------------+----------+--------  <br>    316                | aws-agentless-scanning | AwsSidekick    | Enabled  | Ok |
+| **6** | To delete the deployment, remove Terraform files and destroy resources:<br><br>    ls tfplan.json terraform.tfstate main.tf  <br>    terraform destroy |
 
 ---
 
