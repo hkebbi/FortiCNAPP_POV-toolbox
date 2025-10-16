@@ -65,10 +65,13 @@ lacework generate cloud-account aws --profile default
 
 
 
-### 🛡️ Verify from UI (After 24 hours):
-<img width="1315" height="681" alt="Screenshot 2025-10-16 at 5 05 39 PM" src="https://github.com/user-attachments/assets/bf5fcd6a-6893-4e16-9286-5c6e216bc34c" />
+### 🛡️ Verify from UI (After 24 hours) Vulnerability Tab filter:
+<img width="1315" height="681" alt="Screenshot 2025-10-16 at 5 05 39 PM" src="https://github.com/user-attachments/assets/bf5fcd6a-6893-4e16-9286-5c6e216bc34c" />  
 
-  
+### or from the new Agentless Tab (Preview) 
+
+<img width="1273" height="550" alt="Screenshot 2025-10-16 at 5 09 21 PM" src="https://github.com/user-attachments/assets/6d83ed97-93b4-466f-8301-374ab78e1fab" />
+
 ---
 
 ## 🧩 What Is Deploye in a Workflow ?
