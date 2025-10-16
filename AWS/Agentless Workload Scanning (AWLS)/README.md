@@ -1,8 +1,8 @@
 Agentless Workload Scanning - AWLS:
 
 Why ? 
-
-
+Agentless workload scanning enables you to gain comprehensive visibility into vulnerability risks and secrets across your cloud workloads.
+With this option, you have more flexibility and choice to scan and detect vulnerabilities and secrets across all hosts and container images to meet your coverage  without the need to install agents.
 
 How ?
 
