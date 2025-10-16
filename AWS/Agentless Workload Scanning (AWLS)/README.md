@@ -1,7 +1,7 @@
 # ☁️ AWS: Agentless Workload Scanning (AWLS)
 
 
-## 🧠 Why AWLS?
+## 🧠 Why Agentless Workload Scanning ?
 
 | Section | Description |
 |----------|--------------|
