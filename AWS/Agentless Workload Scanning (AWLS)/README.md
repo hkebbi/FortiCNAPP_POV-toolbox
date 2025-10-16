@@ -51,14 +51,6 @@ This method offers **flexibility and coverage** for scanning both **hosts** and 
 
 ## 🚀 How AWLS Is Deployed
 
-In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **multi-regional, single-account** or **multi-account** environment.
-
-### 🔧 Deployment Flow
-
-```bash
-lacework generate cloud-account aws
-```
-
 ## ☁️ AWS & FortiCNAPP Agentless Workload Scanning- AWLS Terraform Prerequisites
 
 | Component / Requirement | Description | Reference / Link |
@@ -73,22 +65,21 @@ lacework generate cloud-account aws
 
 
 
+In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **multi-regional, single-account** or **multi-account** environment.
 
-AWS Single Account Integration
-AWS Organization Integration (two options available)
+### 🔧 Deployment Flow
 
- AWS account must have Service Quotas allowing  these resources to be created and supported in each region selected: 
- - ECS, VPC, Internet Gateways
+```bash
+lacework generate cloud-account aws
+```
 
-
-
-
-
+<img width="895" height="437" alt="image" src="https://github.com/user-attachments/assets/4f792cef-f653-4b2c-976f-61e831718318" />
 
 
-Scanning account: Scanning infrastructure will only be installed on this account. This includes a new VPC, Internet Gateway and ECS Cluster per region.
-Monitored accounts: A role is installed that will create snapshots and access snapshot data.
-Reference:
+
+
+
+
 
 Terraform module for configuring an integration with Lacework and AWS for agentless scanning: 
 https://registry.terraform.io/modules/lacework/agentless-scanning/aws/latest
