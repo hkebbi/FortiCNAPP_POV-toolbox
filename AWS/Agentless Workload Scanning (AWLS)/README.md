@@ -15,6 +15,8 @@
 
 
 ---
+---  
+
 ## ☁️ AWS & FortiCNAPP Agentless Workload Scanning- AWLS Terraform Prerequisites
 
 | Component / Requirement | Description | Reference / Link |
@@ -28,9 +30,10 @@
 | ⚡ **Deployment Methods** | Supported installation environments and automation options:<br>• **AWS Cloud Shell**<br>• **Hosts Supported by Terraform** | — |
 
 ---
+---  
 
-## 🚀 How Agentless Workload Scanning Is Deployed ?
-# 🔧 AWS Cloud Account Configuration Workflow (FortiCNAPP) Using FortiCNAP CLI
+# 🚀 How Agentless Workload Scanning Is Deployed ?
+## 🔧 AWS Cloud Account Configuration Workflow (FortiCNAPP) Using FortiCNAP CLI
 
 
 | Step | Description |
@@ -44,6 +47,7 @@
 | **6** | Delete the deployment (destroy Terraform resources):<br>`terraform destroy` |
 
 ---
+---  
 
 ### 🛡️ Verify from UI (After 24 hours) Vulnerability Tab filter:
 <img width="1315" height="681" alt="Screenshot 2025-10-16 at 5 05 39 PM" src="https://github.com/user-attachments/assets/bf5fcd6a-6893-4e16-9286-5c6e216bc34c" />  
@@ -53,6 +57,7 @@
 <img width="1273" height="550" alt="Screenshot 2025-10-16 at 5 09 21 PM" src="https://github.com/user-attachments/assets/6d83ed97-93b4-466f-8301-374ab78e1fab" />
 
 ---
+---  
 
 ## 🧩 What Is Deployed in a Workflow ?
 
@@ -73,8 +78,9 @@
 | 🐳 **Powered by ECS** | *Amazon Elastic Container Service (Amazon ECS)* is a fully managed container orchestration service that simplifies deployment, scaling, and management of containerized applications. |
 
 
-
 ---
+---  
+
 ## 🔗 Reference Links
 
 | Reference | Description |
