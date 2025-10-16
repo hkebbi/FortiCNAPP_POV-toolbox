@@ -68,8 +68,16 @@ This method offers **flexibility and coverage** for scanning both **hosts** and 
 
 ### 🔧 Configuration Flow (Enabling AWS AWLS Only)
 
-Before you start make sure you have AWS Profile (AWS account Integration) and FortiCNAPP Profiles (FortiCNAPP Tenant Integration) configured.
- - Check the Main AWS Folder README.md file for details.
+> ⚠️ **Note**
+>
+> Before you start, make sure you have both:
+>
+> - 🟦 **AWS Profile** — for your **AWS account integration**
+> - 🟩 **FortiCNAPP (Lacework) Profile** — for your **FortiCNAPP tenant integration**
+>
+> 📘 For setup instructions and configuration details, refer to the  
+> **[Main AWS Folder `README.md`](../README.md)** file.
+
 
 ```bash
 lacework generate cloud-account aws
