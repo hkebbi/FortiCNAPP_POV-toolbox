@@ -63,6 +63,9 @@ lacework generate cloud-account aws --profile default
 
 <img width="1059" height="98" alt="Screenshot 2025-10-16 at 3 47 37 PM" src="https://github.com/user-attachments/assets/477db464-8e70-42f7-803b-cade1ac8a74a" />  
 
+To delete the deployment:
+
+<img width="431" height="49" alt="Screenshot 2025-10-16 at 5 12 59 PM" src="https://github.com/user-attachments/assets/085a6854-27b6-4417-b187-7224f4781841" />
 
 
 ### 🛡️ Verify from UI (After 24 hours) Vulnerability Tab filter:
@@ -74,7 +77,8 @@ lacework generate cloud-account aws --profile default
 
 ---
 
-## 🧩 What Is Deploye in a Workflow ?
+---
+## 🧩 What Is Deployed in a Workflow ?
 
 ### 🛡️ Private-by-Design: 
 
