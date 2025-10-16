@@ -68,6 +68,20 @@ To delete the deployment:
 <img width="431" height="49" alt="Screenshot 2025-10-16 at 5 12 59 PM" src="https://github.com/user-attachments/assets/085a6854-27b6-4417-b187-7224f4781841" />
 
 
+## 🍀 Configure AWS Cloud Account Integration
+
+| Step | Description |
+|------|--------------|
+| **1** | Run the following command to generate your AWS cloud account integration using the **FortiCNAPP (Lacework) CLI**: <br><br>```bash<br>lacework generate cloud-account aws<br>``` |
+| **2** | *(Optional)* Explicitly specify the **FortiCNAPP CLI profile** if you are using a named or multi-profile setup: <br><br>```bash<br>lacework generate cloud-account aws --profile default<br>``` |
+| **3** | During setup, you’ll be prompted for configuration options such as:<br>• **Enable integrations for AWS organization** → `No`<br>• **Main AWS account profile** → `default`<br>• **Main AWS account region** → `eu-central-1`<br>• **Enable Agentless integration** → `Yes`<br>• **Add another scanning AWS account** → `Yes`<br>• **Scanning AWS account profile** → `default`<br>• **Scanning AWS account region** → `me-south-1`<br>• **Enable Configuration integration** → `No`<br>• **Enable CloudTrail integration** → `No`<br>• **Custom output location** → `.`<br>• **Run Terraform plan now?** → `Yes` |
+| **4** | The CLI initializes Terraform and installs required provider plugins:<br>• `hashicorp/null`<br>• `hashicorp/aws`<br>• `lacework/lacework`<br>• `hashicorp/random` |
+| **5** | Once deployment completes, verify the cloud account integration using:<br><br>```bash<br>lacework -p onboarding cloud-account list<br>```<br>Example output:<br>```\nCLOUD ACCOUNT GUID | NAME                     | TYPE           | STATUS   | STATE\n-------------------+---------------------------+----------------+----------+--------\n316                | aws-agentless-scanning    | AwsSidekick    | Enabled  | Ok\n``` |
+| **6** | To delete the deployment, remove Terraform files and destroy resources:<br><br>```bash<br>ls tfplan.json terraform.tfstate main.tf<br>terraform destroy<br>``` |
+
+
+
+
 ### 🛡️ Verify from UI (After 24 hours) Vulnerability Tab filter:
 <img width="1315" height="681" alt="Screenshot 2025-10-16 at 5 05 39 PM" src="https://github.com/user-attachments/assets/bf5fcd6a-6893-4e16-9286-5c6e216bc34c" />  
 
