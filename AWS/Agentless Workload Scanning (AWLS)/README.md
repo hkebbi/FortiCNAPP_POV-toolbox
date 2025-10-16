@@ -64,6 +64,11 @@ lacework generate cloud-account aws --profile default
 <img width="1059" height="98" alt="Screenshot 2025-10-16 at 3 47 37 PM" src="https://github.com/user-attachments/assets/477db464-8e70-42f7-803b-cade1ac8a74a" />  
 
 
+
+### 🛡️ Verify from UI (After 24 hours):
+<img width="1315" height="681" alt="Screenshot 2025-10-16 at 5 05 39 PM" src="https://github.com/user-attachments/assets/bf5fcd6a-6893-4e16-9286-5c6e216bc34c" />
+
+  
 ---
 
 ## 🧩 What Is Deploye in a Workflow ?
@@ -86,7 +91,6 @@ lacework generate cloud-account aws --profile default
 
 
 
-  
 ---
 ## 🔗 Reference Links
 
