@@ -50,13 +50,6 @@ AWS Organization Integration (two options available)
 
 
 
-https://registry.terraform.io/modules/lacework/agentless-scanning/aws/latest
-<img width="451" height="336" alt="Screenshot 2025-10-15 at 11 12 24 AM" src="https://github.com/user-attachments/assets/95dbc81c-8c8e-48e2-9bd7-f38e53f85a76" />
-
-
-
-
-
 lacework generate cloud-account aws  
 <img width="654" height="319" alt="Screenshot 2025-10-15 at 12 20 44 PM" src="https://github.com/user-attachments/assets/b8b6638d-1317-439b-863a-4f02a8d6928f" />
 
