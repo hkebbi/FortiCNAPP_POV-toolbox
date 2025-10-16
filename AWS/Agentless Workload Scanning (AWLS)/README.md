@@ -66,9 +66,9 @@ lacework generate cloud-account aws --profile default
 
 ---
 
-## 🧩 What Is Deployed?
+## 🧩 What Is Deploye in a Workflow ?
 
-## 🛡️ Private-by-Design: Agentless Workflow
+# 🛡️ Private-by-Design: 
 
 | Step | Description |
 |------|--------------|
