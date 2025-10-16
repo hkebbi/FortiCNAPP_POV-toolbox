@@ -76,6 +76,7 @@ lacework generate cloud-account aws
 <img width="895" height="437" alt="image" src="https://github.com/user-attachments/assets/4f792cef-f653-4b2c-976f-61e831718318" />
 
 
+<img width="1059" height="98" alt="Screenshot 2025-10-16 at 3 47 37 PM" src="https://github.com/user-attachments/assets/477db464-8e70-42f7-803b-cade1ac8a74a" />
 
 
 ## 🔗 Reference Links
