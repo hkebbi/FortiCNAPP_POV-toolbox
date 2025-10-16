@@ -80,7 +80,7 @@ In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **mu
 > **[Main AWS Folder `README.md`](../README.md)** file.
 
 
-### 🧩 Generate AWS Cloud Account Integration
+### 🧩 Configure AWS Cloud Account Integration
 
 Run the following command to generate your AWS cloud account integration using the **FortiCNAPP (Lacework) CLI**:
 
@@ -88,7 +88,7 @@ Run the following command to generate your AWS cloud account integration using t
 lacework generate cloud-account aws
 ```
 
-or explicitly specify the Lacework CLI profile (optional):
+or explicitly specify the FortiCNAPP CLI profile (optional for default but required for other profile or multi-profile created ):
 ```bash
 lacework generate cloud-account aws --profile default
 ```
@@ -98,9 +98,11 @@ lacework generate cloud-account aws --profile default
 <img width="895" height="437" alt="image" src="https://github.com/user-attachments/assets/4f792cef-f653-4b2c-976f-61e831718318" />
 
 
-<img width="1059" height="98" alt="Screenshot 2025-10-16 at 3 47 37 PM" src="https://github.com/user-attachments/assets/477db464-8e70-42f7-803b-cade1ac8a74a" />
+<img width="1059" height="98" alt="Screenshot 2025-10-16 at 3 47 37 PM" src="https://github.com/user-attachments/assets/477db464-8e70-42f7-803b-cade1ac8a74a" />  
 
 
+
+  
 ## 🔗 Reference Links
 
 | Reference | Description |
