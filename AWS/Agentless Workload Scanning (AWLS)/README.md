@@ -22,6 +22,16 @@ This method offers **flexibility and coverage** for scanning both **hosts** and 
 > - Agentless is **complementary** to the agent — designed to **co-exist**, not replace it.
 
 ---
+## 🧠 Why AWLS?
+
+| Section | Description |
+|----------|--------------|
+| **Overview** | **Agentless Workload Scanning (AWLS)** provides comprehensive visibility into **vulnerability risks** and **secrets** across your cloud workloads — without installing agents. |
+| **Flexibility & Coverage** | Offers broad scanning capabilities for both **hosts** and **container images**, including:<br>• Scanning **running containers**<br>• Scanning **images stored on disk** |
+| 🍀 **Extended Visibility** | *This extends visibility beyond what the FortiCNAPP Agent provides, since direct in-place container scanning isn’t supported by the agent.* |
+| **Key Benefits** | • Gain insight into **CVEs** on hosts and containers.<br>• Eliminate the need to install or manage agents.<br>• Maintain **private-by-design** scanning within your own AWS environment.<br>• Improve coverage for **container and host vulnerability detection**. |
+| ⚠️ **Note** | • **AWLS does not provide workload activity monitoring.**<br>• To gain full runtime visibility and behavioral analytics, you must also deploy the **FortiCNAPP Agent**.<br>• Agentless is **complementary** to the agent — designed to **co-exist**, not replace it. |
+
 
 ## 🧩 What Is Deployed?
 
