@@ -30,7 +30,7 @@
 ---
 
 ## 🚀 How Agentless Workload Scanning Is Deployed ?
-# 🔧 AWS Cloud Account Integration Workflow (FortiCNAPP)
+# 🔧 AWS Cloud Account Configuration Workflow (FortiCNAPP) Using FortiCNAP CLI
 
 
 | Step | Description |
