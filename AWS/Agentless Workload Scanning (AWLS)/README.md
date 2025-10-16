@@ -102,6 +102,7 @@ lacework generate cloud-account aws --profile default
 
 
 
+
   
 ## 🔗 Reference Links
 
@@ -111,4 +112,7 @@ lacework generate cloud-account aws --profile default
 | [**Integrating Agentless Workload Scanning for AWS Organization Account with Terraform**](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/864699/integrating-agentless-workload-scanning-for-aws-organization-account-with-terraform) | Instructions for setting up AWLS for an **AWS Organization (multi-account)** environment using Terraform. |
 | [**Integrating Agentless Workload Scanning with AWS using Terraform**](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/744245/terraform) | General integration overview and Terraform usage guide for **Agentless Workload Scanning** on AWS. |
 | [**Terraform Module for Lacework & AWS Agentless Scanning**](https://registry.terraform.io/modules/lacework/agentless-scanning/aws/latest) | Official **Terraform Registry** module for configuring an integration between **Lacework** and **AWS** for agentless workload scanning. |
+| [**Supported Operating Systems (Linux & macOS)**](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/671486) | Lists **supported Linux distributions and macOS versions** for FortiCNAPP agent and agentless workload scanning. |
+| [**Agentless Scanning for Windows**](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/838971/agentless-scanning-for-windows) | Details the **supported Windows operating systems** for agentless workload scanning. |
+| [**Host OS and Language Library Support for Vulnerability Assessment**](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/999307/host-os-and-language-library-support-for-vulnerability-assessment#supported-linux-operating-systems-packages-and-language-libraries) | Reference list of **supported operating systems, packages, and language libraries** used in FortiCNAPP vulnerability assessments. |
 
