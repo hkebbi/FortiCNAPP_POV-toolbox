@@ -25,27 +25,21 @@ This method offers **flexibility and coverage** for scanning both **hosts** and 
 
 ## 🧩 What Is Deployed?
 
-### 🛡️ Private-by-Design: Agentless Workflow
+## 🛡️ Private-by-Design: Agentless Workflow
 
 | Step | Description |
 |------|--------------|
 | **1** | The customer runs the **Agentless AWLS Terraform module** to deploy the required resources in their AWS environment. |
-| **2** | Terraform template provisions: <br>• IAM Roles <br>• S3 Bucket <br>• ECS Cluster (with *Sidekick* container) <br>• VPC, Subnet, and Internet Gateway per Region |
+| **2** | Terraform template provisions:<br>• **IAM Roles**<br>• **S3 Bucket**<br>• **ECS Cluster** (with *Sidekick* container)<br>• **VPC**, **Subnet**, and **Internet Gateway** per region |
 | **3** | The **Sidekick container** is executed as part of an **ECS Fargate task**. |
 | **4** | The task enumerates customer workloads, identifies attached block volumes, securely mounts them, and initiates the scanning process. |
 | **5** | Scanning results are written to the customer’s **S3 bucket**. |
-| **6** | **FortiCNAPP** reads metadata and scan results from the customer’s S3 bucket for further processing. |
-
----
-
-## ⚙️ Additional Information
-
-- 🧹 The scanner periodically removes **old snapshots** and **stale scan tasks**.  
-- ⏱️ **Scan frequency:** by default, scans run **every 24 hours**.  
-- 🔒 **Privacy-first:** FortiCNAPP has **no direct access** to customer cloud workloads — only to resources it deploys with **limited IAM permissions**.  
-- 🧮 **Selective Scanning:** You can limit the scanned hosts using an explicit **query filter** (by default, all workloads are scanned).  
-- 🐳 **Powered by ECS:**  
-  > *Amazon Elastic Container Service (Amazon ECS)* is a fully managed container orchestration platform that simplifies deployment, scaling, and management of containerized applications.
+| **6** | **FortiCNAPP** reads metadata and scan results from the customer’s **S3 bucket** for further processing. |
+| 🧹 **Automatic Cleanup** | The scanner periodically removes **old snapshots** and **stale scan tasks** to maintain efficiency. |
+| ⏱️ **Scan Frequency** | By default, scans run **every 24 hours**. |
+| 🔒 **Privacy-First Design** | **FortiCNAPP** has **no direct access** to customer workloads — it interacts only with the resources it deploys, using **limited IAM permissions**. |
+| 🎯 **Selective Scanning** | You can limit the scanned hosts using an explicit **query filter**. By default, all workloads are scanned. |
+| 🐳 **Powered by ECS** | *Amazon Elastic Container Service (Amazon ECS)* is a fully managed container orchestration service that simplifies deployment, scaling, and management of containerized applications. |
 
 ---
 
