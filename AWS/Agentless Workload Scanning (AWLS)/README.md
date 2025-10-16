@@ -14,6 +14,7 @@
 | 🧠 **Host OS and Language Library Support for Vulnerability Assessment** | [View Documentation →](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/999307/host-os-and-language-library-support-for-vulnerability-assessment#supported-linux-operating-systems-packages-and-language-libraries)<br>Reference list of supported operating systems, packages, and language libraries used in FortiCNAPP vulnerability assessments. |
 
 
+---
 ## ☁️ AWS & FortiCNAPP Agentless Workload Scanning- AWLS Terraform Prerequisites
 
 | Component / Requirement | Description | Reference / Link |
@@ -63,6 +64,7 @@ lacework generate cloud-account aws --profile default
 <img width="1059" height="98" alt="Screenshot 2025-10-16 at 3 47 37 PM" src="https://github.com/user-attachments/assets/477db464-8e70-42f7-803b-cade1ac8a74a" />  
 
 
+---
 
 ## 🧩 What Is Deployed?
 
@@ -85,6 +87,7 @@ lacework generate cloud-account aws --profile default
 
 
   
+---
 ## 🔗 Reference Links
 
 | Reference | Description |
