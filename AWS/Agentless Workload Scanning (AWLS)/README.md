@@ -33,40 +33,6 @@
 ### 🔧 Configuration Flow (Enabling AWS AWLS Only)
 In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **multi-regional, single-account** or **multi-account** environment.
 
-> ⚠️ **Note**
->
-> Before you start, make sure you have both:
->
-> - 🟦 **AWS Profile** — for your **AWS account integration**
-> - 🟩 **FortiCNAPP (Lacework) Profile** — for your **FortiCNAPP tenant integration**
->
-> 📘 For setup instructions and configuration details, refer to the  
-> **[Main AWS Folder `README.md`](../README.md)** file.
-
-
-### 🧩 Configure AWS Cloud Account Integration
-
-Run the following command to generate your AWS cloud account integration using the **FortiCNAPP (Lacework) CLI**:
-
-```bash
-lacework generate cloud-account aws
-```
-
-or explicitly specify the FortiCNAPP CLI profile (optional for default but required for other profile or multi-profile created ):
-```bash
-lacework generate cloud-account aws --profile default
-```
-
-
-<img width="895" height="437" alt="image" src="https://github.com/user-attachments/assets/4f792cef-f653-4b2c-976f-61e831718318" />
-
-
-<img width="1059" height="98" alt="Screenshot 2025-10-16 at 3 47 37 PM" src="https://github.com/user-attachments/assets/477db464-8e70-42f7-803b-cade1ac8a74a" />  
-
-To delete the deployment:
-
-<img width="431" height="49" alt="Screenshot 2025-10-16 at 5 12 59 PM" src="https://github.com/user-attachments/assets/085a6854-27b6-4417-b187-7224f4781841" />
-
 
 ## 🍀 Configure AWS Cloud Account Integration
 
