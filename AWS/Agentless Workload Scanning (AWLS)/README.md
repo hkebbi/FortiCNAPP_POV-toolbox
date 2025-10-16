@@ -32,17 +32,16 @@
 ## 🚀 How Agentless Workload Scanning Is Deployed ?
 # 🔧 AWS Cloud Account Integration Workflow (FortiCNAPP)
 
+
 | Step | Description |
 |------|-------------|
 | **Overview** | In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **multi-regional, single-account** or **multi-account** environment. |
-| ⚠️ **Pre-Deployment Note** | Make sure you have both: <br> 🟦 **AWS Profile** — for your **AWS account integration** <br> 🟩 **FortiCNAPP (Lacework) Profile** — for your **FortiCNAPP tenant integration** <br><br> 📘 For setup instructions and configuration details, see **[Main AWS Folder `README.md`](../README.md)**. |
-| **1** | Generate the AWS cloud account integration via the **FortiCNAPP (Lacework) CLI**: <br>`lacework generate cloud-account aws` |
-| **2** | *(Optional)* Use a specific Lacework CLI profile (if you have multiple): <br>`lacework generate cloud-account aws --profile default` |
-| **3** | Setup prompts include: **Org integration** → No, **Main AWS profile** → `default`, **Main region** → `eu-central-1`, **Enable Agentless** → Yes, **Add another scanning account** → Yes, **Scanning AWS profile** → `default`, **Scanning region** → `me-south-1`, **Configuration integration** → No, **CloudTrail** → No, **Output location** → `.`, **Run TF plan now?** → Yes |
-| **4** | Terraform providers installed: `hashicorp/null`, `hashicorp/aws`, `lacework/lacework`, `hashicorp/random`. |
-| **5** | Verify the integration: <br>`lacework -p onboarding cloud-account list` <br>**Expected status (summary):** Name **aws-agentless-scanning**, Type **AwsSidekick**, Status **Enabled**, State **Ok**. |
-| **6** | Delete the deployment (remove TF files and destroy resources): `terraform destroy` |
-
+| ⚠️ **Pre-Deployment Note** | Make sure you have both:<br>🟦 **AWS Profile** — for your **AWS account integration**<br>🟩 **FortiCNAPP (Lacework) Profile** — for your **FortiCNAPP tenant integration**<br><br>📘 For setup instructions and configuration details, see **[Main AWS Folder `README.md`](../README.md)**. |
+| **1-2** | Generate the AWS cloud account integration using the **FortiCNAPP (Lacework) CLI**:<br><code>lacework generate cloud-account aws</code><br><br>*(Optional)* Specify a profile if you are using multiple:<br><code>lacework generate cloud-account aws --profile default</code> |
+| **3** | During setup, you’ll be prompted for configuration options such as:<br><br>• **Enable integrations for AWS organization** → No<br>• **Main AWS account profile** → default<br>• **Main AWS account region** → eu-central-1<br>• **Enable Agentless integration** → Yes<br>• **Add another scanning AWS account** → Yes<br>• **Scanning AWS account profile** → default<br>• **Scanning AWS account region** → me-south-1<br>• **Enable Configuration integration** → No<br>• **Enable CloudTrail integration** → No<br>• **Custom output location** → .<br>• **Run Terraform plan now?** → Yes |
+| **4** | Terraform providers installed:<br>• <code>hashicorp/null</code><br>• <code>hashicorp/aws</code><br>• <code>lacework/lacework</code><br>• <code>hashicorp/random</code> |
+| **5** | Verify the integration:<br><code>lacework -p onboarding cloud-account list</code><br><br>**Expected output summary:**<br>• **Name:** aws-agentless-scanning<br>• **Type:** AwsSidekick<br>• **Status:** Enabled<br>• **State:** Ok |
+| **6** | Delete the deployment (remove TF files and destroy resources):<br><code>ls tfplan.json terraform.tfstate main.tf</code><br><code>terraform destroy</code> |
 
 
 ---
