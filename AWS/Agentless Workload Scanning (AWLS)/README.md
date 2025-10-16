@@ -70,7 +70,9 @@ In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **mu
 ### 🔧 Configuration Flow (Enabling AWS AWLS Only)
 
 Before you start make sure you have AWS Profile configured to connect to AWS Account:
-Check Your Current AWS CLI Profile: aws configure list:
+Check Your Current AWS CLI Profile (example): 
+```bash
+aws configure list:
 
       Name                    Value             Type    Location
       ----                    -----             ----    --------
@@ -80,7 +82,7 @@ secret_key     ****************1234      shared-credentials-file
     region                us-east-1      config-file    ~/.aws/config
 
     If profile shows <not set>, it means the default profile is being used (from ~/.aws/credentials).
-
+```
 
 ```bash
 lacework generate cloud-account aws
