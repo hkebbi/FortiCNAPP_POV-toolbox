@@ -78,9 +78,12 @@ lacework generate cloud-account aws
 
 
 
+## 🔗 Reference Links
 
-
-
-Terraform module for configuring an integration with Lacework and AWS for agentless scanning: 
-https://registry.terraform.io/modules/lacework/agentless-scanning/aws/latest
+| Reference | Description |
+|------------|--------------|
+| [**Integrating Agentless Workload Scanning for AWS Single Account with Terraform**](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/983212/integrating-agentless-workload-scanning-for-aws-single-account-with-terraform) | Step-by-step guide for deploying Agentless Workload Scanning (AWLS) on a **single AWS account** using Terraform. |
+| [**Integrating Agentless Workload Scanning for AWS Organization Account with Terraform**](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/864699/integrating-agentless-workload-scanning-for-aws-organization-account-with-terraform) | Instructions for setting up AWLS for an **AWS Organization (multi-account)** environment using Terraform. |
+| [**Integrating Agentless Workload Scanning with AWS using Terraform**](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/744245/terraform) | General integration overview and Terraform usage guide for **Agentless Workload Scanning** on AWS. |
+| [**Terraform Module for Lacework & AWS Agentless Scanning**](https://registry.terraform.io/modules/lacework/agentless-scanning/aws/latest) | Official **Terraform Registry** module for configuring an integration between **Lacework** and **AWS** for agentless workload scanning. |
 
