@@ -69,7 +69,7 @@ In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **mu
 
 ### 🔧 Configuration Flow (Enabling AWS AWLS Only)
 
-Before you start make sure you have AWS Profile configured to connect to AWS Account:
+Before you start make sure you have AWS Profile configured to connect to AWS Account (during: aws configure):
 Check Your Current AWS CLI Profile (example): 
 ```bash
 aws configure list:
