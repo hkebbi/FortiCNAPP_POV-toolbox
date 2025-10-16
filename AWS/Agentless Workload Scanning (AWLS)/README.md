@@ -41,7 +41,7 @@
 | **3** | Setup prompts include: **Org integration** → No, **Main AWS profile** → `default`, **Main region** → `eu-central-1`, **Enable Agentless** → Yes, **Add another scanning account** → Yes, **Scanning AWS profile** → `default`, **Scanning region** → `me-south-1`, **Configuration integration** → No, **CloudTrail** → No, **Output location** → `.`, **Run TF plan now?** → Yes |
 | **4** | Terraform providers installed: `hashicorp/null`, `hashicorp/aws`, `lacework/lacework`, `hashicorp/random`. |
 | **5** | Verify the integration: <br>`lacework -p onboarding cloud-account list` <br>**Expected status (summary):** Name **aws-agentless-scanning**, Type **AwsSidekick**, Status **Enabled**, State **Ok**. |
-| **6** | Delete the deployment (remove TF files and destroy resources): <br>`ls tfplan.json terraform.tfstate main.tf` <br>`terraform destroy` |
+| **6** | Delete the deployment (remove TF files and destroy resources): `terraform destroy` |
 
 
 
