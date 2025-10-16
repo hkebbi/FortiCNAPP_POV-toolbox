@@ -57,7 +57,7 @@ In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **mu
 
 ```bash
 lacework generate cloud-account aws
-
+```
 
 ## ☁️ AWS & FortiCNAPP Agentless Workload Scanning- AWLS Terraform Prerequisites
 
