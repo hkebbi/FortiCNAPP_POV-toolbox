@@ -16,28 +16,6 @@
 | 🧠 **Host OS and Language Library Support for Vulnerability Assessment** | [View Documentation →](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/999307/host-os-and-language-library-support-for-vulnerability-assessment#supported-linux-operating-systems-packages-and-language-libraries)<br>Reference list of supported operating systems, packages, and language libraries used in FortiCNAPP vulnerability assessments. |
 
 
-## 🧩 What Is Deployed?
-
-## 🛡️ Private-by-Design: Agentless Workflow
-
-| Step | Description |
-|------|--------------|
-| **1** | The customer runs the **Agentless AWLS Terraform module** to deploy the required resources in their AWS environment. |
-| **2** | Terraform template provisions:<br>• **IAM Roles**<br>• **S3 Bucket**<br>• **ECS Cluster** (with *Sidekick* container)<br>• **VPC**, **Subnet**, and **Internet Gateway** per region |
-| **3** | The **Sidekick container** is executed as part of an **ECS Fargate task**. |
-| **4** | The task enumerates customer workloads, identifies attached block volumes, securely mounts them, and initiates the scanning process. |
-| **5** | Scanning results are written to the customer’s **S3 bucket**. |
-| **6** | **FortiCNAPP** reads metadata and scan results from the customer’s **S3 bucket** for further processing. |
-| 🧹 **Automatic Cleanup** | The scanner periodically removes **old snapshots** and **stale scan tasks** to maintain efficiency. |
-| ⏱️ **Scan Frequency** | By default, scans run **every 24 hours**. |
-| 🔒 **Privacy-First Design** | **FortiCNAPP** has **no direct access** to customer workloads — it interacts only with the resources it deploys, using **limited IAM permissions**. |
-| 🎯 **Selective Scanning** | You can limit the scanned hosts using an explicit **query filter**. By default, all workloads are scanned. |
-| 🐳 **Powered by ECS** | *Amazon Elastic Container Service (Amazon ECS)* is a fully managed container orchestration service that simplifies deployment, scaling, and management of containerized applications. |
-
----
-
-## 🚀 How AWLS Is Deployed
-
 ## ☁️ AWS & FortiCNAPP Agentless Workload Scanning- AWLS Terraform Prerequisites
 
 | Component / Requirement | Description | Reference / Link |
@@ -50,9 +28,9 @@
 | 🧠 **FortiCNAPP CLI** | Open-source CLI tool written in Golang. Available for **Linux**, **macOS**, and **Windows**. Used to interact with FortiCNAPP via the command line. | [FortiCNAPP CLI Guide](https://forticonapp.docs.fortinet.com/cli-guide) |
 | ⚡ **Deployment Methods** | Supported installation environments and automation options:<br>• **AWS Cloud Shell**<br>• **Hosts Supported by Terraform** | — |
 
+---
 
-
-
+## 🚀 How AWLS Is Deployed
 ### 🔧 Configuration Flow (Enabling AWS AWLS Only)
 In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **multi-regional, single-account** or **multi-account** environment.
 
@@ -81,12 +59,30 @@ lacework generate cloud-account aws --profile default
 ```
 
 
-
 <img width="895" height="437" alt="image" src="https://github.com/user-attachments/assets/4f792cef-f653-4b2c-976f-61e831718318" />
 
 
 <img width="1059" height="98" alt="Screenshot 2025-10-16 at 3 47 37 PM" src="https://github.com/user-attachments/assets/477db464-8e70-42f7-803b-cade1ac8a74a" />  
 
+
+
+## 🧩 What Is Deployed?
+
+## 🛡️ Private-by-Design: Agentless Workflow
+
+| Step | Description |
+|------|--------------|
+| **1** | The customer runs the **Agentless AWLS Terraform module** to deploy the required resources in their AWS environment. |
+| **2** | Terraform template provisions:<br>• **IAM Roles**<br>• **S3 Bucket**<br>• **ECS Cluster** (with *Sidekick* container)<br>• **VPC**, **Subnet**, and **Internet Gateway** per region |
+| **3** | The **Sidekick container** is executed as part of an **ECS Fargate task**. |
+| **4** | The task enumerates customer workloads, identifies attached block volumes, securely mounts them, and initiates the scanning process. |
+| **5** | Scanning results are written to the customer’s **S3 bucket**. |
+| **6** | **FortiCNAPP** reads metadata and scan results from the customer’s **S3 bucket** for further processing. |
+| 🧹 **Automatic Cleanup** | The scanner periodically removes **old snapshots** and **stale scan tasks** to maintain efficiency. |
+| ⏱️ **Scan Frequency** | By default, scans run **every 24 hours**. |
+| 🔒 **Privacy-First Design** | **FortiCNAPP** has **no direct access** to customer workloads — it interacts only with the resources it deploys, using **limited IAM permissions**. |
+| 🎯 **Selective Scanning** | You can limit the scanned hosts using an explicit **query filter**. By default, all workloads are scanned. |
+| 🐳 **Powered by ECS** | *Amazon Elastic Container Service (Amazon ECS)* is a fully managed container orchestration service that simplifies deployment, scaling, and management of containerized applications. |
 
 
 
