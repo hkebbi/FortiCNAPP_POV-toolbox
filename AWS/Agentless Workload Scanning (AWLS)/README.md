@@ -37,17 +37,20 @@
 |------|-------------|
 | **Overview** | In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **multi-regional, single-account** or **multi-account** environment. |
 | ⚠️ **Pre-Deployment Note** | Make sure you have both: <br> 🟦 **AWS Profile** — for your **AWS account integration** <br> 🟩 **FortiCNAPP (Lacework) Profile** — for your **FortiCNAPP tenant integration** <br><br> 📘 For setup instructions and configuration details, see **[Main AWS Folder `README.md`](../README.md)**. |
-| **1** | Run to generate the AWS cloud account integration via the **FortiCNAPP (Lacework) CLI**:<br><br><code>lacework generate cloud-account aws</code> |
-| **2** | *(Optional)* Specify a Lacework CLI profile if using a named/multi-profile setup:<br><br><code>lacework generate cloud-account aws --profile default</code> |
+| **1** | Run to generate the AWS cloud account integration via the **FortiCNAPP (Lacework) CLI**:<br><code>lacework generate cloud-account aws</code> |
+| **2** | *(Optional)* Specify a Lacework CLI profile if using a named/multi-profile setup:<br><code>lacework generate cloud-account aws --profile default</code> |
 | **3** | Setup prompts include:<br>• **Enable integrations for AWS organization** → No <br>• **Main AWS account profile** → default <br>• **Main AWS account region** → eu-central-1 <br>• **Enable Agentless integration** → Yes <br>• **Add another scanning AWS account** → Yes <br>• **Scanning AWS account profile** → default <br>• **Scanning AWS account region** → me-south-1 <br>• **Enable Configuration integration** → No <br>• **Enable CloudTrail integration** → No <br>• **Custom output location** → . <br>• **Run Terraform plan now?** → Yes |
 | **4** | Terraform providers installed:<br>• <code>hashicorp/null</code> <br>• <code>hashicorp/aws</code> <br>• <code>lacework/lacework</code> <br>• <code>hashicorp/random</code> |
-| **5** | Verify the integration:<br><code>lacework -p onboarding cloud-account list</code><br><br><b>Example output:</b><br><pre><code>CLOUD ACCOUNT GUID | NAME                   | TYPE           | STATUS   | STATE
--------------------+------------------------+----------------+----------+--------
-316                | aws-agentless-scanning | AwsSidekick    | Enabled  | Ok
-</code></pre> |
-| **6** | Delete the deployment (remove TF files and destroy resources):<br><pre><code>ls tfplan.json terraform.tfstate main.tf
+| **5** | Verify the integration:<br><code>lacework -p onboarding cloud-account list</code><br><br>**Example output:**<br><br><pre>
+CLOUD ACCOUNT GUID | NAME                   | TYPE           | STATUS   | STATE
+------------------- | ---------------------- | -------------- | -------- | ------
+316                 | aws-agentless-scanning | AwsSidekick    | Enabled  | Ok
+</pre> |
+| **6** | Delete the deployment (remove TF files and destroy resources):<br><pre>
+ls tfplan.json terraform.tfstate main.tf
 terraform destroy
-</code></pre> |
+</pre> |
+
 
 
 ---
