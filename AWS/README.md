@@ -12,15 +12,17 @@
 | **Used By** | AWS CLI, Terraform, Lacework CLI (for AWS operations) | Lacework CLI (for communication with the Lacework API / tenant) |
 | **Environment Variable Override** | `AWS_PROFILE=<profile>` | `LACEWORK_PROFILE=<profile>` |
 | **Typical Use Case** | Determines which AWS account Lacework Terraform integration will deploy resources into. | Determines which Lacework tenant the integration reports to. |
-| **Example in Use** | `AWS_PROFILE=dev lacework generate cloud-account aws` | `lacework generate cloud-account aws --profile lwintseemea-aws` |
+| **Example in Use** | `AWS_PROFILE=default lacework generate cloud-account aws` | `lacework generate cloud-account aws --profile default` |
 
 ---
 
 ### 🧠 Notes
-- Both profiles are **independent** — one authenticates to AWS, the other to Lacework.  
-- The **Lacework CLI** internally uses your AWS CLI credentials to create AWS resources (via Terraform).  
-- If neither is specified, both default to their **`default`** profiles automatically.  
-- You can safely maintain **multiple profiles** for multi-account or multi-tenant setups (e.g., `prod`, `dev`, `onboarding`).  
+- Both profiles are **independent**, but they work together:  
+  - The **AWS CLI profile** controls which AWS account Terraform deploys to.  
+  - The **Lacework CLI profile** controls which Lacework tenant receives the integration.
+- If no profile is explicitly defined, both default to **`default`** automatically.
+- You can maintain **multiple profiles** for different AWS accounts or Lacework tenants (e.g., `dev`, `prod`, `onboarding`).
+- The Lacework CLI uses the **AWS SDK** internally, which automatically picks up your AWS profile credentials.
 
 ---
 
@@ -33,9 +35,8 @@ aws configure list-profiles
 # Show all Lacework profiles
 lacework configure list
 
-# Check which account you're authenticated to in AWS
+# Check which AWS account you're authenticated to
 aws sts get-caller-identity
 
-# Show current Lacework tenant and API key
+# Show current Lacework tenant and API key info
 lacework configure show
-
