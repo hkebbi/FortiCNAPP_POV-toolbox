@@ -67,6 +67,7 @@ This method offers **flexibility and coverage** for scanning both **hosts** and 
 
 
 ### 🔧 Configuration Flow (Enabling AWS AWLS Only)
+In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **multi-regional, single-account** or **multi-account** environment.
 
 > ⚠️ **Note**
 >
@@ -79,12 +80,20 @@ This method offers **flexibility and coverage** for scanning both **hosts** and 
 > **[Main AWS Folder `README.md`](../README.md)** file.
 
 
+### 🧩 Generate AWS Cloud Account Integration
+
+Run the following command to generate your AWS cloud account integration using the **FortiCNAPP (Lacework) CLI**:
+
 ```bash
 lacework generate cloud-account aws
 ```
 
+or explicitly specify the Lacework CLI profile (optional):
+```bash
+lacework generate cloud-account aws --profile default
+```
 
-In this setup, **Terraform** is used via the **FortiCNAPP CLI** to deploy a **multi-regional, single-account** or **multi-account** environment.
+
 
 <img width="895" height="437" alt="image" src="https://github.com/user-attachments/assets/4f792cef-f653-4b2c-976f-61e831718318" />
 
