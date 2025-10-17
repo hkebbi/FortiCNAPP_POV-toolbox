@@ -1,12 +1,16 @@
 # ☁️ AWS: Cloud API Integration
 
+## 🧠 Why Cloud API Integration ?
 
+
+ 
 > 💡 **Architecture Summary:**  
 > These AWS components work together to securely deliver CloudTrail audit data and configuration information to **FortiCNAPP**, enabling continuous compliance, visibility, and threat detection across your cloud environment.
 
+---
+--- 
 
-
-### 🧱 FortiCNAPP Terraform Deployment Options
+### 🧱 FortiCNAPP Terraform Deployment Options (In this document we will follow FortiCNAPP CLI Integration):
 
 | **Deployment Method** | **Description** | **Supported Capabilities** |
 |------------------------|-----------------|-----------------------------|
@@ -71,10 +75,6 @@
 
 ---
 ---  
-
-
-
----
----  
+ 
 
 ## 🔗 Reference Links
