@@ -4,7 +4,7 @@
 After you install the agent, the agent and Lacework FortiCNAPP server communicate with each other. The agent scans your host and securely forwards select metadata to the server to build a baseline of normal behavior. From this, Lacework FortiCNAPP provides alerts for anomalous behavior.
 
 
-#### Windows Agent System & Deployment Requirements
+## Windows Agent System & Deployment Requirements
 
 | **Category** | **Requirement / Details** |
 |---------------|----------------------------|
@@ -15,7 +15,7 @@ After you install the agent, the agent and Lacework FortiCNAPP server communicat
 | **Deployment Recommendations** | - Ensure servers meet minimum hardware and OS requirements before installation.<br>- Verify network and security configurations support outbound TLS 1.2 traffic.<br>- Maintain PowerShell and Windows updates for stability and compatibility. |
 
 ---
-#### ✅ Deployment using Lacework PowerShell Script File Flow:
+# ✅ Deployment using Lacework PowerShell Script File Flow:
 Fits All Clouds: Install the Windows Agent on Hosts Using Lacework PowerShell Script, Quick Easy installion method on few machines during Lab/POC.
 There are many other methods as above, but this can fit a quick easy way for this kind of deployments if there are few machines and multicloud deployments.
 
@@ -28,7 +28,7 @@ Deployment using Lacework PowerShell Script Flow
 ✅ Reference Links
 ✅ Just Side Note: Other Installation Methods for Windows Servers Supported
 ```
-#### ✅ 1. Create New Access Token:
+## ✅ 1. Create New Access Token:
 
 - Lacework FortiCNAPP Console, go to Settings > Configuration > Agent Tokens.
 - Add Name and Description.
@@ -37,7 +37,7 @@ Deployment using Lacework PowerShell Script Flow
   
 * Note: An access token can be re-used for multiple agent installations.
 
-#### ✅ 2. Download/Install Using Lacework PowerShell Script via FortiCNAPP Console:
+## ✅ 2. Download/Install Using Lacework PowerShell Script via FortiCNAPP Console:
  In the Lacework FortiCNAPP Console, go to Settings > Configuration > Agent Tokens.
 - Select = the Windows access token created and that you want to use for your agent installation.
 - Click the Install tab.
@@ -50,7 +50,7 @@ Deployment using Lacework PowerShell Script Flow
 
 
 
-## ✅ 3. Deployment using Lacework PowerShell Script:
+## ✅ 3.1. Deployment using Lacework PowerShell Script:
 Instead of specifying configuration parameters for the agent installation in a config.json file, you can specify them directly in the command line:
 
  - 1. Open PowerShell terminal as an administrator.
@@ -78,7 +78,7 @@ Example for Windows Agent Release 1.7.2:
 | **More Information** | See section *Restart the Windows Agent* for further details. | — |
 
 
-## ✅ 3. Deployment using Lacework PowerShell Script (with Proxy settings) :
+## ✅ 3.2. Deployment using Lacework PowerShell Script (with Proxy settings) :
 
 To configure the agent to use a specific proxy during installation in the command line, use the following command:C:\Users\Administrator>  
 ```bash
@@ -94,7 +94,7 @@ msiexec.exe /i LWDataCollector.msi ACCESSTOKEN=Your_Access_Token SERVERURL=Your_
 
 
 
-#### ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
+## ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
 
 Enter the following command to check status for the lwdatacollector service: 
 - In Powersehll:
@@ -128,7 +128,7 @@ $app = Get-WmiObject -Class Win32_Product -Filter "Name like '%Lacework%'"
 $app.Uninstall()
 ```
 
-### ✅ Reference Links
+## ✅ Reference Links
 
 | **Topic** | **Description** | **Link** |
 |------------|-----------------|----------|
@@ -141,7 +141,7 @@ $app.Uninstall()
 
 ---
 
-### ✅ Just Side Note: Other Installation Methods for Windows Servers Supported
+## ✅ Just Side Note: Other Installation Methods for Windows Servers Supported
 
 | **Environment / Cloud** | **Installation Method** | **Notes** |
 |--------------------------|--------------------------|------------|
