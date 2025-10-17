@@ -56,7 +56,7 @@
 ---
 ---  
 
-## 🧩 What Is Deployed in a Workflow ?  
+## 🧩 What Is Deployed in a Workflow + Definitions ?  
 
 
 
