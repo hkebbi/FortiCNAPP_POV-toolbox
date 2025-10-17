@@ -1,4 +1,8 @@
+# ☁️ AWS: Cloud API Integration
 
+
+> 💡 **Architecture Summary:**  
+> These AWS components work together to securely deliver CloudTrail audit data and configuration information to **FortiCNAPP**, enabling continuous compliance, visibility, and threat detection across your cloud environment.
 
 
 
@@ -12,6 +16,8 @@
 | <br> | <br> | <br> |
 | ⚙️ **Terraform via FortiCNAPP CLI** | Command-line–driven automation using the **open-source FortiCNAPP CLI** (written in Go).<br><br>Ideal for **organization-wide**, **multi-account**, or **DevOps-integrated** deployments. | ✅&nbsp;AWS&nbsp;Organization-level&nbsp;Access <br>✅&nbsp;Single&nbsp;&amp;&nbsp;Multiple&nbsp;AWS&nbsp;Accounts <br>✅&nbsp;Cloud&nbsp;Config&nbsp;&amp;&nbsp;Audit&nbsp;Logs <br>✅&nbsp;EKS&nbsp;Audit&nbsp;Logs <br>✅&nbsp;Agentless&nbsp;Workload&nbsp;Scanning |
 
+---
+---  
 
 
 
@@ -27,24 +33,32 @@
 | 🧠 **FortiCNAPP CLI** | Open-source CLI tool written in Golang. Available for **Linux**, **macOS**, and **Windows**.<br>Used to interact with FortiCNAPP via command line. | [FortiCNAPP CLI Guide](https://docs.fortinet.com/document/forticnapp/latest/cli-reference/68020/get-started-with-the-lacework-forticnapp-cli) |
 | ⚡ **Deployment Methods** | Supported installation environments and automation options:<br>• **AWS Cloud Shell**<br>• **Hosts Supported by Terraform** | — |
 
+---
+---  
 
 
-# 🚀 How Agentless Cloud API Integration Is Deployed ?
+# 🚀 How Agentless Cloud API Integration Is Deployed ?  
 
 
 
+---
+---  
  
-### 🛡️ Verify from UI (After 24 hours) Compliance, Identiies, Cloud Logs & Resource Inventory Tabs :
+### 🛡️ Verify from UI (After 24 hours) Compliance, Identiies, Cloud Logs & Resource Inventory Tabs :  
 
 
 
 
+---
+---  
 
-## 🧩 What Is Deployed in a Workflow ?
+## 🧩 What Is Deployed in a Workflow ?  
 
 
 
 
+---
+---  
 
 | **Component** | **Description** | **FortiCNAPP Usage / Notes** |
 |----------------|-----------------|-------------------------------|
@@ -56,6 +70,11 @@
 | ⚠️ **Important Note** | Ensure your **IAM cross-account role** and **S3 bucket** are created in the **same AWS account** — regardless of setup method (manual, CloudFormation, or Terraform). | This is due to **legacy AWS access control rules**. Cross-account access alone is **not sufficient** to bypass these S3 restrictions. |
 
 ---
+---  
 
-> 💡 **Architecture Summary:**  
-> These AWS components work together to securely deliver CloudTrail audit data and configuration information to **FortiCNAPP**, enabling continuous compliance, visibility, and threat detection across your cloud environment.
+
+
+---
+---  
+
+## 🔗 Reference Links
