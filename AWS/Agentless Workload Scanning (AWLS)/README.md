@@ -13,6 +13,15 @@
 | 🪟 **Agentless Scanning for Windows** | [View Documentation →](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/838971/agentless-scanning-for-windows)<br>Details supported Windows operating systems for agentless workload scanning. |
 | 🧠 **Host OS and Language Library Support for Vulnerability Assessment** | [View Documentation →](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/999307/host-os-and-language-library-support-for-vulnerability-assessment#supported-linux-operating-systems-packages-and-language-libraries)<br>Reference list of supported operating systems, packages, and language libraries used in FortiCNAPP vulnerability assessments. |
 
+## Agentless Scanning Overview
+
+| **Feature / Description** | **Details** |
+|----------------------------|--------------|
+| **Default Behavior** | Agentless scans the **root volume** of a host for vulnerabilities by default. |
+| **Secondary Volumes** | Any volumes mounted by **filesystem UUID** or **label** will also be scanned if scanning of secondary volumes is enabled. |
+| **Kubernetes Persistent Volumes** | Agentless **does not yet scan persistent volumes in Kubernetes**, specifically those tagged with `kubernetes.io/created-for/pv/name`. |
+| **Scanning Method** | Agentless workload scanning creates **snapshots** of disk volumes and analyzes them **without impacting** the performance of the primary volumes. |
+| **Snapshot Process** | Snapshots are requested for each volume on each instance. A **job queue**
 
 ---
 ---  
