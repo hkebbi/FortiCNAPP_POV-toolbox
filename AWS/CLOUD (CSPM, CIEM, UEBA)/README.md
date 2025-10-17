@@ -2,10 +2,7 @@
 
 ## 🧠 Why Cloud API Integration ?
 
-
- 
-> 💡 **Architecture Summary:**  
-> These AWS components work together to securely deliver CloudTrail audit data and configuration information to **FortiCNAPP**, enabling continuous compliance, visibility, and threat detection across your cloud environment.
+Integrates with your AWS Cloud API environment to have the visibiltiy for configuration compliance, Cloud identity & and threat detection across your cloud environment.
 
 ---
 --- 
