@@ -45,7 +45,10 @@ Deployment using Lacework PowerShell Script Flow
 - Do either of the following:
   - Click Download script to download the file (powershell.zip file).
   - Unzip "powershell.zip" and you get 3 files (Azure-Deploy-LW-Win.ps1, Install-LWDataCollector.ps1 & lwminisign.exe).
-<img width="434" height="103" alt="Screenshot 2025-07-30 at 1 43 34 PM" src="https://github.com/user-attachments/assets/01b0b44c-b2e1-4a39-84ef-240a22070ea4" />
+
+<img width="434" height="103" alt="01b0b44c-b2e1-4a39-84ef-240a22070ea4" src="https://github.com/user-attachments/assets/c6ce35a0-25a1-48ea-adf2-81e513279450" />  
+
+
 
 #### ✅ 3. Deployment using Lacework PowerShell Script:
 Instead of specifying configuration parameters for the agent installation in a config.json file, you can specify them directly in the command line:
