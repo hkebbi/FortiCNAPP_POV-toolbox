@@ -78,13 +78,13 @@ Example for Windows Agent Release 1.7.2:
 | **More Information** | See section *Restart the Windows Agent* for further details. | — |
 
 
-#### ✅ 3. Deployment using Lacework PowerShell Script (with Proxy settings) :
+## ✅ 3. Deployment using Lacework PowerShell Script (with Proxy settings) :
 
 To configure the agent to use a specific proxy during installation in the command line, use the following command:C:\Users\Administrator>  
 ```bash
 msiexec.exe /i LWDataCollector.msi ACCESSTOKEN=Your_Access_Token SERVERURL=Your_API_Endpoint PROXYURL=http://Your_Proxy_Server:Your_Port
 ```
-## Proxy Configuration
+### Proxy Configuration
 
 | **Parameter** | **Description** | **Example / Notes** |
 |----------------|-----------------|----------------------|
