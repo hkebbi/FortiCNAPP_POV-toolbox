@@ -81,9 +81,15 @@ To configure the agent to use a specific proxy during installation in the comman
 ```bash
 msiexec.exe /i LWDataCollector.msi ACCESSTOKEN=Your_Access_Token SERVERURL=Your_API_Endpoint PROXYURL=http://Your_Proxy_Server:Your_Port
 ```
-- Where Your_Proxy_Server is the URL or IP address of your HTTP proxy server and Your_Port is the port number of your proxy server.
+## Proxy Configuration
 
-If the agent should not use a proxy, regardless of the machine’s configuration, use the following command during installation:
+| **Parameter** | **Description** | **Example / Notes** |
+|----------------|-----------------|----------------------|
+| **Your_Proxy_Server** | The URL or IP address of your HTTP proxy server. | Example: `http://proxy.example.com` or `192.168.1.10` |
+| **Your_Port** | The port number used by the proxy server. | Example: `8080` |
+| **Disable Proxy Option** | If the agent should not use a proxy, regardless of the machine’s configuration, use the following command during installation: | ```powershell<br>msiexec /i lacework-agent.msi NO_PROXY=1<br>``` |
+
+
 
 #### ✅ 4. Verify, Restart, Troubleshoot: C:\Users\Administrator>
 
