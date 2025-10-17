@@ -50,7 +50,7 @@ Deployment using Lacework PowerShell Script Flow
 
 
 
-#### ✅ 3. Deployment using Lacework PowerShell Script:
+## ✅ 3. Deployment using Lacework PowerShell Script:
 Instead of specifying configuration parameters for the agent installation in a config.json file, you can specify them directly in the command line:
 
  - 1. Open PowerShell terminal as an administrator.
@@ -65,7 +65,7 @@ Example for Windows Agent Release 1.7.2:
 .\Install-LWDataCollector.ps1 -MSIURL https://updates.lacework.net/win-1.7.2.3973-2023-11-05-release-1.7.0-cc74651519014fec0f7502858b06895a4cf0d802/LWDataCollector.msi  -AccessToken b2fxxxxxx -ServerURL https://lwxx-eu.lacework.net  -Defender
 ```
 
-## Lacework FortiCNAPP Windows Agent Configuration
+### Lacework FortiCNAPP Windows Agent Configuration
 
 | **Parameter** | **Description** | **Example / Notes** |
 |----------------|-----------------|----------------------|
