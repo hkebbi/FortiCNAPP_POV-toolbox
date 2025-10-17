@@ -2,7 +2,7 @@
 
 ## 🧠 Why Cloud API Integration ?
 
-Integrates with your AWS Cloud API environment to have the visibiltiy for configuration compliance, Cloud identity & and threat detection across your cloud environment.
+Integrates with your AWS Cloud API environment to have the visibiltiy for Configuration Compliance, Cloud Identity risk managemen & and Threat Detection across your cloud environment.
 
 ---
 --- 
