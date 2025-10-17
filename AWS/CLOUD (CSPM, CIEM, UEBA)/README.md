@@ -1,5 +1,7 @@
 
 
+
+
 ### 🧱 FortiCNAPP Terraform Deployment Options
 
 | **Deployment Method** | **Description** | **Supported Capabilities** |
@@ -27,7 +29,22 @@
 
 
 
-### ☁️ AWS Configuration for FortiCNAPP Integration
+# 🚀 How Agentless Cloud API Integration Is Deployed ?
+
+
+
+ 
+### 🛡️ Verify from UI (After 24 hours) Compliance, Identiies, Cloud Logs & Resource Inventory Tabs :
+
+
+
+
+
+## 🧩 What Is Deployed in a Workflow ?
+
+
+
+
 
 | **Component** | **Description** | **FortiCNAPP Usage / Notes** |
 |----------------|-----------------|-------------------------------|
