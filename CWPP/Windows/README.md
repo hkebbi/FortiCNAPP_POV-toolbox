@@ -62,16 +62,18 @@ Example for Windows Agent Release 1.7.2:
 .\Install-LWDataCollector.ps1 -MSIURL https://updates.lacework.net/win-1.7.2.3973-2023-11-05-release-1.7.0-cc74651519014fec0f7502858b06895a4cf0d802/LWDataCollector.msi  -AccessToken b2fxxxxxx -ServerURL https://lwxx-eu.lacework.net  -Defender
 ```
 
-Where:
-Your_Access_Token:  Specifies your agent access token. Token Details under Agent Token (example: b2fe1bb5axxxxx). Step.1.
-Your_API_Endpoint: Specifies your Lacework FortiCNAPP agent server URL. (example: https://xx-eu.lacework.net )
--Defender option: Excludes the Windows agent from scanning with Windows Defender.
-Agent_MSI_Download_URL: Copy the URL for Lacework Windows Agent MSI Package from:
-```bash
-https://github.com/lacework/lacework-windows-agent-releases/releases
-```
-A config.json file  that contains the options you specified in the command line is created in the C:\ProgramData\Lacework\ directory. 
-You can modify this file to change the settings for the agent. If you modify the file, you must restart the agent for the changes to take effect. For more information, see Restart the Windows Agent.
+## Lacework FortiCNAPP Windows Agent Configuration
+
+| **Parameter** | **Description** | **Example / Notes** |
+|----------------|-----------------|----------------------|
+| **Your_Access_Token** | Specifies your agent access token. | Token details under *Agent Token* (e.g., `b2fe1bb5axxxxx`). |
+| **Your_API_Endpoint** | Specifies your Lacework FortiCNAPP agent server URL. | Example: [https://xx-eu.lacework.net](https://xx-eu.lacework.net) |
+| **-Defender option** | Excludes the Windows agent from scanning with Windows Defender. | Optional flag. |
+| **Agent_MSI_Download_URL** | Copy the URL for Lacework Windows Agent MSI package. | [https://github.com/lacework/lacework-windows-agent-releases/releases](https://github.com/lacework/lacework-windows-agent-releases/releases) |
+| **Config File Location** | The `config.json` file containing the options specified in the command line. | Created in `C:\ProgramData\Lacework\` directory. |
+| **Configuration Update** | You can modify the `config.json` file to change settings for the agent. | After modification, **restart the agent** for the changes to take effect. |
+| **More Information** | See section *Restart the Windows Agent* for further details. | — |
+
 
 #### ✅ 3. Deployment using Lacework PowerShell Script (with Proxy settings) :
 
