@@ -1,4 +1,4 @@
-## 🧩 AWS CLI vs Lacework CLI Profiles
+## 🧩 AWS CLI vs Lacework CLI Profiles,Terraform CLI Prerequisites for all AWS deployments:
 
 | Attribute | 🟦 **AWS CLI Profile** | 🟩 **Lacework CLI Profile** |
 |------------|------------------------|-----------------------------|
