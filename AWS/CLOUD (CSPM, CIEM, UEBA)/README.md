@@ -122,45 +122,10 @@ Together, these integrations enable:
 ---
 ---  
 
-| **Component** | **Description** | **FortiCNAPP Usage / Notes** |
-|----------------|-----------------|-------------------------------|
-| 📨 **SNS Topic** | An **Amazon Simple Notification Service (SNS)** topic is a logical access point that acts as a communication channel, grouping multiple endpoints such as AWS, Amazon SQS, HTTP/S, or email addresses. | Required for **all CloudTrail integrations**.<br>FortiCNAPP can use an **existing SNS topic** or create one automatically if not present. |
-| 📬 **SQS Queue** | **Amazon Simple Queue Service (SQS)** enables distributed applications to exchange messages asynchronously. SNS and SQS together deliver notifications immediately while persisting messages for later processing. | Required for **all CloudTrail integrations**.<br>Used alongside SNS to deliver CloudTrail events to FortiCNAPP. |
-| 🗃️ **S3 Bucket** | An **Amazon S3 bucket** is a container for objects. CloudTrail stores log files in S3 buckets. | Required for **all CloudTrail integrations**.<br>FortiCNAPP can use an existing S3 bucket or create one in the designated AWS account. |
-| ☁️ **CloudTrail** | **AWS CloudTrail** records user, role, or service actions across your AWS account for governance, compliance, and audit purposes. | Required to capture and deliver event logs to FortiCNAPP.<br>FortiCNAPP can use an **existing CloudTrail** or create a new one. |
-| 🔐 **IAM Cross-Account Role** | An **IAM cross-account role** grants FortiCNAPP access to AWS resources for configuration assessment and CloudTrail event analysis. | Required for **read-only access**.<br>Includes two policies:<br>• **FortiCNAPP custom audit policy** – read-only access to configuration resources.<br>• **FortiCNAPP custom IAM policy** – read-only access to ingest CloudTrail logs. |
-| ⚠️ **Important Note** | Ensure your **IAM cross-account role** and **S3 bucket** are created in the **same AWS account** — regardless of setup method (manual, CloudFormation, or Terraform). | This is due to **legacy AWS access control rules**. Cross-account access alone is **not sufficient** to bypass these S3 restrictions. |
 
 ---
 ---  
  
 
 ## 🔗 Reference Links
-
-
-## 🏗️ AWS Organization Hierarchy (SCP Application Levels)
-
-```mermaid
-graph TD
-
-A[🏠 Root Organization]:::root --> B1[📂 OU: Engineering]
-A --> B2[📂 OU: Finance]
-A --> B3[📂 OU: DevOps]
-
-B1 --> C1[🧩 AWS Account: eng-prod-001]
-B1 --> C2[🧩 AWS Account: eng-test-001]
-
-B2 --> C3[🧩 AWS Account: fin-ops-001]
-B2 --> C4[🧩 AWS Account: fin-dev-001]
-
-B3 --> C5[🧩 AWS Account: devops-tools-001]
-
-classDef root fill:#232f3e,stroke:#fff,stroke-width:2px,color:#fff;
-classDef default fill:#1b4d89,stroke:#fff,stroke-width:1px,color:#fff;
-classDef account fill:#3b82f6,stroke:#fff,stroke-width:1px,color:#fff;
-
-class A root
-class B1,B2,B3 default
-class C1,C2,C3,C4,C5 account
-
 
