@@ -87,7 +87,7 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 | **Aspect** | **Description** |
 |-------------|-----------------|
 | **Purpose** | Collects and analyzes AWS account activity for anomaly detection, behavioral analysis, and forensic visibility. |
-| **Data Source** | AWS CloudTrail → S3 Bucket → SNS Topic → SQS Queue → Lacework (FortiCNAPP). |
+| **Data Source** | AWS CloudTrail |
 | **Workflow** | CloudTrail delivers logs to S3 → triggers SNS → sends messages to SQS → FortiCNAPP polls SQS to read new log file details → fetches CloudTrail data from S3 for analysis. |
 | **Findings** | Detects suspicious API calls, unauthorized changes, and unusual activity patterns in AWS accounts. |
 | **Outcome** | Provides a real-time feed of AWS API activity correlated with configuration and identity data for deep event-based analysis. |
