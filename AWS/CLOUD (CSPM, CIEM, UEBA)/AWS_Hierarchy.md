@@ -1,5 +1,5 @@
 
-## 🏗️ AWS Organization Hierarchy (SCP Application Levels)
+## 🏗️ AWS Organization Hierarchy: 
 
 ```mermaid
 graph TD
