@@ -24,7 +24,7 @@ class A root
 class B1,B2,B3 default
 class C1,C2,C3,C4,C5 account
 
-
+```
 
 
 ## 🧩 AWS Identity & Access Concepts — and How They Relate in the Organization Hierarchy
