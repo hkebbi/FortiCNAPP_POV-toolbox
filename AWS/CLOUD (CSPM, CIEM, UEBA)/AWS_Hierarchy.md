@@ -26,6 +26,8 @@ class C1,C2,C3,C4,C5 account
 
 ```
 
+-----
+-----
 
 ## 🧩 AWS Identity & Access Concepts — and How They Relate in the Organization Hierarchy
 
