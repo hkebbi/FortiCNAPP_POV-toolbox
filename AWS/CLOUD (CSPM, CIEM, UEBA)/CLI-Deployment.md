@@ -2,24 +2,22 @@
 
 ## 🧩 What the “PATH” Really Is
 
-## 🧩 What the “PATH” Really Is
-
 | **Section** | **Description** |
 |--------------|-----------------|
 | **Overview** | When you open your **CloudShell** (or any Linux/macOS terminal), your shell — like **bash** or **zsh** — doesn’t automatically know where every program is located. Instead, it searches for programs only inside specific folders. These folders are listed in an environment variable called **`$PATH`**. |
 | **What `$PATH` Does** | Think of **`$PATH`** as a *list of folders* your shell searches **in order** whenever you type a command. |
 | **Goal** | Make CloudShell search inside your **`forticnapp`** folder so it can find and run the **FortiCNAPP CLI** from there. |
-| **Commands to Run** | Add the `forticnapp` directory to PATH:<br><br>```bash<br>echo 'export PATH="$HOME/forticnapp:$PATH"' >> ~/.bashrc<br>source ~/.bashrc<br>``` |
-| **Verification** | Run:<br><br>```bash<br>echo $PATH<br>```<br>You should see `/home/cloudshell-user/forticnapp` at the **front** of the PATH output. |
+| **Commands to Run** | **Command** | **Purpose** |
+|  | `echo 'export PATH="$HOME/forticnapp:$PATH"' >> ~/.bashrc` | Adds your `forticnapp` folder to the PATH permanently. |
+|  | `source ~/.bashrc` | Reloads your updated PATH immediately. |
+| **Verification** | **Command** | **Expected Output** |
+|  | `echo $PATH` | Should show `/home/cloudshell-user/forticnapp` at the **front** of the PATH. |
 | **💡 Explanation** | **Part** | **What It Does** |
 |  | `echo` | Prints (outputs) text. |
-|  | `'export PATH="$HOME/forticnapp:$PATH"'` | Updates the PATH to include `/home/cloudshell-user/forticnapp` **before** existing paths. |
-|  | `>> ~/.bashrc` | Appends the export command to your **.bashrc** configuration file — this file runs automatically every time you open a terminal session. |
-|  | `source ~/.bashrc` | Reloads **.bashrc** immediately so the new PATH takes effect without restarting. |
+|  | `'export PATH="$HOME/forticnapp:$PATH"'` | Updates PATH to include `/home/cloudshell-user/forticnapp` **before** other paths. |
+|  | `>> ~/.bashrc` | Appends that line to your **.bashrc** file — which runs every time a new terminal starts. |
+|  | `source ~/.bashrc` | Reloads **.bashrc** immediately, applying your changes. |
 | **Plain English Summary** | “Whenever I open my shell, make sure my `forticnapp` directory is included in my PATH so I can run any programs I put there.” |
-
-
-
 
 
 
