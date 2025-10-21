@@ -30,6 +30,19 @@
 | 4 | `lacework version` | Verify the installation — expected output example: <br> `lacework v2.8.1 (sha:ef54b4ad33d3bd73f9892d48439bb52c499ec1dc) (time:20251006212503)` |
 
 
+## ⚙️ Configure Lacework (FortiCNAPP) CLI
+
+| **Step** | **Command / Output** | **Description** |
+|-----------|----------------------|-----------------|
+| 1 | `lacework configure` | Start the interactive setup process for the FortiCNAPP (Lacework) CLI. |
+|   | **CLI Prompts:** |  |
+|   | ▸ Account: `3555505.lacework.net` | Enter your tenant account. You can omit `.lacework.net`; the CLI will automatically trim it. |
+|   | ▸ Account Confirmation: `Using '3555505'` | Confirms account format. |
+|   | ▸ Access Key ID: `xxxxF1_4FD805727BC2F0951D58Eyyy` | Paste your FortiCNAPP API key ID. |
+|   | ▸ Secret Access Key: `*********************************` | Paste your API secret (hidden for security). |
+| 2 | `lacework version` | Verify CLI installation and configuration — expected output example: <br>`lacework v2.8.1 (sha:ef54b4ad33d3bd73f9892d48439bb52c499ec1dc) (time:20251006212503)` |
+
+
 ## 🔧 AWS Cloud Account Configuration Workflow (FortiCNAPP) Using FortiCNAPP CLI
 
 
