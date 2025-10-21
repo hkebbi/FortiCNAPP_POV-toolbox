@@ -40,7 +40,20 @@
 |   | ▸ Account Confirmation: `Using '3555505'` | Confirms account format. |
 |   | ▸ Access Key ID: `xxxxF1_4FD805727BC2F0951D58Eyyy` | Paste your FortiCNAPP API key ID. |
 |   | ▸ Secret Access Key: `*********************************` | Paste your API secret (hidden for security). |
-| 2 | `lacework version` | Verify CLI installation and configuration — expected output example: <br>`lacework v2.8.1 (sha:ef54b4ad33d3bd73f9892d48439bb52c499ec1dc) (time:20251006212503)` |
+| 2 | `lacework version` | Verify CLI installation and configuration — expected output example: <br>`lacework v2.8.1 (sha:ef54b4ad33d3bd73f9892d48439bb52c499ec1dc) (time:20251006212503)` |  
+
+Note: In CloudShell there’s no local AWS profile, so Terraform will fail .
+This creates a default AWS profile that points to CloudShell’s temporary IAM role credentials (no need for access keys).
+Let’s create one properly inside your home directory in CloudShell:
+mkdir -p ~/.aws
+
+cat > ~/.aws/config <<'EOF'
+[default]
+region = me-south-1
+credential_source = Ec2InstanceMetadata
+EOF
+
+
 
 
 ## 🔧 AWS Cloud Account Configuration Workflow (FortiCNAPP) Using FortiCNAPP CLI
