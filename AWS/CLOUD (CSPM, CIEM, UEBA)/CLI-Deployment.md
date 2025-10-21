@@ -7,7 +7,7 @@
 | **Overview** | When you open your **CloudShell** (or any Linux/macOS terminal), your shell — like **bash** or **zsh** — doesn’t automatically know where every program is located. Instead, it searches for programs only inside specific folders. These folders are listed in an environment variable called **`$PATH`**. |
 | **What `$PATH` Does** | Think of **`$PATH`** as a *list of folders* your shell searches **in order** whenever you type a command. |
 | **Goal** | Make CloudShell search inside your **`forticnapp`** folder so it can find and run the **FortiCNAPP CLI** from there. |
-| **Commands to Run** | **Command (This example with Forticnapp directory created already** | **Purpose** |
+| **Commands to Run** | **Command (This example with Forticnapp folder created already** | **Purpose** |
 |  | `echo 'export PATH="$HOME/forticnapp:$PATH"' >> ~/.bashrc` | Adds your `forticnapp` folder to the PATH permanently. |
 |  | `source ~/.bashrc` | Reloads your updated PATH immediately. |
 | **Verification** | **Command** | **Expected Output** |
