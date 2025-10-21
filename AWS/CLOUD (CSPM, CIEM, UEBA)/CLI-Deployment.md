@@ -1,5 +1,5 @@
 # 🚀 How AWS Cloud API Integration (CSPM, CIEM, UEBA) Is Deployed ?
-## 🔧 AWS Cloud Account Configuration Workflow (FortiCNAPP) Using FortiCNAP CLI
+## 🔧 AWS Cloud Account Configuration Workflow (FortiCNAPP) Using FortiCNAPP CLI
 
 
 | Step | Description |
