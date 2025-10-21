@@ -2,20 +2,21 @@
 
 ## 🧩 What the “PATH” Really Is
 
+## 🧩 What the “PATH” Really Is
+
 | **Section** | **Description** |
 |--------------|-----------------|
-| **Overview** | When you open your **CloudShell** (or any Linux/macOS terminal), your shell — like **bash** or **zsh** — doesn’t magically know where every program is located. Instead, it searches for programs only inside specific folders. These folders are listed in an environment variable called **`$PATH`**. |
-| **What `$PATH` Does** | Think of **`$PATH`** as a *list of folders* your shell searches **in order** when you type a command. |
+| **Overview** | When you open your **CloudShell** (or any Linux/macOS terminal), your shell — like **bash** or **zsh** — doesn’t automatically know where every program is located. Instead, it searches for programs only inside specific folders. These folders are listed in an environment variable called **`$PATH`**. |
+| **What `$PATH` Does** | Think of **`$PATH`** as a *list of folders* your shell searches **in order** whenever you type a command. |
 | **Goal** | Make CloudShell search inside your **`forticnapp`** folder so it can find and run the **FortiCNAPP CLI** from there. |
-| **Commands to Run** | ```bash<br># Add the forticnapp directory to PATH<br>echo 'export PATH="$HOME/forticnapp:$PATH"' >> ~/.bashrc<br>source ~/.bashrc``` |
-| **Verification** | ```bash<br>echo $PATH<br>``` <br>You should see `/home/cloudshell-user/forticnapp` at the **front** of the PATH output. |
+| **Commands to Run** | Add the `forticnapp` directory to PATH:<br><br>```bash<br>echo 'export PATH="$HOME/forticnapp:$PATH"' >> ~/.bashrc<br>source ~/.bashrc<br>``` |
+| **Verification** | Run:<br><br>```bash<br>echo $PATH<br>```<br>You should see `/home/cloudshell-user/forticnapp` at the **front** of the PATH output. |
 | **💡 Explanation** | **Part** | **What It Does** |
 |  | `echo` | Prints (outputs) text. |
-|  | `'export PATH="$HOME/forticnapp:$PATH"'` | This updates the PATH by adding `/home/cloudshell-user/forticnapp` **in front** of whatever PATH already exists. |
-|  | `>> ~/.bashrc` | Appends that line to your **.bashrc** configuration file — this file runs automatically every time you start a new terminal session. |
-|  | `source ~/.bashrc` | Reloads **.bashrc** immediately so your changes take effect without restarting. |
+|  | `'export PATH="$HOME/forticnapp:$PATH"'` | Updates the PATH to include `/home/cloudshell-user/forticnapp` **before** existing paths. |
+|  | `>> ~/.bashrc` | Appends the export command to your **.bashrc** configuration file — this file runs automatically every time you open a terminal session. |
+|  | `source ~/.bashrc` | Reloads **.bashrc** immediately so the new PATH takes effect without restarting. |
 | **Plain English Summary** | “Whenever I open my shell, make sure my `forticnapp` directory is included in my PATH so I can run any programs I put there.” |
-
 
 
 
