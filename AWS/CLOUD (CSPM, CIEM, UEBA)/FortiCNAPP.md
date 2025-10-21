@@ -1,3 +1,7 @@
+
+
+
+
 . Custom output location (optional): . (will deploy in directory yoru in)
 
 After this you will have Terraform deploy files required for deployment, so later you can destory terraform state. 
