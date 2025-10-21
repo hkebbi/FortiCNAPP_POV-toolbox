@@ -30,7 +30,7 @@
 | 4 | `lacework version` | Verify the installation — expected output example: <br> `lacework v2.8.1 (sha:ef54b4ad33d3bd73f9892d48439bb52c499ec1dc) (time:20251006212503)` |
 
 
-## ⚙️ Configure Lacework (FortiCNAPP) CLI
+## ⚙️ Configure Lacework (FortiCNAPP) CLI (API Key from FortiCNAPP UI Settings)
 
 | **Step** | **Command / Output** | **Description** |
 |-----------|----------------------|-----------------|
