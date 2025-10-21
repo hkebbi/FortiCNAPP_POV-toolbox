@@ -20,6 +20,14 @@
 | **Plain English Summary** | “Whenever I open my shell, make sure my `forticnapp` directory is included in my PATH so I can run any programs I put there.” |
 
 
+## 🏠 Install on Your Home Directory
+
+| **Step** | **Command / Output** | **Description** |
+|-----------|----------------------|-----------------|
+| 1 | `wget https://raw.githubusercontent.com/lacework/go-sdk/main/cli/install.sh \| bash` | Download and run the Lacework (FortiCNAPP) CLI installer script. |
+| 2 | `chmod +x install.sh` | Make the installer script executable. |
+| 3 | `sudo ./install.sh` | Run the installer — installs the Lacework CLI into your home directory. *(If CloudShell blocks `/usr/local/bin`, install manually under `$HOME/forticnapp`.)* |
+| 4 | `lacework version` | Verify the installation — expected output example: <br> `lacework v2.8.1 (sha:ef54b4ad33d3bd73f9892d48439bb52c499ec1dc) (time:20251006212503)` |
 
 
 ## 🔧 AWS Cloud Account Configuration Workflow (FortiCNAPP) Using FortiCNAPP CLI
