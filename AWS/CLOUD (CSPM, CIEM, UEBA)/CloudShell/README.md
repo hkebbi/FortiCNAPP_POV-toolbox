@@ -55,3 +55,15 @@ cat ~/.lacework.toml
 
 
 
+Cloud9 (you need EIP / IGW and no inbound access) --> Session Manager
+
+install in your home directory instead
+cd ~
+curl -H "Authorization: Bearer _5f67a3efcaf8b91ad7cd118147f7c995" https://316605.lacework.net/api/v2/Onboarding/d007549a-802c-47e5-9fab-b8f8a6f3c756.sh > forticnapp.sh
+chmod +x forticnapp.sh
+./forticnapp.sh
+
+Install terraform and Forticnapp CLI
+
+
+
