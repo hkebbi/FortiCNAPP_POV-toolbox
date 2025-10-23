@@ -8,7 +8,6 @@
 
 
 ⚙️ Resources Required for EKS Audit Log Integration
-
 | **Resource**               | **Definition / Purpose**                                                                                                                         |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **SNS Topic**              | Used to publish notifications whenever new EKS Audit Log data is available for processing.                                                       |
@@ -22,7 +21,6 @@
 
 
 # 🧭 EKS → FortiCNAPP Integration Flow
-
 || **Step** | **Flow Description**                                                                                               | **AWS / FortiCNAPP Component**             |
 | -------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
 | **1.**   | EKS control plane generates audit and activity events.                                                             | 🟧 **Amazon EKS Cloud**                    |
