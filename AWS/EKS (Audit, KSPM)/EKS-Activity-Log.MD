@@ -60,5 +60,13 @@ lacework generate k8s eks
 | **5.**   | S3 triggers notifications when new logs are written, using SNS to broadcast these events.                          | 📨 **Amazon SNS**                          |
 | **6.**   | SNS delivers notifications to SQS, which queues messages for reliable, event-driven processing.                    | 📬 **Amazon SQS**                          |
 | **7.**   | FortiCNAPP assumes a cross-account IAM role to securely read from SQS and access S3 logs.                          | 🪖 **FortiCNAPP Cross-Account Role (IAM)** |
-| **8.**   | FortiCNAPP ingests and analyzes EKS control plane logs for compliance, visibility, and threat detection.           | 🛡️ **FortiCNAPP Platform**                |
+| **8.**   | FortiCNAPP ingests and analyzes EKS control plane logs for compliance, visibility, and threat detection.           | 🛡️ **FortiCNAPP Platform**                 |
+
+Reference:
+
+Amazon EKS Audit Log Integration
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/842670/amazon-eks-audit-log-integration
+
+
+
 
