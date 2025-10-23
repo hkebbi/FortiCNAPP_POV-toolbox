@@ -5,6 +5,19 @@ By integrating with AWS-managed EKS Audit Logs, FortiCNAPP continuously monitors
 This feature provides deep insights, full audit visibility, and automated anomaly detection powered by machine learning and User & Entity Behavior Analytics (UEBA).
 
 
+Audit logging must be enabled on the EKS clusters that you want to integrate with.
+
+
+Enable via UI:
+EKS --> Clusters --> Cluster-name ---> Observability ---> Control Plane Logs --> Manage --> Enable "Audit" 
+
+Enable via CLI:
+aws eks --region <region> update-cluster-config --name <cluster_name> \ --logging '{"clusterLogging":[{"types":["audit"],"enabled":true}]}'
+
+Example:CLI
+aws eks --region eu-central-1 update-cluster-config --name hkeksfrankfurt --logging '{"clusterLogging":[{"types":["audit"],"enabled":true}]}'
+
+
 ## ⚙️ Resources Required for EKS Audit Log Integration
 | **Resource**               | **Definition / Purpose**                                                                                                                         |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
