@@ -1,7 +1,7 @@
 
 
 
-⚙️ Resources Required for EKS Audit Log Integration
+## ⚙️ Resources Required for EKS Audit Log Integration
 | **Resource**               | **Definition / Purpose**                                                                                                                         |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **SNS Topic**              | Used to publish notifications whenever new EKS Audit Log data is available for processing.                                                       |
@@ -13,7 +13,7 @@
 | **Cross-Account IAM Role** | Created in the customer’s AWS account and assumed by FortiCNAPP to make API calls, read S3 logs, and process notifications securely.             |
 
 
-# 🧭 EKS → FortiCNAPP Integration Flow
+## 🧭 EKS → FortiCNAPP Integration Flow
 
 | **Step** | **Flow Description**                                                                                               | **AWS / FortiCNAPP Component**             |
 | -------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
