@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 EKS Audit Anomaly Detection
 User Entity Behaviour Analytics (UEBA)	
 
@@ -57,5 +67,19 @@ Authentication misconfiguration: unauthenticated user actions, API  server open 
 | **IAM Lacework CloudWatch Role**      | Enables Lacework to assume CloudWatch roles across regions for log collection.                            |
 | **Lacework CloudWatch IAM Policy**    | Authorizes Firehose to access and retrieve CloudWatch logs for delivery.                                  |
 | **CloudWatch Subscription Filter(s)** | Configures filters for each EKS cluster to notify when new logs are added to CloudWatch Log Groups.       |
+
+
+
+| **Step** | **Flow Description**                                                                                                    | **AWS / FortiCNAPP Component**             |
+| -------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| **1.**   | EKS control plane generates audit and activity events.                                                                  | 🟧 **Amazon EKS Cloud**                    |
+| **2.**   | These EKS control plane events are sent to CloudWatch for logging and monitoring.                                       | ☁️ **Amazon CloudWatch**                   |
+| **3.**   | CloudWatch forwards the events to Kinesis Firehose for log delivery and stream processing.                              | 🔥 **Amazon Kinesis Firehose**             |
+| **4.**   | Kinesis Firehose writes the EKS Audit Logs to an S3 bucket.                                                             | 🪣 **Amazon S3 (EKS Logs Bucket)**         |
+| **5.**   | The S3 bucket triggers an SNS topic when new logs (objects) are written.                                                | 📨 **Amazon SNS**                          |
+| **6.**   | The SNS topic sends notifications to an SQS queue for message handling and event delivery.                              | 📬 **Amazon SQS**                          |
+| **7.**   | FortiCNAPP’s cross-account IAM role assumes permissions to read from the SQS queue and access S3 logs.                  | 🪖 **FortiCNAPP Cross-Account Role (IAM)** |
+| **8.**   | FortiCNAPP ingests the EKS control plane audit logs for continuous monitoring, compliance checks, and threat detection. | 🛡️ **FortiCNAPP Platform**                |
+
 
 
