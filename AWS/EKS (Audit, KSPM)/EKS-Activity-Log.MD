@@ -1,4 +1,8 @@
+# 🧠 FortiCNAPP EKS Audit Anomaly Detection
 
+FortiCNAPP enhances Kubernetes security visibility by extending anomaly detection and behavioral analytics into Amazon EKS clusters.
+By integrating with AWS-managed EKS Audit Logs, FortiCNAPP continuously monitors and detects unusual activity, risky configurations, and potential threats across Kubernetes environments.
+This feature provides deep insights, full audit visibility, and automated anomaly detection powered by machine learning and User & Entity Behavior Analytics (UEBA).
 
 
 ## ⚙️ Resources Required for EKS Audit Log Integration
