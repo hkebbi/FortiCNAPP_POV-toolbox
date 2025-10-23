@@ -40,3 +40,22 @@ API Errors due to bad behaviors, wrong access, etc.
 
 Authentication misconfiguration: unauthenticated user actions, API  server open to the Internet, etc.
 
+
+
+| Resource                              | Definition                                                                                                |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **IAM Cross-Account Role**            | Grants Lacework cross-account access to assess AWS resource configurations and analyze CloudTrail events. |
+| **Lacework Custom IAM Policy**        | Provides Lacework with read-only permissions to ingest and analyze EKS Audit Logs.                        |
+| **SNS Topic**                         | Created for EKS Audit Log integrations to enable event notifications when new logs are published.         |
+| **S3 Bucket**                         | Stores EKS Audit Logs for Lacework ingestion and continuous security analysis.                            |
+| **S3 Bucket Notification**            | Sends notifications to the SNS topic when new log objects are created in the S3 bucket.                   |
+| **S3 Bucket Lifecycle Rule**          | Defines how long logs are retained in the bucket (default retention: **180 days**).                       |
+| **S3 Bucket Versioning**              | Enables version control to preserve, retrieve, and restore previous versions of log objects.              |
+| **Kinesis Firehose**                  | Streams and delivers EKS Audit Logs from CloudWatch to the designated S3 bucket.                          |
+| **IAM Lacework Firehose Role**        | Allows the Firehose service to assume the necessary IAM role for delivering logs.                         |
+| **Lacework Firehose IAM Policy**      | Grants Firehose permissions to manage data and objects within the target S3 bucket.                       |
+| **IAM Lacework CloudWatch Role**      | Enables Lacework to assume CloudWatch roles across regions for log collection.                            |
+| **Lacework CloudWatch IAM Policy**    | Authorizes Firehose to access and retrieve CloudWatch logs for delivery.                                  |
+| **CloudWatch Subscription Filter(s)** | Configures filters for each EKS cluster to notify when new logs are added to CloudWatch Log Groups.       |
+
+
