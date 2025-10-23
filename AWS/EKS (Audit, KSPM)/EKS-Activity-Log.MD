@@ -8,6 +8,7 @@ This feature provides deep insights, full audit visibility, and automated anomal
 Audit logging must be enabled on the EKS clusters that you want to integrate with.
 
 
+
 Enable via UI:
 EKS --> Clusters --> Cluster-name ---> Observability ---> Control Plane Logs --> Manage --> Enable "Audit" 
 
@@ -16,6 +17,24 @@ aws eks --region <region> update-cluster-config --name <cluster_name> \ --loggin
 
 Example:CLI
 aws eks --region eu-central-1 update-cluster-config --name hkeksfrankfurt --logging '{"clusterLogging":[{"types":["audit"],"enabled":true}]}'
+
+
+Option-1: Using UI and Lacework Script (Copy paste on Cloudshell or Host)
+- Settings --> Cloud Accounts --> Add New --> AWS --> Guided Configuration, Next:
+- Choose integration type --> EKS Audit Log: 
+- Choose AWS region,  list of EKS clusters (names), & API Key
+- Press Generate CLI Bundle (choose Cloudshell or supported host)
+- Copy, paste the command.
+
+Option-2: Deployment via CLI ( Host or Cloudshell): 
+lacework generate k8s eks
+▸ Previous IaC generation detected, load cached values? No
+▸ Integrate clusters in more than one region? No
+▸ Specify AWS region: eu-central-1
+▸ Specify a comma-seperated list of clusters in region to ingest EKS Audit Logs: hkeksfrankfurt
+▸ Configure advanced integration options? No
+▸ Run Terraform plan now? (y/N) yes
+
 
 
 ## ⚙️ Resources Required for EKS Audit Log Integration
