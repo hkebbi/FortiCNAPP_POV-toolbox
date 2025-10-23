@@ -81,5 +81,35 @@ Authentication misconfiguration: unauthenticated user actions, API  server open 
 | **7.**   | FortiCNAPP’s cross-account IAM role assumes permissions to read from the SQS queue and access S3 logs.                  | 🪖 **FortiCNAPP Cross-Account Role (IAM)** |
 | **8.**   | FortiCNAPP ingests the EKS control plane audit logs for continuous monitoring, compliance checks, and threat detection. | 🛡️ **FortiCNAPP Platform**                |
 
+┌──────────────────────────────┐
+│        AWS Account           │
+│ ┌──────────────────────────┐ │
+│ │      Amazon EKS Cloud     │
+│ │ (EKS Control Plane Events)│
+│ └──────────────┬───────────┘ │
+│                │              │
+│                ▼              │
+│        Amazon CloudWatch      │
+│                │              │
+│                ▼              │
+│       Amazon Kinesis Firehose │
+│                │ (write)      │
+│                ▼              │
+│         Amazon S3 Bucket      │
+│                │ (notification)│
+│                ▼              │
+│           Amazon SNS Topic    │
+│                │              │
+│                ▼              │
+│           Amazon SQS Queue    │
+│                │ (read)       │
+│                ▼              │
+│  FortiCNAPP Cross-Account IAM │
+│                │ (assume)     │
+└───────────────►│              │
+                 ▼
+          🛡️ FortiCNAPP Platform
+     (Log ingestion, monitoring,
+     compliance, and threat detection)
 
 
