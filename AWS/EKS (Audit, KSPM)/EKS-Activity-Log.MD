@@ -15,7 +15,7 @@
 
 # 🧭 EKS → FortiCNAPP Integration Flow
 
-|| **Step** | **Flow Description**                                                                                               | **AWS / FortiCNAPP Component**             |
+| **Step** | **Flow Description**                                                                                               | **AWS / FortiCNAPP Component**             |
 | -------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
 | **1.**   | EKS control plane generates audit and activity events.                                                             | 🟧 **Amazon EKS Cloud**                    |
 | **2.**   | CloudWatch collects EKS control plane events for monitoring and log aggregation.                                   | ☁️ **Amazon CloudWatch**                   |
