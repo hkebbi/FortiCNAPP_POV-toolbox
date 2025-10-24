@@ -1,4 +1,4 @@
-# 🧩 Kubernetes Security Posture Management (KSPM) AWS Integration  
+# 🧩 AWS-EKS Security Posture Management (KSPM)  Integration  
 
 
 
