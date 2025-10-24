@@ -44,12 +44,7 @@ helm upgrade --install --create-namespace --namespace lacework \
   # --- Chart Source ---
   --repo https://lacework.github.io/helm-charts/ \
   lacework-agent lacework-agent
-```bash
-
-
-
-
-
+```
 
 
 ```bash
