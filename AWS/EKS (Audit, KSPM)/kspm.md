@@ -41,7 +41,7 @@ helm upgrade --install --create-namespace --namespace lacework \
   --set "tolerations[0].operator=Exists" \
   --set "tolerations[0].effect=NoSchedule" \
   \
-  # --- Chart Source ---
+  # --- Chart Source ---Install the chart named lacework-agent as a Helm release also named lacework-agent
   --repo https://lacework.github.io/helm-charts/ \
   lacework-agent lacework-agent
 ```
