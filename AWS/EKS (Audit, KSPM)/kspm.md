@@ -9,49 +9,32 @@ The tolerations (CriticalAddonsOnly, NoSchedule) are used to allow scheduling ev
 
 
 **Check Deployed Pods: and Cluster and Agent :**
-Cluster Collector → KSPM (cluster-level). Your chart toggles it with clusterAgent.enable.
-
-Node Collector / Agent (DaemonSet) → runs on every node; provides node-level KSPM data and the runtime “agent” features.
-
-If you install only one of them, the FortiCNAPP console will show Partial collection. For Full collection you need both.
-Agent-only (no Cluster Collector / no cluster-level KSPM): --set clusterAgent.enable=false
 
 
 
 
+**KSPM Only :**
 ```bash
 helm upgrade --install --create-namespace --namespace lacework \
-  \
-  # --- FortiCNAPP / Lacework API & Environment Configuration ---
   --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
   --set laceworkConfig.accessToken=0f28b6681ff5xxxxxxxcbe1f4ea1 \
   --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
   --set laceworkConfig.env=Production \
-  \
-  # --- KSPM Cluster Collector (enabled for EKS) ---
   --set clusterAgent.enable=true \
   --set clusterAgent.clusterType=eks \
   --set clusterAgent.clusterRegion=eu-central-1 \
   --set clusterAgent.image.repository=lacework/k8scollector \
-  \
-  # --- Optional Scheduling Tolerations ---
-  # These help the collector pod run even on nodes with taints or restrictions.
-  # Safe to keep; harmless if not required.
   --set "tolerations[0].key=CriticalAddonsOnly" \
   --set "tolerations[0].operator=Exists" \
   --set "tolerations[0].effect=NoSchedule" \
-  \
-  # --- Chart Source ---Install the chart named lacework-agent as a Helm release also named lacework-agent
   --repo https://lacework.github.io/helm-charts/ \
   lacework-agent lacework-agent
 ```
 
 
-```bash
-#!/usr/bin/env bash
-set -euo pipefail
+**KSPM + Agent Only :**
 
-# 1) Helm upgrade/install with your current flags (no secrets echoed here)
+```bash
 helm upgrade --install --create-namespace --namespace lacework \
   --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
   --set laceworkConfig.accessToken=0f28b6681ff5xxxxxxxcbe1f4ea1 \
@@ -70,6 +53,8 @@ helm upgrade --install --create-namespace --namespace lacework \
 ```
 
 
+
+
 ```bash
 # 2) Persist the IMDS fix: hostNetwork + ClusterFirstWithHostNet
 kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
@@ -82,6 +67,10 @@ kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
 # 3) Restart to pick it up
 kubectl -n lacework rollout restart deploy/lacework-agent-cluster
 ```
+
+
+
+
 
 
 **Check Deployed Pods: and Cluster and Agent :**
