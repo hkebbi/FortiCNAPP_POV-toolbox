@@ -36,7 +36,7 @@ kubectl -n lacework rollout restart deploy/lacework-agent-cluster
 
 ```
 
-**Uninstall any Helm releases in the Lacework namespace:**
+**Remove / Uninstall any Helm releases in the Lacework namespace:**
 ```bash
 helm ls -n lacework -q | xargs -r -I{} helm uninstall {} -n lacework
 ```
