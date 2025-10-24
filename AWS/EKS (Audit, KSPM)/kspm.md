@@ -37,10 +37,17 @@ kubectl -n lacework rollout restart deploy/lacework-agent-cluster
 ```
 **hostNetwork**: true makes the pod use the node’s network namespace, so calls to 169.254.169.254 (IMDS) go out exactly like they would from the node.
 
-
-   
-
-
-
+-----
 -----
 
+**Check Nodes and Cluster Lacework Pods:**
+```bash
+kubectl get pods -o wide -n lacework**
+
+NAME                                     READY   STATUS    RESTARTS   AGE   IP              NODE                  NOMINATED NODE   READINESS GATES
+lacework-agent-9p2cl                     1/1     Running   0          18h   172.31.15.1     i-084f64ad869c04a64   <none>           <none>
+lacework-agent-cluster-fcb8d8f7c-59bwv   1/1     Running   0          6s    172.31.15.1     i-084f64ad869c04a64   <none>           <none>
+lacework-agent-svtnk                     1/1     Running   0          18h   172.31.34.187   i-0c0fa636d2fbd7808   <none>           <none>
+lacework-agent-vlbxm                     1/1     Running   0          18h   172.31.15.62    i-08b86b7b9ee759e7a   <none>           <none>
+kobe@HussamElKebbis-MacBook-Pro deploy-kspm-imsd % 
+```bash
