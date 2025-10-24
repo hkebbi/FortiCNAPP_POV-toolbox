@@ -42,7 +42,7 @@ kubectl -n lacework rollout restart deploy/lacework-agent-cluster
 
 **Check Nodes and Cluster Lacework Pods:**
 ```bash
-kubectl get pods -o wide -n lacework**
+kubectl get pods -o wide -n lacework
 
 NAME                                     READY   STATUS    RESTARTS   AGE   IP              NODE                  NOMINATED NODE   READINESS GATES
 lacework-agent-9p2cl                     1/1     Running   0          18h   172.31.15.1     i-084f64ad869c04a64   <none>           <none>
