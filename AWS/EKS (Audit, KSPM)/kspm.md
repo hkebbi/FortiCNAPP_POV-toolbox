@@ -3,15 +3,16 @@
 
 ## ⚙️Configuration
 
+You can run this as direct CLI or put all in script and run it.
+
 ```bash
-kobe@HussamElKebbis-MacBook-Pro deploy-kspm-imsd % cat deploy_lacework.sh 
 #!/usr/bin/env bash
 set -euo pipefail
 
 # 1) Helm upgrade/install with your current flags (no secrets echoed here)
 helm upgrade --install --create-namespace --namespace lacework \
   --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
-  --set laceworkConfig.accessToken=0f28b6681ff56c9e51856f2871e126a5d30a2ad985e699bcbe1f4ea1 \
+  --set laceworkConfig.accessToken=0f28b6681ff5xxxxxxxcbe1f4ea1 \
   --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
   --set laceworkConfig.env=Production \
   --set clusterAgent.enable=True \
@@ -34,6 +35,16 @@ kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
 # 3) Restart to pick it up
 kubectl -n lacework rollout restart deploy/lacework-agent-cluster
 
+```
+**Check Deployed Pods: and Cluster and Agent :**
+```bash
+kubectl get pods -o wide -n lacework                                
+
+NAME                                      READY   STATUS    RESTARTS   AGE   IP              NODE                  NOMINATED NODE   READINESS GATES
+lacework-agent-7zw26                      1/1     Running   0          46s   172.31.34.187   i-0c0fa636d2fbd7808   <none>           <none>
+lacework-agent-cluster-679d6c67bf-bbsqh   1/1     Running   0          43s   172.31.11.36    i-0c78ac265bfc9d185   <none>           <none>
+lacework-agent-kd6vc                      1/1     Running   0          46s   172.31.15.62    i-08b86b7b9ee759e7a   <none>           <none>
+lacework-agent-vc869                      1/1     Running   0          26s   172.31.11.36    i-0c78ac265bfc9d185   <none>           <none>
 ```
 
 **Remove / Uninstall any Helm releases in the Lacework namespace:**
@@ -84,7 +95,7 @@ kubectl -n lacework rollout restart deploy/lacework-agent-cluster
 -----
 -----
 
-**Check Nodes and Cluster Lacework Pods:**
+
 ```bash
 kubectl get pods -o wide -n lacework
 
