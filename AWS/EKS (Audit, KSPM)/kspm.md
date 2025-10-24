@@ -25,17 +25,23 @@ helm upgrade --install --create-namespace --namespace lacework \
   --set "tolerations[0].effect=NoSchedule" \
   --repo https://lacework.github.io/helm-charts/ \
   lacework-agent lacework-agent
+```
 
+
+```bash
 # 2) Persist the IMDS fix: hostNetwork + ClusterFirstWithHostNet
 kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
   {"op":"add","path":"/spec/template/spec/hostNetwork","value":true},
   {"op":"add","path":"/spec/template/spec/dnsPolicy","value":"ClusterFirstWithHostNet"}
 ]'
+```
 
+```bash
 # 3) Restart to pick it up
 kubectl -n lacework rollout restart deploy/lacework-agent-cluster
-
 ```
+
+
 **Check Deployed Pods: and Cluster and Agent :**
 ```bash
 kubectl get pods -o wide -n lacework                                
