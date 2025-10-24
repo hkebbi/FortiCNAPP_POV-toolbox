@@ -3,10 +3,91 @@
 
 ## ⚙️Configuration
 
+#!/usr/bin/env bash
+set -euo pipefail
+
+################################################################################
+# 🧿 FortiCNAPP / Lacework KSPM + Agent Deployment for EKS
+#
+# This script deploys:
+#   ✅ Lacework Agent DaemonSet  → Node Collector + Runtime Agent (CWPP)
+#   ✅ Lacework Cluster Collector Deployment → Cluster-level KSPM
+#
+# It also:
+#   - Configures API connection to your regional Lacework tenant
+#   - Registers the EKS cluster for Kubernetes Security Posture Management (KSPM)
+#   - Enables IMDS (Instance Metadata Service) access for collectors
+#   - Applies tolerations for high-priority scheduling
+################################################################################
+
+echo "🚀 Deploying Lacework Agent + KSPM components..."
+
+# ------------------------------------------------------------------------------
+# 1) Helm install or upgrade
+# ------------------------------------------------------------------------------
+
+helm upgrade --install lacework-agent lacework-agent \
+  --create-namespace \
+  --namespace lacework \
+  --repo https://lacework.github.io/helm-charts/ \
+  \
+  # --- Lacework API & Authentication ---
+  --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
+  --set laceworkConfig.accessToken=0f28b6681ff56c9e51856f2871e126a5d30a2ad985e699bcbe1f4ea1 \
+  \
+  # --- Cluster Metadata ---
+  --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
+  --set laceworkConfig.env=Production \
+  \
+  # --- Cluster Collector Configuration (KSPM) ---
+  --set clusterAgent.enable=true \
+  --set clusterAgent.clusterType=eks \
+  --set clusterAgent.clusterRegion=eu-central-1 \
+  --set clusterAgent.image.repository=lacework/k8scollector \
+  \
+  # --- Node Collector / Runtime Agent (CWPP) ---
+  --set image.repository=lacework/datacollector \
+  \
+  # --- Pod Scheduling Tolerations ---
+  --set "tolerations[0].key=CriticalAddonsOnly" \
+  --set "tolerations[0].operator=Exists" \
+  --set "tolerations[0].effect=NoSchedule"
+
+# ------------------------------------------------------------------------------
+# 2) IMDS Fix — Enable host network access for Cluster Collector
+# ------------------------------------------------------------------------------
+# This ensures the Cluster Collector can access AWS Instance Metadata Service
+# (IMDS) to retrieve node and cluster metadata for full KSPM visibility.
+# Without this, you might see “Partial collection available” in the console.
+# ------------------------------------------------------------------------------
+
+echo "🔧 Enabling IMDS access for Cluster Collector..."
+kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
+  {"op":"add","path":"/spec/template/spec/hostNetwork","value":true},
+  {"op":"add","path":"/spec/template/spec/dnsPolicy","value":"ClusterFirstWithHostNet"}
+]'
+
+# ------------------------------------------------------------------------------
+# 3) Restart Cluster Collector to apply IMDS changes
+# ------------------------------------------------------------------------------
+echo "♻️ Restarting Cluster Collector deployment..."
+kubectl -n lacework rollout restart deploy/lacework-agent-cluster
+
+# ------------------------------------------------------------------------------
+# ✅ Completion Message
+# ------------------------------------------------------------------------------
+echo "✅ Lacework Agent + KSPM deployment complete!"
+echo "   - DaemonSet: lacework-agent (Node Collector + Agent)"
+echo "   - Deployment: lacework-agent-cluster (Cluster Collector)"
+echo "   - Verify pods with: kubectl get pods -n lacework -o wide"
+echo "   - Full Collection should appear in the Lacework console within ~1 hour."
 
 
 
-**Uninstall any Helm releases in the Laceworki namespace:**
+
+
+
+**Uninstall any Helm releases in the Lacework namespace:**
 ```bash
 helm ls -n lacework -q | xargs -r -I{} helm uninstall {} -n lacework
 ```
