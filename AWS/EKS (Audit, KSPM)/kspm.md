@@ -10,7 +10,7 @@ set -euo pipefail
 # 🧿 FortiCNAPP / Lacework KSPM + Agent Deployment for EKS
 #
 # This script deploys:
-#   ✅ Lacework Agent DaemonSet  → Node Collector + Runtime Agent (CWPP)
+#   ✅ Lacework Agent DaemonSet → Node Collector + Runtime Agent (CWPP)
 #   ✅ Lacework Cluster Collector Deployment → Cluster-level KSPM
 #
 # It also:
@@ -70,18 +70,9 @@ kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
 # ------------------------------------------------------------------------------
 # 3) Restart Cluster Collector to apply IMDS changes
 # ------------------------------------------------------------------------------
+
 echo "♻️ Restarting Cluster Collector deployment..."
-kubectl -n lacework rollout restart deploy/lacework-agent-cluster
-
-# ------------------------------------------------------------------------------
-# ✅ Completion Message
-# ------------------------------------------------------------------------------
-echo "✅ Lacework Agent + KSPM deployment complete!"
-echo "   - DaemonSet: lacework-agent (Node Collector + Agent)"
-echo "   - Deployment: lacework-agent-cluster (Cluster Collector)"
-echo "   - Verify pods with: kubectl get pods -n lacework -o wide"
-echo "   - Full Collection should appear in the Lacework console within ~1 hour."
-
+kubectl -n lacework rollout restart deploy
 
 
 
