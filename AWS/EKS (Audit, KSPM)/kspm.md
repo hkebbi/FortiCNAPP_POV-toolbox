@@ -26,7 +26,7 @@ kubectl -n lacework exec deploy/lacework-agent-cluster -- sh -lc 'T=$(curl -s --
 ```
 ✅ If the output shows something like: instance_id: i-xxxxxxxxxxxx, IMDS access is working correctly.  
 ⚠️ If you see TOKEN_FAIL or ERR, IMDS is blocked — check NetworkPolicies/CNI rules/firewall settings restricting access to 169.254.169.254.  
-   **Enable lacework-agent-cluster Pod IMDS access, run:** Then Enables IMDS access for the lacework-agent-cluster pod:
+   **Enable lacework-agent-cluster Pod IMDS access, run:** This Enables IMDS access for the lacework-agent-cluster pod:
 
 ```bash
 kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
