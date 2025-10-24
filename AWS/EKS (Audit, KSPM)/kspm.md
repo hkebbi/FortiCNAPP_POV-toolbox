@@ -1,9 +1,15 @@
 # 🧩 AWS-EKS Security Posture Management (KSPM)  Integration  
 
 
+## ⚙️Configuration
 
 
 
+
+**Uninstall any Helm releases in the Laceworki namespace:**
+```bash
+helm ls -n lacework -q | xargs -r -I{} helm uninstall {} -n lacework
+```
 
 ## ⚙️ Resources Required for EKS KSPM  Integration
 
