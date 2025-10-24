@@ -11,33 +11,12 @@ The tolerations (CriticalAddonsOnly, NoSchedule) are used to allow scheduling ev
 **Check Deployed Pods: and Cluster and Agent :**
 
 
-
-
-**KSPM Only :**
-```bash
-helm upgrade --install --create-namespace --namespace lacework \
-  --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
-  --set laceworkConfig.accessToken=0f28b6681ff5xxxxxxxcbe1f4ea1 \
-  --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
-  --set laceworkConfig.env=Production \
-  --set clusterAgent.enable=true \
-  --set clusterAgent.clusterType=eks \
-  --set clusterAgent.clusterRegion=eu-central-1 \
-  --set clusterAgent.image.repository=lacework/k8scollector \
-  --set "tolerations[0].key=CriticalAddonsOnly" \
-  --set "tolerations[0].operator=Exists" \
-  --set "tolerations[0].effect=NoSchedule" \
-  --repo https://lacework.github.io/helm-charts/ \
-  lacework-agent lacework-agent
-```
-
-
-**KSPM + Agent Only :**
+**KSPM + Agent Only: Cluster Collector + Node Collector :**
 
 ```bash
 helm upgrade --install --create-namespace --namespace lacework \
   --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
-  --set laceworkConfig.accessToken=0f28b6681ff5xxxxxxxcbe1f4ea1 \
+  --set laceworkConfig.accessToken=0f28b6681ff56c9e51856f2871e126a5d30a2ad985e699bcbe1f4ea1 \
   --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
   --set laceworkConfig.env=Production \
   --set clusterAgent.enable=True \
@@ -52,11 +31,8 @@ helm upgrade --install --create-namespace --namespace lacework \
   lacework-agent lacework-agent
 ```
 
-
-
-
 ```bash
-# 2) Persist the IMDS fix: hostNetwork + ClusterFirstWithHostNet
+# 2) Persist the IMDS Access fix: hostNetwork + ClusterFirstWithHostNet
 kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
   {"op":"add","path":"/spec/template/spec/hostNetwork","value":true},
   {"op":"add","path":"/spec/template/spec/dnsPolicy","value":"ClusterFirstWithHostNet"}
