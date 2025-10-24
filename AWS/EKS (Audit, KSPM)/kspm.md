@@ -3,9 +3,8 @@
 
 ## ⚙️Configuration
 
-
-cat deploy_lacework.sh 
-
+```bash
+kobe@HussamElKebbis-MacBook-Pro deploy-kspm-imsd % cat deploy_lacework.sh 
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -35,6 +34,7 @@ kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
 # 3) Restart to pick it up
 kubectl -n lacework rollout restart deploy/lacework-agent-cluster
 
+```
 
 **Uninstall any Helm releases in the Lacework namespace:**
 ```bash
