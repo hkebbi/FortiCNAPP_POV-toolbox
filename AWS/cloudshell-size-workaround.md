@@ -1,0 +1,11 @@
+## ⚙️ Terraform Deployment in CloudShell (1 GB Limit Workaround)
+
+| **Step**                                   | **Action / Command**                                                                                             | **Purpose / Notes**                                                                      |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| 🧩 **1. Understand the limitation**        | `/home/cloudshell-user` has only **~1 GB** of persistent space.                                                  | Large `.terraform/` directories (provider cache) quickly fill this up.                   |
+| 🧹 **2. After deployment**                 | `du -hs .*` → shows `.terraform` size.<br>`rm -rf .terraform`                                                    | Safe to delete `.terraform/` after a successful deploy. It can always be re-initialized. |
+| 📦 **3. Keep only essential files**        | Keep `main.tf`, `terraform.tfstate`, and `.terraform.lock.hcl` in the persistent `/home/cloudshell-user` folder. | These are lightweight and needed for later destruction or updates.                       |
+| 🚚 **4. Before destroying infrastructure** | Move the project to a temp folder with more space:<br>`mv /home/cloudshell-user/awls /tmp`                       | `/tmp`, `/root`, or `/aws/mde/mde` usually have tens of GB free.                         |
+| 🔄 **5. Re-initialize Terraform**          | `terraform init`                                                                                                 | Re-downloads providers and recreates the `.terraform/` folder.                           |
+| 💣 **6. Destroy resources**                | `terraform destroy`                                                                                              | Cleanly removes deployed cloud resources.                                                |
+| ✅ **Result**                               | Efficient use of CloudShell’s limited storage while maintaining the ability to deploy and destroy safely.        | Keeps environment lightweight and reproducible.                                          |
