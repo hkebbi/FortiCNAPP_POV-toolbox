@@ -1,5 +1,9 @@
 # 🧩 AWS-EKS Security Posture Management (KSPM)  Integration  
 
+
+
+
+
 ## ⚙️ Resources Required for EKS KSPM  Integration
 
 | **KSPM Components**         | **Purpose / Function**                                                                                         | **Deployment Method**                                                 | **Privileges / Network Access**                                                                              | **Collection Frequency**        | **Data Sent to FortiCNAPP**             | **Key Requirements / Notes**                                                                                |
@@ -8,8 +12,8 @@
 | **Node Collector**    | Collects **node-level data** (configurations, workloads, metadata) from each node in the EKS cluster.          | **Helm or Terraform** (not DaemonSet).                                | Runs as a **privileged pod** using the **host network namespace**.                                           | Every hour.                     | Within 2 hours of installation.         | Requires access to the **Instance Metadata Service (IMDS)**. Must be deployed on each cluster.              |
 | **Cluster Collector** | Collects **cluster-wide configuration and API data** (RBAC, resources, policies).                              | **Helm or Terraform**                                                 | Runs as a **non-privileged pod** using the **pod network namespace** (can use host network if IMDS blocked). | Every 24 hours.                 | Within 2 hours of installation.         | Requires access to both the **Kubernetes API Server** and **IMDS**. If IMDS blocked → *Partial Collection*. |  
 
-------
-------
+------------
+------------
 
 ## ⚙️Configuration
 
@@ -82,13 +86,23 @@ lacework-agent-cluster-679d6c67bf-bbsqh   1/1     Running   0          43s   172
 lacework-agent-kd6vc                      1/1     Running   0          46s   172.31.15.62    i-08b86b7b9ee759e7a   <none>           <none>
 lacework-agent-vc869                      1/1     Running   0          26s   172.31.11.36    i-0c78ac265bfc9d185   <none>           <none>
 ```
+-----
+
+**Verify UI Results:Collection Frequency every 24 hours**
+
+
+<img width="785" height="499" alt="Screenshot 2025-10-27 at 11 25 32 AM" src="https://github.com/user-attachments/assets/91c720e7-627f-4488-ba5c-5d59fabda786" />
+
+
+
 
 **Remove / Uninstall any Helm releases in the Lacework namespace:**
 ```bash
 helm ls -n lacework -q | xargs -r -I{} helm uninstall {} -n lacework
 ```
 
-
+------------
+------------
 
 ## 🛠️ FortiCNAPP EKS KSPM References:
 
