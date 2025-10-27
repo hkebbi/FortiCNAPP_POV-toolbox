@@ -21,13 +21,13 @@ The tolerations (CriticalAddonsOnly, NoSchedule) are used to allow scheduling ev
 **Check Deployed Pods: and Cluster and Agent :**
 
 
-**Deploy KSPM + Agent: Cluster Collector + Node Collector :**
+**Deploy EKS KSPM + Agent: Cluster Collector + Node Collector :**
 
 ```bash
 helm upgrade --install --create-namespace --namespace lacework \
   --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
   --set laceworkConfig.accessToken=0f28b668xxxxxx9bcbe1f4ea1 \
-  --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
+  --set laceworkConfig.kubernetesCluster=eksfrankfurt \
   --set laceworkConfig.env=Production \
   --set clusterAgent.enable=True \
   --set clusterAgent.clusterType=eks \
@@ -40,6 +40,16 @@ helm upgrade --install --create-namespace --namespace lacework \
   --repo https://lacework.github.io/helm-charts/ \
   lacework-agent lacework-agent
 ```
+-----
+
+| Variable                                            | Description                                                                                      |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `serverUrl=${LACEWORK_SERVER_URL}`                  | FortiCNAPP (Lacework) API endpoint URL — region-specific (e.g., `https://api.fra.lacework.net`). |
+| `accessToken=${LACEWORK_AGENT_TOKEN}`               | Access token used to authenticate the deployment with your FortiCNAPP tenant.                    |
+| `kubernetesCluster=${KUBERNETES_CLUSTER_NAME}`      | Logical name of your Kubernetes or EKS cluster as it should appear in the FortiCNAPP console.    |
+| `laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` | Environment label for grouping clusters (e.g., `Production`, `Staging`).                         |
+
+-----
 
 **# If needed (IMDS Access blocked): Persist the IMDS Access fix: hostNetwork + ClusterFirstWithHostNetr :**
 ```bash
@@ -82,6 +92,8 @@ https://docs.fortinet.com/document/forticnapp/latest/administration-guide/498574
 
 Kubernetes Compliance FAQs
 https://docs.fortinet.com/document/forticnapp/latest/administration-guide/219103/kubernetes-compliance-faqs
+
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended
 
 -----
 -----
