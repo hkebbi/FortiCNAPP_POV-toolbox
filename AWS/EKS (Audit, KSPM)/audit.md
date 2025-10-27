@@ -56,7 +56,7 @@
 ▸ Specify AWS region: eu-central-1
 ▸ Clusters: hkeksfrankfurt
 ▸ Advanced options? No
-▸ Run Terraform plan? yes</pre> |  ||                                                    |
+▸ Run Terraform plan? yes</pre> 
 
 
 
