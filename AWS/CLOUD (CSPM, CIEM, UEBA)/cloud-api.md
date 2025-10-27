@@ -6,7 +6,7 @@ Integrates with your AWS Cloud API environment to have the visibiltiy for Config
 FortiCNAPP connects to AWS through a secure cross-account role to collect **configuration**, **identity**, and **activity** data.  
 The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work together to deliver unified visibility and risk analysis across your AWS environment.
 
-### 🧩 Cloud Security Posture Management (CSPM) — Configuration Scanning
+### 🧩 Cloud Security Posture Management (CSPM) — Configuration Workflow
 
 | **Aspect** | **Description** |
 |-------------|-----------------|
@@ -18,7 +18,7 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 
 ---
 
-### 📜 CloudTrail Integration — Activity & Event Monitoring
+### 📜 CloudTrail Integration — Configuration Workflow
 
 | **Aspect** | **Description** |
 |-------------|-----------------|
@@ -30,7 +30,7 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 
 ---
 
-### 🔐 Cloud Infrastructure Entitlement Management (CIEM) — AWS Identity Analysis
+### 🔐 Cloud Infrastructure Entitlement Management (CIEM) — Configuration Workflow
 
 | **Aspect** | **Description** |
 |-------------|-----------------|
