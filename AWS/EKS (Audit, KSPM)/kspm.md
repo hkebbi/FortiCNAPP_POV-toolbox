@@ -54,11 +54,6 @@ kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
 kubectl -n lacework rollout restart deploy/lacework-agent-cluster
 ```
 
-
-
-
-
-
 **Check Deployed Pods: and Cluster and Agent :**
 ```bash
 kubectl get pods -o wide -n lacework                                
@@ -79,25 +74,14 @@ helm ls -n lacework -q | xargs -r -I{} helm uninstall {} -n lacework
 
 ## 🛠️ FortiCNAPP EKS KSPM Troubleshooting
 
+Kubernetes compliance
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/462341/kubernetes-compliance
 
-| **Notes**           | **Description**                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Full Collection**    | All three collectors (**Cloud**, **Node**, **Cluster**) are installed and actively sending data — complete Kubernetes compliance visibility.                                                                                                                                                                                                                                                                  |
-| **Partial Collection** | One or more collectors (usually Node or Cluster) are missing or misconfigured — limited compliance visibility in FortiCNAPP.                                                                                                                                                                                                                                                                                  |
-| **No Collection**      | Cloud Configuration Integration (CSPM) not set up — FortiCNAPP cannot detect or enumerate EKS clusters.                                                                                                                                                                                                                                                                                                       |
-| **Common Issue**       | ⚠️ **Error Message:** `Partial collection available. The node collector has not been configured.`<br><br>**Cause:** This occurs when the `lacework-agent-cluster` pod cannot reach the **AWS Instance Metadata Service (IMDS)**.<br><br>**Resolution:** Ensure IMDS access is allowed from pods. Verify that network policies, service meshes, or firewalls are not blocking access to the metadata endpoint. |  
+FortiCNAPP EKS KSPM Troubleshooting
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/498574/kubernetes-troubleshooting
 
-------
-
-**To verify IMDS access, run:**
-```bash
-kubectl -n lacework exec deploy/lacework-agent-cluster -- sh -lc 'T=$(curl -s --connect-timeout 2 -X PUT http://169.254.169.254/latest/api/token -H "X-aws-ec2-metadata-token-ttl-seconds:60" || true); [ -n "$T" ] && { printf "instance_id: "; curl -s --connect-timeout 2 -H "X-aws-ec2-metadata-token: $T" http://169.254.169.254/latest/meta-data/instance-id || echo ERR; } || echo TOKEN_FAIL'
-```
-✅ If the output shows something like: instance_id: i-xxxxxxxxxxxx, IMDS access is working correctly.  
-⚠️ If you see TOKEN_FAIL or ERR, IMDS is blocked — check NetworkPolicies/CNI rules/firewall settings restricting access to 169.254.169.254.  
-   **Enable lacework-agent-cluster Pod IMDS access, run:** This Enables IMDS access for the lacework-agent-cluster pod:
-
-
+Kubernetes Compliance FAQs
+https://docs.fortinet.com/document/forticnapp/latest/administration-guide/219103/kubernetes-compliance-faqs
 
 -----
 -----
