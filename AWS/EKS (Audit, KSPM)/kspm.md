@@ -1,16 +1,18 @@
 # 🧩 AWS-EKS Security Posture Management (KSPM)  Integration  
 
 
-| **Component / Feature**   | **Description**                                                                                                                                                                                   |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Core Components**       | KSPM is comprised of three main collectors: **Cloud Collector**, **Node Collector**, and **Cluster Collector**. Together, they continuously monitor, assess, and secure your Kubernetes clusters. |
-| **Cloud Integration**     | Seamlessly integrates with **Amazon EKS** and **Google GKE** to analyze cluster configurations, workloads, and security posture.                                                                  |
-| **Resource Visibility**   | Provides a unified **Resource Inventory** showing all Kubernetes resources and their compliance state.                                                                                            |
-| **Compliance Monitoring** | Offers a **Kubernetes Compliance Dashboard** for real-time cluster and resource compliance tracking.                                                                                              |
-| **Industry Benchmarks**   | Supports leading compliance frameworks: <br> - CIS Amazon EKS 1.1.0 Benchmark <br> - CIS Google GKE 1.4.0 Benchmark                                                                               |
-| **Attack Path Analysis**  | Visualizes **potential service attack paths** and relationships between workloads to detect risks and lateral movement.                                                                           |
-| **Continuous Monitoring** | Automatically identifies and reports misconfigurations, policy violations, and risky Kubernetes deployments.                                                                                      |
-| **Outcome**               | Enables **end-to-end Kubernetes visibility**, strengthens compliance, and proactively reduces risk within FortiCNAPP.                                                                             |
+| **Component / Feature**    | **Description**                                                                                                                                                                                                                                |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Core Components**        | KSPM is comprised of three main collectors: **Cloud Collector**, **Node Collector**, and **Cluster Collector**. Together, they continuously monitor, assess, and secure your Kubernetes clusters.                                              |
+| **Cloud Integration**      | Seamlessly integrates with **Amazon EKS** and **Google GKE** to analyze cluster configurations, workloads, and security posture.                                                                                                               |
+| **Supported Environments** | **Amazon Elastic Kubernetes Service (EKS)** — supported.<br>❌ **EKS Fargate** is *not supported* for this integration.<br>**Google Kubernetes Engine (GKE)** — supported.<br>❌ **GKE Autopilot mode** is *not supported* for this integration. |
+| **Resource Visibility**    | Provides a unified **Resource Inventory** showing all Kubernetes resources and their compliance state.                                                                                                                                         |
+| **Compliance Monitoring**  | Offers a **Kubernetes Compliance Dashboard** for real-time cluster and resource compliance tracking.                                                                                                                                           |
+| **Industry Benchmarks**    | Supports leading compliance frameworks:<br>• CIS Amazon EKS 1.1.0 Benchmark<br>• CIS Google GKE 1.4.0 Benchmark                                                                                                                                |
+| **Attack Path Analysis**   | Visualizes **potential service attack paths** and relationships between workloads to detect risks and lateral movement.                                                                                                                        |
+| **Continuous Monitoring**  | Automatically identifies and reports misconfigurations, policy violations, and risky Kubernetes deployments.                                                                                                                                   |
+| **Outcome**                | Enables **end-to-end Kubernetes visibility**, strengthens compliance, and proactively reduces risk within FortiCNAPP.                                                                                                                          |
+               |
 
 ------------
 
@@ -50,6 +52,7 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
   --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
   --set laceworkConfig.env=Production \
   --set clusterAgent.enable=true \
+  --set clusterAgent.hostNetworkAccess=true \
   --set clusterAgent.clusterType=eks \
   --set clusterAgent.clusterRegion=eu-central-1 \
   --set clusterAgent.image.repository=lacework/k8scollector \
@@ -58,15 +61,18 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
   --set "tolerations[0].operator=Exists" \
   --set "tolerations[0].effect=NoSchedule"
 ```
+----  
 
-| Variable / Option                                      | Description                                                                                                                                    | Example / Command                                                                                                                                                                                                                               | Reference                                                                                                                                                      |
-| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `serverUrl=${LACEWORK_SERVER_URL}`                     | FortiCNAPP (Lacework) API endpoint URL — region-specific (e.g., `https://api.fra.lacework.net`).                                               | `--set laceworkConfig.serverUrl=${LACEWORK_SERVER_URL}`                                                                                                                                                                                         | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `accessToken=${LACEWORK_AGENT_TOKEN}`                  | Access token used to authenticate the deployment with your FortiCNAPP tenant.                                                                  | `--set laceworkConfig.accessToken=${LACEWORK_AGENT_TOKEN}`                                                                                                                                                                                      | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `kubernetesCluster=${KUBERNETES_CLUSTER_NAME}`         | Logical name of your Kubernetes or EKS cluster as it should appear in the FortiCNAPP console.                                                  | `--set laceworkConfig.kubernetesCluster=${KUBERNETES_CLUSTER_NAME}`                                                                                                                                                                             | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}`    | Environment label for grouping clusters (e.g., `Production`, `Staging`).                                                                       | `--set laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}`                                                                                                                                                                                       | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `laceworkConfig.proxyUrl=http://proxy.example:3128`    | **Additional:** Optional proxy configuration. You can provide the proxy URL in Helm or set it in the **FortiCNAPP UI → Agent Admin settings**. | `--set laceworkConfig.proxyUrl=http://proxy.example:3128`                                                                                                                                                                                       | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| 🧩 **Universal Toleration (POC / Full Coverage)**      | Allows the agent to tolerate *all taints* — runs on every node.                                                                                | `--set 'tolerations[0].operator=Exists'`                                                                                                                                                                                                        | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
+| **Variable / Option**                               | **Description**                                                                                                                                                                             | **Example / Command**                                               |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `serverUrl=${LACEWORK_SERVER_URL}`                  | FortiCNAPP (Lacework) API endpoint URL — region-specific (e.g., `https://api.fra.lacework.net`).                                                                                            | `--set laceworkConfig.serverUrl=${LACEWORK_SERVER_URL}`             |
+| `accessToken=${LACEWORK_AGENT_TOKEN}`               | Access token used to authenticate the deployment with your FortiCNAPP tenant.                                                                                                               | `--set laceworkConfig.accessToken=${LACEWORK_AGENT_TOKEN}`          |
+| `kubernetesCluster=${KUBERNETES_CLUSTER_NAME}`      | Logical name of your Kubernetes or EKS cluster as it should appear in the FortiCNAPP console.                                                                                               | `--set laceworkConfig.kubernetesCluster=${KUBERNETES_CLUSTER_NAME}` |
+| `laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` | Environment label for grouping clusters (e.g., `Production`, `Staging`).                                                                                                                    | `--set laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}`           |
+| `laceworkConfig.proxyUrl=http://proxy.example:3128` | **Optional:** Proxy configuration for outbound communication. You can also configure this in **FortiCNAPP UI → Agent Admin settings**.                                                      | `--set laceworkConfig.proxyUrl=http://proxy.example:3128`           |
+| `clusterAgent.hostNetworkAccess=true`               | Enables the **Cluster Collector** to use the host network stack for reaching the **Kubernetes API**, **IMDS**, and **FortiCNAPP APIs**. Required if pod-level network access is restricted. | `--set clusterAgent.hostNetworkAccess=true`                         |
+| 🧩 **Universal Toleration (POC / Full Coverage)**   | Allows the agent to tolerate *all taints* — runs on every node.                                                                                                                             | `--set 'tolerations[0].operator=Exists'`                            |
+
 
 
 | Region                            | Server URL                            | Port        | Description                                                                  | Reference                                                                                                                                                    |
@@ -119,7 +125,7 @@ lacework-agent-vc869                      1/1     Running   0          26s   172
 <img width="785" height="499" alt="Screenshot 2025-10-27 at 11 25 32 AM" src="https://github.com/user-attachments/assets/91c720e7-627f-4488-ba5c-5d59fabda786" />
 
 
-
+----------
 
 **Remove / Uninstall any Helm releases in the Lacework namespace:**
 ```bash
