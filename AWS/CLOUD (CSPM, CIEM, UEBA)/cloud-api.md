@@ -41,13 +41,8 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 | **Outcome** | Provides complete IAM visibility, access path analysis, and least-privilege recommendations to strengthen identity security posture. |
 
 ---
-
-
-
-
-
----
 --- 
+
 
 ### 🧱 FortiCNAPP Terraform Deployment Options (In this document we will follow FortiCNAPP CLI Integration):
 
