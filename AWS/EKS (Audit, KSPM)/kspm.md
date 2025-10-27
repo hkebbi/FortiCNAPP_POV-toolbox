@@ -21,7 +21,7 @@ The tolerations (CriticalAddonsOnly, NoSchedule) are used to allow scheduling ev
 **Check Deployed Pods: and Cluster and Agent :**
 
 
-**KSPM + Agent: Cluster Collector + Node Collector :**
+**Deploy KSPM + Agent: Cluster Collector + Node Collector :**
 
 ```bash
 helm upgrade --install --create-namespace --namespace lacework \
@@ -41,8 +41,8 @@ helm upgrade --install --create-namespace --namespace lacework \
   lacework-agent lacework-agent
 ```
 
+**# IF needed: Persist the IMDS Access fix: hostNetwork + ClusterFirstWithHostNetr :**
 ```bash
-# 2) Persist the IMDS Access fix: hostNetwork + ClusterFirstWithHostNet
 kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
   {"op":"add","path":"/spec/template/spec/hostNetwork","value":true},
   {"op":"add","path":"/spec/template/spec/dnsPolicy","value":"ClusterFirstWithHostNet"}
