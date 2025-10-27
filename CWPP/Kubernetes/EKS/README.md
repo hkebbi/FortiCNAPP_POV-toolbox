@@ -73,10 +73,13 @@ helm repo update
 
 
 
-| Region                            | Server URL                            | Description                                                                           |
-| --------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------- |
-| **Europe (EU)**                   | `https://api.fra.lacework.net`        | Use this endpoint for deployments in the **European region** (Frankfurt data center). |
-| **Australia / New Zealand (ANZ)** | `https://auprodn1.agent.lacework.net` | Use this endpoint for deployments in **Australia** or **New Zealand** regions.        |
+| Region                            | Server URL                            | Port        | Description                                                                  | Reference                                                                                                                                                    |
+| --------------------------------- | ------------------------------------- | ----------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **United States (US)**            | `https://api.lacework.net`            | **TCP/443** | Default endpoint for **US-based FortiCNAPP/Lacework accounts**.              | [FortiCNAPP Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
+| **Europe (EU)**                   | `https://api.fra.lacework.net`        | **TCP/443** | Endpoint for deployments in the **European region** (Frankfurt data center). | [FortiCNAPP Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
+| **Australia / New Zealand (ANZ)** | `https://auprodn1.agent.lacework.net` | **TCP/443** | Endpoint for deployments in **Australia** or **New Zealand**.                | [FortiCNAPP Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
+| **Asia (Singapore)**              | `https://aprods1.agent.lacework.net`  | **TCP/443** | Endpoint for deployments in the **Asia region** (Singapore data center).     | [FortiCNAPP Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
+
 
 ----
 
