@@ -23,7 +23,7 @@ Integrates with your AWS Cloud API environment to have the visibiltiy for Config
 
 
 
-### ☁️ AWS & FortiCNAPP Terraform Prerequisites
+### ☁️ AWS & FortiCNAPP-CLI Terraform Prerequisites
 
 | **Component / Requirement** | **Description** | **Reference / Link** |
 |------------------------------|-----------------|----------------------|
