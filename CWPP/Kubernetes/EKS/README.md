@@ -76,11 +76,11 @@ helm repo update
 | 🧩 **Universal Toleration (POC / Full Coverage)** | Allows the agent to tolerate *all taints* — runs on every node. | `--set 'tolerations[0].operator=Exists'` |
 | 🛡️ **Explicit Tolerations (Production / Controlled)** | Allows the agent to run **only** on specific tainted nodes (e.g., master, control-plane, infra). | ```yaml<br>tolerations:<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/master<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/control-plane<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/infra<br>``` |
 
-  # For deployments in Europe, overwrite the Lacework agent server URL
-  #lacework_server_url   = "https://api.fra.lacework.net"
+| Region                            | Server URL                            | Description                                                                           |
+| --------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------- |
+| **Europe (EU)**                   | `https://api.fra.lacework.net`        | Use this endpoint for deployments in the **European region** (Frankfurt data center). |
+| **Australia / New Zealand (ANZ)** | `https://auprodn1.agent.lacework.net` | Use this endpoint for deployments in **Australia** or **New Zealand** regions.        |
 
-  # For deployments in Australia and New Zealand, overwrite the Lacework agent server URL
-  #lacework_server_url   = "https://auprodn1.agent.lacework.net"
 ----
 
 #### ✅ 3.1. Method-1. Deploy Agent Using CLI:
