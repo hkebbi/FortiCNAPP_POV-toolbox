@@ -30,8 +30,8 @@ The tolerations (CriticalAddonsOnly, NoSchedule) are used to allow scheduling ev
 ```bash
 helm upgrade --install --create-namespace --namespace lacework \
   --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
-  --set laceworkConfig.accessToken=0f28b668xxxxxx9bcbe1f4ea1 \
-  --set laceworkConfig.kubernetesCluster=eksfrankfurt \
+  --set laceworkConfig.accessToken=yyb668xxxxxx \
+  --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
   --set laceworkConfig.env=Production \
 # --set laceworkConfig.proxyUrl=http://proxy.example:3128 \
   --set clusterAgent.enable=True \
