@@ -41,7 +41,7 @@ helm upgrade --install --create-namespace --namespace lacework \
   lacework-agent lacework-agent
 ```
 
-**# IF needed: Persist the IMDS Access fix: hostNetwork + ClusterFirstWithHostNetr :**
+**# If needed (IMDS Access blocked): Persist the IMDS Access fix: hostNetwork + ClusterFirstWithHostNetr :**
 ```bash
 kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
   {"op":"add","path":"/spec/template/spec/hostNetwork","value":true},
@@ -49,8 +49,8 @@ kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
 ]'
 ```
 
+**# Restart to pick it up :**
 ```bash
-# 3) Restart to pick it up
 kubectl -n lacework rollout restart deploy/lacework-agent-cluster
 ```
 
