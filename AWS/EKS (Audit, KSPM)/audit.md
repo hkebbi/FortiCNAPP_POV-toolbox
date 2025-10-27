@@ -10,8 +10,8 @@
 | **🤖 ML-Based Anomaly Detection**              | Uses **machine learning** to automatically identify **deviations from normal behavior**, reducing manual investigation time.                                                       |
 | **👥 User & Entity Behavior Analytics (UEBA)** | Leverages **UEBA** to correlate and analyze user activity patterns, reducing false positives and surfacing only true security anomalies.                                           |
 
-
-
+-----
+-----
 
 ## 📋 EKS Audit Logging Requirement
 
@@ -28,7 +28,8 @@
 | **Example (CLI)**    | <pre>aws eks --region eu-central-1 update-cluster-config \ <br>  --name hkeksfrankfurt \ <br>  --logging '{"clusterLogging":[{"types":["audit"],"enabled":true}]}'</pre> |
 
 
-
+-----
+-----
 
 ## ⚙️ Resources Required for EKS Audit Log Integration
 | **Resource**               | **Definition / Purpose**                                                                                                                         |
@@ -41,22 +42,24 @@
 | **Firehose Delivery Role** | Grants Kinesis Firehose permission to write (post) data to the S3 bucket, ensuring secure and reliable delivery.                                 |
 | **Cross-Account IAM Role** | Created in the customer’s AWS account and assumed by FortiCNAPP to make API calls, read S3 logs, and process notifications securely.             |
 
+-----
+-----
 
-## 🚀 Terraform Integration Options
+## 🚀 Terraform deployment Options
 
-| **Option**                                        | **Description / Steps**                                                                                                                                                                                                                                                                                     | **Best For**                                       |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| **Option 1 — UI-Based Integration (Recommended)** | 1. Go to **Settings → Cloud Accounts → Add New → AWS**<br>2. Choose **Integration Type → EKS Audit Log**<br>3. Select AWS region, EKS clusters, and API key<br>4. Click **Generate CLI Bundle**<br>5. Choose **CloudShell** or supported host<br>6. Copy and paste the generated command into your terminal | ✅ Simplified setup via UI and guided configuration |
-| **Option 2 — CLI-Based Integration (Terraform)**  | Run:<br><pre>lacework generate k8s eks</pre>Follow prompts:<br><pre>▸ Load cached values? No                                                                                                                                                                                                                |                                                    |
-| ▸ Integrate in multiple regions? No               |                                                                                                                                                                                                                                                                                                             |                                                    |
-| ▸ Specify AWS region: eu-central-1                |                                                                                                                                                                                                                                                                                                             |                                                    |
-| ▸ Clusters: hkeksfrankfurt                        |                                                                                                                                                                                                                                                                                                             |                                                    |
-| ▸ Advanced options? No                            |                                                                                                                                                                                                                                                                                                             |                                                    |
-| ▸ Run Terraform plan? yes</pre>                   | ⚙️ Full control via CLI; suited for automation and IaC workflows                                                                                                                                                                                                                                            |                                                
-
-
+| **Option**                                        | **Description / Steps**                                                                                                                                                                                                                                                                                   | **Best For**                                       |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **Option 1 — UI-Based Integration (Recommended)** | 1. Go to **Settings → Cloud Accounts → Add New → AWS**<br>2. Choose **Integration Type → EKS Audit Log**<br>3. Select AWS region, EKS clusters, and API key<br>4. Click **Generate CLI Bundle**<br>5. Choose **CloudShell** or supported host<br>6. Copy & paste the generated command into your terminal | ✅ Simplified setup via UI and guided configuration |
+| **Option 2 — CLI-Based Integration (Terraform)**  | <pre>lacework generate k8s eks</pre>Follow prompts:<br><pre>▸                                                                                                                                                                                                                                             |                                                    |
+| ▸ Integrate in multiple regions? No               |                                                                                                                                                                                                                                                                                                           |                                                    |
+| ▸ Specify AWS region: eu-central-1                |                                                                                                                                                                                                                                                                                                           |                                                    |
+| ▸ Clusters: hkeksfrankfurt                        |                                                                                                                                                                                                                                                                                                           |                                                    |
+| ▸ Advanced options? No                            |                                                                                                                                                                                                                                                                                                           |                                                    |
+| ▸ Run Terraform plan? yes</pre>                   | ⚙️ Full control via CLI; suited for automation and IaC workflows                                                                                                                                                                                                                                          |                                                    |
 
 
+-----
+-----
 
 
 ## 🧭 EKS → FortiCNAPP Integration Flow
