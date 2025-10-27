@@ -92,9 +92,10 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
   --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
   --set laceworkConfig.kubernetesCluster=eksfrankfurt \
   --set laceworkConfig.env=poc \
-# --set laceworkConfig.proxyUrl=http://proxy.example:3128 \
   --set 'tolerations[0].operator=Exists'
 ```
+For Proxy you can add the URL or fill it in the UI (Under Agent Admin settings)
+# --set laceworkConfig.proxyUrl=http://proxy.example:3128 \
 
 #### ✅ 3.2. Method-2. Deploy Agent Using values.yaml file:
 The values.yaml file is the configuration file for a Helm chart.
