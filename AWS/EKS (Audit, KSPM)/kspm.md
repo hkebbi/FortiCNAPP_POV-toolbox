@@ -28,7 +28,8 @@ The tolerations (CriticalAddonsOnly, NoSchedule) are used to allow scheduling ev
 **Deploy EKS KSPM + Agent: Cluster Collector + Node Collector :**
 
 ```bash
-helm upgrade --install --create-namespace --namespace lacework \
+helm upgrade --install lacework-agent lacework/lacework-agent \
+  --namespace lacework --create-namespace \
   --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
   --set laceworkConfig.accessToken=yyb668xxxxxx \
   --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
