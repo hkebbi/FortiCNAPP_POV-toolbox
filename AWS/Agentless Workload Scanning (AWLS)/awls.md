@@ -45,7 +45,14 @@
 # 🚀 How Agentless Workload Scanning Is Deployed ? 
 CLI: Non-interactive .vs. Interactive.
 
-## 🔧 Option.1.Using direct FortiCNAP CLI code (non-interactive).
+## 🔧 Option.1.
+#### Using direct FortiCNAP CLI code (non-interactive). Can be used for CloudShell.
+
+```bash
+/home/cloudshell-user
+mkdir awls 
+awls$ chmod +x /home/cloudshell-user/awls
+```
 
 ```bash
 lacework generate cloud-account aws --output='/home/forticnapp/cloud-awls' --config='false' --cloudtrail='false' --agentless='true' --aws_region='me-south-1' --noninteractive --apply 
