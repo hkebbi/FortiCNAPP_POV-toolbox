@@ -84,8 +84,8 @@ helm repo update
 helm upgrade --install lacework-agent lacework/lacework-agent \
   --namespace lacework --create-namespace \
   --set laceworkConfig.accessToken=2f2abcdefghijklmnopqr \
-  --set laceworkConfig.serverUrl=https://aaa-eu.lacework.net \
-  --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
+  --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
+  --set laceworkConfig.kubernetesCluster=eksfrankfurt \
   --set laceworkConfig.env=poc \
 # --set laceworkConfig.proxyUrl=http://proxy.example:3128 \
   --set 'tolerations[0].operator=Exists'
