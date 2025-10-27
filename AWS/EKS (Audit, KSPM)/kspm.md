@@ -48,6 +48,14 @@ helm upgrade --install --create-namespace --namespace lacework \
 | `kubernetesCluster=${KUBERNETES_CLUSTER_NAME}`      | Logical name of your Kubernetes or EKS cluster as it should appear in the FortiCNAPP console.    |
 | `laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` | Environment label for grouping clusters (e.g., `Production`, `Staging`).                         |
 
+| Region                            | Server URL                            | Port        | Description                                                                  | Reference                                                                                                                                                    |
+| --------------------------------- | ------------------------------------- | ----------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **United States (US)**            | `https://api.lacework.net`            | **TCP/443** | Default endpoint for **US-based FortiCNAPP/Lacework accounts**.              | [FortiCNAPP Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
+| **Europe (EU)**                   | `https://api.fra.lacework.net`        | **TCP/443** | Endpoint for deployments in the **European region** (Frankfurt data center). | [FortiCNAPP Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
+| **Australia / New Zealand (ANZ)** | `https://auprodn1.agent.lacework.net` | **TCP/443** | Endpoint for deployments in **Australia** or **New Zealand**.                | [FortiCNAPP Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
+| **Asia (Singapore)**              | `https://aprods1.agent.lacework.net`  | **TCP/443** | Endpoint for deployments in the **Asia region** (Singapore data center).     | [FortiCNAPP Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
+
+
 -----
 
 **# If needed (IMDS Access blocked): Persist the IMDS Access fix: hostNetwork + ClusterFirstWithHostNetr :**
