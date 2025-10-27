@@ -124,8 +124,8 @@ lacework-agent-vc869                      1/1     Running   0          26s   172
 
 <img width="785" height="499" alt="Screenshot 2025-10-27 at 11 25 32 AM" src="https://github.com/user-attachments/assets/91c720e7-627f-4488-ba5c-5d59fabda786" />
 
-
-----------
+------------
+------------
 
 **Remove / Uninstall any Helm releases in the Lacework namespace:**
 ```bash
