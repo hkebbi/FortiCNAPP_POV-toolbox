@@ -66,8 +66,15 @@
 
 -----
 -----
+## 🧭 EKS → FortiCNAPP UI Validation
+
+<img width="1082" height="697" alt="Screenshot 2025-10-27 at 1 35 39 PM" src="https://github.com/user-attachments/assets/c71080cb-d732-43e8-9c5c-3c0a3e25bbb0" />
 
 
+
+
+-----
+-----
 ## 🧭 EKS → FortiCNAPP Integration Flow
 
 | **Step** | **Flow Description**                                                                                               | **AWS / FortiCNAPP Component**             |
@@ -81,7 +88,15 @@
 | **7.**   | FortiCNAPP assumes a cross-account IAM role to securely read from SQS and access S3 logs.                          | 🪖 **FortiCNAPP Cross-Account Role (IAM)** |
 | **8.**   | FortiCNAPP ingests and analyzes EKS control plane logs for compliance, visibility, and threat detection.           | 🛡️ **FortiCNAPP Platform**                 |
 
-Reference:
 
-Amazon EKS Audit Log Integration
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/842670/amazon-eks-audit-log-integration
+
+-----
+-----
+
+
+## Reference:
+
+| **Topic**                            | **Description**                                                                                                          | **Reference Link**                                                                                                                                    |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Amazon EKS Audit Log Integration** | Official FortiCNAPP documentation detailing setup, configuration, and permissions for integrating Amazon EKS Audit Logs. | [Amazon EKS Audit Log Integration](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/842670/amazon-eks-audit-log-integration) |
+
