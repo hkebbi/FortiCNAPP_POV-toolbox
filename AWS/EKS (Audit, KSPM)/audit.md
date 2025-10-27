@@ -58,6 +58,10 @@
 ▸ Advanced options? No
 ▸ Run Terraform plan? yes</pre> 
 
+| **Parameter**    | **Description**                                           |
+| ---------------- | --------------------------------------------------------- |
+| **AWS Region**   | Must match the region where your EKS cluster is deployed. |
+| **Cluster Name** | Must match your actual EKS cluster name.                  |
 
 
 -----
