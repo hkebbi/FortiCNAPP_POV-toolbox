@@ -90,18 +90,15 @@ helm ls -n lacework -q | xargs -r -I{} helm uninstall {} -n lacework
 
 
 
-## 🛠️ FortiCNAPP EKS KSPM Troubleshooting
+## 🛠️ FortiCNAPP EKS KSPM References:
 
-Kubernetes compliance
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/462341/kubernetes-compliance
-
-FortiCNAPP EKS KSPM Troubleshooting
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/498574/kubernetes-troubleshooting
-
-Kubernetes Compliance FAQs
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/219103/kubernetes-compliance-faqs
-
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended
+| Topic                                   | Description                                                                           | Reference Link                                                                                                                                                           |
+| --------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Kubernetes Compliance**               | Overview of FortiCNAPP Kubernetes Compliance capabilities and configuration.          | [Kubernetes Compliance Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/462341/kubernetes-compliance)                                     |
+| **FortiCNAPP EKS KSPM Troubleshooting** | Troubleshooting guide for EKS KSPM integrations, IMDS issues, and collection errors.  | [EKS KSPM Troubleshooting](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/498574/kubernetes-troubleshooting)                                  |
+| **Kubernetes Compliance FAQs**          | Frequently asked questions about KSPM collectors, configuration, and data collection. | [Kubernetes Compliance FAQs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/219103/kubernetes-compliance-faqs)                                |
+| **Helm Format Deployment**              | Official Helm-based deployment steps using the Lacework charts repository.            | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended)           |
+| **Required Connectivity**               | Network connectivity, proxy, and certificate requirements for agents and collectors.  | [Connectivity & Certificates](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
 
 -----
 -----
