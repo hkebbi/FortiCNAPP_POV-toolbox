@@ -1,5 +1,15 @@
 # 🧩 AWS-EKS Security Posture Management (KSPM)  Integration  
 
+## ⚙️ Resources Required for EKS KSPM  Integration
+
+| **KSPM Components**         | **Purpose / Function**                                                                                         | **Deployment Method**                                                 | **Privileges / Network Access**                                                                              | **Collection Frequency**        | **Data Sent to FortiCNAPP**             | **Key Requirements / Notes**                                                                                |
+| --------------------- | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Cloud Collector**   | Enumerates and assesses EKS clusters using existing **CSPM (Cloud Configuration Integration)** for compliance. | Automatically available once AWS Configuration Integration is set up. | Runs as part of the cloud integration (no pod deployment required).                                          | Daily (based on CSPM schedule). | Within 24 hours of configuration setup. | Requires AWS  Configuration Integration. No additional setup for EKS.                                 |
+| **Node Collector**    | Collects **node-level data** (configurations, workloads, metadata) from each node in the EKS cluster.          | **Helm or Terraform** (not DaemonSet).                                | Runs as a **privileged pod** using the **host network namespace**.                                           | Every hour.                     | Within 2 hours of installation.         | Requires access to the **Instance Metadata Service (IMDS)**. Must be deployed on each cluster.              |
+| **Cluster Collector** | Collects **cluster-wide configuration and API data** (RBAC, resources, policies).                              | **Helm or Terraform**                                                 | Runs as a **non-privileged pod** using the **pod network namespace** (can use host network if IMDS blocked). | Every 24 hours.                 | Within 2 hours of installation.         | Requires access to both the **Kubernetes API Server** and **IMDS**. If IMDS blocked → *Partial Collection*. |  
+
+------
+------
 
 ## ⚙️Configuration
 
@@ -11,7 +21,7 @@ The tolerations (CriticalAddonsOnly, NoSchedule) are used to allow scheduling ev
 **Check Deployed Pods: and Cluster and Agent :**
 
 
-**KSPM + Agent Only: Cluster Collector + Node Collector :**
+**KSPM + Agent: Cluster Collector + Node Collector :**
 
 ```bash
 helm upgrade --install --create-namespace --namespace lacework \
@@ -65,16 +75,7 @@ lacework-agent-vc869                      1/1     Running   0          26s   172
 helm ls -n lacework -q | xargs -r -I{} helm uninstall {} -n lacework
 ```
 
-## ⚙️ Resources Required for EKS KSPM  Integration
 
-| **KSPM Components**         | **Purpose / Function**                                                                                         | **Deployment Method**                                                 | **Privileges / Network Access**                                                                              | **Collection Frequency**        | **Data Sent to FortiCNAPP**             | **Key Requirements / Notes**                                                                                |
-| --------------------- | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| **Cloud Collector**   | Enumerates and assesses EKS clusters using existing **CSPM (Cloud Configuration Integration)** for compliance. | Automatically available once AWS Configuration Integration is set up. | Runs as part of the cloud integration (no pod deployment required).                                          | Daily (based on CSPM schedule). | Within 24 hours of configuration setup. | Requires AWS  Configuration Integration. No additional setup for EKS.                                 |
-| **Node Collector**    | Collects **node-level data** (configurations, workloads, metadata) from each node in the EKS cluster.          | **Helm or Terraform** (not DaemonSet).                                | Runs as a **privileged pod** using the **host network namespace**.                                           | Every hour.                     | Within 2 hours of installation.         | Requires access to the **Instance Metadata Service (IMDS)**. Must be deployed on each cluster.              |
-| **Cluster Collector** | Collects **cluster-wide configuration and API data** (RBAC, resources, policies).                              | **Helm or Terraform**                                                 | Runs as a **non-privileged pod** using the **pod network namespace** (can use host network if IMDS blocked). | Every 24 hours.                 | Within 2 hours of installation.         | Requires access to both the **Kubernetes API Server** and **IMDS**. If IMDS blocked → *Partial Collection*. |  
-
-------
-------
 
 ## 🛠️ FortiCNAPP EKS KSPM Troubleshooting
 
@@ -96,14 +97,7 @@ kubectl -n lacework exec deploy/lacework-agent-cluster -- sh -lc 'T=$(curl -s --
 ⚠️ If you see TOKEN_FAIL or ERR, IMDS is blocked — check NetworkPolicies/CNI rules/firewall settings restricting access to 169.254.169.254.  
    **Enable lacework-agent-cluster Pod IMDS access, run:** This Enables IMDS access for the lacework-agent-cluster pod:
 
-```bash
-kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
-  {"op":"add","path":"/spec/template/spec/hostNetwork","value":true},
-  {"op":"add","path":"/spec/template/spec/dnsPolicy","value":"ClusterFirstWithHostNet"}
-]'
-kubectl -n lacework rollout restart deploy/lacework-agent-cluster
-```
-**hostNetwork**: true makes the pod use the node’s network namespace, so calls to 169.254.169.254 (IMDS) go out exactly like they would from the node.
+
 
 -----
 -----
