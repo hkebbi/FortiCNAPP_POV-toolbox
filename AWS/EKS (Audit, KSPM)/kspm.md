@@ -34,7 +34,6 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
   --set laceworkConfig.accessToken=yyb668xxxxxx \
   --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
   --set laceworkConfig.env=Production \
-# --set laceworkConfig.proxyUrl=http://proxy.example:3128 \
   --set clusterAgent.enable=True \
   --set clusterAgent.clusterType=eks \
   --set clusterAgent.clusterRegion=eu-central-1 \
