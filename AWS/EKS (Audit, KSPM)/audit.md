@@ -21,6 +21,15 @@
 | **Purpose**       | EKS Audit Logs capture control-plane API calls, enabling continuous anomaly detection and security analytics. |
 
 
+| **Method**           | **Steps / Command**                                                                                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AWS Console (UI)** | 1. Navigate to **EKS → Clusters → Cluster-Name → Observability → Control Plane Logs → Manage**<br>2. Enable **Audit** logging<br>3. Click **Save**                        |
+| **AWS CLI**          | `bash<br>aws eks --region <region> update-cluster-config \<br>  --name <cluster_name> \<br>  --logging '{"clusterLogging":[{"types":["audit"],"enabled":true}]}'<br>`     |
+| **Example (CLI)**    | `bash<br>aws eks --region eu-central-1 update-cluster-config \<br>  --name hkeksfrankfurt \<br>  --logging '{"clusterLogging":[{"types":["audit"],"enabled":true}]}'<br>` |
+
+
+
+
 ## ⚙️ Resources Required for EKS Audit Log Integration
 | **Resource**               | **Definition / Purpose**                                                                                                                         |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
