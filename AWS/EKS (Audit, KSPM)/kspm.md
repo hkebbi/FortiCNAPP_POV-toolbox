@@ -28,22 +28,25 @@ The tolerations (CriticalAddonsOnly, NoSchedule) are used to allow scheduling ev
 **Deploy EKS KSPM + Agent: Cluster Collector + Node Collector :**
 
 ```bash
+helm repo add lacework https://lacework.github.io/helm-charts
+helm repo update
+```
+
+```bash
 helm upgrade --install lacework-agent lacework/lacework-agent \
   --namespace lacework --create-namespace \
   --set laceworkConfig.serverUrl=https://api.fra.lacework.net \
-  --set laceworkConfig.accessToken=yyb668xxxxxx \
+  --set laceworkConfig.accessToken=xxxx \
   --set laceworkConfig.kubernetesCluster=hkeksfrankfurt \
   --set laceworkConfig.env=Production \
-  --set clusterAgent.enable=True \
+  --set clusterAgent.enable=true \
   --set clusterAgent.clusterType=eks \
   --set clusterAgent.clusterRegion=eu-central-1 \
   --set clusterAgent.image.repository=lacework/k8scollector \
   --set image.repository=lacework/datacollector \
   --set "tolerations[0].key=CriticalAddonsOnly" \
   --set "tolerations[0].operator=Exists" \
-  --set "tolerations[0].effect=NoSchedule" \
-  --repo https://lacework.github.io/helm-charts/ \
-  lacework-agent lacework-agent
+  --set "tolerations[0].effect=NoSchedule"
 ```
 
 | Variable / Option                                      | Description                                                                                                                                    | Example / Command                                                                                                                                                                                                                               | Reference                                                                                                                                                      |
@@ -66,7 +69,16 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 
 -----
 
-**# If needed (IMDS Access blocked): Persist the IMDS Access fix: hostNetwork + ClusterFirstWithHostNetr :**
+**#Check the Cluster Collector logs to see if any errors are seen relating to the retrieval of metadata::**  
+
+Check the Cluster Collector logs to see if any errors are seen relating to the retrieval of metadata:  
+
+```bash
+kubectl logs lacework-agent-cluster-7c8dd4ccb9-2wh89 -n lacework | grep EC2Metadata
+```
+
+Fxi it
+
 ```bash
 kubectl -n lacework patch deploy lacework-agent-cluster --type=json -p='[
   {"op":"add","path":"/spec/template/spec/hostNetwork","value":true},
