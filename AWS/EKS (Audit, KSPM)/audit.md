@@ -56,7 +56,7 @@
 ▸ Specify AWS region: eu-central-1
 ▸ Clusters: hkeksfrankfurt
 ▸ Advanced options? No
-▸ Run Terraform plan? yes</pre> | ⚙️ Full control via CLI; suited for automation and IaC workflows ||                                                    |
+▸ Run Terraform plan? yes</pre> |  ||                                                    |
 
 
 
