@@ -40,7 +40,6 @@ helm upgrade --install --create-namespace --namespace lacework \
   --repo https://lacework.github.io/helm-charts/ \
   lacework-agent lacework-agent
 ```
------
 
 | Variable                                            | Description                                                                                      |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
