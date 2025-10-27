@@ -1,8 +1,18 @@
 # 🧩 AWS-EKS Security Posture Management (KSPM)  Integration  
 
 
+| **Component / Feature**   | **Description**                                                                                                                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Core Components**       | KSPM is comprised of three main collectors: **Cloud Collector**, **Node Collector**, and **Cluster Collector**. Together, they continuously monitor, assess, and secure your Kubernetes clusters. |
+| **Cloud Integration**     | Seamlessly integrates with **Amazon EKS** and **Google GKE** to analyze cluster configurations, workloads, and security posture.                                                                  |
+| **Resource Visibility**   | Provides a unified **Resource Inventory** showing all Kubernetes resources and their compliance state.                                                                                            |
+| **Compliance Monitoring** | Offers a **Kubernetes Compliance Dashboard** for real-time cluster and resource compliance tracking.                                                                                              |
+| **Industry Benchmarks**   | Supports leading compliance frameworks: <br> - CIS Amazon EKS 1.1.0 Benchmark <br> - CIS Google GKE 1.4.0 Benchmark                                                                               |
+| **Attack Path Analysis**  | Visualizes **potential service attack paths** and relationships between workloads to detect risks and lateral movement.                                                                           |
+| **Continuous Monitoring** | Automatically identifies and reports misconfigurations, policy violations, and risky Kubernetes deployments.                                                                                      |
+| **Outcome**               | Enables **end-to-end Kubernetes visibility**, strengthens compliance, and proactively reduces risk within FortiCNAPP.                                                                             |
 
-
+------------
 
 ## ⚙️ Resources Required for EKS KSPM  Integration
 
