@@ -58,7 +58,7 @@
 
 ---
 
-## 🔧 Using direct FortiCNAP CLI code (non-interactive).
+## 🔧 Or Using direct FortiCNAP CLI code (non-interactive).
 ```bash
 lacework generate cloud-account aws --output='/home/forticnapp/cloud-awls' --config='false' --cloudtrail='false' --agentless='true' --aws_region='me-south-1' --noninteractive --apply 
 ```
