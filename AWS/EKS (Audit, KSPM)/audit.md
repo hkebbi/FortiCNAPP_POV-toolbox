@@ -25,7 +25,7 @@
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **AWS Console (UI)** | 1. Navigate to **EKS → Clusters → Cluster Name → Observability → Control Plane Logs → Manage**<br>2. Enable **Audit logging**<br>3. Click **Save**                       |
 | **AWS CLI**          | <pre>aws eks --region <region> update-cluster-config \ <br>  --name <cluster_name> \ <br>  --logging '{"clusterLogging":[{"types":["audit"],"enabled":true}]}'</pre>     |
-| **Example (CLI)**    | <pre>aws eks --region eu-central-1 update-cluster-config \ <br>  --name hkeksfrankfurt \ <br>  --logging '{"clusterLogging":[{"types":["audit"],"enabled":true}]}'</pre> |
+| **Example (CLI)**    | <pre>aws eks --region eu-central-1 update-cluster-config\<br>  --name hkeksfrankfurt\<br>  --logging '{"clusterLogging":[{"types":["audit"],"enabled":true}]}'</pre> |
 
 
 -----
