@@ -1,6 +1,14 @@
 # 🧩 AWS-EKS Audit Integration  
 
-## ⚙️ Definition
+## ⚙️ Definition  
+
+| **Capability / Feature**                       | **Description**                                                                                                                                                                    |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Enhanced Kubernetes Security Visibility**    | FortiCNAPP extends **anomaly detection** and **behavioral analytics** into **Amazon EKS clusters**, providing deep visibility into cluster activity and control-plane operations.  |
+| **EKS Audit Log Integration**                  | Integrates directly with **AWS-managed EKS Audit Logs** to continuously monitor and detect **unusual activity**, **risky configurations**, and **potential threats** in real time. |
+| **🔎 Deep Audit Visibility**                   | Provides comprehensive visibility into **EKS control-plane API events**, including user actions, resource modifications, and access attempts.                                      |
+| **🤖 ML-Based Anomaly Detection**              | Uses **machine learning** to automatically identify **deviations from normal behavior**, reducing manual investigation time.                                                       |
+| **👥 User & Entity Behavior Analytics (UEBA)** | Leverages **UEBA** to correlate and analyze user activity patterns, reducing false positives and surfacing only true security anomalies.                                           |
 
 
 
