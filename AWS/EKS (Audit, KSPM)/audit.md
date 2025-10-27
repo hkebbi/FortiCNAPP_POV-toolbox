@@ -66,7 +66,7 @@
 
 -----
 -----
-## 🧭 EKS → FortiCNAPP UI Validation
+## 🧭 UI result (Workloads --> Kubernetes --> API tab.
 
 <img width="1082" height="697" alt="Screenshot 2025-10-27 at 1 35 39 PM" src="https://github.com/user-attachments/assets/c71080cb-d732-43e8-9c5c-3c0a3e25bbb0" />
 
