@@ -11,8 +11,8 @@
 | **Industry Benchmarks**    | Supports leading compliance frameworks:<br>• CIS Amazon EKS 1.1.0 Benchmark<br>• CIS Google GKE 1.4.0 Benchmark                                                                                                                                |
 | **Attack Path Analysis**   | Visualizes **potential service attack paths** and relationships between workloads to detect risks and lateral movement.                                                                                                                        |
 | **Continuous Monitoring**  | Automatically identifies and reports misconfigurations, policy violations, and risky Kubernetes deployments.                                                                                                                                   |
-| **Outcome**                | Enables **end-to-end Kubernetes visibility**, strengthens compliance, and proactively reduces risk within FortiCNAPP.                                                                                                                          |
-               |
+| **Outcome**                | Enables **end-to-end Kubernetes visibility**, strengthens compliance, and proactively reduces risk within FortiCNAPP.                                                                                                                      
+        
 
 ------------
 
