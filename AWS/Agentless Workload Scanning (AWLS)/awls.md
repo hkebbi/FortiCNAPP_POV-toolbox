@@ -57,6 +57,12 @@
 | **6** | Delete the deployment (destroy Terraform resources):<br>`terraform destroy` |
 
 ---
+
+## 🔧 Using direct FortiCNAP CLI code (non-interactive).
+```bash
+lacework generate cloud-account aws --output='/home/forticnapp/cloud-awls' --config='false' --cloudtrail='false' --agentless='true' --aws_region='me-south-1' --noninteractive --apply 
+```
+
 ---  
 
 ### 🛡️ Verify from UI (After 24 hours) Vulnerability Tab filter:
