@@ -65,7 +65,7 @@ helm repo update
 | **Configuration** | **Purpose / Description** | **Example Helm Command / Value** |
 |--------------------|---------------------------|----------------------------------|
 | 🔑 **Access Token** | Authentication token used to connect the agent to your Lacework FortiCNAPP account. | `--set accessToken=${LACEWORK_AGENT_TOKEN}` |
-| 🌐 **Server URL** | URL for your Lacework FortiCNAPP API or ingestion endpoint. | `--set serverUrl=${LACEWORK_SERVER_URL}` |
+| 🌐 **Server URL** | URL for your Lacework FortiCNAPP API or ingestion endpoint region-specific. | `--set serverUrl=${LACEWORK_SERVER_URL}` |
 | ☸️ **Kubernetes Cluster Name** | Name of your Kubernetes cluster (for display in FortiCNAPP). | `--set kubernetesCluster=${KUBERNETES_CLUSTER_NAME}` |
 | 🧭 **Environment Label** | Logical environment grouping (e.g., dev, staging, prod). | `--set laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` |
 | ⚙️ **CPU Requests** | Minimum guaranteed CPU resources for the agent pod. | `--set resources.requests.cpu=300m` |
@@ -76,6 +76,11 @@ helm repo update
 | 🧩 **Universal Toleration (POC / Full Coverage)** | Allows the agent to tolerate *all taints* — runs on every node. | `--set 'tolerations[0].operator=Exists'` |
 | 🛡️ **Explicit Tolerations (Production / Controlled)** | Allows the agent to run **only** on specific tainted nodes (e.g., master, control-plane, infra). | ```yaml<br>tolerations:<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/master<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/control-plane<br>  - effect: NoSchedule<br>    key: node-role.kubernetes.io/infra<br>``` |
 
+  # For deployments in Europe, overwrite the Lacework agent server URL
+  #lacework_server_url   = "https://api.fra.lacework.net"
+
+  # For deployments in Australia and New Zealand, overwrite the Lacework agent server URL
+  #lacework_server_url   = "https://auprodn1.agent.lacework.net"
 ----
 
 #### ✅ 3.1. Method-1. Deploy Agent Using CLI:
@@ -90,14 +95,6 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 # --set laceworkConfig.proxyUrl=http://proxy.example:3128 \
   --set 'tolerations[0].operator=Exists'
 ```
-
-| Variable                                            | Description                                                                                      |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `serverUrl=${LACEWORK_SERVER_URL}`                  | FortiCNAPP (Lacework) API endpoint URL — region-specific (e.g., `https://api.fra.lacework.net`). |
-| `accessToken=${LACEWORK_AGENT_TOKEN}`               | Access token used to authenticate the deployment with your FortiCNAPP tenant.                    |
-| `kubernetesCluster=${KUBERNETES_CLUSTER_NAME}`      | Logical name of your Kubernetes or EKS cluster as it should appear in the FortiCNAPP console.    |
-| `laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` | Environment label for grouping clusters (e.g., `Production`, `Staging`).                         |
-
 
 #### ✅ 3.2. Method-2. Deploy Agent Using values.yaml file:
 The values.yaml file is the configuration file for a Helm chart.
