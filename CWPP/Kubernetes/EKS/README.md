@@ -91,6 +91,14 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
   --set 'tolerations[0].operator=Exists'
 ```
 
+| Variable                                            | Description                                                                                      |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `serverUrl=${LACEWORK_SERVER_URL}`                  | FortiCNAPP (Lacework) API endpoint URL — region-specific (e.g., `https://api.fra.lacework.net`). |
+| `accessToken=${LACEWORK_AGENT_TOKEN}`               | Access token used to authenticate the deployment with your FortiCNAPP tenant.                    |
+| `kubernetesCluster=${KUBERNETES_CLUSTER_NAME}`      | Logical name of your Kubernetes or EKS cluster as it should appear in the FortiCNAPP console.    |
+| `laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` | Environment label for grouping clusters (e.g., `Production`, `Staging`).                         |
+
+
 #### ✅ 3.2. Method-2. Deploy Agent Using values.yaml file:
 The values.yaml file is the configuration file for a Helm chart.
 It defines default settings and parameters used by the chart’s templates — such as image names, resource limits, namespaces, labels, and other variables
