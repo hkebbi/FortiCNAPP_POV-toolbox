@@ -1,5 +1,14 @@
 # ☁️ AWS: Cloud API Integration
 
+## Note: Make sure to review the following files before proceeding.
+
+- [CloudShell Size Workaround](../cloudshell-size-workaround.md)
+- [FortiCNAPP AWS Profile](../forticnapp-aws-profile.md)
+- [Terms and Architecture](../terms-arch.md)
+
+-----
+-----
+
 ## 🧠 Why Cloud API Integration ?
 
 Integrates with your AWS Cloud API environment to have the visibiltiy for Configuration Compliance, Cloud Identity risk managemen & and Threat Detection across your cloud environment.
