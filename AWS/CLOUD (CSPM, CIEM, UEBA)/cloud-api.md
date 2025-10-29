@@ -74,8 +74,10 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 ---
 ---  
 
-# 🚀 How Agentless Cloud API (CSPM, CIEM & UEBA) Integration Is Deployed ?  
-### Example for Single AWS Account
+# 🚀  How Agentless Cloud API (CSPM, CIEM & UEBA) AWS Integration Is Deployed ?  
+
+#### Option.1.Using direct FortiCNAP CLI code (non-interactive). Can be used for CloudShell.
+##### Example for Single AWS Account
 
 ```bash
 lacework generate cloud-account aws --output='/tmp/forti' --config='true' --cloudtrail='true' --aws_region='me-south-1' --noninteractive --apply 
@@ -83,9 +85,11 @@ lacework generate cloud-account aws --output='/tmp/forti' --config='true' --clou
 
 ---
 ---  
+#### Option.2.Using FortiCNAP CLI (Interactive) Can be used for CloudShell.
+##### Example for Single AWS Account
    
-Note: In CloudShell there’s no local AWS profile, so Terraform will fail .
-This creates a default AWS profile that points to CloudShell’s temporary IAM role credentials (no need for access keys).
+#### Note: In CloudShell there’s no local AWS profile and the FortiCNAPP CLI Interactive will ask for innput.
+So you can create default AWS profile that points to CloudShell’s region deployment (no need for access keys as CloudShell automatically inherits your current IAM identity).
 Let’s create one properly inside your home directory in CloudShell:
 
 ```bash
@@ -96,11 +100,6 @@ region = me-south-1
 credential_source = Ec2InstanceMetadata
 EOF
 ```
-
-
-
-## 🔧 AWS Cloud Account Configuration Workflow (FortiCNAPP) Using FortiCNAPP CLI
-
 
 | Step | Description |
 |------|-------------|
@@ -114,6 +113,9 @@ EOF
 
 
 <img width="973" height="133" alt="Screenshot 2025-10-20 at 4 10 19 PM" src="https://github.com/user-attachments/assets/89992f5e-628d-41b1-9ec4-bdcc79bd1abe" />
+
+
+
 
 
 
