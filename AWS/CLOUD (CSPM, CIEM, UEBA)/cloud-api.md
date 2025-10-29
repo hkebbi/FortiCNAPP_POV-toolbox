@@ -2,9 +2,9 @@
 
 ## Note: Make sure to review the following files before proceeding.
 
-- [CloudShell Size Workaround](../cloudshell-size-workaround.md)
+- [AWS CloudShell Size Workaround](../cloudshell-size-workaround.md)
 - [FortiCNAPP & AWS Profiles](../forticnapp-aws-profile.md)
-- [Terms and Architecture](../terms-arch.md)
+- [AWS Terms and Architecture](../terms-arch.md)
 
 -----
 -----
