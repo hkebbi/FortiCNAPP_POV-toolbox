@@ -84,7 +84,7 @@ EOF
 
 
 ```bash
-lacework generate cloud-account aws --output='/tmp/forti' --agentless='true' --aws_region='eu-west-1' --agentless_scanning_accounts default:eu-west-1,default:eu-west-2 --noninteractive --apply
+lacework generate cloud-account aws --output='/tmp/forti' --agentless='true' --aws_region='me-south-1' --agentless_scanning_accounts default:me-south-1,default:me-central-1 --noninteractive --apply
 ```
 
 ----
