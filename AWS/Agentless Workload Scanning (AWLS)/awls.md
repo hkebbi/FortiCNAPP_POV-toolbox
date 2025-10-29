@@ -91,6 +91,7 @@ lacework generate cloud-account aws --output='/home/forticnapp/cloud-awls' --age
 
 ### 🛡️ Private-by-Design: 
 
+
 | Step | Description |
 |------|--------------|
 | **1** | The customer runs the **Agentless AWLS Terraform module** to deploy the required resources in their AWS environment. |
@@ -105,6 +106,8 @@ lacework generate cloud-account aws --output='/home/forticnapp/cloud-awls' --age
 | 🎯 **Selective Scanning** | You can limit the scanned hosts using an explicit **query filter**. By default, all workloads are scanned. |
 | 🐳 **Powered by ECS** | *Amazon Elastic Container Service (Amazon ECS)* is a fully managed container orchestration service that simplifies deployment, scaling, and management of containerized applications. |
 
+#### This creates an ECS cluster, a VPC and VPC IG for that cluster per region.
+#### The trigger will start a periodic Task to snapshot and analyze EC2 volumes in that region.
 
 ---
 ---  
