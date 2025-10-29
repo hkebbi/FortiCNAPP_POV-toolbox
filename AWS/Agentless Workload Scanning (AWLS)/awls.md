@@ -67,17 +67,14 @@ mkdir -p ~/.aws
 
 cat <<EOF > ~/.aws/config
 [default]
-region = eu-west-1
+region = me-south-1
 output = json
 
 [profile me]
-region = me-south-1
+region = me-central-1
 
 [profile us]
-region = us-east-1
-
-[profile ap]
-region = ap-south-1
+region = eu-central-1
 EOF
 
 
