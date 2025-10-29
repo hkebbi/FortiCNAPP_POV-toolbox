@@ -77,44 +77,13 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 
 # 🚀 How Agentless Cloud API Integration Is Deployed ?  
 
+
 lacework generate cloud-account aws --output='/tmp/forti' --config='true' --cloudtrail='true' --aws_region='me-south-1' --noninteractive --apply 
 
-lacework generate cloud-account aws --output='/home/forticnapp/cloud-awls' --agentless='true' --aws_region='me-south-1' --noninteractive --apply 
-
-
 
 ---
 ---  
  
-### 🛡️ Verify from UI (After 24 hours) Compliance, Identiies, Cloud Logs & Resource Inventory Tabs :  
-
-
-
-
----
----  
-
-## 🧩 What Is Deployed in a Workflow + Definitions ?  
-
-
-
-
-## 🧠 FortiCNAPP AWS Integrations Overview
-
-
----
----  
- 
-
-## 🔗 Reference Links
-
-
-
-
-# 🚀 How AWS Cloud API Integration (CSPM, CIEM, UEBA) Is Deployed ?
-
-
-
 ## ⚙️ Configure Lacework (FortiCNAPP) CLI (API Key from FortiCNAPP UI Settings)
 
 | **Step** | **Command / Output** | **Description** |
