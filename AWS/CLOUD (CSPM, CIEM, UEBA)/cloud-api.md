@@ -77,9 +77,9 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 
 # 🚀 How Agentless Cloud API Integration Is Deployed ?  
 
-
+```bash
 lacework generate cloud-account aws --output='/tmp/forti' --config='true' --cloudtrail='true' --aws_region='me-south-1' --noninteractive --apply 
-
+```
 
 ---
 ---  
