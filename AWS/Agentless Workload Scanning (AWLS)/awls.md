@@ -1,7 +1,14 @@
 
 # ☁️ AWS: Agentless Workload Scanning (AWLS)
 
+## Note: Make sure to review the following files before proceeding.
 
+- [AWS CloudShell Size Workaround](../cloudshell-size-workaround.md)
+- [FortiCNAPP & AWS Profiles](../forticnapp-aws-profile.md)
+- [AWS Terms and Architecture](../terms-arch.md)
+
+-----
+-----
 ## 🧠 Why Agentless Workload Scanning ?
 
 | Section | Description |
@@ -61,22 +68,20 @@ lacework generate cloud-account aws --output='/home/forticnapp/cloud-api' --agen
 
 
 ##### Example Multi region (region = eu-central-1 (Monitor & Scan) & me-south-1 (Scan Only), change region & output only.
-But first you need to create config file profile (here default for multiple regions.
+But first you need to create config file profile ( for multiple regions) required for the CLI.
 
+```bash
 mkdir -p ~/.aws
-
 cat <<EOF > ~/.aws/config
 [default]
 region = me-south-1
 output = json
-
-[profile me]
+[default]
 region = me-central-1
-
-[profile us]
+[default]
 region = eu-central-1
 EOF
-
+```
 
 
 ```bash
