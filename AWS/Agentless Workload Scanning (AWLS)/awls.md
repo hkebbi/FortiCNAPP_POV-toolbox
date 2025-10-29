@@ -52,8 +52,7 @@
 # 🚀 How Agentless Workload Scanning Is Deployed ? 
 CLI: Non-interactive .vs. Interactive.
 
-## 🔧 Option.1.
-#### Using direct FortiCNAP CLI code (non-interactive). Can be used for CloudShell.
+## 🔧 Option.1.Using direct FortiCNAP CLI code (non-interactive). Can be used for CloudShell.
 ##### Example single region (region = me-south-1), change region & output only.
 
 ```bash
