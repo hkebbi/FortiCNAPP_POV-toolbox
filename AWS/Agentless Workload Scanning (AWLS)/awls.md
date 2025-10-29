@@ -47,7 +47,7 @@ CLI: Non-interactive .vs. Interactive.
 
 ## 🔧 Option.1.
 #### Using direct FortiCNAP CLI code (non-interactive). Can be used for CloudShell.
-##### Example (region = me-south-1), change region & output only.
+##### Example single region (region = me-south-1), change region & output only.
 
 ```bash
 /home/cloudshell-user
@@ -56,11 +56,35 @@ awls$ chmod +x /home/cloudshell-user/awls
 ```
 
 ```bash
-lacework generate cloud-account aws --output='/home/forticnapp/cloud-awls' --agentless='true' --aws_region='eu-central-1' --agentless_scanning_accounts default:eu-central-1,default:me-south-1
---noninteractive --apply
+lacework generate cloud-account aws --output='/home/forticnapp/cloud-api' --agentless-'true' --aws_region='me-south-1' --noninteractive --apply 
 ```
 
-lacework generate cloud-account aws --output='/tmp/forti' --agentless='true' --aws_region='eu-central-1' --agentless_scanning_accounts default:eu-central-1,default:me-south-1 --noninteractive --apply 
+
+##### Example Multi region (region = eu-central-1 (Monitor & Scan) & me-south-1 (Scan Only), change region & output only.
+But first you need to create config file profile (here default for multiple regions.
+
+mkdir -p ~/.aws
+
+cat <<EOF > ~/.aws/config
+[default]
+region = eu-west-1
+output = json
+
+[profile me]
+region = me-south-1
+
+[profile us]
+region = us-east-1
+
+[profile ap]
+region = ap-south-1
+EOF
+
+
+
+```bash
+lacework generate cloud-account aws --output='/tmp/forti' --agentless='true' --aws_region='eu-west-1' --agentless_scanning_accounts default:eu-west-1,default:eu-west-2 --noninteractive --apply
+```
 
 ----
 ----
