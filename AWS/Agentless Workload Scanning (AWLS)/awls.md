@@ -99,7 +99,7 @@ lacework generate cloud-account aws --output='/tmp/forti' --agentless='true' --a
 | Step | Description |
 |------|--------------|
 | **1** | The customer runs the **Agentless AWLS Terraform module** to deploy the required resources in their AWS environment. |
-| **2** | Terraform template provisions:<br>• **IAM Roles**<br>• **S3 Bucket**<br>• **ECS Cluster** (with *Sidekick* container)<br>• **VPC**, **Subnet**, and **Internet Gateway** per region |
+| **2** | Terraform template provisions:<br>• **IAM Roles / Global**<br>• **S3 Bucket /Gloval**<br>• **ECS Cluster /Region** (with *Sidekick* container)<br>• **VPC**, **Subnet**, and **Internet Gateway /Region**   |
 | **3** | The **Sidekick container** is executed as part of an **ECS Fargate task**. |
 | **4** | The task enumerates customer workloads, identifies attached block volumes, securely mounts them, and initiates the scanning process. |
 | **5** | Scanning results are written to the customer’s **S3 bucket**. |
@@ -110,8 +110,8 @@ lacework generate cloud-account aws --output='/tmp/forti' --agentless='true' --a
 | 🎯 **Selective Scanning** | You can limit the scanned hosts using an explicit **query filter**. By default, all workloads are scanned. |
 | 🐳 **Powered by ECS** | *Amazon Elastic Container Service (Amazon ECS)* is a fully managed container orchestration service that simplifies deployment, scaling, and management of containerized applications. |
 
-#### This creates an ECS cluster, a VPC and VPC IG for that cluster per region.
-#### The trigger will start a periodic Task to snapshot and analyze EC2 volumes in that region.
+#### This creates an ECS cluster, a VPC and VPC IG for that cluster per region (Scanning account, or Security account, where the scanning infrasturcture is installed).
+#### The trigger will start a periodic Task to snapshot and analyze EC2 volumes in that region (Monitored account where a role used to create snapshots, and access snapshot data, is installed).
 
 ---
 ---  
