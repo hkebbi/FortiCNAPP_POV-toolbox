@@ -56,7 +56,7 @@ awls$ chmod +x /home/cloudshell-user/awls
 ```
 
 ```bash
-lacework generate cloud-account aws --output='/home/forticnapp/cloud-api' --agentless-'true' --aws_region='me-south-1' --noninteractive --apply 
+lacework generate cloud-account aws --output='/home/forticnapp/cloud-api' --agentless='true' --aws_region='me-south-1' --noninteractive --apply 
 ```
 
 
