@@ -47,6 +47,7 @@ CLI: Non-interactive .vs. Interactive.
 
 ## 🔧 Option.1.
 #### Using direct FortiCNAP CLI code (non-interactive). Can be used for CloudShell.
+##### Example.
 
 ```bash
 /home/cloudshell-user
