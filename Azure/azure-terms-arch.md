@@ -88,3 +88,26 @@ graph TD
 ---
 ---
 
+
+```mermaid
+graph TD
+  A[🌐 Microsoft Entra ID Tenant] --> B[👤 User: alex@company.com]
+  A --> C[👥 Groups / Service Principals / Managed Identities]
+
+  B -->|Authenticated via Token| D[🔐 Azure Resource Manager (ARM)]
+
+  D --> E[🏢 Root Management Group]
+  E --> F[💠 Subscription]
+  F --> G[🗂️ Resource Group]
+  G --> H[🧱 Resource]
+
+  F --> I[🧩 RBAC Role Assignments]
+  I --> B
+  I -->|Role Definition| J[⚙️ Owner / Contributor / Reader]
+
+  style A fill:#2563eb,stroke:#1e40af,color:#fff
+  style D fill:#334155,stroke:#000,color:#fff
+  style E,F,G,H fill:#3b82f6,stroke:#1e40af,color:#fff
+  style I,J fill:#7e22ce,stroke:#581c87,color:#fff
+
+```
