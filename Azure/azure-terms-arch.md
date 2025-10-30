@@ -1,4 +1,7 @@
+## 🏗️ Azure Organization Hierarchy: 
 
+```mermaid
+graph TD
 🏢 Root Management Group
 │
 ├── 📁 MG: Engineering
@@ -12,7 +15,7 @@
 └── 📁 MG: DevOps
     └── 💠 Azure Subscription: dev-tools-001
 
-
+```
 
 
 
