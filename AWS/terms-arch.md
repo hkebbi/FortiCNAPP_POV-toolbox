@@ -29,6 +29,18 @@ class C1,C2,C3,C4,C5 account
 -----
 -----
 
+| AWS Concept                         | Azure Equivalent                    | Description                                                                           |
+| ----------------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------- |
+| **Root Organization**               | **Root Management Group**           | The top-level container in Azure. All resources and management groups exist under it. |
+| **Organizational Unit (OU)**        | **Management Group (MG)**           | Logical containers that help organize subscriptions for policy, RBAC, and compliance. |
+| **AWS Account**                     | **Azure Subscription**              | The billing and isolation boundary for Azure resources.                               |
+| **Service Control Policies (SCPs)** | **Azure Policy / RBAC Assignments** | Used to enforce compliance and security standards.                                    |
+
+
+-----
+-----
+
+
 ## 🧩 AWS Identity & Access Concepts — and How They Relate in the Organization Hierarchy
 
 | **Concept** | **What It Is** | **Where It Applies in the Hierarchy** | **Real-World Analogy** | **Relation to Others** |
