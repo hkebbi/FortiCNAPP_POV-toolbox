@@ -4,7 +4,7 @@
 
 - [AWS CloudShell Size Workaround](../cloudshell-size-workaround.md)
 - [FortiCNAPP & AWS Profiles](../forticnapp-aws-profile.md)
-- [AWS Terms and Architecture](../terms-arch.md)
+- [AWS Terms and Architecture](../aws-terms-arch.md)
 
 -----
 -----
