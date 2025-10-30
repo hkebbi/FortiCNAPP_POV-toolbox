@@ -1,6 +1,7 @@
 ## 🏗️ Azure Management Hierarchy:
 
 ---
+
 graph TD
     A[🏢 Root Management Group] --> B[📁 MG: Engineering]
     A --> C[📁 MG: Finance]
