@@ -58,42 +58,91 @@ graph LR
 ```mermaid
 graph TD
 
-    %% Tenant and Identity Layer
-    A[🌐 Entra ID (Azure Active Directory)] --- B[🧭 Microsoft Graph API]
-    B --- A
-    A --- C[🤝 Managed Identities]
-    
-    %% Resource Query Layer
-    D[⚙️ Azure Resource Graph] --- F[💠 Subscriptions]
-    D --- G[🗂️ Resource Groups]
-    D --- H[🧱 Resources]
+  %% Identity & Directory
+  A["🌐 Entra ID (Azure Active Directory)"]
+  B["🧭 Microsoft Graph API"]
+  C["🤝 Managed Identities"]
+  D["⚙️ Azure Resource Graph"]
 
-    %% Azure Management Hierarchy
-    Z[🏢 Root Management Group] --> Y[📁 Management Group: Engineering]
-    Z --> X[📁 Management Group: Finance]
-    Z --> W[📁 Management Group: DevOps]
+  A --> B
+  A --> C
+  B --> A
 
-    Y --> F
-    X --> F
-    W --> F
+  %% Management Hierarchy
+  Z["🏢 Root Management Group"]
+  Y["📁 MG: Engineering"]
+  X["📁 MG: Finance"]
+  W["📁 MG: DevOps"]
 
-    F --> G
-    G --> H
+  Z --> Y
+  Z --> X
+  Z --> W
 
-    %% Governance and Control
-    I[🔐 Azure Policy]
-    J[👥 RBAC (Role-Based Access Control)]
-    K[🧑‍💼 Role Definitions]
-    L[🪪 Role Assignments]
-    M[📜 Policy Initiatives / Blueprints]
+  %% Subscriptions & Resources
+  Y --> F["💠 Subscriptions"]
+  X --> F
+  W --> F
+  F --> G["🗂️ Resource Groups"]
+  G --> H["🧱 Resources"]
 
-    I --- Z
-    I --- F
-    J --- F
-    J --- G
-    J --- H
-    K --- J
-    L --- J
-    M
+  %% Governance & Control
+  I["🔐 Azure Policy"]
+  J["👥 RBAC"]
+  K["🧑‍💼 Role Definitions"]
+  L["🪪 Role Assignments"]
+  M["📜 Blueprints / Initiatives"]
+
+  I --> Z
+  I --> F
+  J --> F
+  J --> G
+  J --> H
+  K --> J
+  L --> J
+  M --> I
+graph TD
+
+  %% Identity & Directory
+  A["🌐 Entra ID (Azure Active Directory)"]
+  B["🧭 Microsoft Graph API"]
+  C["🤝 Managed Identities"]
+  D["⚙️ Azure Resource Graph"]
+
+  A --> B
+  A --> C
+  B --> A
+
+  %% Management Hierarchy
+  Z["🏢 Root Management Group"]
+  Y["📁 MG: Engineering"]
+  X["📁 MG: Finance"]
+  W["📁 MG: DevOps"]
+
+  Z --> Y
+  Z --> X
+  Z --> W
+
+  %% Subscriptions & Resources
+  Y --> F["💠 Subscriptions"]
+  X --> F
+  W --> F
+  F --> G["🗂️ Resource Groups"]
+  G --> H["🧱 Resources"]
+
+  %% Governance & Control
+  I["🔐 Azure Policy"]
+  J["👥 RBAC"]
+  K["🧑‍💼 Role Definitions"]
+  L["🪪 Role Assignments"]
+  M["📜 Blueprints / Initiatives"]
+
+  I --> Z
+  I --> F
+  J --> F
+  J --> G
+  J --> H
+  K --> J
+  L --> J
+  M --> I
 
 ```
