@@ -1,8 +1,18 @@
 ## 🏗️ Azure Management Hierarchy:
 
 ---
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b6bbe7fc-99d7-4470-9932-90cf6ecb6656" />
+graph TD
+    A[🏢 Root Management Group] --> B[📁 MG: Engineering]
+    A --> C[📁 MG: Finance]
+    A --> D[📁 MG: DevOps]
 
+    B --> E[💠 Azure Subscription: eng-prod-001]
+    B --> F[💠 Azure Subscription: eng-test-001]
+
+    C --> G[💠 Azure Subscription: fin-ops-001]
+    C --> H[💠 Azure Subscription: fin-dev-001]
+
+    D --> I[💠 Azure Subscription: dev-tools-001]
 
 
 ---
