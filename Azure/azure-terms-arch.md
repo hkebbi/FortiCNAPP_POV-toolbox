@@ -57,92 +57,31 @@ graph LR
 
 ```mermaid
 graph TD
+  A["Entra ID (Azure AD)"] --> B["Microsoft Graph API"]
+  A --> C["Managed Identities"]
 
-  %% Identity & Directory
-  A["🌐 Entra ID (Azure Active Directory)"]
-  B["🧭 Microsoft Graph API"]
-  C["🤝 Managed Identities"]
-  D["⚙️ Azure Resource Graph"]
+  D["Azure Resource Graph"] --> F["Subscriptions"]
+  D --> G["Resource Groups"]
+  D --> H["Resources"]
 
-  A --> B
-  A --> C
-  B --> A
+  Z["Root Management Group"] --> Y["MG: Engineering"]
+  Z --> X["MG: Finance"]
+  Z --> W["MG: DevOps"]
 
-  %% Management Hierarchy
-  Z["🏢 Root Management Group"]
-  Y["📁 MG: Engineering"]
-  X["📁 MG: Finance"]
-  W["📁 MG: DevOps"]
-
-  Z --> Y
-  Z --> X
-  Z --> W
-
-  %% Subscriptions & Resources
-  Y --> F["💠 Subscriptions"]
+  Y --> F
   X --> F
   W --> F
-  F --> G["🗂️ Resource Groups"]
-  G --> H["🧱 Resources"]
 
-  %% Governance & Control
-  I["🔐 Azure Policy"]
-  J["👥 RBAC"]
-  K["🧑‍💼 Role Definitions"]
-  L["🪪 Role Assignments"]
-  M["📜 Blueprints / Initiatives"]
+  F --> G
+  G --> H
 
-  I --> Z
+  I["Azure Policy"] --> Z
   I --> F
-  J --> F
+  J["RBAC"] --> F
   J --> G
   J --> H
-  K --> J
-  L --> J
-  M --> I
-graph TD
-
-  %% Identity & Directory
-  A["🌐 Entra ID (Azure Active Directory)"]
-  B["🧭 Microsoft Graph API"]
-  C["🤝 Managed Identities"]
-  D["⚙️ Azure Resource Graph"]
-
-  A --> B
-  A --> C
-  B --> A
-
-  %% Management Hierarchy
-  Z["🏢 Root Management Group"]
-  Y["📁 MG: Engineering"]
-  X["📁 MG: Finance"]
-  W["📁 MG: DevOps"]
-
-  Z --> Y
-  Z --> X
-  Z --> W
-
-  %% Subscriptions & Resources
-  Y --> F["💠 Subscriptions"]
-  X --> F
-  W --> F
-  F --> G["🗂️ Resource Groups"]
-  G --> H["🧱 Resources"]
-
-  %% Governance & Control
-  I["🔐 Azure Policy"]
-  J["👥 RBAC"]
-  K["🧑‍💼 Role Definitions"]
-  L["🪪 Role Assignments"]
-  M["📜 Blueprints / Initiatives"]
-
-  I --> Z
-  I --> F
-  J --> F
-  J --> G
-  J --> H
-  K --> J
-  L --> J
-  M --> I
+  K["Role Definitions"] --> J
+  L["Role Assignments"] --> J
+  M["Blueprints / Initiatives"] --> I
 
 ```
