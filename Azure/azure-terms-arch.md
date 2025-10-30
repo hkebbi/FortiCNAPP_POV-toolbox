@@ -1,7 +1,7 @@
 ## 🏗️ Azure Management Hierarchy:
 
 ---
-
+```mermaid
 graph LR
   root(["Root Management Group"])
   root --> eng["MG: Engineering"]
@@ -19,6 +19,8 @@ graph LR
 
   class root,eng,fin,dev mg;
   class eng_prod,eng_test,fin_ops,fin_dev,dev_tools sub;
+
+```
 
 ---
 ---
