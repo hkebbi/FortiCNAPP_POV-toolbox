@@ -1,21 +1,6 @@
-## 🏗️ Azure Organization Hierarchy: 
+## 🏗️ Azure Management Hierarchy:
 
-```mermaid
-graph TD
-🏢 Root Management Group
-│
-├── 📁 MG: Engineering
-│   ├── 💠 Azure Subscription: eng-prod-001
-│   └── 💠 Azure Subscription: eng-test-001
-│
-├── 📁 MG: Finance
-│   ├── 💠 Azure Subscription: fin-ops-001
-│   └── 💠 Azure Subscription: fin-dev-001
-│
-└── 📁 MG: DevOps
-    └── 💠 Azure Subscription: dev-tools-001
-
-```
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b6bbe7fc-99d7-4470-9932-90cf6ecb6656" />
 
 
 
