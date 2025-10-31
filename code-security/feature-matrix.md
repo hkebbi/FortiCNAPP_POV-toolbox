@@ -5,7 +5,7 @@
 https://docs.fortinet.com/document/lacework-forticnapp/latest/administration-guide/357681/features
 ```
 
-## Code Security (SCA/SAST/Secrets) — Deployment Matrix
+## Code Security (SCA/SAST/SBOM) — Deployment Matrix
 
 | Feature ↓ \ Mode →                 | SCM Integration (SaaS repos)                                                       | CI/CD Pipeline                                                                               | Local (CLI on dev machine)                             | IDE Extension                                              | **Self-Hosted SCM (With Internet Connection)**                                                                                     | **Self-Hosted SCM (No Internet Connection)**                                             |
 | ---------------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
