@@ -84,16 +84,6 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 | Only one or few “no such process” errors | Transient internal cleanup | ⚙️ Normal |
 | Repeated `failed to authenticate` or `connection refused` | Network, key, or proxy issue | ❌ Check credentials or outbound access |
 
----
-
-**✅ Healthy agent confirmation checklist:**
-- Pod shows **`Running`**
-- Logs include **`Connected to controller`**
-- Logs include **`Starting Container EventMonitor` / `Loaded eBPF`**
-- No repeating `level=error` lines
-
-If all are true → your Lacework FortiCNAPP agents are **fully operational**.
-
 
 ---
 ---
