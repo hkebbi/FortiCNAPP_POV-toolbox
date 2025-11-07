@@ -59,50 +59,7 @@ Use the following steps to verify that the Lacework (FortiCNAPP) agents are depl
 
 ### 🌐 2. Quick Connectivity and Authentication Check
 
-| Step | Command | Expected Output | Meaning / Action |
-|------|----------|----------------|------------------|
-| **Show recent connect/auth events** | ```bash
-POD=$(oc -n lacework get pod -l name=lacework-agent -o jsonpath='{.items[0].metadata.name}')
-oc -n lacework logs "$POD" \| egrep -i 'authenticated\|connected\|registered\|error\|fail' \| tail -n 80
-``` | `Connected to controller`, `Authenticated`, or `Registered` | ✅ Agent is communicating with the FortiCNAPP backend |
-| **Check for runtime event monitor startup** | `oc -n lacework logs "$POD" \| egrep -i 'EventMonitor\|eBPF'` | `Starting Container EventMonitor.....` and `Loaded eBPF programs` | ✅ Runtime container monitoring active |
-| **Search for real errors** | `oc -n lacework logs "$POD" \| egrep -i 'level=error'` | No repeated authentication or network errors | ❌ If errors appear, check keys, proxy, or network access |
 
----
-
-### 🧰 3. Package Scanning Messages
-
-| Message Example | Meaning | Action |
-|------------------|----------|---------|
-| `CAA: handled operation ... found error: open /usr/lib/sysimage/rpm/Packages: no such file` | Container doesn’t use RPM (e.g., Alpine, Debian) | ✅ Normal informational log, ignore |
-| `failed to authenticate / connection refused / registration failed` | Connectivity or credential problem | ❌ Check FortiCNAPP API key, proxy settings, or outbound network |
-| `Connected to controller, version x.x.x` | Successful authentication and backend connection | ✅ Agent fully operational |
-
----
-
-### 🧠 Quick Reference: Healthy Agent Indicators
-
-| Indicator | Example Log Snippet | Status |
-|------------|---------------------|---------|
-| Connection established | `Connected to controller` | 🟢 Working |
-| Authentication complete | `Authenticated / Registered` | 🟢 Working |
-| Runtime monitor active | `Starting Container EventMonitor` | 🟢 Active |
-| Package scan info logs | `CAA: handled operation ... no such file` | 🟢 Normal |
-| Network/auth errors | `failed to authenticate / connection refused` | 🔴 Needs attention |
-
----
-
-### ✅ Summary
-
-If you see:
-- Pods in **Running** state  
-- Logs showing **“Connected to controller”**, **“Authenticated”**, and **no `level=error` lines**  
-then your Lacework / FortiCNAPP agents are **fully operational**.
-
-Otherwise, check:
-- API keys and proxy configuration  
-- SCC/permissions in OpenShift  
-- Outbound connectivity to the Lacework backend
 
 ---
 ### 🌐 Lacework Agent Connectivity & Runtime Verification
@@ -121,18 +78,31 @@ oc -n lacework logs "$POD" \| egrep -i 'authenticated\|connected\|registered\|er
 
 ---
 
-### 🧠 Common Log Messages Explained
+## 🧩 Quick Lacework (FortiCNAPP) Agent Health Checks
 
-| Log Message | Meaning | Action |
-|--------------|----------|---------|
-| `CAA: handled operation ... rpmdb.sqlite: no such file` | Scanned container doesn’t use RPM (Alpine/Debian) | ✅ Ignore |
-| `Connected to controller, version X.X.X` | Agent authenticated and reporting to backend | ✅ Normal |
-| `Failed to stop child ... no such process` | Minor cleanup warning | ⚙️ Harmless |
-| `eBPF based process tracking is DISABLED` | Deep process tracing disabled (not required) | 🧩 Informational |
-| `Starting Container EventMonitor.....` | Runtime event collection active | ✅ Normal |
-| `failed to authenticate / connection refused` | Cannot reach backend | ❌ Check network, proxy, or credentials |
+Use these minimal commands to verify that the Lacework agents on OpenShift are deployed, connected, and collecting telemetry — without dumping hundreds of log lines.
 
+| Check | Command | Expected Output | Meaning |
+|--------|----------|----------------|----------|
+| **1️⃣ Verify pods are running** | `oc -n lacework get pods -l name=lacework-agent` | All pods show `1/1 Running` and no restarts | ✅ Agents deployed and healthy |
+| **2️⃣ Confirm backend connection** | ```bash
+POD=$(oc -n lacework get pod -l name=lacework-agent -o jsonpath='{.items[0].metadata.name}')
+oc -n lacework logs "$POD" | grep -E -i 'connected to controller|authenticated|registered' | tail -n 3
+``` | Lines like:<br>`Connected to controller, version ...` | ✅ Agent authenticated and connected |
+| **3️⃣ Check runtime monitoring (eBPF)** | `oc -n lacework logs "$POD" | grep -E -i 'EventMonitor|Loaded eBPF' | tail -n 3` | Shows `Starting Container EventMonitor.....` and `Loaded eBPF programs ...` | ✅ Runtime visibility active |
+| **4️⃣ Check for real errors only** | `oc -n lacework logs "$POD" | grep -E -i 'level=error' | tail -n 5` | Ideally **no output** or only single transient `no such process` | ✅ No critical errors |
+| **5️⃣ (Optional) Check labels/SCC** | `oc -n lacework describe pod -l name=lacework-agent | egrep -i 'Service Account|scc:|SecurityContext' | head -n 5` | Shows correct service account & SCC | 🧩 Confirms correct OpenShift permissions |
 
+---
+
+### 🧠 Notes
+- These `grep` filters show **only the few lines you care about** — connection, runtime, or error status.  
+- If step **2** or **3** returns nothing, the agent might not yet be connected (wait 30–60 s).  
+- If step **4** prints repeated authentication or connection errors, check:  
+  - Lacework API key/secret  
+  - Proxy or outbound network access to the Lacework backend  
+
+✅ When all commands above show “Connected”, “EventMonitor”, and no critical `level=error`, your FortiCNAPP agents are fully operational.
 
 
 
