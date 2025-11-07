@@ -2,7 +2,7 @@
 
 
 
-## 🧩 FortiCNAPP (Lacework) Agent Redeployment on OpenShift (RHCOS)
+## 🧩 FortiCNAPP (Lacework) Agent deployment on OpenShift (RHCOS)
 
 Follow these steps to completely deploy Lacework (FortiCNAPP) Linux agent on OpenShift RHCSO Cluster.  
 Each step includes a brief explanation and ready-to-copy command.
