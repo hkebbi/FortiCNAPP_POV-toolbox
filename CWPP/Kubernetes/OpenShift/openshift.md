@@ -54,8 +54,9 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
   --set resources.limits.memory=512Mi
 
 ```
+---
 
-## ⚙️ 3.0 FortiCNAPP Agent Helm Configuration Summary
+### ⚙️ FortiCNAPP Agent Helm Configuration Summary
 
 This table summarizes the Helm parameters used to deploy the FortiCNAPP (Lacework) Linux Agent on **OpenShift (RHCOS)**.  
 These values were retrieved from the current Helm release using:  
@@ -86,7 +87,7 @@ These values were retrieved from the current Helm release using:
 ---
 ---
 
-## 🧩 Step-by-Step: 
+## 🧩 Verify Helm  and Agent Deployment
 #### Check Helm Deployment for Lacework Agent
 
 Use the following steps to verify which Helm chart, version, and configuration were used to deploy the Lacework (FortiCNAPP) agent on OpenShift.
