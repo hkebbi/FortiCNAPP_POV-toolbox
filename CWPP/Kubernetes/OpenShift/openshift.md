@@ -123,9 +123,4 @@ Use the following official Fortinet FortiCNAPP resources when deploying or troub
 
 ---
 
-### 🧠 Tip
-Keep these links handy in your repository’s **`README.md`** or **`TROUBLESHOOTING.md`** so team members can:
-- Re-deploy or upgrade the agent following Fortinet’s latest procedure  
-- Check release notes before rolling out updates  
-- Confirm OS and library support for host vulnerability assessments
 
