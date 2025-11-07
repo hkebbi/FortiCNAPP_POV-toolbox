@@ -47,7 +47,7 @@ Install or upgrade the agent release using your specific configuration values.
 
 helm upgrade --install lacework-agent lacework/lacework-agent \
   --namespace lacework --create-namespace \
-  --set laceworkConfig.accessToken=b8e67xxxxxxd2 \
+  --set laceworkConfig.accessToken=b8e67defc53aa0...fa2d2 \
   --set laceworkConfig.serverUrl=https://api.lacework.net \
   --set laceworkConfig.kubernetesCluster=rhcos \
   --set laceworkConfig.env=poc \
