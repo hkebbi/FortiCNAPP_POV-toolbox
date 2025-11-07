@@ -57,7 +57,8 @@ These values were retrieved from the current Helm release using:
 ---
 ---
 
-## 🧩 Step-by-Step: Check Helm Deployment for Lacework Agent
+## 🧩 Step-by-Step: 
+#### Check Helm Deployment for Lacework Agent
 
 Use the following steps to verify which Helm chart, version, and configuration were used to deploy the Lacework (FortiCNAPP) agent on OpenShift.
 
@@ -78,6 +79,18 @@ Use the following steps to verify which Helm chart, version, and configuration w
 - **APP VERSION** corresponds to the actual Lacework agent binary version.  
 - These commands confirm how the agent was deployed and what configuration was applied.
 
+---
+
+#### 🧱 Check Lacework Agents Deployment
+
+| Step | Command | Expected Output | Meaning / Action |
+|------|----------|----------------|------------------|
+| **List DaemonSet and pods** | `oc -n lacework get ds,pods -o wide` | All pods show `1/1 Running` and DaemonSet desired = current = ready | ✅ Agents deployed successfully across all nodes |
+| **Show pod labels** | `oc -n lacework get pods -o wide --show-labels` | Labels include `name=lacework-agent` | ✅ Confirms label selector used by DaemonSet |
+| **Describe one agent pod** | `oc -n lacework describe pod -l name=lacework-agent \| egrep -i 'Service Account\|scc:\|SecurityContext\|Reason'` | Shows service account and SCC in use | 🧩 Confirms correct permissions (privileged / SCC assignment) |
+
+
+---
 ---
 
 ## 🧩 FortiCNAPP (OpenShift RHCOS) Agent Troubleshooting Guide
@@ -142,6 +155,17 @@ Use the following steps to verify which Helm chart, version, and configuration w
 
 ---
 ---
+
+## 🔧 Clean destroy lacwork agent (OpenShift)
+
+```bash
+helm uninstall lacework-agent -n lacework
+```
+# Optional: delete namespace if you want a full reset
+# oc delete ns lacework
+
+
+
 
 ## 📚 Reference Documentation
 
