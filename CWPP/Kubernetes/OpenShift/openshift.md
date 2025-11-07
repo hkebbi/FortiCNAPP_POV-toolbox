@@ -57,27 +57,6 @@ Use the following steps to verify that the Lacework (FortiCNAPP) agents are depl
 
 ---
 
-### 🌐 2. Quick Connectivity and Authentication Check
-
-
-
----
-### 🌐 Lacework Agent Connectivity & Runtime Verification
-
-| Step | Command | Expected Output | Meaning / Action |
-|------|----------|----------------|------------------|
-| **Check DaemonSet and Pods** | `oc -n lacework get ds,pods -o wide` | All pods show `1/1 Running`, 0 restarts | ✅ Agent DaemonSet healthy |
-| **Confirm labels** | `oc -n lacework get pods -o wide --show-labels` | Pods labeled `name=lacework-agent` | 🧩 Confirms correct label selector |
-| **Describe pod (security context)** | `oc -n lacework describe pod -l name=lacework-agent \| egrep -i 'Service Account\|scc:\|SecurityContext\|Reason'` | Shows correct SCC and service account | ✅ Proper OpenShift permissions |
-| **Connectivity check (auth / connection)** | ```bash
-POD=$(oc -n lacework get pod -l name=lacework-agent -o jsonpath='{.items[0].metadata.name}')
-oc -n lacework logs "$POD" \| egrep -i 'authenticated\|connected\|registered\|error\|fail' \| tail -n 80
-``` | No “failed to authenticate” or “connection refused” errors | ✅ Agent connected to backend |
-| **Runtime event monitor** | `oc -n lacework logs "$POD" \| egrep -i 'EventMonitor\|eBPF'` | `Starting Container EventMonitor.....` and `Loaded eBPF programs for socket events` | ✅ Runtime telemetry enabled |
-| **Check for critical errors** | `oc -n lacework logs "$POD" \| egrep -i 'level=error'` | None or only transient “Failed to stop child ...” | ⚙️ Occasional harmless errors OK; repeated = investigate |
-
----
-
 ## 🧩 Quick Lacework (FortiCNAPP) Agent Health Checks
 
 Use these minimal commands to verify that the Lacework agents on OpenShift are deployed, connected, and collecting telemetry — without dumping hundreds of log lines.
