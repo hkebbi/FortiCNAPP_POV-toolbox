@@ -57,32 +57,64 @@ Use the following steps to verify that the Lacework (FortiCNAPP) agents are depl
 
 ---
 
-## 🧩 Quick Lacework (FortiCNAPP) Agent Health Checks
 
-Use these minimal commands to verify that the Lacework agents on OpenShift are deployed, connected, and collecting telemetry — without dumping hundreds of log lines.
+## 🧩 Quick Troubleshooting: Lacework (FortiCNAPP) Agent Pod Health
 
-| Check | Command | Expected Output | Meaning |
-|--------|----------|----------------|----------|
-| **1️⃣ Verify pods are running** | `oc -n lacework get pods -l name=lacework-agent` | All pods show `1/1 Running` and no restarts | ✅ Agents deployed and healthy |
-| **2️⃣ Confirm backend connection** | ```bash
-POD=$(oc -n lacework get pod -l name=lacework-agent -o jsonpath='{.items[0].metadata.name}')
-oc -n lacework logs "$POD" | grep -E -i 'connected to controller|authenticated|registered' | tail -n 3
-``` | Lines like:<br>`Connected to controller, version ...` | ✅ Agent authenticated and connected |
-| **3️⃣ Check runtime monitoring (eBPF)** | `oc -n lacework logs "$POD" | grep -E -i 'EventMonitor|Loaded eBPF' | tail -n 3` | Shows `Starting Container EventMonitor.....` and `Loaded eBPF programs ...` | ✅ Runtime visibility active |
-| **4️⃣ Check for real errors only** | `oc -n lacework logs "$POD" | grep -E -i 'level=error' | tail -n 5` | Ideally **no output** or only single transient `no such process` | ✅ No critical errors |
-| **5️⃣ (Optional) Check labels/SCC** | `oc -n lacework describe pod -l name=lacework-agent | egrep -i 'Service Account|scc:|SecurityContext' | head -n 5` | Shows correct service account & SCC | 🧩 Confirms correct OpenShift permissions |
+Use these quick checks to confirm that Lacework agent pods are running correctly, connected to the backend, and monitoring containers.
 
 ---
 
-### 🧠 Notes
-- These `grep` filters show **only the few lines you care about** — connection, runtime, or error status.  
-- If step **2** or **3** returns nothing, the agent might not yet be connected (wait 30–60 s).  
-- If step **4** prints repeated authentication or connection errors, check:  
-  - Lacework API key/secret  
-  - Proxy or outbound network access to the Lacework backend  
+### 🧱 1. Check Agent Pod Status
 
-✅ When all commands above show “Connected”, “EventMonitor”, and no critical `level=error`, your FortiCNAPP agents are fully operational.
+| Purpose | Command | Expected Output | Meaning |
+|----------|----------|----------------|----------|
+| **List Lacework pods** | `oc -n lacework get pods -l name=lacework-agent` | All pods show `1/1 Running` and no restarts | ✅ Agent pods deployed and healthy |
+| **Confirm labels (optional)** | `oc -n lacework get pods -o wide --show-labels` | Includes label `name=lacework-agent` | 🧩 Confirms correct DaemonSet labels |
 
+---
+
+### 🌐 2. Verify Connectivity to Backend
+
+| Purpose | Command | Example Output | Meaning |
+|----------|----------|----------------|----------|
+| **Check authentication / controller connection** | `oc -n lacework logs lacework-agent-cpwwt \| grep -E -i 'connected to controller\|authenticated\|registered' \| tail -n 3` | ```time="2025-11-04T07:44:46.897Z" level=info msg="Connected to controller, version 7.10.0.29352"``` | ✅ Agent is authenticated and connected to the Lacework (FortiCNAPP) backend |
+
+---
+
+### ⚙️ 3. Confirm Runtime Monitoring (eBPF)
+
+| Purpose | Command | Example Output | Meaning |
+|----------|----------|----------------|----------|
+| **Check EventMonitor and eBPF status** | `oc -n lacework logs lacework-agent-cpwwt \| grep -E -i 'EventMonitor\|Loaded eBPF' \| tail -n 3` | ```time="2025-11-04T07:44:27.973Z" level=info msg="Loaded eBPF programs for socket events: V2Btf"``` | ✅ Runtime visibility and container telemetry active |
+
+---
+
+### 🚨 4. Look for Real Errors
+
+| Purpose | Command | Example Output | Meaning |
+|----------|----------|----------------|----------|
+| **Show only error lines (last few)** | `oc -n lacework logs lacework-agent-cpwwt \| grep -E -i 'level=error' \| tail -n 5` | ```time="2025-11-04T07:44:50.486Z" level=error msg="Failed to stop child ... no such process"``` | ⚙️ Harmless cleanup error — ignore unless repeated |
+
+---
+
+### 🧠 5. Interpretation Summary
+
+| Result | What It Means | Action |
+|---------|----------------|--------|
+| `Connected to controller` appears | Agent authenticated and communicating | ✅ Healthy |
+| `Starting Container EventMonitor` and `Loaded eBPF` appear | Runtime container monitoring active | ✅ Working |
+| Only one or few “no such process” errors | Transient internal cleanup | ⚙️ Normal |
+| Repeated `failed to authenticate` or `connection refused` | Network, key, or proxy issue | ❌ Check credentials or outbound access |
+
+---
+
+**✅ Healthy agent confirmation checklist:**
+- Pod shows **`Running`**
+- Logs include **`Connected to controller`**
+- Logs include **`Starting Container EventMonitor` / `Loaded eBPF`**
+- No repeating `level=error` lines
+
+If all are true → your Lacework FortiCNAPP agents are **fully operational**.
 
 
 October 2025 Linux Agent Releases
