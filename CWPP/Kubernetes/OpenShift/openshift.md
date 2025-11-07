@@ -105,6 +105,32 @@ Otherwise, check:
 - Outbound connectivity to the Lacework backend
 
 ---
+### 🌐 Lacework Agent Connectivity & Runtime Verification
+
+| Step | Command | Expected Output | Meaning / Action |
+|------|----------|----------------|------------------|
+| **Check DaemonSet and Pods** | `oc -n lacework get ds,pods -o wide` | All pods show `1/1 Running`, 0 restarts | ✅ Agent DaemonSet healthy |
+| **Confirm labels** | `oc -n lacework get pods -o wide --show-labels` | Pods labeled `name=lacework-agent` | 🧩 Confirms correct label selector |
+| **Describe pod (security context)** | `oc -n lacework describe pod -l name=lacework-agent \| egrep -i 'Service Account\|scc:\|SecurityContext\|Reason'` | Shows correct SCC and service account | ✅ Proper OpenShift permissions |
+| **Connectivity check (auth / connection)** | ```bash
+POD=$(oc -n lacework get pod -l name=lacework-agent -o jsonpath='{.items[0].metadata.name}')
+oc -n lacework logs "$POD" \| egrep -i 'authenticated\|connected\|registered\|error\|fail' \| tail -n 80
+``` | No “failed to authenticate” or “connection refused” errors | ✅ Agent connected to backend |
+| **Runtime event monitor** | `oc -n lacework logs "$POD" \| egrep -i 'EventMonitor\|eBPF'` | `Starting Container EventMonitor.....` and `Loaded eBPF programs for socket events` | ✅ Runtime telemetry enabled |
+| **Check for critical errors** | `oc -n lacework logs "$POD" \| egrep -i 'level=error'` | None or only transient “Failed to stop child ...” | ⚙️ Occasional harmless errors OK; repeated = investigate |
+
+---
+
+### 🧠 Common Log Messages Explained
+
+| Log Message | Meaning | Action |
+|--------------|----------|---------|
+| `CAA: handled operation ... rpmdb.sqlite: no such file` | Scanned container doesn’t use RPM (Alpine/Debian) | ✅ Ignore |
+| `Connected to controller, version X.X.X` | Agent authenticated and reporting to backend | ✅ Normal |
+| `Failed to stop child ... no such process` | Minor cleanup warning | ⚙️ Harmless |
+| `eBPF based process tracking is DISABLED` | Deep process tracing disabled (not required) | 🧩 Informational |
+| `Starting Container EventMonitor.....` | Runtime event collection active | ✅ Normal |
+| `failed to authenticate / connection refused` | Cannot reach backend | ❌ Check network, proxy, or credentials |
 
 
 
