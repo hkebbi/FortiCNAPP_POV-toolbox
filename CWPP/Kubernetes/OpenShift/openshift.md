@@ -41,10 +41,6 @@ oc -n lacework logs "$POD" | egrep -i 'authenticated|connected|registered|error|
 
 ## 🧩 FortiCNAPP (OpenShift RHCOS) Agent Troubleshooting Guide
 
-## 🧩 FortiCNAPP (Lacework) Agent Troubleshooting
-
-Use the following steps to verify that the Lacework (FortiCNAPP) agents are deployed correctly, connected to the backend, and monitoring containers as expected.
-
 ---
 
 ### 🧱 1. Check Lacework Agents Deployment
@@ -54,13 +50,6 @@ Use the following steps to verify that the Lacework (FortiCNAPP) agents are depl
 | **List DaemonSet and pods** | `oc -n lacework get ds,pods -o wide` | All pods show `1/1 Running` and DaemonSet desired = current = ready | ✅ Agents deployed successfully across all nodes |
 | **Show pod labels** | `oc -n lacework get pods -o wide --show-labels` | Labels include `name=lacework-agent` | ✅ Confirms label selector used by DaemonSet |
 | **Describe one agent pod** | `oc -n lacework describe pod -l name=lacework-agent \| egrep -i 'Service Account\|scc:\|SecurityContext\|Reason'` | Shows service account and SCC in use | 🧩 Confirms correct permissions (privileged / SCC assignment) |
-
----
-
-
-## 🧩 Quick Troubleshooting: Lacework (FortiCNAPP) Agent Pod Health
-
-Use these quick checks to confirm that Lacework agent pods are running correctly, connected to the backend, and monitoring containers.
 
 ---
 
@@ -120,12 +109,23 @@ Use these quick checks to confirm that Lacework agent pods are running correctly
 If all are true → your Lacework FortiCNAPP agents are **fully operational**.
 
 
-October 2025 Linux Agent Releases
-https://docs.fortinet.com/document/forticnapp/latest/release-notes/412967/october-2025-linux-agent-releases
+---
 
+## 📚 Reference Documentation
 
-Host vulnerability assessment is supported for the following Linux and Windows operating systems, applications, packages, and language libraries.
-RHCOS:
-https://docs.fortinet.com/document/forticnapp/latest/administration-guide/999307/host-os-and-language-library-support-for-vulnerability-assessment#:~:text=8.x-,Red%20Hat%20Core%20OS,-4.x
+Use the following official Fortinet FortiCNAPP resources when deploying or troubleshooting the Lacework (FortiCNAPP) Linux agent on OpenShift and related platforms.
 
+| Reference Topic | Description | Official Documentation Link |
+|------------------|-------------|------------------------------|
+| **Installing on OpenShift / Kubernetes** | Step-by-step installation of the FortiCNAPP (Lacework) Linux agent as a DaemonSet in OpenShift and Kubernetes clusters. Includes YAML examples, RBAC configuration, and verification steps. | [Installing Linux Agent on Kubernetes (FortiCNAPP Admin Guide)](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510/installing-linux-agent-on-kubernetes) |
+| **October 2025 Linux Agent Releases** | Latest release notes for the FortiCNAPP Linux Agent, including new features, fixes, version numbers, and compatibility information for October 2025. | [October 2025 Linux Agent Release Notes](https://docs.fortinet.com/document/forticnapp/latest/release-notes/412967/october-2025-linux-agent-releases) |
+| **Host OS & Language Library Support** | Lists the supported Linux/Windows OS versions, RHCOS compatibility, applications, and language package libraries for vulnerability assessments. | [Host OS and Language Library Support for Vulnerability Assessment (RHCOS 8.x)](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/999307/host-os-and-language-library-support-for-vulnerability-assessment#:~:text=8.x-,Red%20Hat%20Core%20OS,-4.x) |
+
+---
+
+### 🧠 Tip
+Keep these links handy in your repository’s **`README.md`** or **`TROUBLESHOOTING.md`** so team members can:
+- Re-deploy or upgrade the agent following Fortinet’s latest procedure  
+- Check release notes before rolling out updates  
+- Confirm OS and library support for host vulnerability assessments
 
