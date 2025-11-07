@@ -36,7 +36,6 @@ Use the following steps to verify which Helm chart, version, and configuration w
 | **4️⃣ Confirm Helm chart metadata** | `helm get manifest lacework-agent -n lacework` | Prints Helm chart details to verify which resources (DaemonSet, ConfigMap, Secrets, etc.) were deployed. | **Example:**<br>`apiVersion: apps/v1`<br>`kind: DaemonSet`<br>`metadata: name: lacework-agent` |
 | **5️⃣ Find release across all namespaces (if unsure)** | `helm list --all-namespaces` | Searches for any Helm release containing “lacework” across all namespaces. | **Example:**<br>`lacework-agent  lacework  deployed  lacework-agent-1.4.2  7.10.0` |
 
----
 
 ### 🧠 Notes
 
@@ -47,17 +46,6 @@ Use the following steps to verify which Helm chart, version, and configuration w
 - These commands confirm how the agent was deployed and what configuration was applied.
 
 ---
-
-### 🧠 Notes
-
-- The Helm release name is typically **`lacework-agent`**.  
-- The namespace is usually **`lacework`**, unless changed during installation.  
-- **CHART VERSION** indicates the Helm package version used.  
-- **APP VERSION** corresponds to the actual **agent binary version**.  
-- This helps confirm whether the agent was installed via Helm and what configuration was applied.
-
-
-
 
 ## 🧩 FortiCNAPP (OpenShift RHCOS) Agent Troubleshooting Guide
 
