@@ -132,5 +132,5 @@ yum remove lacework
 | ✅ **Linux Agent Install Checklist** | Pre-installation checklist for verifying system readiness and environment compatibility. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/376786/linux-agent-install-checklist) |
 | 🌐 **Required Connectivity & Proxy Settings** | Lists network allowlist, proxy, and certificate requirements for agent connectivity. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/59862/required-connectivity-proxies-and-certificates-for-agents) |
 | 💻 **Installing the Linux Agent on Hosts** | Guides for deploying the Linux agent on host machines. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/001333/install-on-hosts) |
-
+| ✅ **Run Agent as Non-Root User** |Running agent as a non-root user. | [View Docs](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/716764/run-agent-as-non-root-user)) |
 
