@@ -1,32 +1,67 @@
 
 
 
-# 1) Create namespace
+
+## 🧩 FortiCNAPP (Lacework) Agent Redeployment on OpenShift (RHCOS)
+
+Follow these steps to completely remove and redeploy the Lacework (FortiCNAPP) Linux agent on OpenShift.  
+Each step includes a brief explanation and ready-to-copy command.
+
+---
+
+#### 🧱 1️⃣ Create Namespace
+Create (or reapply) the `lacework` namespace for the agent deployment.
+Why: Ensures the namespace exists and is managed declaratively for future automation.
+
+```bash
 oc create namespace lacework --dry-run=client -o yaml | oc apply -f -
+```
 
-# 2) Grant SCC 'privileged' to the DEFAULT SA in that namespace
+#### 🔐 2️⃣ Grant privileged SCC to Default Service Account
+Grant the Security Context Constraint (SCC) privileged to the default service account in the lacework namespace.
+Why: The Lacework agent DaemonSet needs privileged permissions to attach eBPF hooks and collect runtime telemetry on the host kernel.
+
+```bash
 oc -n lacework adm policy add-scc-to-user privileged -z default
+```
 
+💡 If your DaemonSet uses a different service account (for example lacework-agent), grant SCC to that account instead:
+
+```bash
+oc -n lacework adm policy add-scc-to-user privileged -z lacework-agent
+```
+
+#### 📦 3️⃣ Add and Update the Helm Repository
+Add the official Lacework Helm repository and update local chart metadata.
+Why: Ensures you have the latest Helm chart version before deployment or upgrade.
+
+```bash
 helm repo add lacework https://lacework.github.io/helm-charts/
 helm repo update
+```
+
+#### 🚀 4️⃣ Deploy (or Upgrade) the Lacework Agent via Helm
+Install or upgrade the agent release using your specific configuration values.
+
+```bash
 
 helm upgrade --install lacework-agent lacework/lacework-agent \
   --namespace lacework --create-namespace \
-  --set laceworkConfig.accessToken=b8e67defc53aa050d9e3fa3a1081d8757d7692c762550ae8192fa2d2 \
+  --set laceworkConfig.accessToken=b8e67xxxxxxd2 \
   --set laceworkConfig.serverUrl=https://api.lacework.net \
   --set laceworkConfig.kubernetesCluster=rhcos \
   --set laceworkConfig.env=poc \
-  --set priorityClassCreate=true  \
+  --set priorityClassCreate=true \
   --set laceworkConfig.codeaware.enable=experimental \
   --set laceworkConfig.packagescan.enable=true \
   --set laceworkConfig.procscan.enable=true \
-  --set tolerations[0].operator=Exists
+  --set tolerations[0].operator=Exists \
+  --set resources.requests.memory=256Mi \
+  --set resources.limits.memory=512Mi
 
+```
 
-
-
-
-## ⚙️ 3.0 FortiCNAPP Agent Helm Configuration Summary (OpenShift)
+## ⚙️ 3.0 FortiCNAPP Agent Helm Configuration Summary
 
 This table summarizes the Helm parameters used to deploy the FortiCNAPP (Lacework) Linux Agent on **OpenShift (RHCOS)**.  
 These values were retrieved from the current Helm release using:  
