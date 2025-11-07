@@ -3,6 +3,7 @@
 Follow these steps to completely deploy Lacework (FortiCNAPP) Linux agent on OpenShift RHCSO Cluster.  
 Each step includes a brief explanation and ready-to-copy command.
 
+#### Example Result:
 
 <img width="1456" height="588" alt="Screenshot 2025-11-07 at 2 47 16 PM" src="https://github.com/user-attachments/assets/3a0d8953-31f7-43a3-a58a-6cfbe6086bce" />
 
