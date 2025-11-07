@@ -11,7 +11,7 @@ Each step includes a brief explanation and ready-to-copy command.
 <img width="1468" height="344" alt="Screenshot 2025-11-07 at 2 56 45 PM" src="https://github.com/user-attachments/assets/55ab2b3b-b595-441c-9aaa-fc8686885128" />
 
 ---
-
+---
 
 ### ⚙️ FortiCNAPP Agent deployment on OpenShift (RHCOS)
 
@@ -91,10 +91,19 @@ These values were retrieved from the current Helm release using:
 - `tolerations` and `priorityClassCreate` guarantee deployment on every node.  
 
 
+---
+---
+
+<img width="1456" height="588" alt="Screenshot 2025-11-07 at 2 47 16 PM" src="https://github.com/user-attachments/assets/3a0d8953-31f7-43a3-a58a-6cfbe6086bce" />
+
+---
+<img width="1286" height="354" alt="Screenshot 2025-11-07 at 3 14 42 PM" src="https://github.com/user-attachments/assets/f015d143-0143-4560-bcc8-0817a2704c31" />
+
+---
+<img width="1213" height="674" alt="Screenshot 2025-11-07 at 3 00 17 PM" src="https://github.com/user-attachments/assets/e1d2fc83-f95b-4f7c-9e48-b128d8cdd5e0" />
 
 
-
-
+---
 
 #### 🧠 Notes For Container Image Vulnerability Scanning 
 #####  Add:  Container registries Integration
