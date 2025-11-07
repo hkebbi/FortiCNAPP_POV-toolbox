@@ -46,7 +46,7 @@ These values were retrieved from the current Helm release using:
 | `priorityClassCreate` | Creates a Kubernetes PriorityClass for agent scheduling preference. | **Current value:** `true` |
 | `tolerations` | Allows the agent DaemonSet to run on all node types, including infra and control-plane nodes. | **Current value:**<br>`- operator: Exists`<br>**Helm flag:** `--set 'tolerations[0].operator=Exists'` |
 
----
+
 
 ### 🧠 Notes
 - Verified on **OpenShift (RHCOS)** using `helm get values lacework-agent -n lacework`.  
@@ -55,9 +55,9 @@ These values were retrieved from the current Helm release using:
 - `tolerations` and `priorityClassCreate` guarantee deployment on every node.  
 - For upgrades, reuse these values with:  
   ```bash
-  helm upgrade lacework-agent lacework/lacework-agent -n lacework -f values.yaml
 
-
+---
+---
 
 ## 🧩 Step-by-Step: Check Helm Deployment for Lacework Agent
 
