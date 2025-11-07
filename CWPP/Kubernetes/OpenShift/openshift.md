@@ -53,8 +53,6 @@ These values were retrieved from the current Helm release using:
 - Token is truncated for security purposes.  
 - `packagescan`, `procscan`, and `codeaware` are all **enabled**, ensuring comprehensive host and container coverage.  
 - `tolerations` and `priorityClassCreate` guarantee deployment on every node.  
-- For upgrades, reuse these values with:  
-  ```bash
 
 ---
 ---
