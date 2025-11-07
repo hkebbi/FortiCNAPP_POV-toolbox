@@ -87,6 +87,15 @@ These values were retrieved from the current Helm release using:
 
 <img width="1456" height="588" alt="Screenshot 2025-11-07 at 2 47 16 PM" src="https://github.com/user-attachments/assets/3a0d8953-31f7-43a3-a58a-6cfbe6086bce" />
 
+
+
+For Container Image Vulnerability Scanning 
+Add:  Container registries Integration
+
+<img width="1456" height="534" alt="Screenshot 2025-11-07 at 2 51 14 PM" src="https://github.com/user-attachments/assets/b27acb59-ae0c-4519-819a-b660290587bd" />
+
+<img width="1464" height="235" alt="Screenshot 2025-11-07 at 2 52 42 PM" src="https://github.com/user-attachments/assets/a5a82630-7f50-4664-9b27-a64e69658f37" />
+
 ---
 ---
 
