@@ -93,6 +93,7 @@ These values were retrieved from the current Helm release using:
 
 ---
 ---
+#### Example Results:
 
 <img width="1456" height="588" alt="Screenshot 2025-11-07 at 2 47 16 PM" src="https://github.com/user-attachments/assets/3a0d8953-31f7-43a3-a58a-6cfbe6086bce" />
 
