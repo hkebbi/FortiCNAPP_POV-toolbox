@@ -97,7 +97,7 @@ Use the following steps to verify which Helm chart, version, and configuration w
 
 ---
 
-### 🧱 1. Check Lacework Agents Deployment
+#### 🧱 1. Check Lacework Agents Deployment
 
 | Step | Command | Expected Output | Meaning / Action |
 |------|----------|----------------|------------------|
@@ -107,7 +107,7 @@ Use the following steps to verify which Helm chart, version, and configuration w
 
 ---
 
-### 🧱 1. Check Agent Pod Status
+#### 🧱 1. Check Agent Pod Status
 
 | Purpose | Command | Expected Output | Meaning |
 |----------|----------|----------------|----------|
@@ -116,8 +116,8 @@ Use the following steps to verify which Helm chart, version, and configuration w
 
 ---
 
-### 🌐 2. Verify Connectivity to Backend
-#### Change lacework-agent-cpwwt with your pod-name
+#### 🌐 2. Verify Connectivity to Backend
+##### Change lacework-agent-cpwwt with your pod-name
 
 | Purpose | Command | Example Output | Meaning |
 |----------|----------|----------------|----------|
@@ -125,8 +125,8 @@ Use the following steps to verify which Helm chart, version, and configuration w
 
 ---
 
-### ⚙️ 3. Confirm Runtime Monitoring (eBPF)
-#### Change lacework-agent-cpwwt with your pod-name
+#### ⚙️ 3. Confirm Runtime Monitoring (eBPF)
+##### Change lacework-agent-cpwwt with your pod-name
 
 | Purpose | Command | Example Output | Meaning |
 |----------|----------|----------------|----------|
@@ -134,8 +134,8 @@ Use the following steps to verify which Helm chart, version, and configuration w
 
 ---
 
-### 🚨 4. Look for Real Errors
-#### Change lacework-agent-cpwwt with your pod-name
+#### 🚨 4. Look for Real Errors
+##### Change lacework-agent-cpwwt with your pod-name
 
 | Purpose | Command | Example Output | Meaning |
 |----------|----------|----------------|----------|
@@ -143,7 +143,7 @@ Use the following steps to verify which Helm chart, version, and configuration w
 
 ---
 
-### 🧠 5. Interpretation Summary
+#### 🧠 5. Interpretation Summary
 
 | Result | What It Means | Action |
 |---------|----------------|--------|
@@ -157,14 +157,14 @@ Use the following steps to verify which Helm chart, version, and configuration w
 ---
 
 ## 🔧 Clean destroy lacwork agent (OpenShift)
+# Optional: delete namespace if you want a full reset
 
 ```bash
 helm uninstall lacework-agent -n lacework
 ```
-# Optional: delete namespace if you want a full reset
-# oc delete ns lacework
 
-
+---
+---
 
 
 ## 📚 Reference Documentation
