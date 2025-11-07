@@ -74,6 +74,7 @@ Use these quick checks to confirm that Lacework agent pods are running correctly
 ---
 
 ### 🌐 2. Verify Connectivity to Backend
+#### Change lacework-agent-cpwwt with your pod-name
 
 | Purpose | Command | Example Output | Meaning |
 |----------|----------|----------------|----------|
@@ -82,6 +83,7 @@ Use these quick checks to confirm that Lacework agent pods are running correctly
 ---
 
 ### ⚙️ 3. Confirm Runtime Monitoring (eBPF)
+#### Change lacework-agent-cpwwt with your pod-name
 
 | Purpose | Command | Example Output | Meaning |
 |----------|----------|----------------|----------|
@@ -90,6 +92,7 @@ Use these quick checks to confirm that Lacework agent pods are running correctly
 ---
 
 ### 🚨 4. Look for Real Errors
+#### Change lacework-agent-cpwwt with your pod-name
 
 | Purpose | Command | Example Output | Meaning |
 |----------|----------|----------------|----------|
