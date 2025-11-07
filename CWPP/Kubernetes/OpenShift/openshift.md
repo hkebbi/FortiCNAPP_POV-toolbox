@@ -4,7 +4,7 @@
 
 ## 🧩 FortiCNAPP (Lacework) Agent Redeployment on OpenShift (RHCOS)
 
-Follow these steps to completely remove and redeploy the Lacework (FortiCNAPP) Linux agent on OpenShift.  
+Follow these steps to completely deploy Lacework (FortiCNAPP) Linux agent on OpenShift RHCSO Cluster.  
 Each step includes a brief explanation and ready-to-copy command.
 
 ---
@@ -23,12 +23,6 @@ Why: The Lacework agent DaemonSet needs privileged permissions to attach eBPF ho
 
 ```bash
 oc -n lacework adm policy add-scc-to-user privileged -z default
-```
-
-💡 If your DaemonSet uses a different service account (for example lacework-agent), grant SCC to that account instead:
-
-```bash
-oc -n lacework adm policy add-scc-to-user privileged -z lacework-agent
 ```
 
 #### 📦 3️⃣ Add and Update the Helm Repository
