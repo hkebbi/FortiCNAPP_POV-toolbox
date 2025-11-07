@@ -28,13 +28,23 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 
 Use the following steps to verify which Helm chart, version, and configuration were used to deploy the Lacework (FortiCNAPP) agent on OpenShift.
 
-| Step | Description | Example Output / Meaning |
-|------|--------------|--------------------------|
-| **1️⃣ List all Helm releases in the `lacework` namespace** | Lists every Helm release deployed under the namespace, including the chart name, app version, and deployment status. | **Example:**<br>`NAME: lacework-agent`<br>`NAMESPACE: lacework`<br>`STATUS: deployed`<br>`CHART: lacework-agent-1.4.2`<br>`APP VERSION: 7.10.0` |
-| **2️⃣ Check which chart and values were used** | Displays full Helm release information — including chart metadata, manifests, and parameters used during installation. | Confirms the chart version, namespace, and Kubernetes manifests created for the deployment. |
-| **3️⃣ View Helm values (custom configuration)** | Shows parameters provided during Helm install, such as account name, API token, cluster name, or proxy settings. | **Example:**<br>`accountName: lacework-demo`<br>`clusterName: ocp-lab`<br>`autoUpdate: true` |
-| **4️⃣ Confirm Helm chart metadata** | Prints Helm chart details to verify which resources (DaemonSet, ConfigMap, Secrets, etc.) were deployed. | **Example:**<br>`apiVersion: apps/v1`<br>`kind: DaemonSet`<br>`metadata: name: lacework-agent` |
-| **5️⃣ Find release across all namespaces (if unsure)** | Searches for any Helm release containing “lacework” across all namespaces. | **Example:**<br>`lacework-agent  lacework  deployed  lacework-agent-1.4.2  7.10.0` |
+| Step | Command | Description | Example Output / Meaning |
+|------|----------|--------------|--------------------------|
+| **1️⃣ List all Helm releases in the `lacework` namespace** | `helm list -n lacework` | Lists every Helm release deployed under the namespace, including the chart name, app version, and deployment status. | **Example:**<br>`NAME: lacework-agent`<br>`NAMESPACE: lacework`<br>`STATUS: deployed`<br>`CHART: lacework-agent-1.4.2`<br>`APP VERSION: 7.10.0` |
+| **2️⃣ Check which chart and values were used** | `helm get all lacework-agent -n lacework` | Displays full Helm release information — including chart metadata, manifests, and parameters used during installation. | Confirms the chart version, namespace, and Kubernetes manifests created for the deployment. |
+| **3️⃣ View Helm values (custom configuration)** | `helm get values lacework-agent -n lacework` | Shows parameters provided during Helm install, such as account name, API token, cluster name, or proxy settings. | **Example:**<br>`accountName: lacework-demo`<br>`clusterName: ocp-lab`<br>`autoUpdate: true` |
+| **4️⃣ Confirm Helm chart metadata** | `helm get manifest lacework-agent -n lacework` | Prints Helm chart details to verify which resources (DaemonSet, ConfigMap, Secrets, etc.) were deployed. | **Example:**<br>`apiVersion: apps/v1`<br>`kind: DaemonSet`<br>`metadata: name: lacework-agent` |
+| **5️⃣ Find release across all namespaces (if unsure)** | `helm list --all-namespaces` | Searches for any Helm release containing “lacework” across all namespaces. | **Example:**<br>`lacework-agent  lacework  deployed  lacework-agent-1.4.2  7.10.0` |
+
+---
+
+### 🧠 Notes
+
+- The Helm release name is typically **`lacework-agent`**.  
+- The namespace is usually **`lacework`**, unless changed during installation.  
+- **CHART VERSION** shows the Helm chart version used.  
+- **APP VERSION** corresponds to the actual Lacework agent binary version.  
+- These commands confirm how the agent was deployed and what configuration was applied.
 
 ---
 
