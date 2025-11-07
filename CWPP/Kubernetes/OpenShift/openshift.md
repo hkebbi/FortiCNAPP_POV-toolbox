@@ -12,7 +12,7 @@ helm repo update
 
 helm upgrade --install lacework-agent lacework/lacework-agent \
   --namespace lacework --create-namespace \
-  --set laceworkConfig.accessToken=b8e67xxxxxxxxxxxx2 \
+  --set laceworkConfig.accessToken=b8e67defc53aa050d9e3fa3a1081d8757d7692c762550ae8192fa2d2 \
   --set laceworkConfig.serverUrl=https://api.lacework.net \
   --set laceworkConfig.kubernetesCluster=rhcos \
   --set laceworkConfig.env=poc \
@@ -26,7 +26,7 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 
 
 
-### ⚙️ 3.0 FortiCNAPP Agent Helm Configuration Summary (OpenShift)
+## ⚙️ 3.0 FortiCNAPP Agent Helm Configuration Summary (OpenShift)
 
 This table summarizes the Helm parameters used to deploy the FortiCNAPP (Lacework) Linux Agent on **OpenShift (RHCOS)**.  
 These values were retrieved from the current Helm release using:  
@@ -48,7 +48,7 @@ These values were retrieved from the current Helm release using:
 
 
 
-### 🧠 Notes
+#### 🧠 Notes
 - Verified on **OpenShift (RHCOS)** using `helm get values lacework-agent -n lacework`.  
 - Token is truncated for security purposes.  
 - `packagescan`, `procscan`, and `codeaware` are all **enabled**, ensuring comprehensive host and container coverage.  
@@ -71,7 +71,7 @@ Use the following steps to verify which Helm chart, version, and configuration w
 | **5️⃣ Find release across all namespaces (if unsure)** | `helm list --all-namespaces` | Searches for any Helm release containing “lacework” across all namespaces. | **Example:**<br>`lacework-agent  lacework  deployed  lacework-agent-1.4.2  7.10.0` |
 
 
-### 🧠 Notes
+#### 🧠 Notes
 
 - The Helm release name is typically **`lacework-agent`**.  
 - The namespace is usually **`lacework`**, unless changed during installation.  
@@ -157,7 +157,7 @@ Use the following steps to verify which Helm chart, version, and configuration w
 ---
 
 ## 🔧 Clean destroy lacwork agent (OpenShift)
-# Optional: delete namespace if you want a full reset
+### Optional: delete namespace if you want a full reset
 
 ```bash
 helm uninstall lacework-agent -n lacework
