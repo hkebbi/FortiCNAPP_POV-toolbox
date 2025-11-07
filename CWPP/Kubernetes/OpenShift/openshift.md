@@ -25,39 +25,37 @@ helm upgrade --install lacework-agent lacework/lacework-agent \
 
 
 
+
 ### ⚙️ 3.0 FortiCNAPP Agent Helm Configuration Summary (OpenShift)
 
 This table summarizes the Helm parameters used to deploy the FortiCNAPP (Lacework) Linux Agent on **OpenShift (RHCOS)**.  
 These values were retrieved from the current Helm release using:  
 `helm get values lacework-agent -n lacework`
 
-| Variable / Option | Description | Example / Command | Reference |
-|--------------------|--------------|--------------------|------------|
-| `serverUrl=${LACEWORK_SERVER_URL}` | FortiCNAPP (Lacework) API endpoint URL — region-specific (e.g., `https://api.lacework.net`). | **Current value:** `https://api.lacework.net`<br>**Helm flag:** `--set laceworkConfig.serverUrl=${LACEWORK_SERVER_URL}` | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `accessToken=${LACEWORK_AGENT_TOKEN}` | Access token for agent authentication (sensitive). | **Current value:** `b8e67defc53aa0...fa2d2` *(truncated)*<br>**Helm flag:** `--set laceworkConfig.accessToken=${LACEWORK_AGENT_TOKEN}` | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `kubernetesCluster=${KUBERNETES_CLUSTER_NAME}` | Logical cluster name as it appears in FortiCNAPP. | **Current value:** `rhcos`<br>**Helm flag:** `--set laceworkConfig.kubernetesCluster=${KUBERNETES_CLUSTER_NAME}` | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` | Environment label for grouping (e.g., POC, Production, Staging). | **Current value:** `poc`<br>**Helm flag:** `--set laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `laceworkConfig.packagescan.enable` | Enables host and container package-level vulnerability scanning. | **Current value:** `true` | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `laceworkConfig.procscan.enable` | Enables process activity and behavioral scanning. | **Current value:** `true` | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `laceworkConfig.codeaware.enable` | Enables code-aware analysis (experimental feature). | **Current value:** `experimental` | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
-| `resources.limits.memory` | Defines memory limit for each agent pod. | **Current value:** `512Mi` | Kubernetes resource configuration |
-| `resources.requests.memory` | Minimum memory requested for scheduling the pod. | **Current value:** `256Mi` | Kubernetes resource configuration |
-| `priorityClassCreate` | Ensures the agent has a Kubernetes PriorityClass created for scheduling preference. | **Current value:** `true` | Kubernetes scheduling policy |
-| `tolerations` | Allows the DaemonSet to run on tainted nodes (e.g., infra, control plane). | **Current value:**<br>`- operator: Exists`<br>**Helm flag:** `--set 'tolerations[0].operator=Exists'` | [Helm Deployment Guide](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/663510#install-using-lacework-charts-repository-recommended) |
+| Variable / Option | Description | Example / Command |
+|--------------------|--------------|--------------------|
+| `serverUrl=${LACEWORK_SERVER_URL}` | FortiCNAPP (Lacework) API endpoint URL — region-specific (e.g., `https://api.lacework.net`). | **Current value:** `https://api.lacework.net`<br>**Helm flag:** `--set laceworkConfig.serverUrl=${LACEWORK_SERVER_URL}` |
+| `accessToken=${LACEWORK_AGENT_TOKEN}` | Access token for agent authentication (sensitive). | **Current value:** `b8e67defc53aa0...fa2d2` *(truncated)*<br>**Helm flag:** `--set laceworkConfig.accessToken=${LACEWORK_AGENT_TOKEN}` |
+| `kubernetesCluster=${KUBERNETES_CLUSTER_NAME}` | Logical cluster name as it appears in FortiCNAPP. | **Current value:** `rhcos`<br>**Helm flag:** `--set laceworkConfig.kubernetesCluster=${KUBERNETES_CLUSTER_NAME}` |
+| `laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` | Environment label for grouping (e.g., POC, Production, Staging). | **Current value:** `poc`<br>**Helm flag:** `--set laceworkConfig.env=${KUBERNETES_ENVIRONMENT_NAME}` |
+| `laceworkConfig.packagescan.enable` | Enable package-level vulnerability scanning for hosts and containers. | **Current value:** `true` |
+| `laceworkConfig.procscan.enable` | Enable process activity and behavioral scanning. | **Current value:** `true` |
+| `laceworkConfig.codeaware.enable` | Enable active package detection on hosts and containers. | **Current value:** `experimental` |
+| `resources.limits.memory` | Maximum memory limit per agent pod. | **Current value:** `512Mi` |
+| `resources.requests.memory` | Minimum memory requested for scheduling the agent pod. | **Current value:** `256Mi` |
+| `priorityClassCreate` | Creates a Kubernetes PriorityClass for agent scheduling preference. | **Current value:** `true` |
+| `tolerations` | Allows the agent DaemonSet to run on all node types, including infra and control-plane nodes. | **Current value:**<br>`- operator: Exists`<br>**Helm flag:** `--set 'tolerations[0].operator=Exists'` |
 
 ---
 
 ### 🧠 Notes
-
 - Verified on **OpenShift (RHCOS)** using `helm get values lacework-agent -n lacework`.  
-- Token is truncated for security — store full token securely.  
-- `packagescan` and `procscan` are **enabled**, confirming vulnerability and process scanning are active.  
-- `tolerations` and `priorityClassCreate` ensure coverage across all node types.  
+- Token is truncated for security purposes.  
+- `packagescan`, `procscan`, and `codeaware` are all **enabled**, ensuring comprehensive host and container coverage.  
+- `tolerations` and `priorityClassCreate` guarantee deployment on every node.  
 - For upgrades, reuse these values with:  
   ```bash
   helm upgrade lacework-agent lacework/lacework-agent -n lacework -f values.yaml
-
-
 
 
 
