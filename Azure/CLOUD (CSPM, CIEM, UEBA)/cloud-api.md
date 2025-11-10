@@ -32,14 +32,13 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 
 
 
-
 ## 📜 Azure Activity Log Integration — Configuration Workflow
 
 | Aspect | Description |
 |--------|--------------|
 | **Purpose** | Collects and analyzes Azure subscription activity for anomaly detection, behavioral analysis, and forensic visibility. |
 | **Data Source** | **Azure Activity Logs** – Captures control-plane operations.<br>**Custom Role** – Allows FortiCNAPP to read storage, queues, Event Grid, and keys via Azure APIs. |
-| **Workflow** | Azure Monitor exports Activity Logs → logs written hourly to Storage Account (`insights-activity-logs`) → Event Grid detects new blobs → sends notifications to Storage Queue → FortiCNAPP authenticates with its Service Principal → calls Azure APIs through Microsoft’s backbone → retrieves blobs via Private Link → analyzes and alerts on new activity events. |
+| **Workflow** | Azure Monitor exports Activity Logs → logs written hourly to a central Storage Account (`insights-activity-logs`) → Event Grid detects new blobs → sends notifications to a Storage Queue → Lacework FortiCNAPP leverages an Event Grid subscription that creates Queue messages → Lacework FortiCNAPP pulls the new logs as soon as they appear. |
 | **Findings** | Detects suspicious admin actions, unauthorized changes, and unusual control-plane activity. |
 | **Outcome** | Provides near real-time visibility into Azure operations with correlated identity and configuration insights. |
 
