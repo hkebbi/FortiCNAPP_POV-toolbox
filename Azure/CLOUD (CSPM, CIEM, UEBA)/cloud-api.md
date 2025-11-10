@@ -1,22 +1,25 @@
 # ☁️ Azure: Cloud API Integration
 
 
+### 🧾 Onboarding Requirements (Just for deployment phase - Terraform) 
 
-Requirements
-Azure Global Administrator - An Azure portal account that has a Global Administrator role for your tenant's directory.
-Azure Owner Role - An Azure portal account with the Owner role in all subscriptions that you want to monitor.
-Lacework Administrator - A Lacework account with administrator privileges.`
-Next Steps
-As an account with global administrator access and owner privileges to the subscription being used, go to the Azure Cloud Shell.
-Paste the command and press enter. This downloads the Lacework CLI, sets up the CLI with your configuration, calls the CLI non-interactively, and applies Terraform. When the command finishes, the new integration appears in the Cloud accounts list after you refresh the Lacework Console screen.
+| Role | Description |
+|------|--------------|
+| **Azure Global Administrator** | An Azure portal account that has the **Global Administrator** role for your tenant's directory. |
+| **Azure Owner Role** | An Azure portal account with the **Owner** role in all subscriptions that you want to monitor. |
+| **Lacework Administrator** | A Lacework account with **administrator privileges** to create and manage cloud integrations. |
+
 
 
 ## 🧠 Why Cloud API Integration ?
 
-Integrates with your Azure Cloud API environment to have the visibiltiy for Configuration Compliance, Cloud Identity risk managemen & and Threat Detection across your cloud environment.
-FortiCNAPP connects to Azure through a secure cross-account role to collect **configuration**, **identity**, and **activity** data.  
-The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work together to deliver unified visibility and risk analysis across your Azure environment.
+### ☁️ Azure Integration Overview
 
+| Description |
+|--------------|
+| Integrates with your Azure Cloud API environment to provide visibility into **Configuration Compliance**, **Cloud Identity Risk Management**, and **Threat Detection** across your cloud environment. |
+| FortiCNAPP connects to Azure through a secure **service principal and role-based access** to collect **configuration**, **identity**, and **activity** data. |
+| The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work together to deliver unified visibility and risk analysis across your Azure environment. |
 
 
 ## ☁️ Azure Cloud Security Posture Management (CSPM) — Configuration Workflow
