@@ -24,7 +24,7 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 | Aspect | Description |
 |--------|--------------|
 | **Purpose** | Provides comprehensive visibility into Azure configuration risks, misconfigurations, and compliance posture across subscriptions, tenants, and resources. |
-| **Data Source** | **Reader Role (Subscription Level)** – Grants read-only access to view Azure resources and their configurations within a subscription, without the ability to modify them. This allows FortiCNAPP to collect posture and compliance data across supported Azure services such as compute, networking, storage, and security configurations.<br>**Key Vault Reader Role** – Allows FortiCNAPP to access metadata of all Key Vaults in the subscription. Any new Key Vaults added will automatically be included for compliance monitoring.<br>**Directory Reader Role (Microsoft Entra ID)** – Enables FortiCNAPP to collect directory objects (users, groups, members, and app registrations) from Microsoft Entra ID using Microsoft Graph API calls. This identity data supports LQL (Lacework Query Language) datasources and IAM compliance policies. |
+| **Data Source** | **Reader Role (Subscription Level)** – Grants read-only access to view Azure resources and their configurations within a subscription, without the ability to modify them. This allows FortiCNAPP to collect posture and compliance data across supported Azure services such as compute, networking, storage, and security configurations.<br>**Key Vault Reader Role (Subscription Level)** – Allows FortiCNAPP to access metadata of all Key Vaults in the subscription. Any new Key Vaults added will automatically be included for compliance monitoring.<br>**Directory Reader Role (Microsoft Entra ID)** – Enables FortiCNAPP to collect directory objects (users, groups, members, and app registrations) from Microsoft Entra ID using Microsoft Graph API calls. This identity data supports LQL (Lacework Query Language) datasources and IAM compliance policies. |
 | **Workflow** | FortiCNAPP connects using the Azure service principal with the above roles. It reads configuration and identity data from Azure services and evaluates them against built-in security and compliance frameworks (CIS, NIST, PCI-DSS, ISO, etc.). When Directory Reader is granted, identity-based posture and IAM compliance checks are also performed. |
 | **Findings** | Identifies misconfigurations such as open Network Security Groups (NSGs), publicly accessible storage or Key Vaults, disabled encryption, missing diagnostic settings, and non-compliant access policies. |
 | **Outcome** | Provides continuous configuration visibility, compliance scoring, and least-privilege posture assessment across all Azure subscriptions and directories. |
@@ -48,10 +48,14 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 | Aspect | Description |
 |--------|--------------|
 | **Purpose** | Collects and analyzes Azure subscription activity for anomaly detection, behavioral analysis, and forensic visibility. |
-| **Data Source** | **Azure Activity Logs** – Captures control-plane operations.<br>**Custom Role** – Allows FortiCNAPP to read storage, queues, Event Grid, and keys via Azure APIs. |
+| **Data Source** | **Azure Activity Logs** – Captures control-plane operations.<br>**Custom Role (Resource Group Level)** – Allows FortiCNAPP to read storage, queues, Event Grid, and keys via Azure APIs. |
 | **Workflow** | Azure Monitor exports Activity Logs → logs written hourly to a central Storage Account (`insights-activity-logs`) → Event Grid detects new blobs → sends notifications to a Storage Queue → Lacework FortiCNAPP leverages an Event Grid subscription that creates Queue messages → Lacework FortiCNAPP pulls the new logs as soon as they appear. |
 | **Findings** | Detects suspicious admin actions, unauthorized changes, and unusual control-plane activity. |
 | **Outcome** | Provides near real-time visibility into Azure operations with correlated identity and configuration insights. |
+
+
+<img width="740" height="391" alt="512059150-e00561bc-520a-42b9-b701-4265a795cfdc" src="https://github.com/user-attachments/assets/db8763db-0809-4fcd-974c-9e73bf94df05" />
+<img width="1149" height="462" alt="Screenshot 2025-11-10 at 5 36 18 PM" src="https://github.com/user-attachments/assets/7c45487c-bdd5-41ec-acde-f2a4809a9eee" />
 
 -----
 -----
