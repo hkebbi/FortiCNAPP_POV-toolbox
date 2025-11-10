@@ -53,9 +53,22 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 | **Findings** | Detects suspicious admin actions, unauthorized changes, and unusual control-plane activity. |
 | **Outcome** | Provides near real-time visibility into Azure operations with correlated identity and configuration insights. |
 
+-----
+-----
+
+## 🔐 Cloud Infrastructure Entitlement Management (CIEM) — Configuration Workflow (Azure)
+
+| Aspect | Description |
+|--------|--------------|
+| **Purpose** | Analyzes Azure users, roles, and assignments to identify excessive permissions, risky access, and privilege escalation paths. |
+| **Data Source** | Data from **CSPM** and **Activity Log** integrations mentioned above, no additional integration required |
+| **Workflow** | FortiCNAPP leverages data from CSPM and Activity Log integrations to map role assignments, identity relationships, and access activities, building an **identity graph** that correlates permissions with real usage. |
+| **Findings** | Detects unused or excessive role assignments, custom roles with high privilege scope, inherited access chains, and potential privilege escalation risks. |
+| **Outcome** | Provides complete Azure IAM visibility, access path mapping, and least-privilege recommendations to improve identity security and compliance posture. |
 
 
-
+-----
+-----
 If choosing to grant permissions to the directory through the Directory Reader role, Lacework FortiCNAPP will collect the list of users, groups, members, and app registrations from the Entra ID organization using Microsoft Graph API calls. This information is exposed for LQL datasources and compliance policies.
 
 
