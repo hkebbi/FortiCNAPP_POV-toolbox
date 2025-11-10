@@ -35,7 +35,7 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 
 ## 📜 Azure Activity Log Integration — Configuration Workflow
 
-### 🔁 Terms Definition notes (General)
+### 🔁  Azure Activity - Terms Definition notes (General)
 
 | Stage | What It Does | Data Type |
 |--------|---------------|-----------|
@@ -44,7 +44,7 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 | **Storage Queue** | Receives and stores notifications from Event Grid containing the blob path and metadata about newly created log files | JSON message |
 
 -----
-### 📜 Azure Activity Log Integration — Configuration Workflow
+### 📜 Azure Activity - Configuration Workflow
 | Aspect | Description |
 |--------|--------------|
 | **Purpose** | Collects and analyzes Azure subscription activity for anomaly detection, behavioral analysis, and forensic visibility. |
