@@ -30,10 +30,21 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 | **Outcome** | Provides continuous configuration visibility, compliance scoring, and least-privilege posture assessment across all Azure subscriptions and directories. |
 | **Notes** | If the **Directory Reader** role is **disabled**, FortiCNAPP will not collect Entra ID (Azure AD) user, group, or app registration data. As a result, related **LQL datasources** and **IAM compliance policies** will not be evaluated—this may be required in environments with strict privacy or regulatory controls. |
 
-
+-----
+-----
 
 ## 📜 Azure Activity Log Integration — Configuration Workflow
 
+### 🔁 Terms Definition notes (General)
+
+| Stage | What It Does | Data Type |
+|--------|---------------|-----------|
+| **Azure Monitor Diagnostic Settings** | Exports Azure Activity Logs from each subscription to a centralized Storage Account under `insights-activity-logs/` | Activity Log JSON files |
+| **Event Grid** | Detects creation of new Activity Log blobs in the Storage Account and triggers notifications when new data is available | Event notification |
+| **Storage Queue** | Receives and stores notifications from Event Grid containing the blob path and metadata about newly created log files | JSON message |
+
+-----
+### 📜 Azure Activity Log Integration — Configuration Workflow
 | Aspect | Description |
 |--------|--------------|
 | **Purpose** | Collects and analyzes Azure subscription activity for anomaly detection, behavioral analysis, and forensic visibility. |
@@ -41,6 +52,8 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 | **Workflow** | Azure Monitor exports Activity Logs → logs written hourly to a central Storage Account (`insights-activity-logs`) → Event Grid detects new blobs → sends notifications to a Storage Queue → Lacework FortiCNAPP leverages an Event Grid subscription that creates Queue messages → Lacework FortiCNAPP pulls the new logs as soon as they appear. |
 | **Findings** | Detects suspicious admin actions, unauthorized changes, and unusual control-plane activity. |
 | **Outcome** | Provides near real-time visibility into Azure operations with correlated identity and configuration insights. |
+
+
 
 
 If choosing to grant permissions to the directory through the Directory Reader role, Lacework FortiCNAPP will collect the list of users, groups, members, and app registrations from the Entra ID organization using Microsoft Graph API calls. This information is exposed for LQL datasources and compliance policies.
