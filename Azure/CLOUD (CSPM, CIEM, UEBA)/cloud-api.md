@@ -19,7 +19,22 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 
 
 
+## ☁️ Azure Cloud Security Posture Management (CSPM) — Configuration Workflow
 
+| Aspect | Description |
+|--------|--------------|
+| **Purpose** | Provides comprehensive visibility into Azure configuration risks, misconfigurations, and compliance posture across subscriptions, tenants, and resources. |
+| **Data Source** | **Reader Role (Subscription Level)** – Grants read-only access to view Azure resources and their configurations within a subscription, without the ability to modify them. This allows FortiCNAPP to collect posture and compliance data across supported Azure services such as compute, networking, storage, and security configurations.<br>**Key Vault Reader Role** – Allows FortiCNAPP to access metadata of all Key Vaults in the subscription. Any new Key Vaults added will automatically be included for compliance monitoring.<br>**Directory Reader Role (Microsoft Entra ID)** – Enables FortiCNAPP to collect directory objects (users, groups, members, and app registrations) from Microsoft Entra ID using Microsoft Graph API calls. This identity data supports LQL (Lacework Query Language) datasources and IAM compliance policies. |
+| **Workflow** | FortiCNAPP connects using the Azure service principal with the above roles. It reads configuration and identity data from Azure services and evaluates them against built-in security and compliance frameworks (CIS, NIST, PCI-DSS, ISO, etc.). When Directory Reader is granted, identity-based posture and IAM compliance checks are also performed. |
+| **Findings** | Identifies misconfigurations such as open Network Security Groups (NSGs), publicly accessible storage or Key Vaults, disabled encryption, missing diagnostic settings, and non-compliant access policies. |
+| **Outcome** | Provides continuous configuration visibility, compliance scoring, and least-privilege posture assessment across all Azure subscriptions and directories. |
+| **Notes** | If the **Directory Reader** role is **disabled**, FortiCNAPP will not collect Entra ID (Azure AD) user, group, or app registration data. As a result, related **LQL datasources** and **IAM compliance policies** will not be evaluated—this may be required in environments with strict privacy or regulatory controls. |
+
+
+
+
+
+If choosing to grant permissions to the directory through the Directory Reader role, Lacework FortiCNAPP will collect the list of users, groups, members, and app registrations from the Entra ID organization using Microsoft Graph API calls. This information is exposed for LQL datasources and compliance policies.
 
 
 lacework generate --output "/home/hussam/azure-cloud-api" cloud-account azure --configuration='true' --activity_log='true' --location=‘West Europe' --ad_create='true' --subscription_id='03921cd3-caef-45a2-bc47-98e889f270a0’  --noninteractive
