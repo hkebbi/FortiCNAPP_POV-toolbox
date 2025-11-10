@@ -30,6 +30,11 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 | **Outcome** | Provides continuous configuration visibility, compliance scoring, and least-privilege posture assessment across all Azure subscriptions and directories. |
 | **Notes** | If the **Directory Reader** role is **disabled**, FortiCNAPP will not collect Entra ID (Azure AD) user, group, or app registration data. As a result, related **LQL datasources** and **IAM compliance policies** will not be evaluated—this may be required in environments with strict privacy or regulatory controls. |
 
+
+<img width="1358" height="563" alt="Screenshot 2025-11-10 at 5 39 47 PM" src="https://github.com/user-attachments/assets/a016647f-a8c1-49f3-800c-c8b9ea6bd7f7" />
+
+<img width="1316" height="342" alt="Screenshot 2025-11-10 at 5 40 53 PM" src="https://github.com/user-attachments/assets/544d96a8-8463-4bbd-bc65-94857bdc23de" />
+
 -----
 -----
 
