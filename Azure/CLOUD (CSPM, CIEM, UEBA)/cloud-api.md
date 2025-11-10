@@ -101,9 +101,3 @@ lacework generate --output "/home/hussam/azure-cloud-api" cloud-account azure --
 <img width="1165" height="132" alt="Screenshot 2025-11-10 at 1 06 07 PM" src="https://github.com/user-attachments/assets/2864c5d1-6d51-4522-9b3d-a3ce0dd2cd50" />
 
 
-<img width="740" height="391" alt="Screenshot 2025-11-10 at 1 06 59 PM" src="https://github.com/user-attachments/assets/e00561bc-520a-42b9-b701-4265a795cfdc" />
-
-
-<img width="1287" height="493" alt="Screenshot 2025-11-10 at 1 09 17 PM" src="https://github.com/user-attachments/assets/c99c8aa5-43f8-403f-9551-32695b070947" />
-
-<img width="1286" height="323" alt="Screenshot 2025-11-10 at 1 10 33 PM" src="https://github.com/user-attachments/assets/73eb2db3-0ea9-41c5-86a3-2ff59cbc5d46" />
