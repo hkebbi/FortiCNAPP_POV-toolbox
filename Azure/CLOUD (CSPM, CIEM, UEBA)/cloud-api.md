@@ -31,12 +31,14 @@ The following integrations — **CSPM**, **Activity Log**, and **CIEM** — work
 | **Notes** | If the **Directory Reader** role is **disabled**, FortiCNAPP will not collect Entra ID (Azure AD) user, group, or app registration data. As a result, related **LQL datasources** and **IAM compliance policies** will not be evaluated—this may be required in environments with strict privacy or regulatory controls. |
 
 
+
+
 ## 📜 Azure Activity Log Integration — Configuration Workflow
 
 | Aspect | Description |
 |--------|--------------|
 | **Purpose** | Collects and analyzes Azure subscription activity for anomaly detection, behavioral analysis, and forensic visibility. |
-| **Data Source** | Azure Activity Logs exported through a central storage account and Event Grid/Queue-based notification pipeline created by the FortiCNAPP integration. |
+| **Data Source** | **Azure Activity Logs** – Captures control-plane operations across Azure subscriptions.<br>**Custom Role Permissions** – Grants FortiCNAPP least-privilege access to read Activity Log data from the storage account and Event Grid pipeline, including:<br>• Read resource groups and storage account metadata<br>• Read blob container and queue configurations<br>• Read Event Grid subscriptions<br>• List storage account keys (for secure access) |
 | **Workflow** | Azure Activity Logs are exported to a FortiCNAPP-managed storage account → Event Grid triggers notifications → messages are queued in Azure Storage Queue → FortiCNAPP connects via private endpoint to read metadata and ingest log content for analysis. |
 | **Findings** | Detects suspicious administrative actions, unauthorized changes, and unusual control-plane activities across Azure subscriptions. |
 | **Outcome** | Provides near real-time visibility into Azure API and management operations correlated with configuration and identity data for deep event-based analysis. |
