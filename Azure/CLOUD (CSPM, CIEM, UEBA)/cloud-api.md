@@ -132,9 +132,24 @@
 
 -----
 -----
+
 #### 🧱 FortiCNAPP Terraform Deployment using FortiCNAPP CLI-Interactive Integration:
 -----
 
 
 
 <img width="1021" height="400" alt="Screenshot 2025-11-11 at 10 45 51 PM" src="https://github.com/user-attachments/assets/9f57ef24-255e-43f5-9832-ef185a7cea44" />
+
+
+-----
+-----
+
+### 📘 Reference Links
+
+| Topic | Documentation Link |
+|--------|---------------------|
+| **Azure Integration – Guided Configuration** | [FortiCNAPP Azure Integration (Guided Configuration)](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/644240/azure-integration-guided-configuration) |
+| **Azure App for Integration** | [About Entra ID Permissions and Azure App Setup](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/644235#about-entra-id-permissions) |
+| **Lacework FortiCNAPP for Azure FAQ** | [FortiCNAPP for Azure – FAQ](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/318933/lacework-forticnapp-for-azure-faq) |
+| **Azure Activity Log Integration – Manual Configuration** | [Manual Configuration for Azure Activity Log Integration](https://docs.fortinet.com/document/forticnapp/latest/administration-guide/521511/azure-activity-log-integration-manual-configuration) |
+
