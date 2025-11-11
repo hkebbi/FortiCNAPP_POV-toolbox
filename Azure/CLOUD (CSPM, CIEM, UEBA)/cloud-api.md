@@ -84,7 +84,9 @@
 
 ### 🧱 FortiCNAPP Terraform Deployment Options (In this document we will follow Guided UI Configuration followed by FortiCNAPP CLI Integration):
 
-#### 🪟 We can start with Guided Configuration for the Cloud API and continue if needed with the FortiCNAPP CLI as all tools will be already installed via Guided Configuration, under the hood: Guided Configuration script uses FortiCNAPP CLI.
+> 💡 **Note:**  
+> You can start with **Guided Configuration** for the Cloud API setup and, if needed, continue using the **FortiCNAPP CLI** — all required tools are already installed through the Guided Configuration process.  
+> Under the hood, the **Guided Configuration** workflow automatically leverages the **FortiCNAPP CLI** to perform deployment actions.
 
 | Deployment Method | Description | Supported Capabilities |
 |--------------------|--------------|--------------------------|
