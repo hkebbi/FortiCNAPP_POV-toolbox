@@ -8,6 +8,8 @@
 | **Azure Global Administrator** | An Azure portal account that has the **Global Administrator** role for your tenant's directory. |
 | **Azure Owner Role** | An Azure portal account with the **Owner** role in all subscriptions that you want to monitor. |
 | **Lacework Administrator** | A Lacework account with **administrator privileges** to create and manage cloud integrations. |
+| ⚡ **Deployment Methods** | Supported installation environments and automation options:<br>• **Azure Cloud Shell**<br> or **Host connected to Azure subscription being used** | — |
+
 
 
 
@@ -68,7 +70,7 @@
 -----
 -----
 
-## 🔐 Cloud Infrastructure Entitlement Management (CIEM) — Configuration Workflow (Azure)
+### 🔐 Cloud Infrastructure Entitlement Management (CIEM) — Configuration Workflow (Azure)
 
 | Aspect | Description |
 |--------|--------------|
@@ -82,13 +84,10 @@
 -----
 -----
 
-## 🧠 Deployment 
+### 🚀  How  Cloud API (CSPM, CIEM & UEBA) AWS Integration Is Deployed ?  
+ - Using Guided Configuration and Lacework CLI
 
 
-lacework generate --output "/home/hussam/azure-cloud-api" cloud-account azure --configuration='true' --activity_log='true' --location=‘West Europe' --ad_create='true' --subscription_id='03921cd3-caef-45a2-bc47-98e889f270a0’  --noninteractive
-
-
-<img width="578" height="148" alt="Screenshot 2025-11-10 at 1 07 40 PM" src="https://github.com/user-attachments/assets/aec0b263-ff63-4c31-ac94-344d1614f358" />
 
 <img width="1267" height="395" alt="Guided-config" src="https://github.com/user-attachments/assets/72d88d48-fc60-4b97-ae4e-6b64c48c1948" />
 
@@ -105,3 +104,8 @@ lacework generate --output "/home/hussam/azure-cloud-api" cloud-account azure --
 <img width="1165" height="132" alt="Screenshot 2025-11-10 at 1 06 07 PM" src="https://github.com/user-attachments/assets/2864c5d1-6d51-4522-9b3d-a3ce0dd2cd50" />
 
 
+
+lacework generate --output "/home/hussam/azure-cloud-api" cloud-account azure --configuration='true' --activity_log='true' --location=‘West Europe' --ad_create='true' --subscription_id='03921cd3-caef-45a2-bc47-98e889f270a0’  --noninteractive
+
+
+<img width="578" height="148" alt="Screenshot 2025-11-10 at 1 07 40 PM" src="https://github.com/user-attachments/assets/aec0b263-ff63-4c31-ac94-344d1614f358" />
