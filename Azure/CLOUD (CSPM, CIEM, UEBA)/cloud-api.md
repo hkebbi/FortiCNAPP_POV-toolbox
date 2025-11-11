@@ -124,7 +124,7 @@
 <img width="1097" height="134" alt="Screenshot 2025-11-11 at 12 55 08 PM" src="https://github.com/user-attachments/assets/b31838f7-3750-4873-b2f6-e643e954f135" />
 
 -----
-**Save the Terraform files**
+**Save the Terraform files 0r make sure you have mounted storage to cloudshell for persistence storage else all files will persist beyond current session**  
 
 <img width="578" height="148" alt="Screenshot 2025-11-10 at 1 07 40 PM" src="https://github.com/user-attachments/assets/aec0b263-ff63-4c31-ac94-344d1614f358" />
 
