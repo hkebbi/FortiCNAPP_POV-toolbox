@@ -11,8 +11,6 @@
 | ⚡ **Deployment Methods** | Supported installation environments and automation options:<br>• **Azure Cloud Shell**<br>• **Host connected to Azure subscription being used** | — |
 
 
-
-
 ## 🧠 Why Cloud API Integration ?
 
 ### ☁️ Azure Integration Overview
@@ -84,8 +82,17 @@
 -----
 -----
 
-### 🚀  How  Cloud API (CSPM, CIEM & UEBA) AWS Integration Is Deployed ?  
- - Using Guided Configuration and Lacework CLI
+#### 🧱 FortiCNAPP Terraform Deployment Options (In this document we will follow Guided UI Configuration followed by FortiCNAPP CLI Integration):
+
+## 🪟 FortiCNAPP Terraform Deployment Options for Azure  
+*(In this document, we will follow Guided Configuration followed by FortiCNAPP CLI Integration)*
+
+| Deployment Method | Description | Supported Capabilities |
+|--------------------|--------------|--------------------------|
+| ⚡ **Automated Configuration** | Deploy FortiCNAPP using a **prebuilt Terraform automation flow** that provisions all required resources automatically at the **Azure subscription level**. <br><br>⚙️ **Note:** Currently supports **Subscription-level integrations only**. | ✅ Single Azure Subscription <br>✅ Cloud API Configuration Visibility |
+| 🎯 **Terraform via Guided Configuration (UI)** | Deploy and manage FortiCNAPP integrations through the **FortiCNAPP Web Console** using a **wizard-based guided setup**. <br><br>Supports connecting Azure environments **without direct CLI interaction**, simplifying onboarding for multiple subscriptions or management groups. | ✅ Single, Multiple, or All Subscriptions <br>✅ Management Group Level Integration <br>✅ Cloud API Configuration Visibility |
+| ⚙️ **Terraform via FortiCNAPP CLI** | Command-line–driven automation using the **open-source FortiCNAPP CLI (Go-based)**. <br><br>Ideal for **organization-wide**, **multi-subscription**, or **DevOps-integrated** deployments with advanced automation. | ✅ Single, Multiple, or All Subscriptions <br>✅ Management Group Level Integration <br>✅ Cloud API Configuration Visibility <br>✅ Agentless Workload Scanning |
+
 
 
 
