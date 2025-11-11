@@ -7,8 +7,8 @@
 |------|--------------|
 | **Azure Global Administrator** | An Azure portal account that has the **Global Administrator** role for your tenant's directory. |
 | **Azure Owner Role** | An Azure portal account with the **Owner** role in all subscriptions that you want to monitor. |
-| **Lacework Administrator** | A Lacework account with **administrator privileges** to create and manage cloud integrations. |
-| ⚡ **Deployment Methods** | Supported installation environments and automation options:<br>• **Azure Cloud Shell**<br> or **Host connected to Azure subscription being used** | — |
+| **Lacework FortiCNAPP Administrator** | A Lacework account with **administrator privileges** to create and manage cloud integrations. |
+| ⚡ **Deployment Methods** | Supported installation environments and automation options:<br>• **Azure Cloud Shell**<br>• **Host connected to Azure subscription being used** | — |
 
 
 
