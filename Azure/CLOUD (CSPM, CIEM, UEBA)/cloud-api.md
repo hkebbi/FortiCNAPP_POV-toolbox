@@ -132,10 +132,9 @@
 
 -----
 -----
-#### 🧱 FortiCNAPP Terraform Deployment using FortiCNAPP CLI Integration:
+#### 🧱 FortiCNAPP Terraform Deployment using FortiCNAPP CLI-Interactive Integration:
+-----
 
 
-```bash
-lacework generate --output "/home/hussam/azure-cloud-api" cloud-account azure --configuration='true' --activity_log='true' --location='westeurope' --ad_create='true' --subscription_id='03921cd3-caef-45a2-bc47-98e889f270a0’  --noninteractive
-```
 
+<img width="1021" height="400" alt="Screenshot 2025-11-11 at 10 45 51 PM" src="https://github.com/user-attachments/assets/9f57ef24-255e-43f5-9832-ef185a7cea44" />
