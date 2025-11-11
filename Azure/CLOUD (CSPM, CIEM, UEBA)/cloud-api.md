@@ -95,26 +95,41 @@
 | 🎯 **Terraform via Guided Configuration (UI)** | Deploy and manage FortiCNAPP integrations through the **FortiCNAPP Web Console** using a **wizard-based guided setup**. <br><br>Supports connecting Azure environments **without direct CLI interaction**, simplifying onboarding for multiple subscriptions or management groups. | ✅ Single, Multiple, or All Subscriptions <br>✅ Management Group Level Integration <br>✅ Cloud API Configuration Visibility |
 | ⚙️ **Terraform via FortiCNAPP CLI** | Lacework FortiCNAPP CLI is an open source project written in Golang and released as separate binaries for Linux, macOS, and Windows**. <br><br>Ideal for all deployments with advanced automation. | ✅ Single, Multiple, or All Subscriptions <br>✅ Management Group Level Integration <br>✅ Cloud API Configuration Visibility <br>✅ Agentless Workload Scanning |
 
-
-
+-----
+-----
 
 <img width="1267" height="395" alt="Guided-config" src="https://github.com/user-attachments/assets/72d88d48-fc60-4b97-ae4e-6b64c48c1948" />
 
+-----
+
 <img width="661" height="466" alt="Screenshot 2025-11-10 at 12 59 23 PM" src="https://github.com/user-attachments/assets/eb53de80-e1b8-46c4-bde8-8a39db6440ac" />
+
+-----
 
 <img width="1303" height="669" alt="Screenshot 2025-11-11 at 12 32 10 PM" src="https://github.com/user-attachments/assets/709e66b5-d8a7-4289-9790-1f4ea6806cbf" />
 
+-----
 
 <img width="679" height="556" alt="Screenshot 2025-11-10 at 1 00 43 PM" src="https://github.com/user-attachments/assets/74e76cda-f946-4760-b239-639c5589d063" />
 
+-----
 
 <img width="1030" height="85" alt="Screenshot 2025-11-11 at 12 57 51 PM" src="https://github.com/user-attachments/assets/8acf70f9-3e58-491b-b40a-c00602ee134d" />
 
-
+-----
 
 <img width="1097" height="134" alt="Screenshot 2025-11-11 at 12 55 08 PM" src="https://github.com/user-attachments/assets/b31838f7-3750-4873-b2f6-e643e954f135" />
+
+-----
+**Save the Terraform state**
+
+<img width="578" height="148" alt="Screenshot 2025-11-10 at 1 07 40 PM" src="https://github.com/user-attachments/assets/aec0b263-ff63-4c31-ac94-344d1614f358" />
+
+-----
+-----
+
+Use the CLI:
 
 lacework generate --output "/home/hussam/azure-cloud-api" cloud-account azure --configuration='true' --activity_log='true' --location=‘West Europe' --ad_create='true' --subscription_id='03921cd3-caef-45a2-bc47-98e889f270a0’  --noninteractive
 
 
-<img width="578" height="148" alt="Screenshot 2025-11-10 at 1 07 40 PM" src="https://github.com/user-attachments/assets/aec0b263-ff63-4c31-ac94-344d1614f358" />
