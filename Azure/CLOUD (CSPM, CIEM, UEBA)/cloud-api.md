@@ -82,9 +82,9 @@
 -----
 -----
 
-#### 🧱 FortiCNAPP Terraform Deployment Options (In this document we will follow Guided UI Configuration followed by FortiCNAPP CLI Integration):
+### 🧱 FortiCNAPP Terraform Deployment Options (In this document we will follow Guided UI Configuration followed by FortiCNAPP CLI Integration):
 
-## 🪟 FortiCNAPP Terraform Deployment Options for Azure  
+#### 🪟 FortiCNAPP Terraform Deployment Options for Azure  
 *(In this document, we will follow Guided Configuration followed by FortiCNAPP CLI Integration)*
 
 | Deployment Method | Description | Supported Capabilities |
