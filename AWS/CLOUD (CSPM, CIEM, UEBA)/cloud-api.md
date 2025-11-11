@@ -83,7 +83,7 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 ---
 ---  
 
-# 🚀  How  Cloud API (CSPM, CIEM & UEBA) AWS Integration Is Deployed ?  
+### 🚀  How  Cloud API (CSPM, CIEM & UEBA) AWS Integration Is Deployed ?  
 
 #### Option.1.Using direct FortiCNAP CLI code (non-interactive). Can be used for CloudShell.
 ##### Example for Single AWS Account
