@@ -87,7 +87,8 @@
 > 💡 **Note:**  
 > You can start with **Guided Configuration** for the Cloud API setup and, if needed, continue using the **FortiCNAPP CLI** — all required tools will be already installed through the Guided Configuration process.  
 > Under the hood, the **Guided Configuration** workflow automatically leverages the **FortiCNAPP CLI** to perform deployment actions.
-
+> If you want to go directly with FortiCNAPP CLI, you can leverage the Guided UI Script to install all required tools ( Terraform , API-Key & FortiCNAPP CLI).
+> 
 | Deployment Method | Description | Supported Capabilities |
 |--------------------|--------------|--------------------------|
 | ⚡ **Automated Configuration** | Deploy FortiCNAPP using a **prebuilt Terraform automation flow** that provisions all required resources automatically at the **Azure subscription level**. <br><br>⚙️ **Note:** Currently supports **Subscription-level integrations only**. | ✅ Single Azure Subscription <br>✅ Cloud API Configuration Visibility |
