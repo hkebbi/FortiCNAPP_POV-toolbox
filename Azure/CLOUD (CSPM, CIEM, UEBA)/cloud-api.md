@@ -98,6 +98,9 @@
 -----
 -----
 
+#### 🧱 FortiCNAPP Terraform Deployment using Guided UI Configuration followed by FortiCNAPP CLI Integration (if needed):
+
+-----
 <img width="1267" height="395" alt="Guided-config" src="https://github.com/user-attachments/assets/72d88d48-fc60-4b97-ae4e-6b64c48c1948" />
 
 -----
@@ -127,9 +130,10 @@
 
 -----
 -----
+#### 🧱 FortiCNAPP Terraform Deployment using FortiCNAPP CLI Integration:
 
-Use the CLI:
 
+```bash
 lacework generate --output "/home/hussam/azure-cloud-api" cloud-account azure --configuration='true' --activity_log='true' --location=‘West Europe' --ad_create='true' --subscription_id='03921cd3-caef-45a2-bc47-98e889f270a0’  --noninteractive
-
+```
 
