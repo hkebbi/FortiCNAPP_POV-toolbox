@@ -64,7 +64,7 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 --- 
 
 
-### 🧱 FortiCNAPP Terraform Deployment Options (In this document we will follow Guided Configuration & FortiCNAPP CLI Integration):
+### 🧱 FortiCNAPP Terraform Deployment Options (In this document we will follow Guided Configuration followed by FortiCNAPP CLI Integration):
 
 | **Deployment Method** | **Description** | **Supported Capabilities** |
 |------------------------|-----------------|-----------------------------|
