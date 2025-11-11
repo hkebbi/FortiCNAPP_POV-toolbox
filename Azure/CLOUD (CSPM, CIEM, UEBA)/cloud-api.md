@@ -108,7 +108,7 @@
 <img width="679" height="556" alt="Screenshot 2025-11-10 at 1 00 43 PM" src="https://github.com/user-attachments/assets/74e76cda-f946-4760-b239-639c5589d063" />
 
 
-<img width="1329" height="54" alt="Screenshot 2025-11-10 at 1 01 05 PM" src="https://github.com/user-attachments/assets/4d2199eb-384e-40ae-847a-23203e98b54f" />
+<img width="1030" height="85" alt="Screenshot 2025-11-11 at 12 57 51 PM" src="https://github.com/user-attachments/assets/8acf70f9-3e58-491b-b40a-c00602ee134d" />
 
 
 
