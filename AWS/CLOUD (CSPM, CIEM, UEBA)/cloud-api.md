@@ -14,7 +14,7 @@
 | **Component / Requirement** | **Description** | **Reference / Link** |
 |------------------------------|-----------------|----------------------|
 | 🧑‍💻 **AWS Account Admin** | Administrative privileges on each AWS account.<br>Required during onboarding process only. | — |
-| **Lacework FortiCNAPP Administrator** | A Lacework account with **administrator privileges** to create and manage cloud integrations. |
+| **Lacework FortiCNAPP Administrator Account** | A Lacework account with **administrator privileges** to create and manage cloud integrations. To be Registered on FortiCloud prior to POV| 
 | ⚡ **Deployment Methods** | Supported installation environments and automation options:<br>• **AWS Cloud Shell**<br>• **Hosts Supported by Terraform connect to AWS Account** | — |
 
 -----
