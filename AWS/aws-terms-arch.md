@@ -28,27 +28,6 @@ class C1,C2,C3,C4,C5 account
 ```
 -----
 
-
-```mermaid
-graph TD
-
-AWS Organization (Organization ID: o-bxsuvax66w)
-│
-└── Root (Root ID: r-6iab)
-     ├── OU: Engineering (ou-6iab-eng12345)
-     │     ├── Account A
-     │     └── Account B
-     ├── OU: Finance (ou-6iab-fin67890)
-     │     ├── Account C
-     │     └── Account D
-     └── OU: DevOps (ou-6iab-dev11223)
-           └── Account E
-
-
-```
-
------
-
 | Term                | Example           | Description                                                                                                                  | Level                 |
 | ------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | **Organization ID** | `o-bcsefxw`    | The global identifier for your entire AWS Organization — it’s like your *company ID* in AWS.                                 | Entire organization   |
