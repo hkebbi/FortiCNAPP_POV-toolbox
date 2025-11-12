@@ -48,13 +48,12 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 | **Findings** | Detects suspicious API calls, unauthorized changes, and unusual activity patterns in AWS accounts. |
 | **Outcome** | Provides a real-time feed of AWS API activity correlated with configuration and identity data for deep event-based analysis. |
 
->SNS publishes event notifications (for example, new CloudTrail logs in S3).
+> 💡 **Note:**
+> SNS publishes event notifications (for example, new CloudTrail logs in S3).
+> SQS subscribes to the SNS topic and stores messages reliably.
+> FortiCNAPP polls SQS at its own pace, ensuring no events are lost.
+> Once processed, messages are deleted from SQS.
 
-SQS subscribes to the SNS topic and stores messages reliably.
-
-FortiCNAPP polls SQS at its own pace, ensuring no events are lost.
-
-Once processed, messages are deleted from SQS.
 ---
 
 ### 🔐 Cloud Infrastructure Entitlement Management (CIEM) — Configuration Workflow
