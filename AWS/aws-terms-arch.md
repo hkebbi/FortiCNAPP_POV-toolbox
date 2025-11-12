@@ -27,15 +27,25 @@ class C1,C2,C3,C4,C5 account
 ```
 
 -----
------
 
-| AWS Concept                         | Azure Equivalent                    | Description                                                                           |
-| ----------------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------- |
-| **Root Organization**               | **Root Management Group**           | The top-level container in Azure. All resources and management groups exist under it. |
-| **Organizational Unit (OU)**        | **Management Group (MG)**           | Logical containers that help organize subscriptions for policy, RBAC, and compliance. |
-| **AWS Account**                     | **Azure Subscription**              | The billing and isolation boundary for Azure resources.                               |
-| **Service Control Policies (SCPs)** | **Azure Policy / RBAC Assignments** | Used to enforce compliance and security standards.                                    |
+AWS Organization (Organization ID: o-bxsuvax66w)
+│
+└── Root (Root ID: r-6iab)
+     ├── OU: Engineering (ou-6iab-eng12345)
+     │     ├── Account A
+     │     └── Account B
+     ├── OU: Finance (ou-6iab-fin67890)
+     │     ├── Account C
+     │     └── Account D
+     └── OU: DevOps (ou-6iab-dev11223)
+           └── Account E
 
+
+| Term                | Example           | Description                                                                                                                  | Level                 |
+| ------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| **Organization ID** | `o-bxsuvax66w`    | The global identifier for your entire AWS Organization — it’s like your *company ID* in AWS.                                 | Entire organization   |
+| **Root ID**         | `r-6iab`          | The top-most **Organizational Unit (OU)** that contains all other OUs and accounts. Every Organization has exactly one root. | Top-level OU          |
+| **OU ID**           | `ou-6iab-xxxxxxx` | A child Organizational Unit under the root (e.g., Finance, DevOps).                                                          | Nested under the root |
 
 -----
 -----
