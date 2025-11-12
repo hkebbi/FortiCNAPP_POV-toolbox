@@ -73,11 +73,10 @@
 | Aspect | Description |
 |--------|--------------|
 | **Purpose** | Analyzes Azure users, roles, and assignments to identify excessive permissions, risky access, and privilege escalation paths. |
-| **Data Source** | Data from **CSPM** and **Activity Log** integrations mentioned above, no additional integration required |
-| **Workflow** | FortiCNAPP leverages data from CSPM and Activity Log integrations to map role assignments, identity relationships, and access activities, building an **identity graph** that correlates permissions with real usage. |
+| **Data Source** | Data from **CSPM** and **Activity Log** integrations mentioned above, no additional or special integration required for CIEM. |
+| **Workflow** | CIEM uses Entra-ID Directory Reader to list users/groups/roles/etc.. and Azure Activity log to check which permissions and excessive privileges, etc... are used . |
 | **Findings** | Detects unused or excessive role assignments, custom roles with high privilege scope, inherited access chains, and potential privilege escalation risks. |
 | **Outcome** | Provides complete Azure IAM visibility, access path mapping, and least-privilege recommendations to improve identity security and compliance posture. |
-
 
 -----
 -----
