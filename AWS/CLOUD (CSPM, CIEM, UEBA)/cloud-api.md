@@ -31,19 +31,18 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 | **Aspect** | **Description** |
 |-------------|-----------------|
 | **Purpose** | Provides visibility into cloud misconfigurations, security risks, and compliance posture across AWS resources. |
-| **Data Source** | IAM Role for Read and Monitor: AWS Config, EC2, S3, SNS, SQS. |
+| **Data Source** | IAM Role  Get|List for: AWS Config, EC2, S3, SNS, SQS. |
 | **Workflow** | FortiCNAPP uses the IAM role to **read resource configurations** and analyze posture against security best practices and compliance frameworks (CIS, NIST, PCI-DSS, ISO). |
 | **Findings** | Detects issues like public S3 buckets, open security groups, disabled encryption, unused keys, and noncompliant configurations. |
 | **Outcome** | Continuous configuration visibility and automated compliance posture scoring per AWS account and region. |
 
 ---
-
 ### 📜 CloudTrail Integration — Configuration Workflow
 
 | **Aspect** | **Description** |
 |-------------|-----------------|
 | **Purpose** | Collects and analyzes AWS account activity for anomaly detection, behavioral analysis, and forensic visibility. |
-| **Data Source** | AWS CloudTrail + IAM Role Read & Monitor for (S3, SNS, SQS, CloudTrail) + Cross-Account Lacework IAM Role to access S3 for logs pulling|
+| **Data Source** | AWS CloudTrail + IAM Role Get|List for: S3, SNS, SQS, CloudTrail + Cross-Account Lacework IAM Role Get|List to access S3 |
 | **Workflow** | CloudTrail delivers logs to S3 → triggers SNS → sends messages to SQS → FortiCNAPP polls SQS to read new log file details → then fetches CloudTrail data from S3 for analysis. |
 | **Findings** | Detects suspicious API calls, unauthorized changes, and unusual activity patterns in AWS accounts. |
 | **Outcome** | Provides a real-time feed of AWS API activity correlated with configuration and identity data for deep event-based analysis. |
@@ -69,6 +68,18 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 ---
 --- 
 
+<img width="1140" height="611" alt="Screenshot 2025-11-12 at 3 23 11 PM" src="https://github.com/user-attachments/assets/277eeb38-2369-4851-9a66-9eea782d47f2" />
+
+----
+<img width="699" height="344" alt="Screenshot 2025-11-12 at 3 30 03 PM" src="https://github.com/user-attachments/assets/caeb6168-0c4d-49ca-ac08-7fff8bafb7d0" />
+
+----
+<img width="870" height="299" alt="Screenshot 2025-11-12 at 3 29 12 PM" src="https://github.com/user-attachments/assets/003ab21b-abaf-4c7b-aac1-ba262736f4e8" />
+
+<img width="425" height="316" alt="Screenshot 2025-11-12 at 3 28 52 PM" src="https://github.com/user-attachments/assets/9f2e6e04-b80d-4aca-b6f7-40e9abc4ab31" />
+
+----
+----
 
 ### 🧱 FortiCNAPP Terraform Deployment Options (In this document we will follow Guided Configuration followed by FortiCNAPP CLI Integration):
 
