@@ -26,10 +26,11 @@ class B1,B2,B3 default
 class C1,C2,C3,C4,C5 account
 
 ```
-
 -----
 
 
+```mermaid
+graph TD
 AWS Organization (Organization ID: o-bxsuvax66w)
 │
 └── Root (Root ID: r-6iab)
@@ -42,6 +43,8 @@ AWS Organization (Organization ID: o-bxsuvax66w)
      └── OU: DevOps (ou-6iab-dev11223)
            └── Account E
 
+
+```
 
 -----
 
