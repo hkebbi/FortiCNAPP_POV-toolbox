@@ -24,11 +24,12 @@ classDef account fill:#3b82f6,stroke:#fff,stroke-width:1px,color:#fff;
 class A root
 class B1,B2,B3 default
 class C1,C2,C3,C4,C5 account
+
 ```
 
 -----
 
-```mermaid
+
 AWS Organization (Organization ID: o-bxsuvax66w)
 │
 └── Root (Root ID: r-6iab)
@@ -40,8 +41,9 @@ AWS Organization (Organization ID: o-bxsuvax66w)
      │     └── Account D
      └── OU: DevOps (ou-6iab-dev11223)
            └── Account E
-```
 
+
+-----
 
 | Term                | Example           | Description                                                                                                                  | Level                 |
 | ------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------- |
