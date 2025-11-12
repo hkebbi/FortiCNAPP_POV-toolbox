@@ -43,11 +43,13 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 |-------------|-----------------|
 | **Purpose** | Collects and analyzes AWS account activity for anomaly detection, behavioral analysis, and forensic visibility. |
 | **Data Source** | AWS CloudTrail + IAM Role Get|List for: S3, SNS, SQS, CloudTrail + Cross-Account Lacework IAM Role Get|List to access S3 |
-| **Workflow** | CloudTrail delivers logs to S3 → triggers SNS → sends messages to SQS → FortiCNAPP polls SQS to read new log file details → then fetches CloudTrail data from S3 for analysis. |
+| **Workflow** | CloudTrail delivers logs to S3 → triggers SNS → sends messages to SQS → FortiCNAPP polls SQS to read new log file details  |
 | **Findings** | Detects suspicious API calls, unauthorized changes, and unusual activity patterns in AWS accounts. |
 | **Outcome** | Provides a real-time feed of AWS API activity correlated with configuration and identity data for deep event-based analysis. |
 
 > 💡 **Note:**
+> Note	
+Ensure that your cross-account IAM role and S3 bucket are collocated in the same AWS account.
 > SNS publishes event notifications (for example, new CloudTrail logs in S3).
 > SQS subscribes to the SNS topic and stores messages reliably.
 > FortiCNAPP polls SQS at its own pace, ensuring no events are lost.
