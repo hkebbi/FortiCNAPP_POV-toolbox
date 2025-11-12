@@ -31,7 +31,7 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 | **Aspect** | **Description** |
 |-------------|-----------------|
 | **Purpose** | Provides visibility into cloud misconfigurations, security risks, and compliance posture across AWS resources. |
-| **Data Source** | AWS Config, EC2, VPC, IAM, S3, and other resource APIs (read via the Lacework/FortiCNAPP cross-account IAM role). |
+| **Data Source** | IAM Role for Read and Monitor: AWS Config, EC2, S3, SNS, SQS. |
 | **Workflow** | FortiCNAPP uses the IAM role to **read resource configurations** and analyze posture against security best practices and compliance frameworks (CIS, NIST, PCI-DSS, ISO). |
 | **Findings** | Detects issues like public S3 buckets, open security groups, disabled encryption, unused keys, and noncompliant configurations. |
 | **Outcome** | Continuous configuration visibility and automated compliance posture scoring per AWS account and region. |
@@ -43,7 +43,7 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 | **Aspect** | **Description** |
 |-------------|-----------------|
 | **Purpose** | Collects and analyzes AWS account activity for anomaly detection, behavioral analysis, and forensic visibility. |
-| **Data Source** | AWS CloudTrail |
+| **Data Source** | AWS CloudTrail + IAM Role Read & Monitor for (S3, SNS, SQS, CloudTrail) + Cross-Account Lacework IAM Role to access S3 for logs pulling|
 | **Workflow** | CloudTrail delivers logs to S3 → triggers SNS → sends messages to SQS → FortiCNAPP polls SQS to read new log file details → then fetches CloudTrail data from S3 for analysis. |
 | **Findings** | Detects suspicious API calls, unauthorized changes, and unusual activity patterns in AWS accounts. |
 | **Outcome** | Provides a real-time feed of AWS API activity correlated with configuration and identity data for deep event-based analysis. |
