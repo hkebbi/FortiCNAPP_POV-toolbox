@@ -1,35 +1,11 @@
 
 ## 🏗️ AWS Organization Hierarchy: 
 
-```mermaid
-graph TD
-
-A[🏠 Root Organization]:::root --> B1[📂 OU: Engineering]
-A --> B2[📂 OU: Finance]
-A --> B3[📂 OU: DevOps]
-
-B1 --> C1[🧩 AWS Account: eng-prod-001]
-B1 --> C2[🧩 AWS Account: eng-test-001]
-
-B2 --> C3[🧩 AWS Account: fin-ops-001]
-B2 --> C4[🧩 AWS Account: fin-dev-001]
-
-B3 --> C5[🧩 AWS Account: devops-tools-001]
-
-classDef root fill:#232f3e,stroke:#fff,stroke-width:2px,color:#fff;
-classDef default fill:#1b4d89,stroke:#fff,stroke-width:1px,color:#fff;
-classDef account fill:#3b82f6,stroke:#fff,stroke-width:1px,color:#fff;
-
-class A root
-class B1,B2,B3 default
-class C1,C2,C3,C4,C5 account
-
-```
 
 ```mermaid
 graph TD
 
-A[🏠 Root Organization<br/>Organization ID: o-bxsuvax66w<br/>Root ID: r-6iab]:::root --> B1[📂 OU: Engineering<br/>OU ID: ou-6iab-eng12345]
+A[🏠 Root Organization<br/>Organization ID: o-bcsefxw<br/>Root ID: r-5gfb]:::root --> B1[📂 OU: Engineering<br/>OU ID: ou-6iab-eng12345]
 A --> B2[📂 OU: Finance<br/>OU ID: ou-6iab-fin67890]
 A --> B3[📂 OU: DevOps<br/>OU ID: ou-6iab-dev11223]
 
