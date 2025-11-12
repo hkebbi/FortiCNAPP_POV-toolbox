@@ -50,9 +50,13 @@ The following integrations — **CSPM**, **CloudTrail**, and **CIEM** — work t
 > 💡 **Note:**
 
 > Ensure that your cross-account IAM role and S3 bucket are collocated in the same AWS account.
+ 
 > SNS publishes event notifications (for example, new CloudTrail logs in S3).
+
 > SQS subscribes to the SNS topic and stores messages reliably.
+
 > FortiCNAPP polls SQS at its own pace, ensuring no events are lost.
+
 > Once processed, messages are deleted from SQS.
 
 ---
