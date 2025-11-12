@@ -28,6 +28,7 @@ class C1,C2,C3,C4,C5 account
 
 -----
 
+```mermaid
 AWS Organization (Organization ID: o-bxsuvax66w)
 │
 └── Root (Root ID: r-6iab)
@@ -39,12 +40,13 @@ AWS Organization (Organization ID: o-bxsuvax66w)
      │     └── Account D
      └── OU: DevOps (ou-6iab-dev11223)
            └── Account E
+```
 
 
 | Term                | Example           | Description                                                                                                                  | Level                 |
 | ------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| **Organization ID** | `o-bxsuvax66w`    | The global identifier for your entire AWS Organization — it’s like your *company ID* in AWS.                                 | Entire organization   |
-| **Root ID**         | `r-6iab`          | The top-most **Organizational Unit (OU)** that contains all other OUs and accounts. Every Organization has exactly one root. | Top-level OU          |
+| **Organization ID** | `o-bcsefxw`    | The global identifier for your entire AWS Organization — it’s like your *company ID* in AWS.                                 | Entire organization   |
+| **Root ID**         | `r-5gfb`          | The top-most **Organizational Unit (OU)** that contains all other OUs and accounts. Every Organization has exactly one root. | Top-level OU          |
 | **OU ID**           | `ou-6iab-xxxxxxx` | A child Organizational Unit under the root (e.g., Finance, DevOps).                                                          | Nested under the root |
 
 -----
