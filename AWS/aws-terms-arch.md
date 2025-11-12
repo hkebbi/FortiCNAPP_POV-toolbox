@@ -30,7 +30,7 @@ class C1,C2,C3,C4,C5 account
 
 
 ```mermaid
-
+graph TD
 
 AWS Organization (Organization ID: o-bxsuvax66w)
 │
